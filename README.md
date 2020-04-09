@@ -18,21 +18,20 @@ Agricultural-IOT-System将提供了一套可靠、全面的整体解决方案，
 <div align=center>
 <img src="https://github.com/efishliu/Agricultural-IOT-System/blob/master/image/%E9%9C%80%E6%B1%821.jpg?raw=true" width = 50% height = 50% />
 </div>  
-监测子系统由传感器监测信息类型、传输协议、数据融合三部分组成。实现对环境的监测并将数据传送至云端服务器。  
 
-监测信息类型：  
-大气环境信息：温湿度、光照强度、风速、气压、蒸发量、C02浓度、02浓度、NO2浓度、PM2.5、降雨量等。  
-土壤环境信息：土壤温度、土壤湿度、土壤PH值、土壤含氧量。  
-水体环境信息：水压、水流量、水质PH值、溶氧量。  
-其他：叶面湿度、作物生长大小、虫灾情况。  
-
-传输协议：  采用Zigbee与NB-IOT结合的传输协议，节点向汇聚节点传输协议采用zigbee协议，汇聚节点向网关传输采用NB-IOT协议。  
-数据融合：将节点对按时序获得的若干监测信息，在汇聚节点进行自动分析、综合，并将融合的数据发送给云端。  
-
+[监测子系统传感器功能与组网测试](https://github.com/efishliu/Agricultural-IOT-System/tree/master/SerialApp)
 
 * **控制子系统**  
+控制子系统由控制设备类型、控制方式、控制信息格式三部分组成。实现多种方式对设备进行远端控制。  
+[监测子系统传感器功能测试](https://github.com/efishliu/Agricultural-IOT-System/tree/master/Stand-alone-cc2530)  
 
 * **云平台分析子系统**  
+云平台分析子系统通过利用云计算技术，采用软件即服务模式（Saas）进行平台的搭建，数据集中到云数据中心统一存储与处理。并搭建分布式计算框架进行人工智能分析。云平台分析子系统主要分为两部分：即基于监测数据的智能控制分析和基于大数据的农业生产指导分析。  
+1.基于监测数据的智能控制分析：分析各种传感器、控制器规则策略，建立智能分析策略模型，通过基于传感器监测数据，进行智能分析，实现农业生产的智能预警和联动控制。  
+[基于监测数据的智能控制分析与实现](https://github.com/efishliu/Agricultural-IOT-System/tree/master/Intelligent-Agricultural/project)  
+2.基于大数据的农业生产指导分析：基于监测数据和其他可靠数据，通过大数据平台和人工智能算法，对农产品的需求、作物生长影响因素等做出分析，提供基于大数据的准确的农业生产指导。  
+
+
 
 * **用户交互子系统**  
 
