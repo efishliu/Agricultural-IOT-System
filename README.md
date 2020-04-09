@@ -29,11 +29,22 @@ Agricultural-IOT-System将提供了一套可靠、全面的整体解决方案，
 云平台分析子系统通过利用云计算技术，采用软件即服务模式（Saas）进行平台的搭建，数据集中到云数据中心统一存储与处理。并搭建分布式计算框架进行人工智能分析。云平台分析子系统主要分为两部分：即基于监测数据的智能控制分析和基于大数据的农业生产指导分析。  
 1.基于监测数据的智能控制分析：分析各种传感器、控制器规则策略，建立智能分析策略模型，通过基于传感器监测数据，进行智能分析，实现农业生产的智能预警和联动控制。  
 [基于监测数据的智能控制分析与实现](https://github.com/efishliu/Agricultural-IOT-System/tree/master/Intelligent-Agricultural/project)  
-2.基于大数据的农业生产指导分析：基于监测数据和其他可靠数据，通过大数据平台和人工智能算法，对农产品的需求、作物生长影响因素等做出分析，提供基于大数据的准确的农业生产指导。  
-
-
+2.基于大数据的农业生产指导分析：基于监测数据和其他可靠数据，通过大数据平台和人工智能算法，对农产品的需求、作物生长影响因素等做出分析，提供基于大数据的准确的农业生产指导。大数据平台架构如下图：  
+<div align=center>
+<img src="https://github.com/efishliu/Agricultural-IOT-System/blob/master/image/%E9%9C%80%E6%B1%822.jpg?raw=true" width = 50% height = 50% />
+</div>  
 
 * **用户交互子系统**  
+1.监测控制状态界面:监测界面由APP端、web端、本地端多端进行展示，与用户进行交互。监测界面分为数据类型和数据展示方式两个部分。如下图：  
+<div align=center>
+<img src="https://github.com/efishliu/Agricultural-IOT-System/blob/master/image/%E9%9C%80%E6%B1%822.jpg?raw=true" width = 40% height = 40% />  
+<img src="https://github.com/efishliu/Agricultural-IOT-System/blob/master/image/%E9%9C%80%E6%B1%822.jpg?raw=true" width = 40% height = 40% /></div>    
+
+Web端实现代码:[Web](https://github.com/efishliu/Agricultural-IOT-System/tree/master/Intelligent-Agricultural/web)  
+PC端实现代码:[Projects](https://github.com/efishliu/Agricultural-IOT-System/blob/master/Intelligent-Agricultural/project/Display.py)  
+
+2.互联网销售界面:互联网销售界面采用基于APP 的交互方式，为使用者提供良好的交互界面，实现农资采购和农产品互联网销售的功能。互联网销售界面分为三个部分：供应信息、采购信息、账号管理。如下图：
+
 
 * **容灾子系统**  
 
