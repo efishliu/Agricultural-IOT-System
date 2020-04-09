@@ -1,0 +1,990 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V8.10.1.10194/W32 for 8051        14/Jun/2016  16:18:40 /
+// Copyright 2004-2011 IAR Systems AB.                                        /
+//                                                                            /
+//    Core               =  plain                                             /
+//    Code model         =  banked                                            /
+//    Data model         =  large                                             /
+//    Calling convention =  xdata reentrant                                   /
+//    Constant location  =  data_rom                                          /
+//    Dptr setup         =  1,16                                              /
+//    Source file        =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\C /
+//                          ore\GUICore.c                                     /
+//    Command line       =  -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂ /
+//                          ç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack /
+//                          \Utilities\SerialApp\CC2530DB\..\..\..\Tools\CC25 /
+//                          30DB\f8wCoord.cfg (-DCPU32MHZ -DROOT=__near_func  /
+//                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                  /
+//                          -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8        /
+//                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)   /
+//                          -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂ /
+//                          ç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack /
+//                          \Utilities\SerialApp\CC2530DB\..\..\..\Tools\CC25 /
+//                          30DB\f8wConfig.cfg (-DZIGBEEPRO -DSECURE=0        /
+//                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                 /
+//                          -DDEFAULT_CHANLIST=0x00000800                     /
+//                          -DZDAPP_CONFIG_PAN_ID=0x1001                      /
+//                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
+//                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
+//                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
+//                          -DLINK_STATUS_JITTER_MASK=0x007F                  /
+//                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_P /
+//                          OLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7           /
+//                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3   /
+//                          -DNWK_MAX_DATA_RETRIES=2                          /
+//                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9        /
+//                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40          /
+//                          -DNWK_MAX_BINDING_ENTRIES=4                       /
+//                          -DMAX_BINDING_CLUSTER_IDS=4                       /
+//                          "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07, 0x09,     /
+//                          0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08,   /
+//                          0x0A, 0x0C, 0x0D}" -DMAC_MAX_FRAME_SIZE=116       /
+//                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const    /
+//                          __code" -DGENERIC=__generic                       /
+//                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
+//                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
+//                          -DREJOIN_POLL_RATE=440 F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹ /
+//                          âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2. /
+//                          5.1a\Components\uCGUI\Core\GUICore.c -D           /
+//                          HAL_UART=TRUE -D SERIAL_APP_PORT=0 -D COOR -D     /
+//                          LCD_SUPPORTED -D NV_INIT -lC                      /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\CoordinatorEB\List\    /
+//                          -lA F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍø /
+//                          Âç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstac /
+//                          k\Utilities\SerialApp\CC2530DB\CoordinatorEB\List /
+//                          \ --diag_suppress Pe001,Pa010 -o                  /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\CoordinatorEB\Obj\ -e  /
+//                          --no_code_motion --debug --core=plain             /
+//                          --dptr=16,1 --data_model=large                    /
+//                          --code_model=banked --calling_convention=xdata_re /
+//                          entrant --place_constants=data_rom                /
+//                          --nr_virtual_regs 16 -I                           /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\ -I                    /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\Public\ -I          /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\uCGUI\Core\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ× /
+//                          ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a /
+//                          \Projects\zstack\Utilities\SerialApp\CC2530DB\..\ /
+//                          ..\..\..\..\Components\uCGUI\MultiLayer\ -I       /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\uCGUI\Config\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅ /
+//                          Ì×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5. /
+//                          1a\Projects\zstack\Utilities\SerialApp\CC2530DB\. /
+//                          .\Coordinator\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×Ê /
+//                          ÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\ /
+//                          Projects\zstack\Utilities\SerialApp\CC2530DB\..\. /
+//                          .\..\ZMain\TI2530DB\ -I                           /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\hal\include\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ /
+//                          ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Utilities\SerialApp\CC2530DB\.. /
+//                          \..\..\..\..\Components\hal\target\CC2530EB\ -I   /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mac\include\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ /
+//                          ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Utilities\SerialApp\CC2530DB\.. /
+//                          \..\..\..\..\Components\mac\high_level\ -I        /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mac\low_level\srf04\ -I                       /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mac\low_level\srf04\single_chip\ -I           /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mt\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Z /
+//                          igBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Project /
+//                          s\zstack\Utilities\SerialApp\CC2530DB\..\..\..\.. /
+//                          \..\Components\osal\include\ -I                   /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\services\saddr\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹ /
+//                          âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2. /
+//                          5.1a\Projects\zstack\Utilities\SerialApp\CC2530DB /
+//                          \..\..\..\..\..\Components\services\sdata\ -I     /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\stack\af\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁ /
+//                          Ï210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\P /
+//                          rojects\zstack\Utilities\SerialApp\CC2530DB\..\.. /
+//                          \..\..\..\Components\stack\nwk\ -I                /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\stack\sapi\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ× /
+//                          ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a /
+//                          \Projects\zstack\Utilities\SerialApp\CC2530DB\..\ /
+//                          ..\..\..\..\Components\stack\sec\ -I              /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\stack\sys\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×Ê /
+//                          ÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\ /
+//                          Projects\zstack\Utilities\SerialApp\CC2530DB\..\. /
+//                          .\..\..\..\Components\stack\zdo\ -I               /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\zmac\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210 /
+//                          \ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proje /
+//                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ /
+//                          ..\..\Components\zmac\f8w\ -Ohz                   /
+//                          --require_prototypes                              /
+//    List file          =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\CoordinatorEB\List\GUI /
+//                          Core.s51                                          /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME GUICore
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+        EXTERN ?DEALLOC_XSTACK8
+        EXTERN ?PUSH_XSTACK_I_TWO
+        EXTERN ?V0
+        EXTERN ?XLOAD_R2345
+        EXTERN ?XSTACK_DISP0_8
+        EXTERN ?XSTORE_R2345
+        EXTERN __INIT_XDATA_Z
+
+        PUBLIC ??GUI_Clear?relay
+        FUNCTION ??GUI_Clear?relay,0203H
+        PUBLIC ??GUI_ClearRect?relay
+        FUNCTION ??GUI_ClearRect?relay,0203H
+        PUBLIC ??GUI_Init?relay
+        FUNCTION ??GUI_Init?relay,0203H
+        PUBLIC GUI_Clear
+        FUNCTION GUI_Clear,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 14, STACK
+        PUBLIC GUI_ClearRect
+        FUNCTION GUI_ClearRect,021203H
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME XSTACK, 24, STACK
+        PUBLIC GUI_Context
+        PUBLIC GUI_DecChar
+        PUBLIC GUI_Init
+        FUNCTION GUI_Init,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC GUI_pLCD_APIList
+        PUBLIC GUI_pfDispCharStyle
+        PUBLIC GUI_pfTimerExec
+        PUBLIC WM_pfHandlePID
+        PUBWEAK _A_IEN0
+        PUBWEAK __Constant_0
+        PUBWEAK __Constant_ffffff
+        PUBWEAK __Constant_fffffff
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA_SP SP IDATA
+        CFI StackFrame CFA_PSP16 PSP16 XDATA
+        CFI StackFrame CFA_XSP16 XSP16 XDATA
+        CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+        CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+        CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+        CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+        CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+        CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+        CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+        CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+        CFI Resource V8:8, V9:8, V10:8, V11:8, V12:8, V13:8, V14:8, V15:8, SP:8
+        CFI Resource PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+        CFI VirtualResource ?RET:24
+        CFI Resource ?BRET_EXT:8
+        CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+        CFI ResourceParts PSP16 PSPH, PSPL
+        CFI ResourceParts XSP16 XSPH, XSPL
+        CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign -1
+        CFI ReturnAddress ?RET CODE
+        CFI CFA_DOVERLAY Used
+        CFI CFA_IOVERLAY Used
+        CFI CFA_SP SP+-3
+        CFI CFA_PSP16 PSP16+0
+        CFI CFA_XSP16 XSP16+0
+        CFI `PSW.CY` SameValue
+        CFI `B.BR0` SameValue
+        CFI `B.BR1` SameValue
+        CFI `B.BR2` SameValue
+        CFI `B.BR3` SameValue
+        CFI `B.BR4` SameValue
+        CFI `B.BR5` SameValue
+        CFI `B.BR6` SameValue
+        CFI `B.BR7` SameValue
+        CFI `VB.BR8` SameValue
+        CFI `VB.BR9` SameValue
+        CFI `VB.BR10` SameValue
+        CFI `VB.BR11` SameValue
+        CFI `VB.BR12` SameValue
+        CFI `VB.BR13` SameValue
+        CFI `VB.BR14` SameValue
+        CFI `VB.BR15` SameValue
+        CFI VB SameValue
+        CFI B Undefined
+        CFI A Undefined
+        CFI PSW SameValue
+        CFI DPL0 SameValue
+        CFI DPH0 SameValue
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 Undefined
+        CFI R5 Undefined
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI V0 SameValue
+        CFI V1 SameValue
+        CFI V2 SameValue
+        CFI V3 SameValue
+        CFI V4 SameValue
+        CFI V5 SameValue
+        CFI V6 SameValue
+        CFI V7 SameValue
+        CFI V8 SameValue
+        CFI V9 SameValue
+        CFI V10 SameValue
+        CFI V11 SameValue
+        CFI V12 SameValue
+        CFI V13 SameValue
+        CFI V14 SameValue
+        CFI V15 SameValue
+        CFI PSPH Undefined
+        CFI PSPL Undefined
+        CFI XSPH Undefined
+        CFI XSPL Undefined
+        CFI ?RET Concat
+        CFI ?BRET_EXT Frame(CFA_SP, 3)
+        CFI ?RET_HIGH Frame(CFA_SP, 2)
+        CFI ?RET_LOW Frame(CFA_SP, 1)
+        CFI EndCommon cfiCommon0
+        
+LCD_SetDrawMode     SYMBOL "LCD_SetDrawMode"
+LCD_FillRect        SYMBOL "LCD_FillRect"
+GUI_GotoXY          SYMBOL "GUI_GotoXY"
+GUI_X_Init          SYMBOL "GUI_X_Init"
+LCD_L0_GetRect      SYMBOL "LCD_L0_GetRect"
+LCD_SetBkColor      SYMBOL "LCD_SetBkColor"
+LCD_SetColor        SYMBOL "LCD_SetColor"
+LCD_Init            SYMBOL "LCD_Init"
+??GUI_GotoXY?relay  SYMBOL "?relay", GUI_GotoXY
+??GUI_X_Init?relay  SYMBOL "?relay", GUI_X_Init
+??LCD_FillRect?relay SYMBOL "?relay", LCD_FillRect
+??LCD_Init?relay    SYMBOL "?relay", LCD_Init
+??LCD_L0_GetRect?relay SYMBOL "?relay", LCD_L0_GetRect
+??LCD_SetBkColor?relay SYMBOL "?relay", LCD_SetBkColor
+??LCD_SetColor?relay SYMBOL "?relay", LCD_SetColor
+??LCD_SetDrawMode?relay SYMBOL "?relay", LCD_SetDrawMode
+GUI_Clear           SYMBOL "GUI_Clear"
+??GUI_Clear?relay   SYMBOL "?relay", GUI_Clear
+GUI_ClearRect       SYMBOL "GUI_ClearRect"
+??GUI_ClearRect?relay SYMBOL "?relay", GUI_ClearRect
+GUI_Init            SYMBOL "GUI_Init"
+??GUI_Init?relay    SYMBOL "?relay", GUI_Init
+
+        EXTERN LCD_SetDrawMode
+        FUNCTION LCD_SetDrawMode,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 20, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN LCD_FillRect
+        FUNCTION LCD_FillRect,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 24, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN GUI_GotoXY
+        FUNCTION GUI_GotoXY,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN GUI_X_Init
+        FUNCTION GUI_X_Init,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN LCD_L0_GetRect
+        FUNCTION LCD_L0_GetRect,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN LCD_SetBkColor
+        FUNCTION LCD_SetBkColor,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN LCD_SetColor
+        FUNCTION LCD_SetColor,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN LCD_Init
+        FUNCTION LCD_Init,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ??GUI_GotoXY?relay
+        FUNCTION ??GUI_GotoXY?relay,00H
+        EXTERN ??GUI_X_Init?relay
+        FUNCTION ??GUI_X_Init?relay,00H
+        EXTERN ??LCD_FillRect?relay
+        FUNCTION ??LCD_FillRect?relay,00H
+        EXTERN ??LCD_Init?relay
+        FUNCTION ??LCD_Init?relay,00H
+        EXTERN ??LCD_L0_GetRect?relay
+        FUNCTION ??LCD_L0_GetRect?relay,00H
+        EXTERN ??LCD_SetBkColor?relay
+        FUNCTION ??LCD_SetBkColor?relay,00H
+        EXTERN ??LCD_SetColor?relay
+        FUNCTION ??LCD_SetColor?relay,00H
+        EXTERN ??LCD_SetDrawMode?relay
+        FUNCTION ??LCD_SetDrawMode?relay,00H
+        EXTERN GUI_Font8x16
+        EXTERN GUI__API_TableNone
+
+// F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\Core\GUICore.c
+//    1 /*
+//    2 *********************************************************************************************************
+//    3 *                                                uC/GUI
+//    4 *                        Universal graphic software for embedded applications
+//    5 *
+//    6 *                       (c) Copyright 2002, Micrium Inc., Weston, FL
+//    7 *                       (c) Copyright 2002, SEGGER Microcontroller Systeme GmbH
+//    8 *
+//    9 *              µC/GUI is protected by international copyright laws. Knowledge of the
+//   10 *              source code may not be used to write a similar product. This file may
+//   11 *              only be used in accordance with a license and should not be redistributed
+//   12 *              in any way. We appreciate your understanding and fairness.
+//   13 *
+//   14 ----------------------------------------------------------------------
+//   15 File        : GUICore.C
+//   16 Purpose     : Core routines
+//   17 ---------------------------END-OF-HEADER------------------------------
+//   18 */
+//   19 
+//   20 #include <stddef.h>           /* needed for definition of NULL */
+//   21 
+//   22 #define  GL_CORE_C
+//   23 
+//   24 #include "GUI_Private.h"
+
+        ASEGN SFR_AN:DATA:NOROOT,0a8H
+// union <unnamed> volatile __sfr _A_IEN0
+_A_IEN0:
+        DATA8
+        DS 1
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+// GUI_CONTEXT GUI_Context
+GUI_Context:
+        DS 47
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+// char GUI_DecChar
+GUI_DecChar:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA16
+// int (void) *__xdata GUI_pfTimerExec
+GUI_pfTimerExec:
+        DS 2
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA16
+// int (void) *__xdata WM_pfHandlePID
+WM_pfHandlePID:
+        DS 2
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA16
+// void (*__xdata GUI_pfDispCharStyle)(unsigned short)
+GUI_pfDispCharStyle:
+        DS 2
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA16
+// tLCD_APIList const *__xdata GUI_pLCD_APIList
+GUI_pLCD_APIList:
+        DS 2
+        REQUIRE __INIT_XDATA_Z
+//   25 #include "GUIDebug.h"
+//   26 
+//   27 #if GUI_WINSUPPORT
+//   28   #include "WM_GUI.h"
+//   29   #include "WM.h"
+//   30 #endif
+//   31 
+//   32 /*********************************************************************
+//   33 *
+//   34 *       Static data
+//   35 *
+//   36 **********************************************************************
+//   37 */
+//   38 #if GUI_SUPPORT_AA
+//   39 static const tLCD_HL_APIList _HL_APIList = {
+//   40   LCD_DrawHLine,
+//   41   LCD_DrawPixel
+//   42 };
+//   43 #endif
+//   44 
+//   45 /*********************************************************************
+//   46 *
+//   47 *       Static code
+//   48 *
+//   49 **********************************************************************
+//   50 */
+//   51 /*********************************************************************
+//   52 *
+//   53 *       _InitContext
+//   54 *
+//   55 * Purpose
+//   56 *   Initializes the given context.
+//   57 *
+//   58 * Special considerations
+//   59 *   Make sure that no GUI functions are called, because locking is
+//   60 *   not allowed here (GUITASK_INIT not yet called).
+//   61 */
+//   62 static void _InitContext(GUI_CONTEXT* pContext) {
+//   63   /* memset(..,0,..) is not required, as this function is called only at startup of the GUI when data is 0 */
+//   64   #if GUI_SUPPORT_DEVICES
+//   65     pContext->pDeviceAPI   = LCD_aAPI[0]; /* &LCD_L0_APIList; */
+//   66   #endif
+//   67   pContext->pClipRect_HL = &GUI_Context.ClipRect;
+//   68   LCD_L0_GetRect(&pContext->ClipRect);
+//   69   #if GUI_SUPPORT_AA
+//   70     pContext->pLCD_HL      = &_HL_APIList;
+//   71   #endif
+//   72   pContext->pAFont       = GUI_DEFAULT_FONT;
+//   73   pContext->pClipRect_HL = &GUI_Context.ClipRect;
+//   74   pContext->PenSize      = 1;
+//   75   /* Variables in WM module */
+//   76   #if GUI_WINSUPPORT
+//   77     pContext->hAWin    = WM_GetDesktopWindow();
+//   78   #endif
+//   79   /* Variables in GUI_AA module */
+//   80   #if GUI_SUPPORT_AA
+//   81     pContext->AA_Factor = 3;
+//   82   #endif
+//   83   pContext->Color   = GUI_INVALID_COLOR;
+//   84   pContext->BkColor = GUI_INVALID_COLOR;
+//   85   LCD_SetBkColor(GUI_DEFAULT_BKCOLOR);
+//   86   LCD_SetColor(GUI_DEFAULT_COLOR);
+//   87   pContext->pUC_API = &GUI__API_TableNone;
+//   88 }
+//   89 
+//   90 /*********************************************************************
+//   91 *
+//   92 *       Public code
+//   93 *
+//   94 **********************************************************************
+//   95 */
+//   96 /*********************************************************************
+//   97 *
+//   98 *       GUI_ClearRect
+//   99 */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  100 void GUI_ClearRect(int x0, int y0, int x1, int y1) {
+GUI_ClearRect:
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function GUI_ClearRect
+        CODE
+        FUNCALL GUI_ClearRect, LCD_SetDrawMode
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 20, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 20, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL GUI_ClearRect, LCD_FillRect
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 24, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 24, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL GUI_ClearRect, LCD_SetDrawMode
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 20, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 20, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0x14
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V11 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI V10 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI V9 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI V8 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI V7 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI V6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+        CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+        CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+        CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-15)))
+        CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-16)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-17)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-18)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-19)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-20)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 20)
+        ; Saved register size: 20
+        ; Auto size: 0
+        MOV     ?V0 + 0,R2
+        MOV     ?V0 + 1,R3
+        MOV     A,R4
+        MOV     R6,A
+        MOV     A,R5
+        MOV     R7,A
+        MOV     A,#0x14
+        LCALL   ?XSTACK_DISP0_8
+        MOVX    A,@DPTR
+        MOV     ?V0 + 4,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     ?V0 + 5,A
+        MOV     A,#0x16
+        LCALL   ?XSTACK_DISP0_8
+        MOVX    A,@DPTR
+        MOV     ?V0 + 6,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     ?V0 + 7,A
+//  101   GUI_DRAWMODE PrevDraw;
+//  102   #if GUI_WINSUPPORT
+//  103     GUI_RECT r;
+//  104   #endif
+//  105   halIntState_t state;
+//  106   GUI_LOCK(state);
+        MOV     A,0xa8
+        MOV     ?V0 + 8,A
+        CLR     0xa8.7
+//  107   PrevDraw = LCD_SetDrawMode(GUI_DRAWMODE_REV);
+        ; Setup parameters for call to function LCD_SetDrawMode
+        MOV     R2,#0x4
+        MOV     R3,#0x0
+        LCALL   ??LCD_SetDrawMode?relay
+        MOV     ?V0 + 2,R2
+        MOV     ?V0 + 3,R3
+//  108   #if GUI_WINSUPPORT
+//  109     WM_ADDORG(x0,y0);
+//  110     WM_ADDORG(x1,y1);
+//  111     r.x0 = x0;
+//  112     r.x1 = x1;
+//  113     r.y0 = y0;
+//  114     r.y1 = y1;
+//  115     WM_ITERATE_START(&r) {
+//  116   #endif
+//  117   LCD_FillRect(x0,y0,x1,y1);
+        ; Setup parameters for call to function LCD_FillRect
+        MOV     R0,#?V0 + 6
+        LCALL   ?PUSH_XSTACK_I_TWO
+        CFI CFA_XSP16 add(XSP16, 22)
+        MOV     R0,#?V0 + 4
+        LCALL   ?PUSH_XSTACK_I_TWO
+        CFI CFA_XSP16 add(XSP16, 24)
+        MOV     A,R6
+        MOV     R4,A
+        MOV     A,R7
+        MOV     R5,A
+        MOV     R2,?V0 + 0
+        MOV     R3,?V0 + 1
+        LCALL   ??LCD_FillRect?relay
+        MOV     A,#0x4
+        LCALL   ?DEALLOC_XSTACK8
+        CFI CFA_XSP16 add(XSP16, 20)
+//  118   #if GUI_WINSUPPORT
+//  119     } WM_ITERATE_END();
+//  120   #endif
+//  121   LCD_SetDrawMode(PrevDraw);
+        ; Setup parameters for call to function LCD_SetDrawMode
+        MOV     R2,?V0 + 2
+        MOV     R3,?V0 + 3
+        LCALL   ??LCD_SetDrawMode?relay
+//  122   GUI_UNLOCK(state);
+        MOV     A,?V0 + 8
+        MOV     C,0xE0 /* A   */.7
+        MOV     0xa8.7,C
+//  123 }
+        MOV     R7,#0xc
+        LJMP    ?BANKED_LEAVE_XDATA
+        CFI EndBlock cfiBlock0
+        REQUIRE _A_IEN0
+//  124 
+//  125 /*********************************************************************
+//  126 *
+//  127 *       GUI_Clear
+//  128 */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  129 void GUI_Clear(void) {
+GUI_Clear:
+        CFI Block cfiBlock1 Using cfiCommon0
+        CFI Function GUI_Clear
+        CODE
+        FUNCALL GUI_Clear, GUI_GotoXY
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL GUI_Clear, GUI_ClearRect
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 14, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0xa
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 10)
+        ; Saved register size: 10
+        ; Auto size: 0
+//  130   GUI_GotoXY(0,0);     /* Reset text cursor to upper left */
+        ; Setup parameters for call to function GUI_GotoXY
+        MOV     R4,#0x0
+        MOV     R5,#0x0
+        MOV     R2,#0x0
+        MOV     R3,#0x0
+        LCALL   ??GUI_GotoXY?relay
+//  131   GUI_ClearRect(GUI_XMIN, GUI_YMIN, GUI_XMAX, GUI_YMAX);
+        ; Setup parameters for call to function GUI_ClearRect
+        MOV     ?V0 + 0,#-0x1
+        MOV     ?V0 + 1,#0xf
+        MOV     R0,#?V0 + 0
+        LCALL   ?PUSH_XSTACK_I_TWO
+        CFI CFA_XSP16 add(XSP16, 12)
+        MOV     R0,#?V0 + 0
+        LCALL   ?PUSH_XSTACK_I_TWO
+        CFI CFA_XSP16 add(XSP16, 14)
+        MOV     R4,#0x1
+        MOV     R5,#-0x10
+        MOV     R2,#0x1
+        MOV     R3,#-0x10
+        LCALL   ??GUI_ClearRect?relay
+        MOV     A,#0x4
+        LCALL   ?DEALLOC_XSTACK8
+        CFI CFA_XSP16 add(XSP16, 10)
+//  132 }
+        MOV     R7,#0x2
+        LJMP    ?BANKED_LEAVE_XDATA
+        CFI EndBlock cfiBlock1
+//  133 
+//  134 /*********************************************************************
+//  135 *
+//  136 *       GUI_Init
+//  137 *
+//  138 * Purpose:
+//  139 *   Init of GUI internal data structures & variables
+//  140 */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  141 int GUI_Init(void) {
+GUI_Init:
+        CFI Block cfiBlock2 Using cfiCommon0
+        CFI Function GUI_Init
+        CODE
+        FUNCALL GUI_Init, GUI_X_Init
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL GUI_Init, LCD_L0_GetRect
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL GUI_Init, LCD_SetBkColor
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL GUI_Init, LCD_SetColor
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL GUI_Init, LCD_Init
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI CFA_SP SP+-4
+        PUSH    DPH
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  142   int r;
+//  143   //GUI_DEBUG_LOG("\nGUI_Init()");
+//  144   /* Init system wide globals first */
+//  145   GUI_DecChar = '.';
+        MOV     DPTR,#GUI_DecChar
+        MOV     A,#0x2e
+        MOVX    @DPTR,A
+//  146   GUI_X_Init();
+        ; Setup parameters for call to function GUI_X_Init
+        LCALL   ??GUI_X_Init?relay
+//  147   /* Init context */
+//  148   _InitContext(&GUI_Context);
+        MOV     DPTR,#GUI_Context + 15
+        MOV     A,#(GUI_Context + 4) & 0xff
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,#((GUI_Context + 4) >> 8) & 0xff
+        MOVX    @DPTR,A
+        ; Setup parameters for call to function LCD_L0_GetRect
+        MOV     R2,#(GUI_Context + 4) & 0xff
+        MOV     R3,A
+        LCALL   ??LCD_L0_GetRect?relay
+        MOV     DPTR,#GUI_Context + 21
+        MOV     A,#GUI_Font8x16 & 0xff
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,#(GUI_Font8x16 >> 8) & 0xff
+        MOVX    @DPTR,A
+        MOV     DPTR,#GUI_Context + 15
+        MOV     A,#(GUI_Context + 4) & 0xff
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,#((GUI_Context + 4) >> 8) & 0xff
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,#0x1
+        MOVX    @DPTR,A
+        MOV     DPTR,#__Constant_fffffff
+        LCALL   ?XLOAD_R2345
+        MOV     DPTR,#GUI_Context + 39
+        LCALL   ?XSTORE_R2345
+        MOV     DPTR,#__Constant_fffffff
+        LCALL   ?XLOAD_R2345
+        MOV     DPTR,#GUI_Context + 43
+        LCALL   ?XSTORE_R2345
+        ; Setup parameters for call to function LCD_SetBkColor
+        MOV     DPTR,#__Constant_0
+        LCALL   ?XLOAD_R2345
+        LCALL   ??LCD_SetBkColor?relay
+        ; Setup parameters for call to function LCD_SetColor
+        MOV     DPTR,#__Constant_ffffff
+        LCALL   ?XLOAD_R2345
+        LCALL   ??LCD_SetColor?relay
+        MOV     DPTR,#GUI_Context + 23
+        MOV     A,#GUI__API_TableNone & 0xff
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,#(GUI__API_TableNone >> 8) & 0xff
+        MOVX    @DPTR,A
+//  149   GUITASK_INIT();
+//  150   r = LCD_Init();
+//  151   #if GUI_WINSUPPORT
+//  152     WM_Init();
+//  153   #endif
+//  154   GUITASK_COPY_CONTEXT();
+//  155   return r;
+        ; Setup parameters for call to function LCD_Init
+        LCALL   ??LCD_Init?relay
+        POP     DPH
+        CFI DPH0 SameValue
+        CFI CFA_SP SP+-4
+        POP     DPL
+        CFI DPL0 SameValue
+        CFI CFA_SP SP+-3
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock2
+//  156 }
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA32
+__Constant_fffffff:
+        DD 268435455
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA32
+__Constant_0:
+        DD 0
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA32
+__Constant_ffffff:
+        DD 16777215
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??GUI_ClearRect?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    GUI_ClearRect
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??GUI_Clear?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    GUI_Clear
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??GUI_Init?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    GUI_Init
+
+        END
+//  157 
+//  158 /*************************** End of file ****************************/
+// 
+// 266 bytes in segment BANKED_CODE
+//  18 bytes in segment BANK_RELAYS
+//   1 byte  in segment SFR_AN
+//  12 bytes in segment XDATA_ROM_C
+//  56 bytes in segment XDATA_Z
+// 
+// 284 bytes of CODE  memory
+//   0 bytes of CONST memory (+ 12 bytes shared)
+//   0 bytes of DATA  memory (+  1 byte  shared)
+//  56 bytes of XDATA memory
+//
+//Errors: none
+//Warnings: none

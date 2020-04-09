@@ -1,0 +1,777 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V8.10.3.10338/W32 for 8051        07/Jun/2017  11:00:14 /
+// Copyright 2004-2011 IAR Systems AB.                                        /
+//                                                                            /
+//    Core               =  plain                                             /
+//    Code model         =  banked                                            /
+//    Data model         =  large                                             /
+//    Calling convention =  xdata reentrant                                   /
+//    Constant location  =  data_rom                                          /
+//    Dptr setup         =  1,16                                              /
+//    Source file        =  F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ              /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Components\services\saddr\sad /
+//                          dr.c                                              /
+//    Command line       =  -f "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ          /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev. /
+//                          cfg" (-DCPU32MHZ -DROOT=__near_func               /
+//                          -DBLINK_LEDS) -f "F:\zigbee\zigbee\ZIGBEE_EB2530\ /
+//                          µÚ6ÕÂ Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utiliti /
+//                          es\SerialApp\CC2530DB\..\..\..\Tools\CC2530DB\f8w /
+//                          Config.cfg" (-DSECURE=0 -DZG_SECURE_DYNAMIC=0     /
+//                          -DREFLECTOR -DDEFAULT_CHANLIST=0x00000800         /
+//                          -DZDAPP_CONFIG_PAN_ID=0xFFF1                      /
+//                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
+//                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
+//                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
+//                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_P /
+//                          OLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7           /
+//                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3   /
+//                          -DNWK_MAX_DATA_RETRIES=2                          /
+//                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9        /
+//                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40          /
+//                          -DNWK_MAX_BINDING_ENTRIES=4                       /
+//                          -DMAX_BINDING_CLUSTER_IDS=4                       /
+//                          "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07, 0x09,     /
+//                          0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08,   /
+//                          0x0A, 0x0C, 0x0D}" -DMAC_MAX_FRAME_SIZE=116       /
+//                          "-DCONST=const __code" -DGENERIC=__generic        /
+//                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
+//                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
+//                          -DREJOIN_POLL_RATE=440 "F:\zigbee\zigbee\ZIGBEE_E /
+//                          B2530\µÚ6ÕÂ Êµ¼ùÏîÄ¿\WSN_ZigBee\Components\servic /
+//                          es\saddr\saddr.c" -D ZIGBEEPRO -D NWK_AUTO_POLL   /
+//                          -D HAL_UART=TRUE -D SERIAL_APP_PORT=0 -D          /
+//                          LCD_SUPPORTED -D xPOWER_SAVING -lC                /
+//                          "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ             /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\EndDeviceEB-Pro\List\" -lA        /
+//                          "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ             /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\EndDeviceEB-Pro\List\"            /
+//                          --diag_suppress Pe001,Pa010 -o                    /
+//                          "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ             /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\EndDeviceEB-Pro\Obj\" -e --debug  /
+//                          --core=plain --dptr=16,1 --data_model=large       /
+//                          --code_model=banked --calling_convention=xdata_re /
+//                          entrant --place_constants=data_rom                /
+//                          --nr_virtual_regs 8 -I "F:\zigbee\zigbee\ZIGBEE_E /
+//                          B2530\µÚ6ÕÂ Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\U /
+//                          tilities\SerialApp\CC2530DB\" -I                  /
+//                          "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ             /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\..\SOURCE\" -I                    /
+//                          "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ             /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\..\..\..\ZMAIN\TI2530DB\" -I      /
+//                          "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ             /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\..\..\..\..\..\COMPONENTS\MT\"    /
+//                          -I "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ          /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\..\..\..\..\..\COMPONENTS\HAL\INC /
+//                          LUDE\" -I "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ   /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\..\..\..\..\..\COMPONENTS\HAL\TAR /
+//                          GET\CC2530EB\" -I "F:\zigbee\zigbee\ZIGBEE_EB2530 /
+//                          \µÚ6ÕÂ Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilit /
+//                          ies\SerialApp\CC2530DB\..\..\..\..\..\COMPONENTS\ /
+//                          OSAL\MCU\CCSOC\" -I "F:\zigbee\zigbee\ZIGBEE_EB25 /
+//                          30\µÚ6ÕÂ Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Util /
+//                          ities\SerialApp\CC2530DB\..\..\..\..\..\COMPONENT /
+//                          S\OSAL\INCLUDE\" -I "F:\zigbee\zigbee\ZIGBEE_EB25 /
+//                          30\µÚ6ÕÂ Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Util /
+//                          ities\SerialApp\CC2530DB\..\..\..\..\..\COMPONENT /
+//                          S\STACK\AF\" -I "F:\zigbee\zigbee\ZIGBEE_EB2530\µ /
+//                          Ú6ÕÂ Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilitie /
+//                          s\SerialApp\CC2530DB\..\..\..\..\..\COMPONENTS\ST /
+//                          ACK\NWK\" -I "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6Õ /
+//                          Â Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\S /
+//                          erialApp\CC2530DB\..\..\..\..\..\COMPONENTS\STACK /
+//                          \SEC\" -I "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ   /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\S /
+//                          API\" -I "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ    /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\S /
+//                          YS\" -I "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ     /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\Z /
+//                          DO\" -I "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ     /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\..\..\..\..\..\COMPONENTS\ZMAC\F8 /
+//                          W\" -I "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ      /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\..\..\..\..\..\COMPONENTS\ZMAC\"  /
+//                          -I "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ          /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\..\..\..\..\..\COMPONENTS\SERVICE /
+//                          S\SADDR\" -I "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6Õ /
+//                          Â Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\S /
+//                          erialApp\CC2530DB\..\..\..\..\..\COMPONENTS\SERVI /
+//                          CES\SDATA\" -I "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ /
+//                          6ÕÂ Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities /
+//                          \SerialApp\CC2530DB\..\..\..\..\..\COMPONENTS\MAC /
+//                          \INCLUDE\" -I "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6 /
+//                          ÕÂ Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\ /
+//                          SerialApp\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\ /
+//                          HIGH_LEVEL\" -I "F:\zigbee\zigbee\ZIGBEE_EB2530\µ /
+//                          Ú6ÕÂ Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilitie /
+//                          s\SerialApp\CC2530DB\..\..\..\..\..\COMPONENTS\MA /
+//                          C\LOW_LEVEL\srf04\" -I "F:\zigbee\zigbee\ZIGBEE_E /
+//                          B2530\µÚ6ÕÂ Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\U /
+//                          tilities\SerialApp\CC2530DB\..\..\..\..\..\COMPON /
+//                          ENTS\MAC\LOW_LEVEL\srf04\SINGLE_CHIP\" -Ohz       /
+//                          --require_prototypes                              /
+//    List file          =  F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ              /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\EndDeviceEB-Pro\List\saddr.s51    /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME saddr
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+        EXTERN ?DEALLOC_XSTACK8
+        EXTERN ?PUSH_XSTACK_I_THREE
+        EXTERN ?V0
+
+        PUBLIC ??sAddrCmp?relay
+        FUNCTION ??sAddrCmp?relay,0203H
+        PUBLIC ??sAddrCpy?relay
+        FUNCTION ??sAddrCpy?relay,0203H
+        PUBLIC ??sAddrExtCmp?relay
+        FUNCTION ??sAddrExtCmp?relay,0203H
+        PUBLIC ??sAddrExtCpy?relay
+        FUNCTION ??sAddrExtCpy?relay,0203H
+        PUBLIC sAddrCmp
+        FUNCTION sAddrCmp,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC sAddrCpy
+        FUNCTION sAddrCpy,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 3, STACK
+        PUBLIC sAddrExtCmp
+        FUNCTION sAddrExtCmp,0203H
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME XSTACK, 10, STACK
+        PUBLIC sAddrExtCpy
+        FUNCTION sAddrExtCpy,021203H
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME XSTACK, 14, STACK
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA_SP SP IDATA
+        CFI StackFrame CFA_PSP16 PSP16 XDATA
+        CFI StackFrame CFA_XSP16 XSP16 XDATA
+        CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+        CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+        CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+        CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+        CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+        CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+        CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+        CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+        CFI Resource SP:8, PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+        CFI VirtualResource ?RET:24
+        CFI Resource ?BRET_EXT:8
+        CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+        CFI ResourceParts PSP16 PSPH, PSPL
+        CFI ResourceParts XSP16 XSPH, XSPL
+        CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign -1
+        CFI ReturnAddress ?RET CODE
+        CFI CFA_DOVERLAY Used
+        CFI CFA_IOVERLAY Used
+        CFI CFA_SP SP+-3
+        CFI CFA_PSP16 PSP16+0
+        CFI CFA_XSP16 XSP16+0
+        CFI `PSW.CY` SameValue
+        CFI `B.BR0` SameValue
+        CFI `B.BR1` SameValue
+        CFI `B.BR2` SameValue
+        CFI `B.BR3` SameValue
+        CFI `B.BR4` SameValue
+        CFI `B.BR5` SameValue
+        CFI `B.BR6` SameValue
+        CFI `B.BR7` SameValue
+        CFI `VB.BR8` SameValue
+        CFI `VB.BR9` SameValue
+        CFI `VB.BR10` SameValue
+        CFI `VB.BR11` SameValue
+        CFI `VB.BR12` SameValue
+        CFI `VB.BR13` SameValue
+        CFI `VB.BR14` SameValue
+        CFI `VB.BR15` SameValue
+        CFI VB SameValue
+        CFI B Undefined
+        CFI A Undefined
+        CFI PSW SameValue
+        CFI DPL0 SameValue
+        CFI DPH0 SameValue
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 Undefined
+        CFI R5 Undefined
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI V0 SameValue
+        CFI V1 SameValue
+        CFI V2 SameValue
+        CFI V3 SameValue
+        CFI V4 SameValue
+        CFI V5 SameValue
+        CFI V6 SameValue
+        CFI V7 SameValue
+        CFI PSPH Undefined
+        CFI PSPL Undefined
+        CFI XSPH Undefined
+        CFI XSPL Undefined
+        CFI ?RET Concat
+        CFI ?BRET_EXT Frame(CFA_SP, 3)
+        CFI ?RET_HIGH Frame(CFA_SP, 2)
+        CFI ?RET_LOW Frame(CFA_SP, 1)
+        CFI EndCommon cfiCommon0
+        
+osal_memcpy         SYMBOL "osal_memcpy"
+??osal_memcpy?relay SYMBOL "?relay", osal_memcpy
+sAddrCmp            SYMBOL "sAddrCmp"
+??sAddrCmp?relay    SYMBOL "?relay", sAddrCmp
+sAddrCpy            SYMBOL "sAddrCpy"
+??sAddrCpy?relay    SYMBOL "?relay", sAddrCpy
+sAddrExtCmp         SYMBOL "sAddrExtCmp"
+??sAddrExtCmp?relay SYMBOL "?relay", sAddrExtCmp
+sAddrExtCpy         SYMBOL "sAddrExtCpy"
+??sAddrExtCpy?relay SYMBOL "?relay", sAddrExtCpy
+
+        EXTERN osal_memcpy
+        FUNCTION osal_memcpy,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ??osal_memcpy?relay
+        FUNCTION ??osal_memcpy?relay,00H
+
+// F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ Êµ¼ùÏîÄ¿\WSN_ZigBee\Components\services\saddr\saddr.c
+//    1 /****************************************************************************
+//    2   Filename:       saddr.c
+//    3   Revised:        $Date: 2008-10-07 14:47:15 -0700 (Tue, 07 Oct 2008) $
+//    4   Revision:       $Revision: 18212 $
+//    5 
+//    6   Description:    Zigbee and 802.15.4 device address utility functions.
+//    7 
+//    8 
+//    9   Copyright 2005-2007 Texas Instruments Incorporated. All rights reserved.
+//   10 
+//   11   IMPORTANT: Your use of this Software is limited to those specific rights
+//   12   granted under the terms of a software license agreement between the user
+//   13   who downloaded the software, his/her employer (which must be your employer)
+//   14   and Texas Instruments Incorporated (the "License").  You may not use this
+//   15   Software unless you agree to abide by the terms of the License. The License
+//   16   limits your use, and you acknowledge, that the Software may not be modified,
+//   17   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   18   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   19   frequency transceiver, which is integrated into your product.  Other than for
+//   20   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   21   works of, modify, distribute, perform, display or sell this Software and/or
+//   22   its documentation for any purpose.
+//   23 
+//   24   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   25   PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, 
+//   26   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE, 
+//   27   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   28   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   29   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   30   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   31   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   32   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   33   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   34   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   35 
+//   36   Should you have any questions regarding your right to use this Software,
+//   37   contact Texas Instruments Incorporated at www.TI.com. 
+//   38 ****************************************************************************/
+//   39 
+//   40 /****************************************************************************
+//   41  * INCLUDES
+//   42  */
+//   43 #include "hal_types.h"
+//   44 #include "OSAL.h"
+//   45 #include "saddr.h"
+//   46 
+//   47 /****************************************************************************
+//   48  * @fn          sAddrCmp
+//   49  *
+//   50  * @brief       Compare two device addresses.
+//   51  *
+//   52  * input parameters
+//   53  *
+//   54  * @param       pAddr1        - Pointer to first address.
+//   55  * @param       pAddr2        - Pointer to second address.
+//   56  *
+//   57  * output parameters
+//   58  *
+//   59  * @return      TRUE if addresses are equal, FALSE otherwise
+//   60  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//   61 bool sAddrCmp(const sAddr_t *pAddr1, const sAddr_t *pAddr2)
+sAddrCmp:
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function sAddrCmp
+        CODE
+//   62 {
+        FUNCALL sAddrCmp, sAddrExtCmp
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI CFA_SP SP+-4
+        PUSH    DPH
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//   63   if (pAddr1->addrMode != pAddr2->addrMode)
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R0,A
+        MOV     DPL,R4
+        MOV     DPH,R5
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        XRL     A,R0
+        JZ      ??sAddrCmp_0
+//   64   {
+//   65     return FALSE;
+??sAddrCmp_1:
+        MOV     R1,#0x0
+        SJMP    ??sAddrCmp_2
+//   66   }
+//   67   else if (pAddr1->addrMode == SADDR_MODE_NONE)
+??sAddrCmp_0:
+        MOV     A,R0
+        JZ      ??sAddrCmp_1
+//   68   {
+//   69     return FALSE;
+//   70   }
+//   71   else if (pAddr1->addrMode == SADDR_MODE_SHORT)
+        MOV     A,#0x2
+        XRL     A,R0
+        JNZ     ??sAddrCmp_3
+//   72   {
+//   73     return (bool) (pAddr1->addr.shortAddr == pAddr2->addr.shortAddr);
+        MOV     DPL,R2
+        MOV     DPH,R3
+        MOVX    A,@DPTR
+        MOV     R0,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R1,A
+        MOV     DPL,R4
+        MOV     DPH,R5
+        MOVX    A,@DPTR
+        XRL     A,R0
+        JNZ     ??sAddrCmp_4
+        INC     DPTR
+        MOVX    A,@DPTR
+        XRL     A,R1
+??sAddrCmp_4:
+        JNZ     ??sAddrCmp_1
+        MOV     R1,#0x1
+        SJMP    ??sAddrCmp_2
+//   74   }
+//   75   else if (pAddr1->addrMode == SADDR_MODE_EXT)
+??sAddrCmp_3:
+        MOV     A,#0x3
+        XRL     A,R0
+        JNZ     ??sAddrCmp_1
+//   76   {
+//   77     return (sAddrExtCmp(pAddr1->addr.extAddr, pAddr2->addr.extAddr));
+        ; Setup parameters for call to function sAddrExtCmp
+        LCALL   ??sAddrExtCmp?relay
+        CFI EndBlock cfiBlock0
+//   78   }
+??sAddrCmp_2:
+        REQUIRE ?Subroutine0
+        ; // Fall through to label ?Subroutine0
+//   79   else
+//   80   {
+//   81     return FALSE;
+//   82   }
+//   83 }
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine0:
+        CFI Block cfiBlock1 Using cfiCommon0
+        CFI NoFunction
+        CFI CFA_SP SP+-5
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI DPH0 Frame(CFA_SP, 5)
+        POP     DPH
+        CFI CFA_SP SP+-4
+        CFI DPH0 SameValue
+        POP     DPL
+        CFI CFA_SP SP+-3
+        CFI DPL0 SameValue
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock1
+//   84 
+//   85 /****************************************************************************
+//   86  * @fn          sAddrCpy
+//   87  *
+//   88  * @brief       Copy a device address.
+//   89  *
+//   90  * input parameters
+//   91  *
+//   92  * @param       pSrc         - Pointer to address to copy.
+//   93  *
+//   94  * output parameters
+//   95  *
+//   96  * @param       pDest        - Pointer to address of copy.
+//   97  *
+//   98  * @return      None.
+//   99  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  100 void sAddrCpy(sAddr_t *pDest, const sAddr_t *pSrc)
+sAddrCpy:
+        CFI Block cfiBlock2 Using cfiCommon0
+        CFI Function sAddrCpy
+        CODE
+//  101 {
+        FUNCALL sAddrCpy, sAddrExtCpy
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI CFA_SP SP+-4
+        PUSH    DPH
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  102   pDest->addrMode = pSrc->addrMode;
+        MOV     DPL,R4
+        MOV     DPH,R5
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R0,A
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        MOVX    @DPTR,A
+//  103 
+//  104   if (pDest->addrMode == SADDR_MODE_EXT)
+        MOV     A,#0x3
+        XRL     A,R0
+        JNZ     ??sAddrCpy_0
+//  105   {
+//  106     sAddrExtCpy(pDest->addr.extAddr, pSrc->addr.extAddr);
+        ; Setup parameters for call to function sAddrExtCpy
+        LCALL   ??sAddrExtCpy?relay
+        SJMP    ??sAddrCpy_1
+//  107   }
+//  108   else
+//  109   {
+//  110     pDest->addr.shortAddr = pSrc->addr.shortAddr;
+??sAddrCpy_0:
+        MOV     DPL,R4
+        MOV     DPH,R5
+        MOVX    A,@DPTR
+        MOV     R0,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R1,A
+        MOV     DPL,R2
+        MOV     DPH,R3
+        MOV     A,R0
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,R1
+        MOVX    @DPTR,A
+//  111   }
+//  112 }
+??sAddrCpy_1:
+        SJMP    ?Subroutine0
+        CFI EndBlock cfiBlock2
+//  113 
+//  114 /****************************************************************************
+//  115  * @fn          sAddrExtCmp
+//  116  *
+//  117  * @brief       Compare two extended addresses.
+//  118  *
+//  119  * input parameters
+//  120  *
+//  121  * @param       pAddr1        - Pointer to first address.
+//  122  * @param       pAddr2        - Pointer to second address.
+//  123  *
+//  124  * output parameters
+//  125  *
+//  126  * @return      TRUE if addresses are equal, FALSE otherwise
+//  127  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  128 bool sAddrExtCmp(const uint8 * pAddr1, const uint8 * pAddr2)
+sAddrExtCmp:
+        CFI Block cfiBlock3 Using cfiCommon0
+        CFI Function sAddrExtCmp
+        CODE
+//  129 {
+        MOV     A,#-0xa
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 10)
+        ; Saved register size: 10
+        ; Auto size: 0
+//  130   uint8 i;
+//  131 
+//  132   for (i = SADDR_EXT_LEN; i != 0; i--)
+        MOV     ?V0 + 0,#0x8
+//  133   {
+//  134     if (*pAddr1++ != *pAddr2++)
+??sAddrExtCmp_0:
+        MOV     A,R2
+        MOV     R0,A
+        MOV     A,R3
+        MOV     R1,A
+        MOV     DPL,R0
+        MOV     DPH,R1
+        INC     DPTR
+        MOV     R2,DPL
+        MOV     R3,DPH
+        MOV     A,R4
+        MOV     R6,A
+        MOV     A,R5
+        MOV     R7,A
+        MOV     DPL,R6
+        MOV     DPH,R7
+        INC     DPTR
+        MOV     R4,DPL
+        MOV     R5,DPH
+        MOV     DPL,R0
+        MOV     DPH,R1
+        MOVX    A,@DPTR
+        MOV     R0,A
+        MOV     DPL,R6
+        MOV     DPH,R7
+        MOVX    A,@DPTR
+        XRL     A,R0
+        JZ      ??sAddrExtCmp_1
+//  135     {
+//  136       return FALSE;
+        MOV     R1,#0x0
+        SJMP    ??sAddrExtCmp_2
+//  137     }
+//  138   }
+??sAddrExtCmp_1:
+        DEC     ?V0 + 0
+        MOV     A,?V0 + 0
+        JNZ     ??sAddrExtCmp_0
+//  139   return TRUE;
+        MOV     R1,#0x1
+??sAddrExtCmp_2:
+        MOV     R7,#0x2
+        LJMP    ?BANKED_LEAVE_XDATA
+        CFI EndBlock cfiBlock3
+//  140 }
+//  141 
+//  142 /****************************************************************************
+//  143  * @fn          sAddrExtCpy
+//  144  *
+//  145  * @brief       Copy an extended address.
+//  146  *
+//  147  * input parameters
+//  148  *
+//  149  * @param       pSrc         - Pointer to address to copy.
+//  150  *
+//  151  * output parameters
+//  152  *
+//  153  * @param       pDest        - Pointer to address of copy.
+//  154  *
+//  155  * @return      pDest + SADDR_EXT_LEN.
+//  156  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  157 void *sAddrExtCpy(uint8 * pDest, const uint8 * pSrc)
+sAddrExtCpy:
+        CFI Block cfiBlock4 Using cfiCommon0
+        CFI Function sAddrExtCpy
+        CODE
+//  158 {
+        FUNCALL sAddrExtCpy, osal_memcpy
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 14, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0xb
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 11)
+        ; Saved register size: 11
+        ; Auto size: 0
+//  159   return osal_memcpy(pDest, pSrc, SADDR_EXT_LEN);
+        ; Setup parameters for call to function osal_memcpy
+        MOV     ?V0 + 0,R4
+        MOV     ?V0 + 1,R5
+        MOV     ?V0 + 2,#0x0
+        MOV     R0,#?V0 + 0
+        LCALL   ?PUSH_XSTACK_I_THREE
+        CFI CFA_XSP16 add(XSP16, 14)
+        MOV     R4,#0x8
+        MOV     R5,#0x0
+        LCALL   ??osal_memcpy?relay
+        MOV     A,#0x3
+        LCALL   ?DEALLOC_XSTACK8
+        CFI CFA_XSP16 add(XSP16, 11)
+        MOV     R7,#0x3
+        LJMP    ?BANKED_LEAVE_XDATA
+        CFI EndBlock cfiBlock4
+//  160 }
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??sAddrCmp?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    sAddrCmp
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??sAddrCpy?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    sAddrCpy
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??sAddrExtCmp?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    sAddrExtCmp
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??sAddrExtCpy?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    sAddrExtCpy
+
+        END
+//  161 
+//  162 
+//  163 
+//  164 
+// 
+// 247 bytes in segment BANKED_CODE
+//  24 bytes in segment BANK_RELAYS
+// 
+// 271 bytes of CODE memory
+//
+//Errors: none
+//Warnings: none

@@ -1,0 +1,4826 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.1.10194/W32 for 8051         14/Jun/2016  16:18:25 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\Fon #
+#                          t\F16B_1.c                                         #
+#    Command line       =  -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\..\..\..\Tools\CC2530D #
+#                          B\f8wCoord.cfg (-DCPU32MHZ -DROOT=__near_func      #
+#                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                   #
+#                          -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8         #
+#                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)    #
+#                          -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\..\..\..\Tools\CC2530D #
+#                          B\f8wConfig.cfg (-DZIGBEEPRO -DSECURE=0            #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0x1001                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹â #
+#                          ÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5. #
+#                          1a\Components\uCGUI\Font\F16B_1.c -D               #
+#                          HAL_UART=TRUE -D SERIAL_APP_PORT=0 -D COOR -D      #
+#                          LCD_SUPPORTED -D NV_INIT -lC                       #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\List\ -lA   #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\List\       #
+#                          --diag_suppress Pe001,Pa010 -o                     #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\Obj\ -e     #
+#                          --no_code_motion --debug --core=plain --dptr=16,1  #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\ -I                    #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\Public\ -I             #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \uCGUI\Core\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ2 #
+#                          10\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ #
+#                          ..\..\Components\uCGUI\MultiLayer\ -I              #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \uCGUI\Config\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁ #
+#                          Ï210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Pr #
+#                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\Coor #
+#                          dinator\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Z #
+#                          igBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects #
+#                          \zstack\Utilities\SerialApp\CC2530DB\..\..\..\ZMai #
+#                          n\TI2530DB\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ21 #
+#                          0\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proje #
+#                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\. #
+#                          .\..\Components\hal\include\ -I                    #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \hal\target\CC2530EB\ -I                           #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\include\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ #
+#                          210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Pro #
+#                          jects\zstack\Utilities\SerialApp\CC2530DB\..\..\.. #
+#                          \..\..\Components\mac\high_level\ -I               #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\low_level\srf04\ -I                           #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\low_level\srf04\single_chip\ -I               #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mt\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBe #
+#                          eÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zst #
+#                          ack\Utilities\SerialApp\CC2530DB\..\..\..\..\..\Co #
+#                          mponents\osal\include\ -I                          #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \services\saddr\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ× #
+#                          ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\ #
+#                          Projects\zstack\Utilities\SerialApp\CC2530DB\..\.. #
+#                          \..\..\..\Components\services\sdata\ -I            #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\af\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210 #
+#                          \ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projec #
+#                          ts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\.. #
+#                          \..\Components\stack\nwk\ -I                       #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\sapi\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ2 #
+#                          10\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ #
+#                          ..\..\Components\stack\sec\ -I                     #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\sys\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ21 #
+#                          0\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proje #
+#                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\. #
+#                          .\..\Components\stack\zdo\ -I                      #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \zmac\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Zig #
+#                          BeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\z #
+#                          stack\Utilities\SerialApp\CC2530DB\..\..\..\..\..\ #
+#                          Components\zmac\f8w\ -Ohz --require_prototypes     #
+#    List file          =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\List\F16B_1 #
+#                          .lst                                               #
+#    Object file        =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\Obj\F16B_1. #
+#                          r51                                                #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\Font\F16B_1.c
+      1          /*
+      2          *********************************************************************************************************
+      3          *                                                uC/GUI
+      4          *                        Universal graphic software for embedded applications
+      5          *
+      6          *                       (c) Copyright 2002, Micrium Inc., Weston, FL
+      7          *                       (c) Copyright 2002, SEGGER Microcontroller Systeme GmbH
+      8          *
+      9          *              µC/GUI is protected by international copyright laws. Knowledge of the
+     10          *              source code may not be used to write a similar product. This file may
+     11          *              only be used in accordance with a license and should not be redistributed
+     12          *              in any way. We appreciate your understanding and fairness.
+     13          *
+     14          ----------------------------------------------------------------------
+     15          File        : F16_1.C
+     16          Purpose     : ISO 8859-1 West European Character Set, bold
+     17          Height      : 16
+     18          ---------------------------END-OF-HEADER------------------------------
+     19          */
+     20          
+     21          #include "GUI_FontIntern.h"
+     22          
+     23          /* Start of unicode area <Latin-1 Supplement> */
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     24          GUI_CONST_STORAGE unsigned char acFont16B_1_00A0[ 16] = { /* code 00A0 */
+   \                     acFont16B_1_00A0:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   00           DB 0
+   \   000007   00           DB 0
+   \   000008   00           DB 0
+   \   000009   00           DB 0
+   \   00000A   00           DB 0
+   \   00000B   00           DB 0
+   \   00000C   00           DB 0
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+     25            ________,
+     26            ________,
+     27            ________,
+     28            ________,
+     29            ________,
+     30            ________,
+     31            ________,
+     32            ________,
+     33            ________,
+     34            ________,
+     35            ________,
+     36            ________,
+     37            ________,
+     38            ________,
+     39            ________,
+     40            ________};
+     41          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     42          GUI_CONST_STORAGE unsigned char acFont16B_1_00A1[ 16] = { /* code 00A1 */
+   \                     acFont16B_1_00A1:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   60           DB 96
+   \   000007   60           DB 96
+   \   000008   00           DB 0
+   \   000009   60           DB 96
+   \   00000A   60           DB 96
+   \   00000B   60           DB 96
+   \   00000C   60           DB 96
+   \   00000D   60           DB 96
+   \   00000E   60           DB 96
+   \   00000F   60           DB 96
+     43            ________,
+     44            ________,
+     45            ________,
+     46            ________,
+     47            ________,
+     48            ________,
+     49            _XX_____,
+     50            _XX_____,
+     51            ________,
+     52            _XX_____,
+     53            _XX_____,
+     54            _XX_____,
+     55            _XX_____,
+     56            _XX_____,
+     57            _XX_____,
+     58            _XX_____};
+     59          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     60          GUI_CONST_STORAGE unsigned char acFont16B_1_00A2[ 16] = { /* code 00A2 */
+   \                     acFont16B_1_00A2:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   08           DB 8
+   \   000004   08           DB 8
+   \   000005   10           DB 16
+   \   000006   78           DB 120
+   \   000007   DC           DB 220
+   \   000008   D0           DB 208
+   \   000009   D0           DB 208
+   \   00000A   D0           DB 208
+   \   00000B   E4           DB 228
+   \   00000C   78           DB 120
+   \   00000D   20           DB 32
+   \   00000E   40           DB 64
+   \   00000F   40           DB 64
+     61            ________,
+     62            ________,
+     63            ________,
+     64            ____X___,
+     65            ____X___,
+     66            ___X____,
+     67            _XXXX___,
+     68            XX_XXX__,
+     69            XX_X____,
+     70            XX_X____,
+     71            XX_X____,
+     72            XXX__X__,
+     73            _XXXX___,
+     74            __X_____,
+     75            _X______,
+     76            _X______};
+     77          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     78          GUI_CONST_STORAGE unsigned char acFont16B_1_00A3[ 16] = { /* code 00A3 */
+   \                     acFont16B_1_00A3:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   3C           DB 60
+   \   000004   66           DB 102
+   \   000005   60           DB 96
+   \   000006   60           DB 96
+   \   000007   60           DB 96
+   \   000008   FC           DB 252
+   \   000009   30           DB 48
+   \   00000A   70           DB 112
+   \   00000B   FA           DB 250
+   \   00000C   4E           DB 78
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+     79            ________,
+     80            ________,
+     81            ________,
+     82            __XXXX__,
+     83            _XX__XX_,
+     84            _XX_____,
+     85            _XX_____,
+     86            _XX_____,
+     87            XXXXXX__,
+     88            __XX____,
+     89            _XXX____,
+     90            XXXXX_X_,
+     91            _X__XXX_,
+     92            ________,
+     93            ________,
+     94            ________};
+     95          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     96          GUI_CONST_STORAGE unsigned char acFont16B_1_00A4[ 16] = { /* code 00A4 */
+   \                     acFont16B_1_00A4:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   84           DB 132
+   \   000006   FE           DB 254
+   \   000007   CC           DB 204
+   \   000008   84           DB 132
+   \   000009   84           DB 132
+   \   00000A   CC           DB 204
+   \   00000B   FE           DB 254
+   \   00000C   84           DB 132
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+     97            ________,
+     98            ________,
+     99            ________,
+    100            ________,
+    101            ________,
+    102            X____X__,
+    103            XXXXXXX_,
+    104            XX__XX__,
+    105            X____X__,
+    106            X____X__,
+    107            XX__XX__,
+    108            XXXXXXX_,
+    109            X____X__,
+    110            ________,
+    111            ________,
+    112            ________};
+    113          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    114          GUI_CONST_STORAGE unsigned char acFont16B_1_00A5[ 16] = { /* code 00A5 */
+   \                     acFont16B_1_00A5:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   CC           DB 204
+   \   000004   CC           DB 204
+   \   000005   78           DB 120
+   \   000006   78           DB 120
+   \   000007   FC           DB 252
+   \   000008   30           DB 48
+   \   000009   FC           DB 252
+   \   00000A   30           DB 48
+   \   00000B   30           DB 48
+   \   00000C   30           DB 48
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+    115            ________,
+    116            ________,
+    117            ________,
+    118            XX__XX__,
+    119            XX__XX__,
+    120            _XXXX___,
+    121            _XXXX___,
+    122            XXXXXX__,
+    123            __XX____,
+    124            XXXXXX__,
+    125            __XX____,
+    126            __XX____,
+    127            __XX____,
+    128            ________,
+    129            ________,
+    130            ________};
+    131          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    132          GUI_CONST_STORAGE unsigned char acFont16B_1_00A6[ 16] = { /* code 00A6 */
+   \                     acFont16B_1_00A6:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   40           DB 64
+   \   000004   40           DB 64
+   \   000005   40           DB 64
+   \   000006   40           DB 64
+   \   000007   40           DB 64
+   \   000008   00           DB 0
+   \   000009   00           DB 0
+   \   00000A   40           DB 64
+   \   00000B   40           DB 64
+   \   00000C   40           DB 64
+   \   00000D   40           DB 64
+   \   00000E   40           DB 64
+   \   00000F   00           DB 0
+    133            ________,
+    134            ________,
+    135            ________,
+    136            _X______,
+    137            _X______,
+    138            _X______,
+    139            _X______,
+    140            _X______,
+    141            ________,
+    142            ________,
+    143            _X______,
+    144            _X______,
+    145            _X______,
+    146            _X______,
+    147            _X______,
+    148            ________};
+    149          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    150          GUI_CONST_STORAGE unsigned char acFont16B_1_00A7[ 16] = { /* code 00A7 */
+   \                     acFont16B_1_00A7:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   38           DB 56
+   \   000004   6C           DB 108
+   \   000005   60           DB 96
+   \   000006   70           DB 112
+   \   000007   F8           DB 248
+   \   000008   DC           DB 220
+   \   000009   CC           DB 204
+   \   00000A   EC           DB 236
+   \   00000B   78           DB 120
+   \   00000C   38           DB 56
+   \   00000D   18           DB 24
+   \   00000E   D8           DB 216
+   \   00000F   70           DB 112
+    151            ________,
+    152            ________,
+    153            ________,
+    154            __XXX___,
+    155            _XX_XX__,
+    156            _XX_____,
+    157            _XXX____,
+    158            XXXXX___,
+    159            XX_XXX__,
+    160            XX__XX__,
+    161            XXX_XX__,
+    162            _XXXX___,
+    163            __XXX___,
+    164            ___XX___,
+    165            XX_XX___,
+    166            _XXX____};
+    167          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    168          GUI_CONST_STORAGE unsigned char acFont16B_1_00A8[ 16] = { /* code 00A8 */
+   \                     acFont16B_1_00A8:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   90           DB 144
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   00           DB 0
+   \   000007   00           DB 0
+   \   000008   00           DB 0
+   \   000009   00           DB 0
+   \   00000A   00           DB 0
+   \   00000B   00           DB 0
+   \   00000C   00           DB 0
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+    169            ________,
+    170            ________,
+    171            ________,
+    172            X__X____,
+    173            ________,
+    174            ________,
+    175            ________,
+    176            ________,
+    177            ________,
+    178            ________,
+    179            ________,
+    180            ________,
+    181            ________,
+    182            ________,
+    183            ________,
+    184            ________};
+    185          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    186          GUI_CONST_STORAGE unsigned char acFont16B_1_00A9[ 32] = { /* code 00A9 */
+   \                     acFont16B_1_00A9:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   1E           DB 30
+   \   000007   00           DB 0
+   \   000008   61           DB 97
+   \   000009   80           DB 128
+   \   00000A   4C           DB 76
+   \   00000B   80           DB 128
+   \   00000C   92           DB 146
+   \   00000D   40           DB 64
+   \   00000E   90           DB 144
+   \   00000F   40           DB 64
+   \   000010   90           DB 144
+   \   000011   40           DB 64
+   \   000012   92           DB 146
+   \   000013   40           DB 64
+   \   000014   4C           DB 76
+   \   000015   80           DB 128
+   \   000016   61           DB 97
+   \   000017   80           DB 128
+   \   000018   1E           DB 30
+   \   000019   00           DB 0
+   \   00001A   00           DB 0
+   \   00001B   00           DB 0
+   \   00001C   00           DB 0
+   \   00001D   00           DB 0
+   \   00001E   00           DB 0
+   \   00001F   00           DB 0
+    187            ________,________,
+    188            ________,________,
+    189            ________,________,
+    190            ___XXXX_,________,
+    191            _XX____X,X_______,
+    192            _X__XX__,X_______,
+    193            X__X__X_,_X______,
+    194            X__X____,_X______,
+    195            X__X____,_X______,
+    196            X__X__X_,_X______,
+    197            _X__XX__,X_______,
+    198            _XX____X,X_______,
+    199            ___XXXX_,________,
+    200            ________,________,
+    201            ________,________,
+    202            ________,________};
+    203          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    204          GUI_CONST_STORAGE unsigned char acFont16B_1_00AA[ 16] = { /* code 00AA */
+   \                     acFont16B_1_00AA:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   70           DB 112
+   \   000004   90           DB 144
+   \   000005   70           DB 112
+   \   000006   90           DB 144
+   \   000007   F0           DB 240
+   \   000008   00           DB 0
+   \   000009   00           DB 0
+   \   00000A   00           DB 0
+   \   00000B   00           DB 0
+   \   00000C   00           DB 0
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+    205            ________,
+    206            ________,
+    207            ________,
+    208            _XXX____,
+    209            X__X____,
+    210            _XXX____,
+    211            X__X____,
+    212            XXXX____,
+    213            ________,
+    214            ________,
+    215            ________,
+    216            ________,
+    217            ________,
+    218            ________,
+    219            ________,
+    220            ________};
+    221          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    222          GUI_CONST_STORAGE unsigned char acFont16B_1_00AB[ 16] = { /* code 00AB */
+   \                     acFont16B_1_00AB:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   00           DB 0
+   \   000007   24           DB 36
+   \   000008   6C           DB 108
+   \   000009   D8           DB 216
+   \   00000A   D8           DB 216
+   \   00000B   6C           DB 108
+   \   00000C   24           DB 36
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+    223            ________,
+    224            ________,
+    225            ________,
+    226            ________,
+    227            ________,
+    228            ________,
+    229            ________,
+    230            __X__X__,
+    231            _XX_XX__,
+    232            XX_XX___,
+    233            XX_XX___,
+    234            _XX_XX__,
+    235            __X__X__,
+    236            ________,
+    237            ________,
+    238            ________};
+    239          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    240          GUI_CONST_STORAGE unsigned char acFont16B_1_00AC[ 16] = { /* code 00AC */
+   \                     acFont16B_1_00AC:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   FE           DB 254
+   \   000007   06           DB 6
+   \   000008   06           DB 6
+   \   000009   06           DB 6
+   \   00000A   00           DB 0
+   \   00000B   00           DB 0
+   \   00000C   00           DB 0
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+    241            ________,
+    242            ________,
+    243            ________,
+    244            ________,
+    245            ________,
+    246            ________,
+    247            XXXXXXX_,
+    248            _____XX_,
+    249            _____XX_,
+    250            _____XX_,
+    251            ________,
+    252            ________,
+    253            ________,
+    254            ________,
+    255            ________,
+    256            ________};
+    257          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    258          GUI_CONST_STORAGE unsigned char acFont16B_1_00AD[ 16] = { /* code 00AD */
+   \                     acFont16B_1_00AD:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   00           DB 0
+   \   000007   00           DB 0
+   \   000008   00           DB 0
+   \   000009   00           DB 0
+   \   00000A   70           DB 112
+   \   00000B   00           DB 0
+   \   00000C   00           DB 0
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+    259            ________,
+    260            ________,
+    261            ________,
+    262            ________,
+    263            ________,
+    264            ________,
+    265            ________,
+    266            ________,
+    267            ________,
+    268            ________,
+    269            _XXX____,
+    270            ________,
+    271            ________,
+    272            ________,
+    273            ________,
+    274            ________};
+    275          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    276          GUI_CONST_STORAGE unsigned char acFont16B_1_00AE[ 32] = { /* code 00AE */
+   \                     acFont16B_1_00AE:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   1E           DB 30
+   \   000007   00           DB 0
+   \   000008   61           DB 97
+   \   000009   80           DB 128
+   \   00000A   5C           DB 92
+   \   00000B   80           DB 128
+   \   00000C   92           DB 146
+   \   00000D   40           DB 64
+   \   00000E   92           DB 146
+   \   00000F   40           DB 64
+   \   000010   9C           DB 156
+   \   000011   40           DB 64
+   \   000012   94           DB 148
+   \   000013   40           DB 64
+   \   000014   52           DB 82
+   \   000015   80           DB 128
+   \   000016   61           DB 97
+   \   000017   80           DB 128
+   \   000018   1E           DB 30
+   \   000019   00           DB 0
+   \   00001A   00           DB 0
+   \   00001B   00           DB 0
+   \   00001C   00           DB 0
+   \   00001D   00           DB 0
+   \   00001E   00           DB 0
+   \   00001F   00           DB 0
+    277            ________,________,
+    278            ________,________,
+    279            ________,________,
+    280            ___XXXX_,________,
+    281            _XX____X,X_______,
+    282            _X_XXX__,X_______,
+    283            X__X__X_,_X______,
+    284            X__X__X_,_X______,
+    285            X__XXX__,_X______,
+    286            X__X_X__,_X______,
+    287            _X_X__X_,X_______,
+    288            _XX____X,X_______,
+    289            ___XXXX_,________,
+    290            ________,________,
+    291            ________,________,
+    292            ________,________};
+    293          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    294          GUI_CONST_STORAGE unsigned char acFont16B_1_00AF[ 16] = { /* code 00AF */
+   \                     acFont16B_1_00AF:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   FE           DB 254
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   00           DB 0
+   \   000007   00           DB 0
+   \   000008   00           DB 0
+   \   000009   00           DB 0
+   \   00000A   00           DB 0
+   \   00000B   00           DB 0
+   \   00000C   00           DB 0
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+    295            ________,
+    296            ________,
+    297            XXXXXXX_,
+    298            ________,
+    299            ________,
+    300            ________,
+    301            ________,
+    302            ________,
+    303            ________,
+    304            ________,
+    305            ________,
+    306            ________,
+    307            ________,
+    308            ________,
+    309            ________,
+    310            ________};
+    311          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    312          GUI_CONST_STORAGE unsigned char acFont16B_1_00B0[ 16] = { /* code 00B0 */
+   \                     acFont16B_1_00B0:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   60           DB 96
+   \   000004   90           DB 144
+   \   000005   90           DB 144
+   \   000006   60           DB 96
+   \   000007   00           DB 0
+   \   000008   00           DB 0
+   \   000009   00           DB 0
+   \   00000A   00           DB 0
+   \   00000B   00           DB 0
+   \   00000C   00           DB 0
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+    313            ________,
+    314            ________,
+    315            ________,
+    316            _XX_____,
+    317            X__X____,
+    318            X__X____,
+    319            _XX_____,
+    320            ________,
+    321            ________,
+    322            ________,
+    323            ________,
+    324            ________,
+    325            ________,
+    326            ________,
+    327            ________,
+    328            ________};
+    329          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    330          GUI_CONST_STORAGE unsigned char acFont16B_1_00B1[ 16] = { /* code 00B1 */
+   \                     acFont16B_1_00B1:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   30           DB 48
+   \   000007   30           DB 48
+   \   000008   FC           DB 252
+   \   000009   30           DB 48
+   \   00000A   30           DB 48
+   \   00000B   00           DB 0
+   \   00000C   FC           DB 252
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+    331            ________,
+    332            ________,
+    333            ________,
+    334            ________,
+    335            ________,
+    336            ________,
+    337            __XX____,
+    338            __XX____,
+    339            XXXXXX__,
+    340            __XX____,
+    341            __XX____,
+    342            ________,
+    343            XXXXXX__,
+    344            ________,
+    345            ________,
+    346            ________};
+    347          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    348          GUI_CONST_STORAGE unsigned char acFont16B_1_00B2[ 16] = { /* code 00B2 */
+   \                     acFont16B_1_00B2:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   70           DB 112
+   \   000004   90           DB 144
+   \   000005   20           DB 32
+   \   000006   40           DB 64
+   \   000007   F0           DB 240
+   \   000008   00           DB 0
+   \   000009   00           DB 0
+   \   00000A   00           DB 0
+   \   00000B   00           DB 0
+   \   00000C   00           DB 0
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+    349            ________,
+    350            ________,
+    351            ________,
+    352            _XXX____,
+    353            X__X____,
+    354            __X_____,
+    355            _X______,
+    356            XXXX____,
+    357            ________,
+    358            ________,
+    359            ________,
+    360            ________,
+    361            ________,
+    362            ________,
+    363            ________,
+    364            ________};
+    365          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    366          GUI_CONST_STORAGE unsigned char acFont16B_1_00B3[ 16] = { /* code 00B3 */
+   \                     acFont16B_1_00B3:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   60           DB 96
+   \   000004   90           DB 144
+   \   000005   20           DB 32
+   \   000006   90           DB 144
+   \   000007   60           DB 96
+   \   000008   00           DB 0
+   \   000009   00           DB 0
+   \   00000A   00           DB 0
+   \   00000B   00           DB 0
+   \   00000C   00           DB 0
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+    367            ________,
+    368            ________,
+    369            ________,
+    370            _XX_____,
+    371            X__X____,
+    372            __X_____,
+    373            X__X____,
+    374            _XX_____,
+    375            ________,
+    376            ________,
+    377            ________,
+    378            ________,
+    379            ________,
+    380            ________,
+    381            ________,
+    382            ________};
+    383          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    384          GUI_CONST_STORAGE unsigned char acFont16B_1_00B4[ 16] = { /* code 00B4 */
+   \                     acFont16B_1_00B4:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   30           DB 48
+   \   000004   60           DB 96
+   \   000005   00           DB 0
+   \   000006   00           DB 0
+   \   000007   00           DB 0
+   \   000008   00           DB 0
+   \   000009   00           DB 0
+   \   00000A   00           DB 0
+   \   00000B   00           DB 0
+   \   00000C   00           DB 0
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+    385            ________,
+    386            ________,
+    387            ________,
+    388            __XX____,
+    389            _XX_____,
+    390            ________,
+    391            ________,
+    392            ________,
+    393            ________,
+    394            ________,
+    395            ________,
+    396            ________,
+    397            ________,
+    398            ________,
+    399            ________,
+    400            ________};
+    401          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    402          GUI_CONST_STORAGE unsigned char acFont16B_1_00B5[ 16] = { /* code 00B5 */
+   \                     acFont16B_1_00B5:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   CC           DB 204
+   \   000007   CC           DB 204
+   \   000008   CC           DB 204
+   \   000009   CC           DB 204
+   \   00000A   CC           DB 204
+   \   00000B   CC           DB 204
+   \   00000C   FC           DB 252
+   \   00000D   C0           DB 192
+   \   00000E   C0           DB 192
+   \   00000F   C0           DB 192
+    403            ________,
+    404            ________,
+    405            ________,
+    406            ________,
+    407            ________,
+    408            ________,
+    409            XX__XX__,
+    410            XX__XX__,
+    411            XX__XX__,
+    412            XX__XX__,
+    413            XX__XX__,
+    414            XX__XX__,
+    415            XXXXXX__,
+    416            XX______,
+    417            XX______,
+    418            XX______};
+    419          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    420          GUI_CONST_STORAGE unsigned char acFont16B_1_00B6[ 16] = { /* code 00B6 */
+   \                     acFont16B_1_00B6:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   7E           DB 126
+   \   000004   F4           DB 244
+   \   000005   F4           DB 244
+   \   000006   F4           DB 244
+   \   000007   74           DB 116
+   \   000008   14           DB 20
+   \   000009   14           DB 20
+   \   00000A   14           DB 20
+   \   00000B   14           DB 20
+   \   00000C   14           DB 20
+   \   00000D   14           DB 20
+   \   00000E   14           DB 20
+   \   00000F   00           DB 0
+    421            ________,
+    422            ________,
+    423            ________,
+    424            _XXXXXX_,
+    425            XXXX_X__,
+    426            XXXX_X__,
+    427            XXXX_X__,
+    428            _XXX_X__,
+    429            ___X_X__,
+    430            ___X_X__,
+    431            ___X_X__,
+    432            ___X_X__,
+    433            ___X_X__,
+    434            ___X_X__,
+    435            ___X_X__,
+    436            ________};
+    437          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    438          GUI_CONST_STORAGE unsigned char acFont16B_1_00B7[ 16] = { /* code 00B7 */
+   \                     acFont16B_1_00B7:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   00           DB 0
+   \   000007   60           DB 96
+   \   000008   60           DB 96
+   \   000009   00           DB 0
+   \   00000A   00           DB 0
+   \   00000B   00           DB 0
+   \   00000C   00           DB 0
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+    439            ________,
+    440            ________,
+    441            ________,
+    442            ________,
+    443            ________,
+    444            ________,
+    445            ________,
+    446            _XX_____,
+    447            _XX_____,
+    448            ________,
+    449            ________,
+    450            ________,
+    451            ________,
+    452            ________,
+    453            ________,
+    454            ________};
+    455          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    456          GUI_CONST_STORAGE unsigned char acFont16B_1_00B8[ 16] = { /* code 00B8 */
+   \                     acFont16B_1_00B8:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   00           DB 0
+   \   000007   00           DB 0
+   \   000008   00           DB 0
+   \   000009   00           DB 0
+   \   00000A   00           DB 0
+   \   00000B   00           DB 0
+   \   00000C   00           DB 0
+   \   00000D   60           DB 96
+   \   00000E   20           DB 32
+   \   00000F   C0           DB 192
+    457            ________,
+    458            ________,
+    459            ________,
+    460            ________,
+    461            ________,
+    462            ________,
+    463            ________,
+    464            ________,
+    465            ________,
+    466            ________,
+    467            ________,
+    468            ________,
+    469            ________,
+    470            _XX_____,
+    471            __X_____,
+    472            XX______};
+    473          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    474          GUI_CONST_STORAGE unsigned char acFont16B_1_00B9[ 16] = { /* code 00B9 */
+   \                     acFont16B_1_00B9:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   20           DB 32
+   \   000004   60           DB 96
+   \   000005   20           DB 32
+   \   000006   20           DB 32
+   \   000007   20           DB 32
+   \   000008   00           DB 0
+   \   000009   00           DB 0
+   \   00000A   00           DB 0
+   \   00000B   00           DB 0
+   \   00000C   00           DB 0
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+    475            ________,
+    476            ________,
+    477            ________,
+    478            __X_____,
+    479            _XX_____,
+    480            __X_____,
+    481            __X_____,
+    482            __X_____,
+    483            ________,
+    484            ________,
+    485            ________,
+    486            ________,
+    487            ________,
+    488            ________,
+    489            ________,
+    490            ________};
+    491          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    492          GUI_CONST_STORAGE unsigned char acFont16B_1_00BA[ 16] = { /* code 00BA */
+   \                     acFont16B_1_00BA:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   30           DB 48
+   \   000004   48           DB 72
+   \   000005   48           DB 72
+   \   000006   48           DB 72
+   \   000007   30           DB 48
+   \   000008   00           DB 0
+   \   000009   00           DB 0
+   \   00000A   00           DB 0
+   \   00000B   00           DB 0
+   \   00000C   00           DB 0
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+    493            ________,
+    494            ________,
+    495            ________,
+    496            __XX____,
+    497            _X__X___,
+    498            _X__X___,
+    499            _X__X___,
+    500            __XX____,
+    501            ________,
+    502            ________,
+    503            ________,
+    504            ________,
+    505            ________,
+    506            ________,
+    507            ________,
+    508            ________};
+    509          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    510          GUI_CONST_STORAGE unsigned char acFont16B_1_00BB[ 16] = { /* code 00BB */
+   \                     acFont16B_1_00BB:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   00           DB 0
+   \   000007   48           DB 72
+   \   000008   6C           DB 108
+   \   000009   36           DB 54
+   \   00000A   36           DB 54
+   \   00000B   6C           DB 108
+   \   00000C   48           DB 72
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+    511            ________,
+    512            ________,
+    513            ________,
+    514            ________,
+    515            ________,
+    516            ________,
+    517            ________,
+    518            _X__X___,
+    519            _XX_XX__,
+    520            __XX_XX_,
+    521            __XX_XX_,
+    522            _XX_XX__,
+    523            _X__X___,
+    524            ________,
+    525            ________,
+    526            ________};
+    527          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    528          GUI_CONST_STORAGE unsigned char acFont16B_1_00BC[ 32] = { /* code 00BC */
+   \                     acFont16B_1_00BC:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   41           DB 65
+   \   000007   00           DB 0
+   \   000008   C2           DB 194
+   \   000009   00           DB 0
+   \   00000A   44           DB 68
+   \   00000B   00           DB 0
+   \   00000C   44           DB 68
+   \   00000D   00           DB 0
+   \   00000E   48           DB 72
+   \   00000F   00           DB 0
+   \   000010   08           DB 8
+   \   000011   80           DB 128
+   \   000012   11           DB 17
+   \   000013   80           DB 128
+   \   000014   22           DB 34
+   \   000015   80           DB 128
+   \   000016   23           DB 35
+   \   000017   C0           DB 192
+   \   000018   40           DB 64
+   \   000019   80           DB 128
+   \   00001A   00           DB 0
+   \   00001B   00           DB 0
+   \   00001C   00           DB 0
+   \   00001D   00           DB 0
+   \   00001E   00           DB 0
+   \   00001F   00           DB 0
+    529            ________,________,
+    530            ________,________,
+    531            ________,________,
+    532            _X_____X,________,
+    533            XX____X_,________,
+    534            _X___X__,________,
+    535            _X___X__,________,
+    536            _X__X___,________,
+    537            ____X___,X_______,
+    538            ___X___X,X_______,
+    539            __X___X_,X_______,
+    540            __X___XX,XX______,
+    541            _X______,X_______,
+    542            ________,________,
+    543            ________,________,
+    544            ________,________};
+    545          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    546          GUI_CONST_STORAGE unsigned char acFont16B_1_00BD[ 32] = { /* code 00BD */
+   \                     acFont16B_1_00BD:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   41           DB 65
+   \   000007   00           DB 0
+   \   000008   C2           DB 194
+   \   000009   00           DB 0
+   \   00000A   42           DB 66
+   \   00000B   00           DB 0
+   \   00000C   44           DB 68
+   \   00000D   00           DB 0
+   \   00000E   48           DB 72
+   \   00000F   00           DB 0
+   \   000010   09           DB 9
+   \   000011   C0           DB 192
+   \   000012   12           DB 18
+   \   000013   40           DB 64
+   \   000014   10           DB 16
+   \   000015   80           DB 128
+   \   000016   21           DB 33
+   \   000017   00           DB 0
+   \   000018   43           DB 67
+   \   000019   C0           DB 192
+   \   00001A   00           DB 0
+   \   00001B   00           DB 0
+   \   00001C   00           DB 0
+   \   00001D   00           DB 0
+   \   00001E   00           DB 0
+   \   00001F   00           DB 0
+    547            ________,________,
+    548            ________,________,
+    549            ________,________,
+    550            _X_____X,________,
+    551            XX____X_,________,
+    552            _X____X_,________,
+    553            _X___X__,________,
+    554            _X__X___,________,
+    555            ____X__X,XX______,
+    556            ___X__X_,_X______,
+    557            ___X____,X_______,
+    558            __X____X,________,
+    559            _X____XX,XX______,
+    560            ________,________,
+    561            ________,________,
+    562            ________,________};
+    563          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    564          GUI_CONST_STORAGE unsigned char acFont16B_1_00BE[ 32] = { /* code 00BE */
+   \                     acFont16B_1_00BE:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   60           DB 96
+   \   000007   80           DB 128
+   \   000008   91           DB 145
+   \   000009   00           DB 0
+   \   00000A   21           DB 33
+   \   00000B   00           DB 0
+   \   00000C   92           DB 146
+   \   00000D   00           DB 0
+   \   00000E   62           DB 98
+   \   00000F   00           DB 0
+   \   000010   04           DB 4
+   \   000011   40           DB 64
+   \   000012   08           DB 8
+   \   000013   C0           DB 192
+   \   000014   09           DB 9
+   \   000015   40           DB 64
+   \   000016   11           DB 17
+   \   000017   E0           DB 224
+   \   000018   10           DB 16
+   \   000019   40           DB 64
+   \   00001A   00           DB 0
+   \   00001B   00           DB 0
+   \   00001C   00           DB 0
+   \   00001D   00           DB 0
+   \   00001E   00           DB 0
+   \   00001F   00           DB 0
+    565            ________,________,
+    566            ________,________,
+    567            ________,________,
+    568            _XX_____,X_______,
+    569            X__X___X,________,
+    570            __X____X,________,
+    571            X__X__X_,________,
+    572            _XX___X_,________,
+    573            _____X__,_X______,
+    574            ____X___,XX______,
+    575            ____X__X,_X______,
+    576            ___X___X,XXX_____,
+    577            ___X____,_X______,
+    578            ________,________,
+    579            ________,________,
+    580            ________,________};
+    581          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    582          GUI_CONST_STORAGE unsigned char acFont16B_1_00BF[ 16] = { /* code 00BF */
+   \                     acFont16B_1_00BF:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   18           DB 24
+   \   000007   18           DB 24
+   \   000008   00           DB 0
+   \   000009   18           DB 24
+   \   00000A   30           DB 48
+   \   00000B   60           DB 96
+   \   00000C   C0           DB 192
+   \   00000D   C0           DB 192
+   \   00000E   C6           DB 198
+   \   00000F   7C           DB 124
+    583            ________,
+    584            ________,
+    585            ________,
+    586            ________,
+    587            ________,
+    588            ________,
+    589            ___XX___,
+    590            ___XX___,
+    591            ________,
+    592            ___XX___,
+    593            __XX____,
+    594            _XX_____,
+    595            XX______,
+    596            XX______,
+    597            XX___XX_,
+    598            _XXXXX__};
+    599          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    600          GUI_CONST_STORAGE unsigned char acFont16B_1_00C0[ 32] = { /* code 00C0 */
+   \                     acFont16B_1_00C0:
+   \   000000   18           DB 24
+   \   000001   00           DB 0
+   \   000002   0C           DB 12
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   1C           DB 28
+   \   000007   00           DB 0
+   \   000008   1C           DB 28
+   \   000009   00           DB 0
+   \   00000A   36           DB 54
+   \   00000B   00           DB 0
+   \   00000C   36           DB 54
+   \   00000D   00           DB 0
+   \   00000E   36           DB 54
+   \   00000F   00           DB 0
+   \   000010   63           DB 99
+   \   000011   00           DB 0
+   \   000012   63           DB 99
+   \   000013   00           DB 0
+   \   000014   7F           DB 127
+   \   000015   00           DB 0
+   \   000016   C1           DB 193
+   \   000017   80           DB 128
+   \   000018   C1           DB 193
+   \   000019   80           DB 128
+   \   00001A   00           DB 0
+   \   00001B   00           DB 0
+   \   00001C   00           DB 0
+   \   00001D   00           DB 0
+   \   00001E   00           DB 0
+   \   00001F   00           DB 0
+    601            ___XX___,________,
+    602            ____XX__,________,
+    603            ________,________,
+    604            ___XXX__,________,
+    605            ___XXX__,________,
+    606            __XX_XX_,________,
+    607            __XX_XX_,________,
+    608            __XX_XX_,________,
+    609            _XX___XX,________,
+    610            _XX___XX,________,
+    611            _XXXXXXX,________,
+    612            XX_____X,X_______,
+    613            XX_____X,X_______,
+    614            ________,________,
+    615            ________,________,
+    616            ________,________};
+    617          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    618          GUI_CONST_STORAGE unsigned char acFont16B_1_00C1[ 32] = { /* code 00C1 */
+   \                     acFont16B_1_00C1:
+   \   000000   06           DB 6
+   \   000001   00           DB 0
+   \   000002   0C           DB 12
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   1C           DB 28
+   \   000007   00           DB 0
+   \   000008   1C           DB 28
+   \   000009   00           DB 0
+   \   00000A   36           DB 54
+   \   00000B   00           DB 0
+   \   00000C   36           DB 54
+   \   00000D   00           DB 0
+   \   00000E   36           DB 54
+   \   00000F   00           DB 0
+   \   000010   63           DB 99
+   \   000011   00           DB 0
+   \   000012   63           DB 99
+   \   000013   00           DB 0
+   \   000014   7F           DB 127
+   \   000015   00           DB 0
+   \   000016   C1           DB 193
+   \   000017   80           DB 128
+   \   000018   C1           DB 193
+   \   000019   80           DB 128
+   \   00001A   00           DB 0
+   \   00001B   00           DB 0
+   \   00001C   00           DB 0
+   \   00001D   00           DB 0
+   \   00001E   00           DB 0
+   \   00001F   00           DB 0
+    619            _____XX_,________,
+    620            ____XX__,________,
+    621            ________,________,
+    622            ___XXX__,________,
+    623            ___XXX__,________,
+    624            __XX_XX_,________,
+    625            __XX_XX_,________,
+    626            __XX_XX_,________,
+    627            _XX___XX,________,
+    628            _XX___XX,________,
+    629            _XXXXXXX,________,
+    630            XX_____X,X_______,
+    631            XX_____X,X_______,
+    632            ________,________,
+    633            ________,________,
+    634            ________,________};
+    635          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    636          GUI_CONST_STORAGE unsigned char acFont16B_1_00C2[ 32] = { /* code 00C2 */
+   \                     acFont16B_1_00C2:
+   \   000000   08           DB 8
+   \   000001   00           DB 0
+   \   000002   14           DB 20
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   1C           DB 28
+   \   000007   00           DB 0
+   \   000008   1C           DB 28
+   \   000009   00           DB 0
+   \   00000A   36           DB 54
+   \   00000B   00           DB 0
+   \   00000C   36           DB 54
+   \   00000D   00           DB 0
+   \   00000E   36           DB 54
+   \   00000F   00           DB 0
+   \   000010   63           DB 99
+   \   000011   00           DB 0
+   \   000012   63           DB 99
+   \   000013   00           DB 0
+   \   000014   7F           DB 127
+   \   000015   00           DB 0
+   \   000016   C1           DB 193
+   \   000017   80           DB 128
+   \   000018   C1           DB 193
+   \   000019   80           DB 128
+   \   00001A   00           DB 0
+   \   00001B   00           DB 0
+   \   00001C   00           DB 0
+   \   00001D   00           DB 0
+   \   00001E   00           DB 0
+   \   00001F   00           DB 0
+    637            ____X___,________,
+    638            ___X_X__,________,
+    639            ________,________,
+    640            ___XXX__,________,
+    641            ___XXX__,________,
+    642            __XX_XX_,________,
+    643            __XX_XX_,________,
+    644            __XX_XX_,________,
+    645            _XX___XX,________,
+    646            _XX___XX,________,
+    647            _XXXXXXX,________,
+    648            XX_____X,X_______,
+    649            XX_____X,X_______,
+    650            ________,________,
+    651            ________,________,
+    652            ________,________};
+    653          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    654          GUI_CONST_STORAGE unsigned char acFont16B_1_00C3[ 32] = { /* code 00C3 */
+   \                     acFont16B_1_00C3:
+   \   000000   1A           DB 26
+   \   000001   00           DB 0
+   \   000002   16           DB 22
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   1C           DB 28
+   \   000007   00           DB 0
+   \   000008   1C           DB 28
+   \   000009   00           DB 0
+   \   00000A   36           DB 54
+   \   00000B   00           DB 0
+   \   00000C   36           DB 54
+   \   00000D   00           DB 0
+   \   00000E   36           DB 54
+   \   00000F   00           DB 0
+   \   000010   63           DB 99
+   \   000011   00           DB 0
+   \   000012   63           DB 99
+   \   000013   00           DB 0
+   \   000014   7F           DB 127
+   \   000015   00           DB 0
+   \   000016   C1           DB 193
+   \   000017   80           DB 128
+   \   000018   C1           DB 193
+   \   000019   80           DB 128
+   \   00001A   00           DB 0
+   \   00001B   00           DB 0
+   \   00001C   00           DB 0
+   \   00001D   00           DB 0
+   \   00001E   00           DB 0
+   \   00001F   00           DB 0
+    655            ___XX_X_,________,
+    656            ___X_XX_,________,
+    657            ________,________,
+    658            ___XXX__,________,
+    659            ___XXX__,________,
+    660            __XX_XX_,________,
+    661            __XX_XX_,________,
+    662            __XX_XX_,________,
+    663            _XX___XX,________,
+    664            _XX___XX,________,
+    665            _XXXXXXX,________,
+    666            XX_____X,X_______,
+    667            XX_____X,X_______,
+    668            ________,________,
+    669            ________,________,
+    670            ________,________};
+    671          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    672          GUI_CONST_STORAGE unsigned char acFont16B_1_00C4[ 32] = { /* code 00C4 */
+   \                     acFont16B_1_00C4:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   12           DB 18
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   1C           DB 28
+   \   000007   00           DB 0
+   \   000008   1C           DB 28
+   \   000009   00           DB 0
+   \   00000A   36           DB 54
+   \   00000B   00           DB 0
+   \   00000C   36           DB 54
+   \   00000D   00           DB 0
+   \   00000E   36           DB 54
+   \   00000F   00           DB 0
+   \   000010   63           DB 99
+   \   000011   00           DB 0
+   \   000012   63           DB 99
+   \   000013   00           DB 0
+   \   000014   7F           DB 127
+   \   000015   00           DB 0
+   \   000016   C1           DB 193
+   \   000017   80           DB 128
+   \   000018   C1           DB 193
+   \   000019   80           DB 128
+   \   00001A   00           DB 0
+   \   00001B   00           DB 0
+   \   00001C   00           DB 0
+   \   00001D   00           DB 0
+   \   00001E   00           DB 0
+   \   00001F   00           DB 0
+    673            ________,________,
+    674            ___X__X_,________,
+    675            ________,________,
+    676            ___XXX__,________,
+    677            ___XXX__,________,
+    678            __XX_XX_,________,
+    679            __XX_XX_,________,
+    680            __XX_XX_,________,
+    681            _XX___XX,________,
+    682            _XX___XX,________,
+    683            _XXXXXXX,________,
+    684            XX_____X,X_______,
+    685            XX_____X,X_______,
+    686            ________,________,
+    687            ________,________,
+    688            ________,________};
+    689          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    690          GUI_CONST_STORAGE unsigned char acFont16B_1_00C5[ 32] = { /* code 00C5 */
+   \                     acFont16B_1_00C5:
+   \   000000   0C           DB 12
+   \   000001   00           DB 0
+   \   000002   12           DB 18
+   \   000003   00           DB 0
+   \   000004   12           DB 18
+   \   000005   00           DB 0
+   \   000006   1C           DB 28
+   \   000007   00           DB 0
+   \   000008   1C           DB 28
+   \   000009   00           DB 0
+   \   00000A   36           DB 54
+   \   00000B   00           DB 0
+   \   00000C   36           DB 54
+   \   00000D   00           DB 0
+   \   00000E   36           DB 54
+   \   00000F   00           DB 0
+   \   000010   63           DB 99
+   \   000011   00           DB 0
+   \   000012   63           DB 99
+   \   000013   00           DB 0
+   \   000014   7F           DB 127
+   \   000015   00           DB 0
+   \   000016   C1           DB 193
+   \   000017   80           DB 128
+   \   000018   C1           DB 193
+   \   000019   80           DB 128
+   \   00001A   00           DB 0
+   \   00001B   00           DB 0
+   \   00001C   00           DB 0
+   \   00001D   00           DB 0
+   \   00001E   00           DB 0
+   \   00001F   00           DB 0
+    691            ____XX__,________,
+    692            ___X__X_,________,
+    693            ___X__X_,________,
+    694            ___XXX__,________,
+    695            ___XXX__,________,
+    696            __XX_XX_,________,
+    697            __XX_XX_,________,
+    698            __XX_XX_,________,
+    699            _XX___XX,________,
+    700            _XX___XX,________,
+    701            _XXXXXXX,________,
+    702            XX_____X,X_______,
+    703            XX_____X,X_______,
+    704            ________,________,
+    705            ________,________,
+    706            ________,________};
+    707          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    708          GUI_CONST_STORAGE unsigned char acFont16B_1_00C6[ 32] = { /* code 00C6 */
+   \                     acFont16B_1_00C6:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   0F           DB 15
+   \   000007   F0           DB 240
+   \   000008   1B           DB 27
+   \   000009   00           DB 0
+   \   00000A   1B           DB 27
+   \   00000B   00           DB 0
+   \   00000C   1B           DB 27
+   \   00000D   00           DB 0
+   \   00000E   33           DB 51
+   \   00000F   F0           DB 240
+   \   000010   33           DB 51
+   \   000011   00           DB 0
+   \   000012   63           DB 99
+   \   000013   00           DB 0
+   \   000014   7F           DB 127
+   \   000015   00           DB 0
+   \   000016   63           DB 99
+   \   000017   00           DB 0
+   \   000018   C3           DB 195
+   \   000019   F0           DB 240
+   \   00001A   00           DB 0
+   \   00001B   00           DB 0
+   \   00001C   00           DB 0
+   \   00001D   00           DB 0
+   \   00001E   00           DB 0
+   \   00001F   00           DB 0
+    709            ________,________,
+    710            ________,________,
+    711            ________,________,
+    712            ____XXXX,XXXX____,
+    713            ___XX_XX,________,
+    714            ___XX_XX,________,
+    715            ___XX_XX,________,
+    716            __XX__XX,XXXX____,
+    717            __XX__XX,________,
+    718            _XX___XX,________,
+    719            _XXXXXXX,________,
+    720            _XX___XX,________,
+    721            XX____XX,XXXX____,
+    722            ________,________,
+    723            ________,________,
+    724            ________,________};
+    725          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    726          GUI_CONST_STORAGE unsigned char acFont16B_1_00C7[ 32] = { /* code 00C7 */
+   \                     acFont16B_1_00C7:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   1F           DB 31
+   \   000007   00           DB 0
+   \   000008   31           DB 49
+   \   000009   80           DB 128
+   \   00000A   60           DB 96
+   \   00000B   00           DB 0
+   \   00000C   60           DB 96
+   \   00000D   00           DB 0
+   \   00000E   60           DB 96
+   \   00000F   00           DB 0
+   \   000010   60           DB 96
+   \   000011   00           DB 0
+   \   000012   60           DB 96
+   \   000013   00           DB 0
+   \   000014   60           DB 96
+   \   000015   00           DB 0
+   \   000016   31           DB 49
+   \   000017   80           DB 128
+   \   000018   1F           DB 31
+   \   000019   00           DB 0
+   \   00001A   0C           DB 12
+   \   00001B   00           DB 0
+   \   00001C   04           DB 4
+   \   00001D   00           DB 0
+   \   00001E   18           DB 24
+   \   00001F   00           DB 0
+    727            ________,________,
+    728            ________,________,
+    729            ________,________,
+    730            ___XXXXX,________,
+    731            __XX___X,X_______,
+    732            _XX_____,________,
+    733            _XX_____,________,
+    734            _XX_____,________,
+    735            _XX_____,________,
+    736            _XX_____,________,
+    737            _XX_____,________,
+    738            __XX___X,X_______,
+    739            ___XXXXX,________,
+    740            ____XX__,________,
+    741            _____X__,________,
+    742            ___XX___,________};
+    743          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    744          GUI_CONST_STORAGE unsigned char acFont16B_1_00C8[ 16] = { /* code 00C8 */
+   \                     acFont16B_1_00C8:
+   \   000000   30           DB 48
+   \   000001   18           DB 24
+   \   000002   00           DB 0
+   \   000003   7E           DB 126
+   \   000004   60           DB 96
+   \   000005   60           DB 96
+   \   000006   60           DB 96
+   \   000007   7E           DB 126
+   \   000008   60           DB 96
+   \   000009   60           DB 96
+   \   00000A   60           DB 96
+   \   00000B   60           DB 96
+   \   00000C   7E           DB 126
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+    745            __XX____,
+    746            ___XX___,
+    747            ________,
+    748            _XXXXXX_,
+    749            _XX_____,
+    750            _XX_____,
+    751            _XX_____,
+    752            _XXXXXX_,
+    753            _XX_____,
+    754            _XX_____,
+    755            _XX_____,
+    756            _XX_____,
+    757            _XXXXXX_,
+    758            ________,
+    759            ________,
+    760            ________};
+    761          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    762          GUI_CONST_STORAGE unsigned char acFont16B_1_00C9[ 16] = { /* code 00C9 */
+   \                     acFont16B_1_00C9:
+   \   000000   06           DB 6
+   \   000001   0C           DB 12
+   \   000002   00           DB 0
+   \   000003   7E           DB 126
+   \   000004   60           DB 96
+   \   000005   60           DB 96
+   \   000006   60           DB 96
+   \   000007   7E           DB 126
+   \   000008   60           DB 96
+   \   000009   60           DB 96
+   \   00000A   60           DB 96
+   \   00000B   60           DB 96
+   \   00000C   7E           DB 126
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+    763            _____XX_,
+    764            ____XX__,
+    765            ________,
+    766            _XXXXXX_,
+    767            _XX_____,
+    768            _XX_____,
+    769            _XX_____,
+    770            _XXXXXX_,
+    771            _XX_____,
+    772            _XX_____,
+    773            _XX_____,
+    774            _XX_____,
+    775            _XXXXXX_,
+    776            ________,
+    777            ________,
+    778            ________};
+    779          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    780          GUI_CONST_STORAGE unsigned char acFont16B_1_00CA[ 16] = { /* code 00CA */
+   \                     acFont16B_1_00CA:
+   \   000000   08           DB 8
+   \   000001   14           DB 20
+   \   000002   00           DB 0
+   \   000003   7E           DB 126
+   \   000004   60           DB 96
+   \   000005   60           DB 96
+   \   000006   60           DB 96
+   \   000007   7E           DB 126
+   \   000008   60           DB 96
+   \   000009   60           DB 96
+   \   00000A   60           DB 96
+   \   00000B   60           DB 96
+   \   00000C   7E           DB 126
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+    781            ____X___,
+    782            ___X_X__,
+    783            ________,
+    784            _XXXXXX_,
+    785            _XX_____,
+    786            _XX_____,
+    787            _XX_____,
+    788            _XXXXXX_,
+    789            _XX_____,
+    790            _XX_____,
+    791            _XX_____,
+    792            _XX_____,
+    793            _XXXXXX_,
+    794            ________,
+    795            ________,
+    796            ________};
+    797          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    798          GUI_CONST_STORAGE unsigned char acFont16B_1_00CB[ 16] = { /* code 00CB */
+   \                     acFont16B_1_00CB:
+   \   000000   00           DB 0
+   \   000001   24           DB 36
+   \   000002   00           DB 0
+   \   000003   7E           DB 126
+   \   000004   60           DB 96
+   \   000005   60           DB 96
+   \   000006   60           DB 96
+   \   000007   7E           DB 126
+   \   000008   60           DB 96
+   \   000009   60           DB 96
+   \   00000A   60           DB 96
+   \   00000B   60           DB 96
+   \   00000C   7E           DB 126
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+    799            ________,
+    800            __X__X__,
+    801            ________,
+    802            _XXXXXX_,
+    803            _XX_____,
+    804            _XX_____,
+    805            _XX_____,
+    806            _XXXXXX_,
+    807            _XX_____,
+    808            _XX_____,
+    809            _XX_____,
+    810            _XX_____,
+    811            _XXXXXX_,
+    812            ________,
+    813            ________,
+    814            ________};
+    815          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    816          GUI_CONST_STORAGE unsigned char acFont16B_1_00CC[ 16] = { /* code 00CC */
+   \                     acFont16B_1_00CC:
+   \   000000   C0           DB 192
+   \   000001   60           DB 96
+   \   000002   00           DB 0
+   \   000003   60           DB 96
+   \   000004   60           DB 96
+   \   000005   60           DB 96
+   \   000006   60           DB 96
+   \   000007   60           DB 96
+   \   000008   60           DB 96
+   \   000009   60           DB 96
+   \   00000A   60           DB 96
+   \   00000B   60           DB 96
+   \   00000C   60           DB 96
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+    817            XX______,
+    818            _XX_____,
+    819            ________,
+    820            _XX_____,
+    821            _XX_____,
+    822            _XX_____,
+    823            _XX_____,
+    824            _XX_____,
+    825            _XX_____,
+    826            _XX_____,
+    827            _XX_____,
+    828            _XX_____,
+    829            _XX_____,
+    830            ________,
+    831            ________,
+    832            ________};
+    833          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    834          GUI_CONST_STORAGE unsigned char acFont16B_1_00CD[ 16] = { /* code 00CD */
+   \                     acFont16B_1_00CD:
+   \   000000   30           DB 48
+   \   000001   60           DB 96
+   \   000002   00           DB 0
+   \   000003   60           DB 96
+   \   000004   60           DB 96
+   \   000005   60           DB 96
+   \   000006   60           DB 96
+   \   000007   60           DB 96
+   \   000008   60           DB 96
+   \   000009   60           DB 96
+   \   00000A   60           DB 96
+   \   00000B   60           DB 96
+   \   00000C   60           DB 96
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+    835            __XX____,
+    836            _XX_____,
+    837            ________,
+    838            _XX_____,
+    839            _XX_____,
+    840            _XX_____,
+    841            _XX_____,
+    842            _XX_____,
+    843            _XX_____,
+    844            _XX_____,
+    845            _XX_____,
+    846            _XX_____,
+    847            _XX_____,
+    848            ________,
+    849            ________,
+    850            ________};
+    851          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    852          GUI_CONST_STORAGE unsigned char acFont16B_1_00CE[ 16] = { /* code 00CE */
+   \                     acFont16B_1_00CE:
+   \   000000   20           DB 32
+   \   000001   50           DB 80
+   \   000002   00           DB 0
+   \   000003   60           DB 96
+   \   000004   60           DB 96
+   \   000005   60           DB 96
+   \   000006   60           DB 96
+   \   000007   60           DB 96
+   \   000008   60           DB 96
+   \   000009   60           DB 96
+   \   00000A   60           DB 96
+   \   00000B   60           DB 96
+   \   00000C   60           DB 96
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+    853            __X_____,
+    854            _X_X____,
+    855            ________,
+    856            _XX_____,
+    857            _XX_____,
+    858            _XX_____,
+    859            _XX_____,
+    860            _XX_____,
+    861            _XX_____,
+    862            _XX_____,
+    863            _XX_____,
+    864            _XX_____,
+    865            _XX_____,
+    866            ________,
+    867            ________,
+    868            ________};
+    869          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    870          GUI_CONST_STORAGE unsigned char acFont16B_1_00CF[ 16] = { /* code 00CF */
+   \                     acFont16B_1_00CF:
+   \   000000   00           DB 0
+   \   000001   90           DB 144
+   \   000002   00           DB 0
+   \   000003   60           DB 96
+   \   000004   60           DB 96
+   \   000005   60           DB 96
+   \   000006   60           DB 96
+   \   000007   60           DB 96
+   \   000008   60           DB 96
+   \   000009   60           DB 96
+   \   00000A   60           DB 96
+   \   00000B   60           DB 96
+   \   00000C   60           DB 96
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+    871            ________,
+    872            X__X____,
+    873            ________,
+    874            _XX_____,
+    875            _XX_____,
+    876            _XX_____,
+    877            _XX_____,
+    878            _XX_____,
+    879            _XX_____,
+    880            _XX_____,
+    881            _XX_____,
+    882            _XX_____,
+    883            _XX_____,
+    884            ________,
+    885            ________,
+    886            ________};
+    887          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    888          GUI_CONST_STORAGE unsigned char acFont16B_1_00D0[ 32] = { /* code 00D0 */
+   \                     acFont16B_1_00D0:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   7C           DB 124
+   \   000007   00           DB 0
+   \   000008   66           DB 102
+   \   000009   00           DB 0
+   \   00000A   63           DB 99
+   \   00000B   00           DB 0
+   \   00000C   63           DB 99
+   \   00000D   00           DB 0
+   \   00000E   FB           DB 251
+   \   00000F   00           DB 0
+   \   000010   63           DB 99
+   \   000011   00           DB 0
+   \   000012   63           DB 99
+   \   000013   00           DB 0
+   \   000014   63           DB 99
+   \   000015   00           DB 0
+   \   000016   66           DB 102
+   \   000017   00           DB 0
+   \   000018   7C           DB 124
+   \   000019   00           DB 0
+   \   00001A   00           DB 0
+   \   00001B   00           DB 0
+   \   00001C   00           DB 0
+   \   00001D   00           DB 0
+   \   00001E   00           DB 0
+   \   00001F   00           DB 0
+    889            ________,________,
+    890            ________,________,
+    891            ________,________,
+    892            _XXXXX__,________,
+    893            _XX__XX_,________,
+    894            _XX___XX,________,
+    895            _XX___XX,________,
+    896            XXXXX_XX,________,
+    897            _XX___XX,________,
+    898            _XX___XX,________,
+    899            _XX___XX,________,
+    900            _XX__XX_,________,
+    901            _XXXXX__,________,
+    902            ________,________,
+    903            ________,________,
+    904            ________,________};
+    905          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    906          GUI_CONST_STORAGE unsigned char acFont16B_1_00D1[ 32] = { /* code 00D1 */
+   \                     acFont16B_1_00D1:
+   \   000000   1A           DB 26
+   \   000001   00           DB 0
+   \   000002   16           DB 22
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   63           DB 99
+   \   000007   00           DB 0
+   \   000008   73           DB 115
+   \   000009   00           DB 0
+   \   00000A   73           DB 115
+   \   00000B   00           DB 0
+   \   00000C   7B           DB 123
+   \   00000D   00           DB 0
+   \   00000E   6B           DB 107
+   \   00000F   00           DB 0
+   \   000010   6F           DB 111
+   \   000011   00           DB 0
+   \   000012   67           DB 103
+   \   000013   00           DB 0
+   \   000014   67           DB 103
+   \   000015   00           DB 0
+   \   000016   63           DB 99
+   \   000017   00           DB 0
+   \   000018   63           DB 99
+   \   000019   00           DB 0
+   \   00001A   00           DB 0
+   \   00001B   00           DB 0
+   \   00001C   00           DB 0
+   \   00001D   00           DB 0
+   \   00001E   00           DB 0
+   \   00001F   00           DB 0
+    907            ___XX_X_,________,
+    908            ___X_XX_,________,
+    909            ________,________,
+    910            _XX___XX,________,
+    911            _XXX__XX,________,
+    912            _XXX__XX,________,
+    913            _XXXX_XX,________,
+    914            _XX_X_XX,________,
+    915            _XX_XXXX,________,
+    916            _XX__XXX,________,
+    917            _XX__XXX,________,
+    918            _XX___XX,________,
+    919            _XX___XX,________,
+    920            ________,________,
+    921            ________,________,
+    922            ________,________};
+    923          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    924          GUI_CONST_STORAGE unsigned char acFont16B_1_00D2[ 32] = { /* code 00D2 */
+   \                     acFont16B_1_00D2:
+   \   000000   18           DB 24
+   \   000001   00           DB 0
+   \   000002   0C           DB 12
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   1E           DB 30
+   \   000007   00           DB 0
+   \   000008   33           DB 51
+   \   000009   00           DB 0
+   \   00000A   61           DB 97
+   \   00000B   80           DB 128
+   \   00000C   61           DB 97
+   \   00000D   80           DB 128
+   \   00000E   61           DB 97
+   \   00000F   80           DB 128
+   \   000010   61           DB 97
+   \   000011   80           DB 128
+   \   000012   61           DB 97
+   \   000013   80           DB 128
+   \   000014   61           DB 97
+   \   000015   80           DB 128
+   \   000016   33           DB 51
+   \   000017   00           DB 0
+   \   000018   1E           DB 30
+   \   000019   00           DB 0
+   \   00001A   00           DB 0
+   \   00001B   00           DB 0
+   \   00001C   00           DB 0
+   \   00001D   00           DB 0
+   \   00001E   00           DB 0
+   \   00001F   00           DB 0
+    925            ___XX___,________,
+    926            ____XX__,________,
+    927            ________,________,
+    928            ___XXXX_,________,
+    929            __XX__XX,________,
+    930            _XX____X,X_______,
+    931            _XX____X,X_______,
+    932            _XX____X,X_______,
+    933            _XX____X,X_______,
+    934            _XX____X,X_______,
+    935            _XX____X,X_______,
+    936            __XX__XX,________,
+    937            ___XXXX_,________,
+    938            ________,________,
+    939            ________,________,
+    940            ________,________};
+    941          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    942          GUI_CONST_STORAGE unsigned char acFont16B_1_00D3[ 32] = { /* code 00D3 */
+   \                     acFont16B_1_00D3:
+   \   000000   06           DB 6
+   \   000001   00           DB 0
+   \   000002   0C           DB 12
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   1E           DB 30
+   \   000007   00           DB 0
+   \   000008   33           DB 51
+   \   000009   00           DB 0
+   \   00000A   61           DB 97
+   \   00000B   80           DB 128
+   \   00000C   61           DB 97
+   \   00000D   80           DB 128
+   \   00000E   61           DB 97
+   \   00000F   80           DB 128
+   \   000010   61           DB 97
+   \   000011   80           DB 128
+   \   000012   61           DB 97
+   \   000013   80           DB 128
+   \   000014   61           DB 97
+   \   000015   80           DB 128
+   \   000016   33           DB 51
+   \   000017   00           DB 0
+   \   000018   1E           DB 30
+   \   000019   00           DB 0
+   \   00001A   00           DB 0
+   \   00001B   00           DB 0
+   \   00001C   00           DB 0
+   \   00001D   00           DB 0
+   \   00001E   00           DB 0
+   \   00001F   00           DB 0
+    943            _____XX_,________,
+    944            ____XX__,________,
+    945            ________,________,
+    946            ___XXXX_,________,
+    947            __XX__XX,________,
+    948            _XX____X,X_______,
+    949            _XX____X,X_______,
+    950            _XX____X,X_______,
+    951            _XX____X,X_______,
+    952            _XX____X,X_______,
+    953            _XX____X,X_______,
+    954            __XX__XX,________,
+    955            ___XXXX_,________,
+    956            ________,________,
+    957            ________,________,
+    958            ________,________};
+    959          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    960          GUI_CONST_STORAGE unsigned char acFont16B_1_00D4[ 32] = { /* code 00D4 */
+   \                     acFont16B_1_00D4:
+   \   000000   04           DB 4
+   \   000001   00           DB 0
+   \   000002   0A           DB 10
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   1E           DB 30
+   \   000007   00           DB 0
+   \   000008   33           DB 51
+   \   000009   00           DB 0
+   \   00000A   61           DB 97
+   \   00000B   80           DB 128
+   \   00000C   61           DB 97
+   \   00000D   80           DB 128
+   \   00000E   61           DB 97
+   \   00000F   80           DB 128
+   \   000010   61           DB 97
+   \   000011   80           DB 128
+   \   000012   61           DB 97
+   \   000013   80           DB 128
+   \   000014   61           DB 97
+   \   000015   80           DB 128
+   \   000016   33           DB 51
+   \   000017   00           DB 0
+   \   000018   1E           DB 30
+   \   000019   00           DB 0
+   \   00001A   00           DB 0
+   \   00001B   00           DB 0
+   \   00001C   00           DB 0
+   \   00001D   00           DB 0
+   \   00001E   00           DB 0
+   \   00001F   00           DB 0
+    961            _____X__,________,
+    962            ____X_X_,________,
+    963            ________,________,
+    964            ___XXXX_,________,
+    965            __XX__XX,________,
+    966            _XX____X,X_______,
+    967            _XX____X,X_______,
+    968            _XX____X,X_______,
+    969            _XX____X,X_______,
+    970            _XX____X,X_______,
+    971            _XX____X,X_______,
+    972            __XX__XX,________,
+    973            ___XXXX_,________,
+    974            ________,________,
+    975            ________,________,
+    976            ________,________};
+    977          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    978          GUI_CONST_STORAGE unsigned char acFont16B_1_00D5[ 32] = { /* code 00D5 */
+   \                     acFont16B_1_00D5:
+   \   000000   1A           DB 26
+   \   000001   00           DB 0
+   \   000002   16           DB 22
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   1E           DB 30
+   \   000007   00           DB 0
+   \   000008   33           DB 51
+   \   000009   00           DB 0
+   \   00000A   61           DB 97
+   \   00000B   80           DB 128
+   \   00000C   61           DB 97
+   \   00000D   80           DB 128
+   \   00000E   61           DB 97
+   \   00000F   80           DB 128
+   \   000010   61           DB 97
+   \   000011   80           DB 128
+   \   000012   61           DB 97
+   \   000013   80           DB 128
+   \   000014   61           DB 97
+   \   000015   80           DB 128
+   \   000016   33           DB 51
+   \   000017   00           DB 0
+   \   000018   1E           DB 30
+   \   000019   00           DB 0
+   \   00001A   00           DB 0
+   \   00001B   00           DB 0
+   \   00001C   00           DB 0
+   \   00001D   00           DB 0
+   \   00001E   00           DB 0
+   \   00001F   00           DB 0
+    979            ___XX_X_,________,
+    980            ___X_XX_,________,
+    981            ________,________,
+    982            ___XXXX_,________,
+    983            __XX__XX,________,
+    984            _XX____X,X_______,
+    985            _XX____X,X_______,
+    986            _XX____X,X_______,
+    987            _XX____X,X_______,
+    988            _XX____X,X_______,
+    989            _XX____X,X_______,
+    990            __XX__XX,________,
+    991            ___XXXX_,________,
+    992            ________,________,
+    993            ________,________,
+    994            ________,________};
+    995          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    996          GUI_CONST_STORAGE unsigned char acFont16B_1_00D6[ 32] = { /* code 00D6 */
+   \                     acFont16B_1_00D6:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   12           DB 18
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   1E           DB 30
+   \   000007   00           DB 0
+   \   000008   33           DB 51
+   \   000009   00           DB 0
+   \   00000A   61           DB 97
+   \   00000B   80           DB 128
+   \   00000C   61           DB 97
+   \   00000D   80           DB 128
+   \   00000E   61           DB 97
+   \   00000F   80           DB 128
+   \   000010   61           DB 97
+   \   000011   80           DB 128
+   \   000012   61           DB 97
+   \   000013   80           DB 128
+   \   000014   61           DB 97
+   \   000015   80           DB 128
+   \   000016   33           DB 51
+   \   000017   00           DB 0
+   \   000018   1E           DB 30
+   \   000019   00           DB 0
+   \   00001A   00           DB 0
+   \   00001B   00           DB 0
+   \   00001C   00           DB 0
+   \   00001D   00           DB 0
+   \   00001E   00           DB 0
+   \   00001F   00           DB 0
+    997            ________,________,
+    998            ___X__X_,________,
+    999            ________,________,
+   1000            ___XXXX_,________,
+   1001            __XX__XX,________,
+   1002            _XX____X,X_______,
+   1003            _XX____X,X_______,
+   1004            _XX____X,X_______,
+   1005            _XX____X,X_______,
+   1006            _XX____X,X_______,
+   1007            _XX____X,X_______,
+   1008            __XX__XX,________,
+   1009            ___XXXX_,________,
+   1010            ________,________,
+   1011            ________,________,
+   1012            ________,________};
+   1013          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1014          GUI_CONST_STORAGE unsigned char acFont16B_1_00D7[ 16] = { /* code 00D7 */
+   \                     acFont16B_1_00D7:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   44           DB 68
+   \   000007   6C           DB 108
+   \   000008   38           DB 56
+   \   000009   38           DB 56
+   \   00000A   6C           DB 108
+   \   00000B   44           DB 68
+   \   00000C   00           DB 0
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1015            ________,
+   1016            ________,
+   1017            ________,
+   1018            ________,
+   1019            ________,
+   1020            ________,
+   1021            _X___X__,
+   1022            _XX_XX__,
+   1023            __XXX___,
+   1024            __XXX___,
+   1025            _XX_XX__,
+   1026            _X___X__,
+   1027            ________,
+   1028            ________,
+   1029            ________,
+   1030            ________};
+   1031          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1032          GUI_CONST_STORAGE unsigned char acFont16B_1_00D8[ 32] = { /* code 00D8 */
+   \                     acFont16B_1_00D8:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   80           DB 128
+   \   000006   1E           DB 30
+   \   000007   C0           DB 192
+   \   000008   33           DB 51
+   \   000009   80           DB 128
+   \   00000A   63           DB 99
+   \   00000B   80           DB 128
+   \   00000C   67           DB 103
+   \   00000D   80           DB 128
+   \   00000E   65           DB 101
+   \   00000F   80           DB 128
+   \   000010   69           DB 105
+   \   000011   80           DB 128
+   \   000012   79           DB 121
+   \   000013   80           DB 128
+   \   000014   71           DB 113
+   \   000015   80           DB 128
+   \   000016   73           DB 115
+   \   000017   00           DB 0
+   \   000018   DE           DB 222
+   \   000019   00           DB 0
+   \   00001A   40           DB 64
+   \   00001B   00           DB 0
+   \   00001C   00           DB 0
+   \   00001D   00           DB 0
+   \   00001E   00           DB 0
+   \   00001F   00           DB 0
+   1033            ________,________,
+   1034            ________,________,
+   1035            ________,X_______,
+   1036            ___XXXX_,XX______,
+   1037            __XX__XX,X_______,
+   1038            _XX___XX,X_______,
+   1039            _XX__XXX,X_______,
+   1040            _XX__X_X,X_______,
+   1041            _XX_X__X,X_______,
+   1042            _XXXX__X,X_______,
+   1043            _XXX___X,X_______,
+   1044            _XXX__XX,________,
+   1045            XX_XXXX_,________,
+   1046            _X______,________,
+   1047            ________,________,
+   1048            ________,________};
+   1049          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1050          GUI_CONST_STORAGE unsigned char acFont16B_1_00D9[ 32] = { /* code 00D9 */
+   \                     acFont16B_1_00D9:
+   \   000000   18           DB 24
+   \   000001   00           DB 0
+   \   000002   0C           DB 12
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   63           DB 99
+   \   000007   00           DB 0
+   \   000008   63           DB 99
+   \   000009   00           DB 0
+   \   00000A   63           DB 99
+   \   00000B   00           DB 0
+   \   00000C   63           DB 99
+   \   00000D   00           DB 0
+   \   00000E   63           DB 99
+   \   00000F   00           DB 0
+   \   000010   63           DB 99
+   \   000011   00           DB 0
+   \   000012   63           DB 99
+   \   000013   00           DB 0
+   \   000014   63           DB 99
+   \   000015   00           DB 0
+   \   000016   63           DB 99
+   \   000017   00           DB 0
+   \   000018   3E           DB 62
+   \   000019   00           DB 0
+   \   00001A   00           DB 0
+   \   00001B   00           DB 0
+   \   00001C   00           DB 0
+   \   00001D   00           DB 0
+   \   00001E   00           DB 0
+   \   00001F   00           DB 0
+   1051            ___XX___,________,
+   1052            ____XX__,________,
+   1053            ________,________,
+   1054            _XX___XX,________,
+   1055            _XX___XX,________,
+   1056            _XX___XX,________,
+   1057            _XX___XX,________,
+   1058            _XX___XX,________,
+   1059            _XX___XX,________,
+   1060            _XX___XX,________,
+   1061            _XX___XX,________,
+   1062            _XX___XX,________,
+   1063            __XXXXX_,________,
+   1064            ________,________,
+   1065            ________,________,
+   1066            ________,________};
+   1067          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1068          GUI_CONST_STORAGE unsigned char acFont16B_1_00DA[ 32] = { /* code 00DA */
+   \                     acFont16B_1_00DA:
+   \   000000   0C           DB 12
+   \   000001   00           DB 0
+   \   000002   18           DB 24
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   63           DB 99
+   \   000007   00           DB 0
+   \   000008   63           DB 99
+   \   000009   00           DB 0
+   \   00000A   63           DB 99
+   \   00000B   00           DB 0
+   \   00000C   63           DB 99
+   \   00000D   00           DB 0
+   \   00000E   63           DB 99
+   \   00000F   00           DB 0
+   \   000010   63           DB 99
+   \   000011   00           DB 0
+   \   000012   63           DB 99
+   \   000013   00           DB 0
+   \   000014   63           DB 99
+   \   000015   00           DB 0
+   \   000016   63           DB 99
+   \   000017   00           DB 0
+   \   000018   3E           DB 62
+   \   000019   00           DB 0
+   \   00001A   00           DB 0
+   \   00001B   00           DB 0
+   \   00001C   00           DB 0
+   \   00001D   00           DB 0
+   \   00001E   00           DB 0
+   \   00001F   00           DB 0
+   1069            ____XX__,________,
+   1070            ___XX___,________,
+   1071            ________,________,
+   1072            _XX___XX,________,
+   1073            _XX___XX,________,
+   1074            _XX___XX,________,
+   1075            _XX___XX,________,
+   1076            _XX___XX,________,
+   1077            _XX___XX,________,
+   1078            _XX___XX,________,
+   1079            _XX___XX,________,
+   1080            _XX___XX,________,
+   1081            __XXXXX_,________,
+   1082            ________,________,
+   1083            ________,________,
+   1084            ________,________};
+   1085          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1086          GUI_CONST_STORAGE unsigned char acFont16B_1_00DB[ 32] = { /* code 00DB */
+   \                     acFont16B_1_00DB:
+   \   000000   08           DB 8
+   \   000001   00           DB 0
+   \   000002   14           DB 20
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   63           DB 99
+   \   000007   00           DB 0
+   \   000008   63           DB 99
+   \   000009   00           DB 0
+   \   00000A   63           DB 99
+   \   00000B   00           DB 0
+   \   00000C   63           DB 99
+   \   00000D   00           DB 0
+   \   00000E   63           DB 99
+   \   00000F   00           DB 0
+   \   000010   63           DB 99
+   \   000011   00           DB 0
+   \   000012   63           DB 99
+   \   000013   00           DB 0
+   \   000014   63           DB 99
+   \   000015   00           DB 0
+   \   000016   63           DB 99
+   \   000017   00           DB 0
+   \   000018   3E           DB 62
+   \   000019   00           DB 0
+   \   00001A   00           DB 0
+   \   00001B   00           DB 0
+   \   00001C   00           DB 0
+   \   00001D   00           DB 0
+   \   00001E   00           DB 0
+   \   00001F   00           DB 0
+   1087            ____X___,________,
+   1088            ___X_X__,________,
+   1089            ________,________,
+   1090            _XX___XX,________,
+   1091            _XX___XX,________,
+   1092            _XX___XX,________,
+   1093            _XX___XX,________,
+   1094            _XX___XX,________,
+   1095            _XX___XX,________,
+   1096            _XX___XX,________,
+   1097            _XX___XX,________,
+   1098            _XX___XX,________,
+   1099            __XXXXX_,________,
+   1100            ________,________,
+   1101            ________,________,
+   1102            ________,________};
+   1103          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1104          GUI_CONST_STORAGE unsigned char acFont16B_1_00DC[ 32] = { /* code 00DC */
+   \                     acFont16B_1_00DC:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   12           DB 18
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   63           DB 99
+   \   000007   00           DB 0
+   \   000008   63           DB 99
+   \   000009   00           DB 0
+   \   00000A   63           DB 99
+   \   00000B   00           DB 0
+   \   00000C   63           DB 99
+   \   00000D   00           DB 0
+   \   00000E   63           DB 99
+   \   00000F   00           DB 0
+   \   000010   63           DB 99
+   \   000011   00           DB 0
+   \   000012   63           DB 99
+   \   000013   00           DB 0
+   \   000014   63           DB 99
+   \   000015   00           DB 0
+   \   000016   63           DB 99
+   \   000017   00           DB 0
+   \   000018   3E           DB 62
+   \   000019   00           DB 0
+   \   00001A   00           DB 0
+   \   00001B   00           DB 0
+   \   00001C   00           DB 0
+   \   00001D   00           DB 0
+   \   00001E   00           DB 0
+   \   00001F   00           DB 0
+   1105            ________,________,
+   1106            ___X__X_,________,
+   1107            ________,________,
+   1108            _XX___XX,________,
+   1109            _XX___XX,________,
+   1110            _XX___XX,________,
+   1111            _XX___XX,________,
+   1112            _XX___XX,________,
+   1113            _XX___XX,________,
+   1114            _XX___XX,________,
+   1115            _XX___XX,________,
+   1116            _XX___XX,________,
+   1117            __XXXXX_,________,
+   1118            ________,________,
+   1119            ________,________,
+   1120            ________,________};
+   1121          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1122          GUI_CONST_STORAGE unsigned char acFont16B_1_00DD[ 16] = { /* code 00DD */
+   \                     acFont16B_1_00DD:
+   \   000000   0C           DB 12
+   \   000001   18           DB 24
+   \   000002   00           DB 0
+   \   000003   C3           DB 195
+   \   000004   C3           DB 195
+   \   000005   66           DB 102
+   \   000006   3C           DB 60
+   \   000007   3C           DB 60
+   \   000008   18           DB 24
+   \   000009   18           DB 24
+   \   00000A   18           DB 24
+   \   00000B   18           DB 24
+   \   00000C   18           DB 24
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1123            ____XX__,
+   1124            ___XX___,
+   1125            ________,
+   1126            XX____XX,
+   1127            XX____XX,
+   1128            _XX__XX_,
+   1129            __XXXX__,
+   1130            __XXXX__,
+   1131            ___XX___,
+   1132            ___XX___,
+   1133            ___XX___,
+   1134            ___XX___,
+   1135            ___XX___,
+   1136            ________,
+   1137            ________,
+   1138            ________};
+   1139          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1140          GUI_CONST_STORAGE unsigned char acFont16B_1_00DE[ 32] = { /* code 00DE */
+   \                     acFont16B_1_00DE:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   60           DB 96
+   \   000007   00           DB 0
+   \   000008   60           DB 96
+   \   000009   00           DB 0
+   \   00000A   7E           DB 126
+   \   00000B   00           DB 0
+   \   00000C   63           DB 99
+   \   00000D   00           DB 0
+   \   00000E   63           DB 99
+   \   00000F   00           DB 0
+   \   000010   63           DB 99
+   \   000011   00           DB 0
+   \   000012   63           DB 99
+   \   000013   00           DB 0
+   \   000014   7E           DB 126
+   \   000015   00           DB 0
+   \   000016   60           DB 96
+   \   000017   00           DB 0
+   \   000018   60           DB 96
+   \   000019   00           DB 0
+   \   00001A   00           DB 0
+   \   00001B   00           DB 0
+   \   00001C   00           DB 0
+   \   00001D   00           DB 0
+   \   00001E   00           DB 0
+   \   00001F   00           DB 0
+   1141            ________,________,
+   1142            ________,________,
+   1143            ________,________,
+   1144            _XX_____,________,
+   1145            _XX_____,________,
+   1146            _XXXXXX_,________,
+   1147            _XX___XX,________,
+   1148            _XX___XX,________,
+   1149            _XX___XX,________,
+   1150            _XX___XX,________,
+   1151            _XXXXXX_,________,
+   1152            _XX_____,________,
+   1153            _XX_____,________,
+   1154            ________,________,
+   1155            ________,________,
+   1156            ________,________};
+   1157          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1158          GUI_CONST_STORAGE unsigned char acFont16B_1_00DF[ 16] = { /* code 00DF */
+   \                     acFont16B_1_00DF:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   38           DB 56
+   \   000004   6C           DB 108
+   \   000005   6C           DB 108
+   \   000006   68           DB 104
+   \   000007   78           DB 120
+   \   000008   7C           DB 124
+   \   000009   6E           DB 110
+   \   00000A   66           DB 102
+   \   00000B   66           DB 102
+   \   00000C   6C           DB 108
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1159            ________,
+   1160            ________,
+   1161            ________,
+   1162            __XXX___,
+   1163            _XX_XX__,
+   1164            _XX_XX__,
+   1165            _XX_X___,
+   1166            _XXXX___,
+   1167            _XXXXX__,
+   1168            _XX_XXX_,
+   1169            _XX__XX_,
+   1170            _XX__XX_,
+   1171            _XX_XX__,
+   1172            ________,
+   1173            ________,
+   1174            ________};
+   1175          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1176          GUI_CONST_STORAGE unsigned char acFont16B_1_00E0[ 16] = { /* code 00E0 */
+   \                     acFont16B_1_00E0:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   30           DB 48
+   \   000004   18           DB 24
+   \   000005   00           DB 0
+   \   000006   3C           DB 60
+   \   000007   46           DB 70
+   \   000008   1E           DB 30
+   \   000009   36           DB 54
+   \   00000A   66           DB 102
+   \   00000B   66           DB 102
+   \   00000C   3E           DB 62
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1177            ________,
+   1178            ________,
+   1179            ________,
+   1180            __XX____,
+   1181            ___XX___,
+   1182            ________,
+   1183            __XXXX__,
+   1184            _X___XX_,
+   1185            ___XXXX_,
+   1186            __XX_XX_,
+   1187            _XX__XX_,
+   1188            _XX__XX_,
+   1189            __XXXXX_,
+   1190            ________,
+   1191            ________,
+   1192            ________};
+   1193          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1194          GUI_CONST_STORAGE unsigned char acFont16B_1_00E1[ 16] = { /* code 00E1 */
+   \                     acFont16B_1_00E1:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   0C           DB 12
+   \   000004   18           DB 24
+   \   000005   00           DB 0
+   \   000006   3C           DB 60
+   \   000007   46           DB 70
+   \   000008   1E           DB 30
+   \   000009   36           DB 54
+   \   00000A   66           DB 102
+   \   00000B   66           DB 102
+   \   00000C   3E           DB 62
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1195            ________,
+   1196            ________,
+   1197            ________,
+   1198            ____XX__,
+   1199            ___XX___,
+   1200            ________,
+   1201            __XXXX__,
+   1202            _X___XX_,
+   1203            ___XXXX_,
+   1204            __XX_XX_,
+   1205            _XX__XX_,
+   1206            _XX__XX_,
+   1207            __XXXXX_,
+   1208            ________,
+   1209            ________,
+   1210            ________};
+   1211          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1212          GUI_CONST_STORAGE unsigned char acFont16B_1_00E2[ 16] = { /* code 00E2 */
+   \                     acFont16B_1_00E2:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   08           DB 8
+   \   000004   14           DB 20
+   \   000005   00           DB 0
+   \   000006   3C           DB 60
+   \   000007   46           DB 70
+   \   000008   1E           DB 30
+   \   000009   36           DB 54
+   \   00000A   66           DB 102
+   \   00000B   66           DB 102
+   \   00000C   3E           DB 62
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1213            ________,
+   1214            ________,
+   1215            ________,
+   1216            ____X___,
+   1217            ___X_X__,
+   1218            ________,
+   1219            __XXXX__,
+   1220            _X___XX_,
+   1221            ___XXXX_,
+   1222            __XX_XX_,
+   1223            _XX__XX_,
+   1224            _XX__XX_,
+   1225            __XXXXX_,
+   1226            ________,
+   1227            ________,
+   1228            ________};
+   1229          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1230          GUI_CONST_STORAGE unsigned char acFont16B_1_00E3[ 16] = { /* code 00E3 */
+   \                     acFont16B_1_00E3:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   34           DB 52
+   \   000004   2C           DB 44
+   \   000005   00           DB 0
+   \   000006   3C           DB 60
+   \   000007   46           DB 70
+   \   000008   1E           DB 30
+   \   000009   36           DB 54
+   \   00000A   66           DB 102
+   \   00000B   66           DB 102
+   \   00000C   3E           DB 62
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1231            ________,
+   1232            ________,
+   1233            ________,
+   1234            __XX_X__,
+   1235            __X_XX__,
+   1236            ________,
+   1237            __XXXX__,
+   1238            _X___XX_,
+   1239            ___XXXX_,
+   1240            __XX_XX_,
+   1241            _XX__XX_,
+   1242            _XX__XX_,
+   1243            __XXXXX_,
+   1244            ________,
+   1245            ________,
+   1246            ________};
+   1247          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1248          GUI_CONST_STORAGE unsigned char acFont16B_1_00E4[ 16] = { /* code 00E4 */
+   \                     acFont16B_1_00E4:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   24           DB 36
+   \   000005   00           DB 0
+   \   000006   3C           DB 60
+   \   000007   46           DB 70
+   \   000008   1E           DB 30
+   \   000009   36           DB 54
+   \   00000A   66           DB 102
+   \   00000B   66           DB 102
+   \   00000C   3E           DB 62
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1249            ________,
+   1250            ________,
+   1251            ________,
+   1252            ________,
+   1253            __X__X__,
+   1254            ________,
+   1255            __XXXX__,
+   1256            _X___XX_,
+   1257            ___XXXX_,
+   1258            __XX_XX_,
+   1259            _XX__XX_,
+   1260            _XX__XX_,
+   1261            __XXXXX_,
+   1262            ________,
+   1263            ________,
+   1264            ________};
+   1265          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1266          GUI_CONST_STORAGE unsigned char acFont16B_1_00E5[ 16] = { /* code 00E5 */
+   \                     acFont16B_1_00E5:
+   \   000000   00           DB 0
+   \   000001   18           DB 24
+   \   000002   24           DB 36
+   \   000003   24           DB 36
+   \   000004   18           DB 24
+   \   000005   00           DB 0
+   \   000006   3C           DB 60
+   \   000007   46           DB 70
+   \   000008   1E           DB 30
+   \   000009   36           DB 54
+   \   00000A   66           DB 102
+   \   00000B   66           DB 102
+   \   00000C   3E           DB 62
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1267            ________,
+   1268            ___XX___,
+   1269            __X__X__,
+   1270            __X__X__,
+   1271            ___XX___,
+   1272            ________,
+   1273            __XXXX__,
+   1274            _X___XX_,
+   1275            ___XXXX_,
+   1276            __XX_XX_,
+   1277            _XX__XX_,
+   1278            _XX__XX_,
+   1279            __XXXXX_,
+   1280            ________,
+   1281            ________,
+   1282            ________};
+   1283          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1284          GUI_CONST_STORAGE unsigned char acFont16B_1_00E6[ 32] = { /* code 00E6 */
+   \                     acFont16B_1_00E6:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   00           DB 0
+   \   000007   00           DB 0
+   \   000008   00           DB 0
+   \   000009   00           DB 0
+   \   00000A   00           DB 0
+   \   00000B   00           DB 0
+   \   00000C   3D           DB 61
+   \   00000D   C0           DB 192
+   \   00000E   46           DB 70
+   \   00000F   60           DB 96
+   \   000010   1E           DB 30
+   \   000011   60           DB 96
+   \   000012   37           DB 55
+   \   000013   E0           DB 224
+   \   000014   66           DB 102
+   \   000015   00           DB 0
+   \   000016   66           DB 102
+   \   000017   60           DB 96
+   \   000018   3B           DB 59
+   \   000019   C0           DB 192
+   \   00001A   00           DB 0
+   \   00001B   00           DB 0
+   \   00001C   00           DB 0
+   \   00001D   00           DB 0
+   \   00001E   00           DB 0
+   \   00001F   00           DB 0
+   1285            ________,________,
+   1286            ________,________,
+   1287            ________,________,
+   1288            ________,________,
+   1289            ________,________,
+   1290            ________,________,
+   1291            __XXXX_X,XX______,
+   1292            _X___XX_,_XX_____,
+   1293            ___XXXX_,_XX_____,
+   1294            __XX_XXX,XXX_____,
+   1295            _XX__XX_,________,
+   1296            _XX__XX_,_XX_____,
+   1297            __XXX_XX,XX______,
+   1298            ________,________,
+   1299            ________,________,
+   1300            ________,________};
+   1301          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1302          GUI_CONST_STORAGE unsigned char acFont16B_1_00E7[ 16] = { /* code 00E7 */
+   \                     acFont16B_1_00E7:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   3C           DB 60
+   \   000007   66           DB 102
+   \   000008   60           DB 96
+   \   000009   60           DB 96
+   \   00000A   60           DB 96
+   \   00000B   66           DB 102
+   \   00000C   3C           DB 60
+   \   00000D   18           DB 24
+   \   00000E   08           DB 8
+   \   00000F   30           DB 48
+   1303            ________,
+   1304            ________,
+   1305            ________,
+   1306            ________,
+   1307            ________,
+   1308            ________,
+   1309            __XXXX__,
+   1310            _XX__XX_,
+   1311            _XX_____,
+   1312            _XX_____,
+   1313            _XX_____,
+   1314            _XX__XX_,
+   1315            __XXXX__,
+   1316            ___XX___,
+   1317            ____X___,
+   1318            __XX____};
+   1319          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1320          GUI_CONST_STORAGE unsigned char acFont16B_1_00E8[ 16] = { /* code 00E8 */
+   \                     acFont16B_1_00E8:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   30           DB 48
+   \   000004   18           DB 24
+   \   000005   00           DB 0
+   \   000006   3C           DB 60
+   \   000007   66           DB 102
+   \   000008   66           DB 102
+   \   000009   7E           DB 126
+   \   00000A   60           DB 96
+   \   00000B   66           DB 102
+   \   00000C   3C           DB 60
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1321            ________,
+   1322            ________,
+   1323            ________,
+   1324            __XX____,
+   1325            ___XX___,
+   1326            ________,
+   1327            __XXXX__,
+   1328            _XX__XX_,
+   1329            _XX__XX_,
+   1330            _XXXXXX_,
+   1331            _XX_____,
+   1332            _XX__XX_,
+   1333            __XXXX__,
+   1334            ________,
+   1335            ________,
+   1336            ________};
+   1337          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1338          GUI_CONST_STORAGE unsigned char acFont16B_1_00E9[ 16] = { /* code 00E9 */
+   \                     acFont16B_1_00E9:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   0C           DB 12
+   \   000004   18           DB 24
+   \   000005   00           DB 0
+   \   000006   3C           DB 60
+   \   000007   66           DB 102
+   \   000008   66           DB 102
+   \   000009   7E           DB 126
+   \   00000A   60           DB 96
+   \   00000B   66           DB 102
+   \   00000C   3C           DB 60
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1339            ________,
+   1340            ________,
+   1341            ________,
+   1342            ____XX__,
+   1343            ___XX___,
+   1344            ________,
+   1345            __XXXX__,
+   1346            _XX__XX_,
+   1347            _XX__XX_,
+   1348            _XXXXXX_,
+   1349            _XX_____,
+   1350            _XX__XX_,
+   1351            __XXXX__,
+   1352            ________,
+   1353            ________,
+   1354            ________};
+   1355          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1356          GUI_CONST_STORAGE unsigned char acFont16B_1_00EA[ 16] = { /* code 00EA */
+   \                     acFont16B_1_00EA:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   08           DB 8
+   \   000004   14           DB 20
+   \   000005   00           DB 0
+   \   000006   3C           DB 60
+   \   000007   66           DB 102
+   \   000008   66           DB 102
+   \   000009   7E           DB 126
+   \   00000A   60           DB 96
+   \   00000B   66           DB 102
+   \   00000C   3C           DB 60
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1357            ________,
+   1358            ________,
+   1359            ________,
+   1360            ____X___,
+   1361            ___X_X__,
+   1362            ________,
+   1363            __XXXX__,
+   1364            _XX__XX_,
+   1365            _XX__XX_,
+   1366            _XXXXXX_,
+   1367            _XX_____,
+   1368            _XX__XX_,
+   1369            __XXXX__,
+   1370            ________,
+   1371            ________,
+   1372            ________};
+   1373          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1374          GUI_CONST_STORAGE unsigned char acFont16B_1_00EB[ 16] = { /* code 00EB */
+   \                     acFont16B_1_00EB:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   24           DB 36
+   \   000005   00           DB 0
+   \   000006   3C           DB 60
+   \   000007   66           DB 102
+   \   000008   66           DB 102
+   \   000009   7E           DB 126
+   \   00000A   60           DB 96
+   \   00000B   66           DB 102
+   \   00000C   3C           DB 60
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1375            ________,
+   1376            ________,
+   1377            ________,
+   1378            ________,
+   1379            __X__X__,
+   1380            ________,
+   1381            __XXXX__,
+   1382            _XX__XX_,
+   1383            _XX__XX_,
+   1384            _XXXXXX_,
+   1385            _XX_____,
+   1386            _XX__XX_,
+   1387            __XXXX__,
+   1388            ________,
+   1389            ________,
+   1390            ________};
+   1391          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1392          GUI_CONST_STORAGE unsigned char acFont16B_1_00EC[ 16] = { /* code 00EC */
+   \                     acFont16B_1_00EC:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   C0           DB 192
+   \   000004   60           DB 96
+   \   000005   00           DB 0
+   \   000006   60           DB 96
+   \   000007   60           DB 96
+   \   000008   60           DB 96
+   \   000009   60           DB 96
+   \   00000A   60           DB 96
+   \   00000B   60           DB 96
+   \   00000C   60           DB 96
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1393            ________,
+   1394            ________,
+   1395            ________,
+   1396            XX______,
+   1397            _XX_____,
+   1398            ________,
+   1399            _XX_____,
+   1400            _XX_____,
+   1401            _XX_____,
+   1402            _XX_____,
+   1403            _XX_____,
+   1404            _XX_____,
+   1405            _XX_____,
+   1406            ________,
+   1407            ________,
+   1408            ________};
+   1409          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1410          GUI_CONST_STORAGE unsigned char acFont16B_1_00ED[ 16] = { /* code 00ED */
+   \                     acFont16B_1_00ED:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   30           DB 48
+   \   000004   60           DB 96
+   \   000005   00           DB 0
+   \   000006   60           DB 96
+   \   000007   60           DB 96
+   \   000008   60           DB 96
+   \   000009   60           DB 96
+   \   00000A   60           DB 96
+   \   00000B   60           DB 96
+   \   00000C   60           DB 96
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1411            ________,
+   1412            ________,
+   1413            ________,
+   1414            __XX____,
+   1415            _XX_____,
+   1416            ________,
+   1417            _XX_____,
+   1418            _XX_____,
+   1419            _XX_____,
+   1420            _XX_____,
+   1421            _XX_____,
+   1422            _XX_____,
+   1423            _XX_____,
+   1424            ________,
+   1425            ________,
+   1426            ________};
+   1427          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1428          GUI_CONST_STORAGE unsigned char acFont16B_1_00EE[ 16] = { /* code 00EE */
+   \                     acFont16B_1_00EE:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   20           DB 32
+   \   000004   50           DB 80
+   \   000005   00           DB 0
+   \   000006   60           DB 96
+   \   000007   60           DB 96
+   \   000008   60           DB 96
+   \   000009   60           DB 96
+   \   00000A   60           DB 96
+   \   00000B   60           DB 96
+   \   00000C   60           DB 96
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1429            ________,
+   1430            ________,
+   1431            ________,
+   1432            __X_____,
+   1433            _X_X____,
+   1434            ________,
+   1435            _XX_____,
+   1436            _XX_____,
+   1437            _XX_____,
+   1438            _XX_____,
+   1439            _XX_____,
+   1440            _XX_____,
+   1441            _XX_____,
+   1442            ________,
+   1443            ________,
+   1444            ________};
+   1445          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1446          GUI_CONST_STORAGE unsigned char acFont16B_1_00EF[ 16] = { /* code 00EF */
+   \                     acFont16B_1_00EF:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   90           DB 144
+   \   000005   00           DB 0
+   \   000006   60           DB 96
+   \   000007   60           DB 96
+   \   000008   60           DB 96
+   \   000009   60           DB 96
+   \   00000A   60           DB 96
+   \   00000B   60           DB 96
+   \   00000C   60           DB 96
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1447            ________,
+   1448            ________,
+   1449            ________,
+   1450            ________,
+   1451            X__X____,
+   1452            ________,
+   1453            _XX_____,
+   1454            _XX_____,
+   1455            _XX_____,
+   1456            _XX_____,
+   1457            _XX_____,
+   1458            _XX_____,
+   1459            _XX_____,
+   1460            ________,
+   1461            ________,
+   1462            ________};
+   1463          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1464          GUI_CONST_STORAGE unsigned char acFont16B_1_00F0[ 16] = { /* code 00F0 */
+   \                     acFont16B_1_00F0:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   14           DB 20
+   \   000004   08           DB 8
+   \   000005   14           DB 20
+   \   000006   3E           DB 62
+   \   000007   66           DB 102
+   \   000008   66           DB 102
+   \   000009   66           DB 102
+   \   00000A   66           DB 102
+   \   00000B   66           DB 102
+   \   00000C   3C           DB 60
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1465            ________,
+   1466            ________,
+   1467            ________,
+   1468            ___X_X__,
+   1469            ____X___,
+   1470            ___X_X__,
+   1471            __XXXXX_,
+   1472            _XX__XX_,
+   1473            _XX__XX_,
+   1474            _XX__XX_,
+   1475            _XX__XX_,
+   1476            _XX__XX_,
+   1477            __XXXX__,
+   1478            ________,
+   1479            ________,
+   1480            ________};
+   1481          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1482          GUI_CONST_STORAGE unsigned char acFont16B_1_00F1[ 16] = { /* code 00F1 */
+   \                     acFont16B_1_00F1:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   34           DB 52
+   \   000004   2C           DB 44
+   \   000005   00           DB 0
+   \   000006   6C           DB 108
+   \   000007   76           DB 118
+   \   000008   66           DB 102
+   \   000009   66           DB 102
+   \   00000A   66           DB 102
+   \   00000B   66           DB 102
+   \   00000C   66           DB 102
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1483            ________,
+   1484            ________,
+   1485            ________,
+   1486            __XX_X__,
+   1487            __X_XX__,
+   1488            ________,
+   1489            _XX_XX__,
+   1490            _XXX_XX_,
+   1491            _XX__XX_,
+   1492            _XX__XX_,
+   1493            _XX__XX_,
+   1494            _XX__XX_,
+   1495            _XX__XX_,
+   1496            ________,
+   1497            ________,
+   1498            ________};
+   1499          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1500          GUI_CONST_STORAGE unsigned char acFont16B_1_00F2[ 16] = { /* code 00F2 */
+   \                     acFont16B_1_00F2:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   18           DB 24
+   \   000004   0C           DB 12
+   \   000005   00           DB 0
+   \   000006   3C           DB 60
+   \   000007   66           DB 102
+   \   000008   66           DB 102
+   \   000009   66           DB 102
+   \   00000A   66           DB 102
+   \   00000B   66           DB 102
+   \   00000C   3C           DB 60
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1501            ________,
+   1502            ________,
+   1503            ________,
+   1504            ___XX___,
+   1505            ____XX__,
+   1506            ________,
+   1507            __XXXX__,
+   1508            _XX__XX_,
+   1509            _XX__XX_,
+   1510            _XX__XX_,
+   1511            _XX__XX_,
+   1512            _XX__XX_,
+   1513            __XXXX__,
+   1514            ________,
+   1515            ________,
+   1516            ________};
+   1517          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1518          GUI_CONST_STORAGE unsigned char acFont16B_1_00F3[ 16] = { /* code 00F3 */
+   \                     acFont16B_1_00F3:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   0C           DB 12
+   \   000004   18           DB 24
+   \   000005   00           DB 0
+   \   000006   3C           DB 60
+   \   000007   66           DB 102
+   \   000008   66           DB 102
+   \   000009   66           DB 102
+   \   00000A   66           DB 102
+   \   00000B   66           DB 102
+   \   00000C   3C           DB 60
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1519            ________,
+   1520            ________,
+   1521            ________,
+   1522            ____XX__,
+   1523            ___XX___,
+   1524            ________,
+   1525            __XXXX__,
+   1526            _XX__XX_,
+   1527            _XX__XX_,
+   1528            _XX__XX_,
+   1529            _XX__XX_,
+   1530            _XX__XX_,
+   1531            __XXXX__,
+   1532            ________,
+   1533            ________,
+   1534            ________};
+   1535          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1536          GUI_CONST_STORAGE unsigned char acFont16B_1_00F4[ 16] = { /* code 00F4 */
+   \                     acFont16B_1_00F4:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   08           DB 8
+   \   000004   14           DB 20
+   \   000005   00           DB 0
+   \   000006   3C           DB 60
+   \   000007   66           DB 102
+   \   000008   66           DB 102
+   \   000009   66           DB 102
+   \   00000A   66           DB 102
+   \   00000B   66           DB 102
+   \   00000C   3C           DB 60
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1537            ________,
+   1538            ________,
+   1539            ________,
+   1540            ____X___,
+   1541            ___X_X__,
+   1542            ________,
+   1543            __XXXX__,
+   1544            _XX__XX_,
+   1545            _XX__XX_,
+   1546            _XX__XX_,
+   1547            _XX__XX_,
+   1548            _XX__XX_,
+   1549            __XXXX__,
+   1550            ________,
+   1551            ________,
+   1552            ________};
+   1553          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1554          GUI_CONST_STORAGE unsigned char acFont16B_1_00F5[ 16] = { /* code 00F5 */
+   \                     acFont16B_1_00F5:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   34           DB 52
+   \   000004   2C           DB 44
+   \   000005   00           DB 0
+   \   000006   3C           DB 60
+   \   000007   66           DB 102
+   \   000008   66           DB 102
+   \   000009   66           DB 102
+   \   00000A   66           DB 102
+   \   00000B   66           DB 102
+   \   00000C   3C           DB 60
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1555            ________,
+   1556            ________,
+   1557            ________,
+   1558            __XX_X__,
+   1559            __X_XX__,
+   1560            ________,
+   1561            __XXXX__,
+   1562            _XX__XX_,
+   1563            _XX__XX_,
+   1564            _XX__XX_,
+   1565            _XX__XX_,
+   1566            _XX__XX_,
+   1567            __XXXX__,
+   1568            ________,
+   1569            ________,
+   1570            ________};
+   1571          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1572          GUI_CONST_STORAGE unsigned char acFont16B_1_00F6[ 16] = { /* code 00F6 */
+   \                     acFont16B_1_00F6:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   24           DB 36
+   \   000005   00           DB 0
+   \   000006   3C           DB 60
+   \   000007   66           DB 102
+   \   000008   66           DB 102
+   \   000009   66           DB 102
+   \   00000A   66           DB 102
+   \   00000B   66           DB 102
+   \   00000C   3C           DB 60
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1573            ________,
+   1574            ________,
+   1575            ________,
+   1576            ________,
+   1577            __X__X__,
+   1578            ________,
+   1579            __XXXX__,
+   1580            _XX__XX_,
+   1581            _XX__XX_,
+   1582            _XX__XX_,
+   1583            _XX__XX_,
+   1584            _XX__XX_,
+   1585            __XXXX__,
+   1586            ________,
+   1587            ________,
+   1588            ________};
+   1589          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1590          GUI_CONST_STORAGE unsigned char acFont16B_1_00F7[ 16] = { /* code 00F7 */
+   \                     acFont16B_1_00F7:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   30           DB 48
+   \   000006   30           DB 48
+   \   000007   00           DB 0
+   \   000008   FC           DB 252
+   \   000009   00           DB 0
+   \   00000A   30           DB 48
+   \   00000B   30           DB 48
+   \   00000C   00           DB 0
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1591            ________,
+   1592            ________,
+   1593            ________,
+   1594            ________,
+   1595            ________,
+   1596            __XX____,
+   1597            __XX____,
+   1598            ________,
+   1599            XXXXXX__,
+   1600            ________,
+   1601            __XX____,
+   1602            __XX____,
+   1603            ________,
+   1604            ________,
+   1605            ________,
+   1606            ________};
+   1607          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1608          GUI_CONST_STORAGE unsigned char acFont16B_1_00F8[ 16] = { /* code 00F8 */
+   \                     acFont16B_1_00F8:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   04           DB 4
+   \   000006   3E           DB 62
+   \   000007   6C           DB 108
+   \   000008   6E           DB 110
+   \   000009   7E           DB 126
+   \   00000A   76           DB 118
+   \   00000B   36           DB 54
+   \   00000C   7C           DB 124
+   \   00000D   20           DB 32
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1609            ________,
+   1610            ________,
+   1611            ________,
+   1612            ________,
+   1613            ________,
+   1614            _____X__,
+   1615            __XXXXX_,
+   1616            _XX_XX__,
+   1617            _XX_XXX_,
+   1618            _XXXXXX_,
+   1619            _XXX_XX_,
+   1620            __XX_XX_,
+   1621            _XXXXX__,
+   1622            __X_____,
+   1623            ________,
+   1624            ________};
+   1625          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1626          GUI_CONST_STORAGE unsigned char acFont16B_1_00F9[ 16] = { /* code 00F9 */
+   \                     acFont16B_1_00F9:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   30           DB 48
+   \   000004   18           DB 24
+   \   000005   00           DB 0
+   \   000006   66           DB 102
+   \   000007   66           DB 102
+   \   000008   66           DB 102
+   \   000009   66           DB 102
+   \   00000A   66           DB 102
+   \   00000B   6E           DB 110
+   \   00000C   36           DB 54
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1627            ________,
+   1628            ________,
+   1629            ________,
+   1630            __XX____,
+   1631            ___XX___,
+   1632            ________,
+   1633            _XX__XX_,
+   1634            _XX__XX_,
+   1635            _XX__XX_,
+   1636            _XX__XX_,
+   1637            _XX__XX_,
+   1638            _XX_XXX_,
+   1639            __XX_XX_,
+   1640            ________,
+   1641            ________,
+   1642            ________};
+   1643          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1644          GUI_CONST_STORAGE unsigned char acFont16B_1_00FA[ 16] = { /* code 00FA */
+   \                     acFont16B_1_00FA:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   0C           DB 12
+   \   000004   18           DB 24
+   \   000005   00           DB 0
+   \   000006   66           DB 102
+   \   000007   66           DB 102
+   \   000008   66           DB 102
+   \   000009   66           DB 102
+   \   00000A   66           DB 102
+   \   00000B   6E           DB 110
+   \   00000C   36           DB 54
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1645            ________,
+   1646            ________,
+   1647            ________,
+   1648            ____XX__,
+   1649            ___XX___,
+   1650            ________,
+   1651            _XX__XX_,
+   1652            _XX__XX_,
+   1653            _XX__XX_,
+   1654            _XX__XX_,
+   1655            _XX__XX_,
+   1656            _XX_XXX_,
+   1657            __XX_XX_,
+   1658            ________,
+   1659            ________,
+   1660            ________};
+   1661          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1662          GUI_CONST_STORAGE unsigned char acFont16B_1_00FB[ 16] = { /* code 00FB */
+   \                     acFont16B_1_00FB:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   08           DB 8
+   \   000004   14           DB 20
+   \   000005   00           DB 0
+   \   000006   66           DB 102
+   \   000007   66           DB 102
+   \   000008   66           DB 102
+   \   000009   66           DB 102
+   \   00000A   66           DB 102
+   \   00000B   6E           DB 110
+   \   00000C   36           DB 54
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1663            ________,
+   1664            ________,
+   1665            ________,
+   1666            ____X___,
+   1667            ___X_X__,
+   1668            ________,
+   1669            _XX__XX_,
+   1670            _XX__XX_,
+   1671            _XX__XX_,
+   1672            _XX__XX_,
+   1673            _XX__XX_,
+   1674            _XX_XXX_,
+   1675            __XX_XX_,
+   1676            ________,
+   1677            ________,
+   1678            ________};
+   1679          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1680          GUI_CONST_STORAGE unsigned char acFont16B_1_00FC[ 16] = { /* code 00FC */
+   \                     acFont16B_1_00FC:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   24           DB 36
+   \   000005   00           DB 0
+   \   000006   66           DB 102
+   \   000007   66           DB 102
+   \   000008   66           DB 102
+   \   000009   66           DB 102
+   \   00000A   66           DB 102
+   \   00000B   6E           DB 110
+   \   00000C   36           DB 54
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   1681            ________,
+   1682            ________,
+   1683            ________,
+   1684            ________,
+   1685            __X__X__,
+   1686            ________,
+   1687            _XX__XX_,
+   1688            _XX__XX_,
+   1689            _XX__XX_,
+   1690            _XX__XX_,
+   1691            _XX__XX_,
+   1692            _XX_XXX_,
+   1693            __XX_XX_,
+   1694            ________,
+   1695            ________,
+   1696            ________};
+   1697          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1698          GUI_CONST_STORAGE unsigned char acFont16B_1_00FD[ 16] = { /* code 00FD */
+   \                     acFont16B_1_00FD:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   0C           DB 12
+   \   000004   18           DB 24
+   \   000005   00           DB 0
+   \   000006   C6           DB 198
+   \   000007   C6           DB 198
+   \   000008   6C           DB 108
+   \   000009   6C           DB 108
+   \   00000A   6C           DB 108
+   \   00000B   38           DB 56
+   \   00000C   38           DB 56
+   \   00000D   38           DB 56
+   \   00000E   30           DB 48
+   \   00000F   F0           DB 240
+   1699            ________,
+   1700            ________,
+   1701            ________,
+   1702            ____XX__,
+   1703            ___XX___,
+   1704            ________,
+   1705            XX___XX_,
+   1706            XX___XX_,
+   1707            _XX_XX__,
+   1708            _XX_XX__,
+   1709            _XX_XX__,
+   1710            __XXX___,
+   1711            __XXX___,
+   1712            __XXX___,
+   1713            __XX____,
+   1714            XXXX____};
+   1715          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1716          GUI_CONST_STORAGE unsigned char acFont16B_1_00FE[ 16] = { /* code 00FE */
+   \                     acFont16B_1_00FE:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   60           DB 96
+   \   000004   60           DB 96
+   \   000005   60           DB 96
+   \   000006   7C           DB 124
+   \   000007   66           DB 102
+   \   000008   66           DB 102
+   \   000009   66           DB 102
+   \   00000A   66           DB 102
+   \   00000B   66           DB 102
+   \   00000C   7C           DB 124
+   \   00000D   60           DB 96
+   \   00000E   60           DB 96
+   \   00000F   60           DB 96
+   1717            ________,
+   1718            ________,
+   1719            ________,
+   1720            _XX_____,
+   1721            _XX_____,
+   1722            _XX_____,
+   1723            _XXXXX__,
+   1724            _XX__XX_,
+   1725            _XX__XX_,
+   1726            _XX__XX_,
+   1727            _XX__XX_,
+   1728            _XX__XX_,
+   1729            _XXXXX__,
+   1730            _XX_____,
+   1731            _XX_____,
+   1732            _XX_____};
+   1733          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1734          GUI_CONST_STORAGE unsigned char acFont16B_1_00FF[ 16] = { /* code 00FF */
+   \                     acFont16B_1_00FF:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   24           DB 36
+   \   000005   00           DB 0
+   \   000006   C6           DB 198
+   \   000007   C6           DB 198
+   \   000008   6C           DB 108
+   \   000009   6C           DB 108
+   \   00000A   6C           DB 108
+   \   00000B   38           DB 56
+   \   00000C   38           DB 56
+   \   00000D   38           DB 56
+   \   00000E   30           DB 48
+   \   00000F   F0           DB 240
+   1735            ________,
+   1736            ________,
+   1737            ________,
+   1738            ________,
+   1739            __X__X__,
+   1740            ________,
+   1741            XX___XX_,
+   1742            XX___XX_,
+   1743            _XX_XX__,
+   1744            _XX_XX__,
+   1745            _XX_XX__,
+   1746            __XXX___,
+   1747            __XXX___,
+   1748            __XXX___,
+   1749            __XX____,
+   1750            XXXX____};
+   1751          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1752          GUI_CONST_STORAGE GUI_CHARINFO GUI_Font16B_1_CharInfo[96] = {
+   \                     GUI_Font16B_1_CharInfo:
+   \   000000   04           DB 4
+   \   000001   04           DB 4
+   \   000002   01           DB 1
+   \   000003   ....         DW acFont16B_1_00A0
+   \   000005   04           DB 4
+   \   000006   04           DB 4
+   \   000007   01           DB 1
+   \   000008   ....         DW acFont16B_1_00A1
+   \   00000A   07           DB 7
+   \   00000B   07           DB 7
+   \   00000C   01           DB 1
+   \   00000D   ....         DW acFont16B_1_00A2
+   \   00000F   07           DB 7
+   \   000010   07           DB 7
+   \   000011   01           DB 1
+   \   000012   ....         DW acFont16B_1_00A3
+   \   000014   07           DB 7
+   \   000015   07           DB 7
+   \   000016   01           DB 1
+   \   000017   ....         DW acFont16B_1_00A4
+   \   000019   07           DB 7
+   \   00001A   07           DB 7
+   \   00001B   01           DB 1
+   \   00001C   ....         DW acFont16B_1_00A5
+   \   00001E   03           DB 3
+   \   00001F   03           DB 3
+   \   000020   01           DB 1
+   \   000021   ....         DW acFont16B_1_00A6
+   \   000023   07           DB 7
+   \   000024   07           DB 7
+   \   000025   01           DB 1
+   \   000026   ....         DW acFont16B_1_00A7
+   \   000028   04           DB 4
+   \   000029   04           DB 4
+   \   00002A   01           DB 1
+   \   00002B   ....         DW acFont16B_1_00A8
+   \   00002D   0A           DB 10
+   \   00002E   0A           DB 10
+   \   00002F   02           DB 2
+   \   000030   ....         DW acFont16B_1_00A9
+   \   000032   05           DB 5
+   \   000033   05           DB 5
+   \   000034   01           DB 1
+   \   000035   ....         DW acFont16B_1_00AA
+   \   000037   07           DB 7
+   \   000038   07           DB 7
+   \   000039   01           DB 1
+   \   00003A   ....         DW acFont16B_1_00AB
+   \   00003C   08           DB 8
+   \   00003D   08           DB 8
+   \   00003E   01           DB 1
+   \   00003F   ....         DW acFont16B_1_00AC
+   \   000041   04           DB 4
+   \   000042   04           DB 4
+   \   000043   01           DB 1
+   \   000044   ....         DW acFont16B_1_00AD
+   \   000046   0A           DB 10
+   \   000047   0A           DB 10
+   \   000048   02           DB 2
+   \   000049   ....         DW acFont16B_1_00AE
+   \   00004B   07           DB 7
+   \   00004C   07           DB 7
+   \   00004D   01           DB 1
+   \   00004E   ....         DW acFont16B_1_00AF
+   \   000050   05           DB 5
+   \   000051   05           DB 5
+   \   000052   01           DB 1
+   \   000053   ....         DW acFont16B_1_00B0
+   \   000055   07           DB 7
+   \   000056   07           DB 7
+   \   000057   01           DB 1
+   \   000058   ....         DW acFont16B_1_00B1
+   \   00005A   04           DB 4
+   \   00005B   04           DB 4
+   \   00005C   01           DB 1
+   \   00005D   ....         DW acFont16B_1_00B2
+   \   00005F   04           DB 4
+   \   000060   04           DB 4
+   \   000061   01           DB 1
+   \   000062   ....         DW acFont16B_1_00B3
+   \   000064   04           DB 4
+   \   000065   04           DB 4
+   \   000066   01           DB 1
+   \   000067   ....         DW acFont16B_1_00B4
+   \   000069   07           DB 7
+   \   00006A   07           DB 7
+   \   00006B   01           DB 1
+   \   00006C   ....         DW acFont16B_1_00B5
+   \   00006E   07           DB 7
+   \   00006F   07           DB 7
+   \   000070   01           DB 1
+   \   000071   ....         DW acFont16B_1_00B6
+   \   000073   04           DB 4
+   \   000074   04           DB 4
+   \   000075   01           DB 1
+   \   000076   ....         DW acFont16B_1_00B7
+   \   000078   04           DB 4
+   \   000079   04           DB 4
+   \   00007A   01           DB 1
+   \   00007B   ....         DW acFont16B_1_00B8
+   \   00007D   04           DB 4
+   \   00007E   04           DB 4
+   \   00007F   01           DB 1
+   \   000080   ....         DW acFont16B_1_00B9
+   \   000082   05           DB 5
+   \   000083   05           DB 5
+   \   000084   01           DB 1
+   \   000085   ....         DW acFont16B_1_00BA
+   \   000087   07           DB 7
+   \   000088   07           DB 7
+   \   000089   01           DB 1
+   \   00008A   ....         DW acFont16B_1_00BB
+   \   00008C   0B           DB 11
+   \   00008D   0B           DB 11
+   \   00008E   02           DB 2
+   \   00008F   ....         DW acFont16B_1_00BC
+   \   000091   0B           DB 11
+   \   000092   0B           DB 11
+   \   000093   02           DB 2
+   \   000094   ....         DW acFont16B_1_00BD
+   \   000096   0B           DB 11
+   \   000097   0B           DB 11
+   \   000098   02           DB 2
+   \   000099   ....         DW acFont16B_1_00BE
+   \   00009B   08           DB 8
+   \   00009C   08           DB 8
+   \   00009D   01           DB 1
+   \   00009E   ....         DW acFont16B_1_00BF
+   \   0000A0   09           DB 9
+   \   0000A1   09           DB 9
+   \   0000A2   02           DB 2
+   \   0000A3   ....         DW acFont16B_1_00C0
+   \   0000A5   09           DB 9
+   \   0000A6   09           DB 9
+   \   0000A7   02           DB 2
+   \   0000A8   ....         DW acFont16B_1_00C1
+   \   0000AA   09           DB 9
+   \   0000AB   09           DB 9
+   \   0000AC   02           DB 2
+   \   0000AD   ....         DW acFont16B_1_00C2
+   \   0000AF   09           DB 9
+   \   0000B0   09           DB 9
+   \   0000B1   02           DB 2
+   \   0000B2   ....         DW acFont16B_1_00C3
+   \   0000B4   09           DB 9
+   \   0000B5   09           DB 9
+   \   0000B6   02           DB 2
+   \   0000B7   ....         DW acFont16B_1_00C4
+   \   0000B9   09           DB 9
+   \   0000BA   09           DB 9
+   \   0000BB   02           DB 2
+   \   0000BC   ....         DW acFont16B_1_00C5
+   \   0000BE   0D           DB 13
+   \   0000BF   0D           DB 13
+   \   0000C0   02           DB 2
+   \   0000C1   ....         DW acFont16B_1_00C6
+   \   0000C3   09           DB 9
+   \   0000C4   09           DB 9
+   \   0000C5   02           DB 2
+   \   0000C6   ....         DW acFont16B_1_00C7
+   \   0000C8   08           DB 8
+   \   0000C9   08           DB 8
+   \   0000CA   01           DB 1
+   \   0000CB   ....         DW acFont16B_1_00C8
+   \   0000CD   08           DB 8
+   \   0000CE   08           DB 8
+   \   0000CF   01           DB 1
+   \   0000D0   ....         DW acFont16B_1_00C9
+   \   0000D2   08           DB 8
+   \   0000D3   08           DB 8
+   \   0000D4   01           DB 1
+   \   0000D5   ....         DW acFont16B_1_00CA
+   \   0000D7   08           DB 8
+   \   0000D8   08           DB 8
+   \   0000D9   01           DB 1
+   \   0000DA   ....         DW acFont16B_1_00CB
+   \   0000DC   04           DB 4
+   \   0000DD   04           DB 4
+   \   0000DE   01           DB 1
+   \   0000DF   ....         DW acFont16B_1_00CC
+   \   0000E1   04           DB 4
+   \   0000E2   04           DB 4
+   \   0000E3   01           DB 1
+   \   0000E4   ....         DW acFont16B_1_00CD
+   \   0000E6   04           DB 4
+   \   0000E7   04           DB 4
+   \   0000E8   01           DB 1
+   \   0000E9   ....         DW acFont16B_1_00CE
+   \   0000EB   04           DB 4
+   \   0000EC   04           DB 4
+   \   0000ED   01           DB 1
+   \   0000EE   ....         DW acFont16B_1_00CF
+   \   0000F0   09           DB 9
+   \   0000F1   09           DB 9
+   \   0000F2   02           DB 2
+   \   0000F3   ....         DW acFont16B_1_00D0
+   \   0000F5   09           DB 9
+   \   0000F6   09           DB 9
+   \   0000F7   02           DB 2
+   \   0000F8   ....         DW acFont16B_1_00D1
+   \   0000FA   0A           DB 10
+   \   0000FB   0A           DB 10
+   \   0000FC   02           DB 2
+   \   0000FD   ....         DW acFont16B_1_00D2
+   \   0000FF   0A           DB 10
+   \   000100   0A           DB 10
+   \   000101   02           DB 2
+   \   000102   ....         DW acFont16B_1_00D3
+   \   000104   0A           DB 10
+   \   000105   0A           DB 10
+   \   000106   02           DB 2
+   \   000107   ....         DW acFont16B_1_00D4
+   \   000109   0A           DB 10
+   \   00010A   0A           DB 10
+   \   00010B   02           DB 2
+   \   00010C   ....         DW acFont16B_1_00D5
+   \   00010E   0A           DB 10
+   \   00010F   0A           DB 10
+   \   000110   02           DB 2
+   \   000111   ....         DW acFont16B_1_00D6
+   \   000113   08           DB 8
+   \   000114   08           DB 8
+   \   000115   01           DB 1
+   \   000116   ....         DW acFont16B_1_00D7
+   \   000118   0A           DB 10
+   \   000119   0A           DB 10
+   \   00011A   02           DB 2
+   \   00011B   ....         DW acFont16B_1_00D8
+   \   00011D   09           DB 9
+   \   00011E   09           DB 9
+   \   00011F   02           DB 2
+   \   000120   ....         DW acFont16B_1_00D9
+   \   000122   09           DB 9
+   \   000123   09           DB 9
+   \   000124   02           DB 2
+   \   000125   ....         DW acFont16B_1_00DA
+   \   000127   09           DB 9
+   \   000128   09           DB 9
+   \   000129   02           DB 2
+   \   00012A   ....         DW acFont16B_1_00DB
+   \   00012C   09           DB 9
+   \   00012D   09           DB 9
+   \   00012E   02           DB 2
+   \   00012F   ....         DW acFont16B_1_00DC
+   \   000131   08           DB 8
+   \   000132   08           DB 8
+   \   000133   01           DB 1
+   \   000134   ....         DW acFont16B_1_00DD
+   \   000136   09           DB 9
+   \   000137   09           DB 9
+   \   000138   02           DB 2
+   \   000139   ....         DW acFont16B_1_00DE
+   \   00013B   08           DB 8
+   \   00013C   08           DB 8
+   \   00013D   01           DB 1
+   \   00013E   ....         DW acFont16B_1_00DF
+   \   000140   08           DB 8
+   \   000141   08           DB 8
+   \   000142   01           DB 1
+   \   000143   ....         DW acFont16B_1_00E0
+   \   000145   08           DB 8
+   \   000146   08           DB 8
+   \   000147   01           DB 1
+   \   000148   ....         DW acFont16B_1_00E1
+   \   00014A   08           DB 8
+   \   00014B   08           DB 8
+   \   00014C   01           DB 1
+   \   00014D   ....         DW acFont16B_1_00E2
+   \   00014F   08           DB 8
+   \   000150   08           DB 8
+   \   000151   01           DB 1
+   \   000152   ....         DW acFont16B_1_00E3
+   \   000154   08           DB 8
+   \   000155   08           DB 8
+   \   000156   01           DB 1
+   \   000157   ....         DW acFont16B_1_00E4
+   \   000159   08           DB 8
+   \   00015A   08           DB 8
+   \   00015B   01           DB 1
+   \   00015C   ....         DW acFont16B_1_00E5
+   \   00015E   0C           DB 12
+   \   00015F   0C           DB 12
+   \   000160   02           DB 2
+   \   000161   ....         DW acFont16B_1_00E6
+   \   000163   07           DB 7
+   \   000164   07           DB 7
+   \   000165   01           DB 1
+   \   000166   ....         DW acFont16B_1_00E7
+   \   000168   08           DB 8
+   \   000169   08           DB 8
+   \   00016A   01           DB 1
+   \   00016B   ....         DW acFont16B_1_00E8
+   \   00016D   08           DB 8
+   \   00016E   08           DB 8
+   \   00016F   01           DB 1
+   \   000170   ....         DW acFont16B_1_00E9
+   \   000172   08           DB 8
+   \   000173   08           DB 8
+   \   000174   01           DB 1
+   \   000175   ....         DW acFont16B_1_00EA
+   \   000177   08           DB 8
+   \   000178   08           DB 8
+   \   000179   01           DB 1
+   \   00017A   ....         DW acFont16B_1_00EB
+   \   00017C   04           DB 4
+   \   00017D   04           DB 4
+   \   00017E   01           DB 1
+   \   00017F   ....         DW acFont16B_1_00EC
+   \   000181   04           DB 4
+   \   000182   04           DB 4
+   \   000183   01           DB 1
+   \   000184   ....         DW acFont16B_1_00ED
+   \   000186   04           DB 4
+   \   000187   04           DB 4
+   \   000188   01           DB 1
+   \   000189   ....         DW acFont16B_1_00EE
+   \   00018B   04           DB 4
+   \   00018C   04           DB 4
+   \   00018D   01           DB 1
+   \   00018E   ....         DW acFont16B_1_00EF
+   \   000190   08           DB 8
+   \   000191   08           DB 8
+   \   000192   01           DB 1
+   \   000193   ....         DW acFont16B_1_00F0
+   \   000195   08           DB 8
+   \   000196   08           DB 8
+   \   000197   01           DB 1
+   \   000198   ....         DW acFont16B_1_00F1
+   \   00019A   08           DB 8
+   \   00019B   08           DB 8
+   \   00019C   01           DB 1
+   \   00019D   ....         DW acFont16B_1_00F2
+   \   00019F   08           DB 8
+   \   0001A0   08           DB 8
+   \   0001A1   01           DB 1
+   \   0001A2   ....         DW acFont16B_1_00F3
+   \   0001A4   08           DB 8
+   \   0001A5   08           DB 8
+   \   0001A6   01           DB 1
+   \   0001A7   ....         DW acFont16B_1_00F4
+   \   0001A9   08           DB 8
+   \   0001AA   08           DB 8
+   \   0001AB   01           DB 1
+   \   0001AC   ....         DW acFont16B_1_00F5
+   \   0001AE   08           DB 8
+   \   0001AF   08           DB 8
+   \   0001B0   01           DB 1
+   \   0001B1   ....         DW acFont16B_1_00F6
+   \   0001B3   07           DB 7
+   \   0001B4   07           DB 7
+   \   0001B5   01           DB 1
+   \   0001B6   ....         DW acFont16B_1_00F7
+   \   0001B8   08           DB 8
+   \   0001B9   08           DB 8
+   \   0001BA   01           DB 1
+   \   0001BB   ....         DW acFont16B_1_00F8
+   \   0001BD   08           DB 8
+   \   0001BE   08           DB 8
+   \   0001BF   01           DB 1
+   \   0001C0   ....         DW acFont16B_1_00F9
+   \   0001C2   08           DB 8
+   \   0001C3   08           DB 8
+   \   0001C4   01           DB 1
+   \   0001C5   ....         DW acFont16B_1_00FA
+   \   0001C7   08           DB 8
+   \   0001C8   08           DB 8
+   \   0001C9   01           DB 1
+   \   0001CA   ....         DW acFont16B_1_00FB
+   \   0001CC   08           DB 8
+   \   0001CD   08           DB 8
+   \   0001CE   01           DB 1
+   \   0001CF   ....         DW acFont16B_1_00FC
+   \   0001D1   07           DB 7
+   \   0001D2   07           DB 7
+   \   0001D3   01           DB 1
+   \   0001D4   ....         DW acFont16B_1_00FD
+   \   0001D6   08           DB 8
+   \   0001D7   08           DB 8
+   \   0001D8   01           DB 1
+   \   0001D9   ....         DW acFont16B_1_00FE
+   \   0001DB   07           DB 7
+   \   0001DC   07           DB 7
+   \   0001DD   01           DB 1
+   \   0001DE   ....         DW acFont16B_1_00FF
+   1753             {   4,   4,  1, acFont16B_1_00A0 } /* code 00A0 */
+   1754            ,{   4,   4,  1, acFont16B_1_00A1 } /* code 00A1 */
+   1755            ,{   7,   7,  1, acFont16B_1_00A2 } /* code 00A2 */
+   1756            ,{   7,   7,  1, acFont16B_1_00A3 } /* code 00A3 */
+   1757            ,{   7,   7,  1, acFont16B_1_00A4 } /* code 00A4 */
+   1758            ,{   7,   7,  1, acFont16B_1_00A5 } /* code 00A5 */
+   1759            ,{   3,   3,  1, acFont16B_1_00A6 } /* code 00A6 */
+   1760            ,{   7,   7,  1, acFont16B_1_00A7 } /* code 00A7 */
+   1761            ,{   4,   4,  1, acFont16B_1_00A8 } /* code 00A8 */
+   1762            ,{  10,  10,  2, acFont16B_1_00A9 } /* code 00A9 */
+   1763            ,{   5,   5,  1, acFont16B_1_00AA } /* code 00AA */
+   1764            ,{   7,   7,  1, acFont16B_1_00AB } /* code 00AB */
+   1765            ,{   8,   8,  1, acFont16B_1_00AC } /* code 00AC */
+   1766            ,{   4,   4,  1, acFont16B_1_00AD } /* code 00AD */
+   1767            ,{  10,  10,  2, acFont16B_1_00AE } /* code 00AE */
+   1768            ,{   7,   7,  1, acFont16B_1_00AF } /* code 00AF */
+   1769            ,{   5,   5,  1, acFont16B_1_00B0 } /* code 00B0 */
+   1770            ,{   7,   7,  1, acFont16B_1_00B1 } /* code 00B1 */
+   1771            ,{   4,   4,  1, acFont16B_1_00B2 } /* code 00B2 */
+   1772            ,{   4,   4,  1, acFont16B_1_00B3 } /* code 00B3 */
+   1773            ,{   4,   4,  1, acFont16B_1_00B4 } /* code 00B4 */
+   1774            ,{   7,   7,  1, acFont16B_1_00B5 } /* code 00B5 */
+   1775            ,{   7,   7,  1, acFont16B_1_00B6 } /* code 00B6 */
+   1776            ,{   4,   4,  1, acFont16B_1_00B7 } /* code 00B7 */
+   1777            ,{   4,   4,  1, acFont16B_1_00B8 } /* code 00B8 */
+   1778            ,{   4,   4,  1, acFont16B_1_00B9 } /* code 00B9 */
+   1779            ,{   5,   5,  1, acFont16B_1_00BA } /* code 00BA */
+   1780            ,{   7,   7,  1, acFont16B_1_00BB } /* code 00BB */
+   1781            ,{  11,  11,  2, acFont16B_1_00BC } /* code 00BC */
+   1782            ,{  11,  11,  2, acFont16B_1_00BD } /* code 00BD */
+   1783            ,{  11,  11,  2, acFont16B_1_00BE } /* code 00BE */
+   1784            ,{   8,   8,  1, acFont16B_1_00BF } /* code 00BF */
+   1785            ,{   9,   9,  2, acFont16B_1_00C0 } /* code 00C0 */
+   1786            ,{   9,   9,  2, acFont16B_1_00C1 } /* code 00C1 */
+   1787            ,{   9,   9,  2, acFont16B_1_00C2 } /* code 00C2 */
+   1788            ,{   9,   9,  2, acFont16B_1_00C3 } /* code 00C3 */
+   1789            ,{   9,   9,  2, acFont16B_1_00C4 } /* code 00C4 */
+   1790            ,{   9,   9,  2, acFont16B_1_00C5 } /* code 00C5 */
+   1791            ,{  13,  13,  2, acFont16B_1_00C6 } /* code 00C6 */
+   1792            ,{   9,   9,  2, acFont16B_1_00C7 } /* code 00C7 */
+   1793            ,{   8,   8,  1, acFont16B_1_00C8 } /* code 00C8 */
+   1794            ,{   8,   8,  1, acFont16B_1_00C9 } /* code 00C9 */
+   1795            ,{   8,   8,  1, acFont16B_1_00CA } /* code 00CA */
+   1796            ,{   8,   8,  1, acFont16B_1_00CB } /* code 00CB */
+   1797            ,{   4,   4,  1, acFont16B_1_00CC } /* code 00CC */
+   1798            ,{   4,   4,  1, acFont16B_1_00CD } /* code 00CD */
+   1799            ,{   4,   4,  1, acFont16B_1_00CE } /* code 00CE */
+   1800            ,{   4,   4,  1, acFont16B_1_00CF } /* code 00CF */
+   1801            ,{   9,   9,  2, acFont16B_1_00D0 } /* code 00D0 */
+   1802            ,{   9,   9,  2, acFont16B_1_00D1 } /* code 00D1 */
+   1803            ,{  10,  10,  2, acFont16B_1_00D2 } /* code 00D2 */
+   1804            ,{  10,  10,  2, acFont16B_1_00D3 } /* code 00D3 */
+   1805            ,{  10,  10,  2, acFont16B_1_00D4 } /* code 00D4 */
+   1806            ,{  10,  10,  2, acFont16B_1_00D5 } /* code 00D5 */
+   1807            ,{  10,  10,  2, acFont16B_1_00D6 } /* code 00D6 */
+   1808            ,{   8,   8,  1, acFont16B_1_00D7 } /* code 00D7 */
+   1809            ,{  10,  10,  2, acFont16B_1_00D8 } /* code 00D8 */
+   1810            ,{   9,   9,  2, acFont16B_1_00D9 } /* code 00D9 */
+   1811            ,{   9,   9,  2, acFont16B_1_00DA } /* code 00DA */
+   1812            ,{   9,   9,  2, acFont16B_1_00DB } /* code 00DB */
+   1813            ,{   9,   9,  2, acFont16B_1_00DC } /* code 00DC */
+   1814            ,{   8,   8,  1, acFont16B_1_00DD } /* code 00DD */
+   1815            ,{   9,   9,  2, acFont16B_1_00DE } /* code 00DE */
+   1816            ,{   8,   8,  1, acFont16B_1_00DF } /* code 00DF */
+   1817            ,{   8,   8,  1, acFont16B_1_00E0 } /* code 00E0 */
+   1818            ,{   8,   8,  1, acFont16B_1_00E1 } /* code 00E1 */
+   1819            ,{   8,   8,  1, acFont16B_1_00E2 } /* code 00E2 */
+   1820            ,{   8,   8,  1, acFont16B_1_00E3 } /* code 00E3 */
+   1821            ,{   8,   8,  1, acFont16B_1_00E4 } /* code 00E4 */
+   1822            ,{   8,   8,  1, acFont16B_1_00E5 } /* code 00E5 */
+   1823            ,{  12,  12,  2, acFont16B_1_00E6 } /* code 00E6 */
+   1824            ,{   7,   7,  1, acFont16B_1_00E7 } /* code 00E7 */
+   1825            ,{   8,   8,  1, acFont16B_1_00E8 } /* code 00E8 */
+   1826            ,{   8,   8,  1, acFont16B_1_00E9 } /* code 00E9 */
+   1827            ,{   8,   8,  1, acFont16B_1_00EA } /* code 00EA */
+   1828            ,{   8,   8,  1, acFont16B_1_00EB } /* code 00EB */
+   1829            ,{   4,   4,  1, acFont16B_1_00EC } /* code 00EC */
+   1830            ,{   4,   4,  1, acFont16B_1_00ED } /* code 00ED */
+   1831            ,{   4,   4,  1, acFont16B_1_00EE } /* code 00EE */
+   1832            ,{   4,   4,  1, acFont16B_1_00EF } /* code 00EF */
+   1833            ,{   8,   8,  1, acFont16B_1_00F0 } /* code 00F0 */
+   1834            ,{   8,   8,  1, acFont16B_1_00F1 } /* code 00F1 */
+   1835            ,{   8,   8,  1, acFont16B_1_00F2 } /* code 00F2 */
+   1836            ,{   8,   8,  1, acFont16B_1_00F3 } /* code 00F3 */
+   1837            ,{   8,   8,  1, acFont16B_1_00F4 } /* code 00F4 */
+   1838            ,{   8,   8,  1, acFont16B_1_00F5 } /* code 00F5 */
+   1839            ,{   8,   8,  1, acFont16B_1_00F6 } /* code 00F6 */
+   1840            ,{   7,   7,  1, acFont16B_1_00F7 } /* code 00F7 */
+   1841            ,{   8,   8,  1, acFont16B_1_00F8 } /* code 00F8 */
+   1842            ,{   8,   8,  1, acFont16B_1_00F9 } /* code 00F9 */
+   1843            ,{   8,   8,  1, acFont16B_1_00FA } /* code 00FA */
+   1844            ,{   8,   8,  1, acFont16B_1_00FB } /* code 00FB */
+   1845            ,{   8,   8,  1, acFont16B_1_00FC } /* code 00FC */
+   1846            ,{   7,   7,  1, acFont16B_1_00FD } /* code 00FD */
+   1847            ,{   8,   8,  1, acFont16B_1_00FE } /* code 00FE */
+   1848            ,{   7,   7,  1, acFont16B_1_00FF } /* code 00FF */
+   1849          };
+   1850          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1851          GUI_CONST_STORAGE GUI_FONT_PROP GUI_Font16B_1_Prop2 = {
+   \                     GUI_Font16B_1_Prop2:
+   \   000000   A000         DW 160
+   \   000002   FF00         DW 255
+   \   000004   ....         DW GUI_Font16B_1_CharInfo
+   \   000006   0000         DW 0H
+   1852             0x00A0                     /* first character */
+   1853            ,0x00FF                     /* last character  */
+   1854            ,&GUI_Font16B_1_CharInfo[0] /* address of first character */
+   1855            ,(GUI_CONST_STORAGE GUI_FONT_PROP*)0    /* pointer to next GUI_FONT_PROP */
+   1856          };
+   1857          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1858          GUI_CONST_STORAGE GUI_FONT_PROP GUI_Font16B_1_Prop1 = {
+   \                     GUI_Font16B_1_Prop1:
+   \   000000   2000         DW 32
+   \   000002   7E00         DW 126
+   \   000004   ....         DW GUI_Font16B_ASCII_CharInfo
+   \   000006   ....         DW GUI_Font16B_1_Prop2
+   1859             0x0020                         /* first character */
+   1860            ,0x007E                         /* last character  */
+   1861            ,&GUI_Font16B_ASCII_CharInfo[0] /* address of first character */
+   1862            ,&GUI_Font16B_1_Prop2           /* pointer to next GUI_FONT_PROP */
+   1863          };
+   1864          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   1865          GUI_CONST_STORAGE GUI_FONT GUI_Font16B_1 = {
+   \                     GUI_Font16B_1:
+   \   000000   ....         DW ??GUIPROP_DispChar?relay
+   \   000002   ....         DW ??GUIPROP_GetCharDistX?relay
+   \   000004   ....         DW ??GUIPROP_GetFontInfo?relay
+   \   000006   ....         DW ??GUIPROP_IsInFont?relay
+   \   000008   0000         DW 0H
+   \   00000A   10           DB 16
+   \   00000B   10           DB 16
+   \   00000C   01           DB 1
+   \   00000D   01           DB 1
+   \   00000E   ....         DW GUI_Font16B_1_Prop1
+   \   000010   0D           DB 13
+   \   000011   07           DB 7
+   \   000012   0A           DB 10
+   1866             GUI_FONTTYPE_PROP    /* type of font    */
+   1867            ,16                   /* height of font  */
+   1868            ,16                   /* space of font y */
+   1869            ,1                    /* magnification x */
+   1870            ,1                    /* magnification y */
+   1871            ,{&GUI_Font16B_1_Prop1}
+   1872            ,13 ,7 ,10
+   1873          };
+
+
+   Segment part sizes:
+
+     Function/Label         Bytes
+     --------------         -----
+     acFont16B_1_00A0         16
+     acFont16B_1_00A1         16
+     acFont16B_1_00A2         16
+     acFont16B_1_00A3         16
+     acFont16B_1_00A4         16
+     acFont16B_1_00A5         16
+     acFont16B_1_00A6         16
+     acFont16B_1_00A7         16
+     acFont16B_1_00A8         16
+     acFont16B_1_00A9         32
+     acFont16B_1_00AA         16
+     acFont16B_1_00AB         16
+     acFont16B_1_00AC         16
+     acFont16B_1_00AD         16
+     acFont16B_1_00AE         32
+     acFont16B_1_00AF         16
+     acFont16B_1_00B0         16
+     acFont16B_1_00B1         16
+     acFont16B_1_00B2         16
+     acFont16B_1_00B3         16
+     acFont16B_1_00B4         16
+     acFont16B_1_00B5         16
+     acFont16B_1_00B6         16
+     acFont16B_1_00B7         16
+     acFont16B_1_00B8         16
+     acFont16B_1_00B9         16
+     acFont16B_1_00BA         16
+     acFont16B_1_00BB         16
+     acFont16B_1_00BC         32
+     acFont16B_1_00BD         32
+     acFont16B_1_00BE         32
+     acFont16B_1_00BF         16
+     acFont16B_1_00C0         32
+     acFont16B_1_00C1         32
+     acFont16B_1_00C2         32
+     acFont16B_1_00C3         32
+     acFont16B_1_00C4         32
+     acFont16B_1_00C5         32
+     acFont16B_1_00C6         32
+     acFont16B_1_00C7         32
+     acFont16B_1_00C8         16
+     acFont16B_1_00C9         16
+     acFont16B_1_00CA         16
+     acFont16B_1_00CB         16
+     acFont16B_1_00CC         16
+     acFont16B_1_00CD         16
+     acFont16B_1_00CE         16
+     acFont16B_1_00CF         16
+     acFont16B_1_00D0         32
+     acFont16B_1_00D1         32
+     acFont16B_1_00D2         32
+     acFont16B_1_00D3         32
+     acFont16B_1_00D4         32
+     acFont16B_1_00D5         32
+     acFont16B_1_00D6         32
+     acFont16B_1_00D7         16
+     acFont16B_1_00D8         32
+     acFont16B_1_00D9         32
+     acFont16B_1_00DA         32
+     acFont16B_1_00DB         32
+     acFont16B_1_00DC         32
+     acFont16B_1_00DD         16
+     acFont16B_1_00DE         32
+     acFont16B_1_00DF         16
+     acFont16B_1_00E0         16
+     acFont16B_1_00E1         16
+     acFont16B_1_00E2         16
+     acFont16B_1_00E3         16
+     acFont16B_1_00E4         16
+     acFont16B_1_00E5         16
+     acFont16B_1_00E6         32
+     acFont16B_1_00E7         16
+     acFont16B_1_00E8         16
+     acFont16B_1_00E9         16
+     acFont16B_1_00EA         16
+     acFont16B_1_00EB         16
+     acFont16B_1_00EC         16
+     acFont16B_1_00ED         16
+     acFont16B_1_00EE         16
+     acFont16B_1_00EF         16
+     acFont16B_1_00F0         16
+     acFont16B_1_00F1         16
+     acFont16B_1_00F2         16
+     acFont16B_1_00F3         16
+     acFont16B_1_00F4         16
+     acFont16B_1_00F5         16
+     acFont16B_1_00F6         16
+     acFont16B_1_00F7         16
+     acFont16B_1_00F8         16
+     acFont16B_1_00F9         16
+     acFont16B_1_00FA         16
+     acFont16B_1_00FB         16
+     acFont16B_1_00FC         16
+     acFont16B_1_00FD         16
+     acFont16B_1_00FE         16
+     acFont16B_1_00FF         16
+     GUI_Font16B_1_CharInfo  480
+     GUI_Font16B_1_Prop2       8
+     GUI_Font16B_1_Prop1       8
+     GUI_Font16B_1            19
+
+ 
+ 2 483 bytes in segment XDATA_ROM_C
+ 
+ 2 483 bytes of CONST memory
+
+Errors: none
+Warnings: none

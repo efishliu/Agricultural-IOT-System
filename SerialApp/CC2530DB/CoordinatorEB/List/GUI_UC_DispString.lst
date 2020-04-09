@@ -1,0 +1,876 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.1.10194/W32 for 8051         14/Jun/2016  16:18:11 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\Cor #
+#                          e\GUI_UC_DispString.c                              #
+#    Command line       =  -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\..\..\..\Tools\CC2530D #
+#                          B\f8wCoord.cfg (-DCPU32MHZ -DROOT=__near_func      #
+#                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                   #
+#                          -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8         #
+#                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)    #
+#                          -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\..\..\..\Tools\CC2530D #
+#                          B\f8wConfig.cfg (-DZIGBEEPRO -DSECURE=0            #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0x1001                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹â #
+#                          ÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5. #
+#                          1a\Components\uCGUI\Core\GUI_UC_DispString.c -D    #
+#                          HAL_UART=TRUE -D SERIAL_APP_PORT=0 -D COOR -D      #
+#                          LCD_SUPPORTED -D NV_INIT -lC                       #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\List\ -lA   #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\List\       #
+#                          --diag_suppress Pe001,Pa010 -o                     #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\Obj\ -e     #
+#                          --no_code_motion --debug --core=plain --dptr=16,1  #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\ -I                    #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\Public\ -I             #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \uCGUI\Core\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ2 #
+#                          10\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ #
+#                          ..\..\Components\uCGUI\MultiLayer\ -I              #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \uCGUI\Config\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁ #
+#                          Ï210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Pr #
+#                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\Coor #
+#                          dinator\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Z #
+#                          igBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects #
+#                          \zstack\Utilities\SerialApp\CC2530DB\..\..\..\ZMai #
+#                          n\TI2530DB\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ21 #
+#                          0\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proje #
+#                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\. #
+#                          .\..\Components\hal\include\ -I                    #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \hal\target\CC2530EB\ -I                           #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\include\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ #
+#                          210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Pro #
+#                          jects\zstack\Utilities\SerialApp\CC2530DB\..\..\.. #
+#                          \..\..\Components\mac\high_level\ -I               #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\low_level\srf04\ -I                           #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\low_level\srf04\single_chip\ -I               #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mt\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBe #
+#                          eÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zst #
+#                          ack\Utilities\SerialApp\CC2530DB\..\..\..\..\..\Co #
+#                          mponents\osal\include\ -I                          #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \services\saddr\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ× #
+#                          ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\ #
+#                          Projects\zstack\Utilities\SerialApp\CC2530DB\..\.. #
+#                          \..\..\..\Components\services\sdata\ -I            #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\af\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210 #
+#                          \ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projec #
+#                          ts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\.. #
+#                          \..\Components\stack\nwk\ -I                       #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\sapi\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ2 #
+#                          10\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ #
+#                          ..\..\Components\stack\sec\ -I                     #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\sys\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ21 #
+#                          0\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proje #
+#                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\. #
+#                          .\..\Components\stack\zdo\ -I                      #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \zmac\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Zig #
+#                          BeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\z #
+#                          stack\Utilities\SerialApp\CC2530DB\..\..\..\..\..\ #
+#                          Components\zmac\f8w\ -Ohz --require_prototypes     #
+#    List file          =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\List\GUI_UC #
+#                          _DispString.lst                                    #
+#    Object file        =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\Obj\GUI_UC_ #
+#                          DispString.r51                                     #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\Core\GUI_UC_DispString.c
+      1          /*
+      2          *********************************************************************************************************
+      3          *                                                uC/GUI
+      4          *                        Universal graphic software for embedded applications
+      5          *
+      6          *                       (c) Copyright 2002, Micrium Inc., Weston, FL
+      7          *                       (c) Copyright 2002, SEGGER Microcontroller Systeme GmbH
+      8          *
+      9          *              µC/GUI is protected by international copyright laws. Knowledge of the
+     10          *              source code may not be used to write a similar product. This file may
+     11          *              only be used in accordance with a license and should not be redistributed
+     12          *              in any way. We appreciate your understanding and fairness.
+     13          *
+     14          ----------------------------------------------------------------------
+     15          File        : GUI_UC_DispString.c
+     16          Purpose     : Implementation of GUI_UC_DispString
+     17          ---------------------------END-OF-HEADER------------------------------
+     18          */
+     19          
+     20          #include <stddef.h>           /* needed for definition of NULL */
+     21          #include "GUI_Protected.h"
+
+   \                                 In  segment SFR_AN, at 0xa8
+   \   union <unnamed> volatile __sfr _A_IEN0
+   \                     _A_IEN0:
+   \   000000                DS 1
+     22          
+     23          /*********************************************************************
+     24          *
+     25          *       Static code
+     26          *
+     27          **********************************************************************
+     28          */
+     29          /*********************************************************************
+     30          *
+     31          *       _GetLineDistX
+     32          */
+     33          static int _GetLineDistX(const U16 GUI_UNI_PTR *s, int MaxNumChars) {
+     34            int Dist =0;
+     35            if (s) {
+     36              U16 Char;
+     37              while (((Char = *s) != 0) && MaxNumChars >= 0) {
+     38                s++;
+     39                MaxNumChars--;
+     40                Dist += GUI_GetCharDistX(Char);
+     41              }
+     42            }
+     43            return Dist;
+     44          }
+     45          
+     46          /*********************************************************************
+     47          *
+     48          *       _GetLineLen
+     49          */
+     50          static int _GetLineLen(const U16 GUI_UNI_PTR *s, int MaxLen) {
+     51            int Len =0;
+     52            if (!s)
+     53              return 0;
+     54            {
+     55              while ((*s !=0) && Len < MaxLen) {
+     56                Len++; s++;
+     57              }
+     58            }
+     59            return Len;
+     60          }
+     61          
+     62          /*********************************************************************
+     63          *
+     64          *       _DispLine_UC
+     65          */
+     66          static void _DispLine_UC(const U16 GUI_UNI_PTR *s, int Len, const GUI_RECT *pRect) {
+     67            if (GUI_Context.pClipRect_HL) {
+     68              if (GUI_RectsIntersect(GUI_Context.pClipRect_HL, pRect) == 0)
+     69                return;
+     70            }
+     71            {
+     72              U16 c0;
+     73              while (--Len >=0) {
+     74                c0=*s++;
+     75                GL_DispChar(c0);
+     76              }
+     77            }
+     78          }
+     79          
+     80          /*********************************************************************
+     81          *
+     82          *       _DispLine
+     83          */
+     84          static void _DispLine(const U16 GUI_UNI_PTR *s, int Len, const GUI_RECT* pr) {
+     85            GUI_RECT r;
+     86            r = *pr;
+     87            #if GUI_WINSUPPORT
+     88            WM_ADDORG(r.x0,r.y0);
+     89            WM_ADDORG(r.x1,r.y1);
+     90            WM_ITERATE_START(&r) {
+     91            #endif
+     92               GUI_Context.DispPosX = r.x0;
+     93               GUI_Context.DispPosY = r.y0;
+     94               _DispLine_UC(s, Len, &r);    /* Do the actual drawing via routine call. */
+     95            #if GUI_WINSUPPORT
+     96            } WM_ITERATE_END();
+     97            WM_SUBORG(GUI_Context.DispPosX, GUI_Context.DispPosY);
+     98            #endif
+     99          }
+    100          
+    101          /*********************************************************************
+    102          *
+    103          *       Public code
+    104          *
+    105          **********************************************************************
+    106          */
+    107          /*********************************************************************
+    108          *
+    109          *       GUI_UC_DispString
+    110          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    111          void GUI_UC_DispString(const U16 GUI_UNI_PTR *s) {
+   \                     GUI_UC_DispString:
+   \   000000   74E8         MOV     A,#-0x18
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 24
+   \   000005                ; Auto size: 13
+   \   000005   74F3         MOV     A,#-0xd
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   8A..         MOV     ?V0 + 4,R2
+   \   00000C   8B..         MOV     ?V0 + 5,R3
+    112            int xAdjust, yAdjust, xOrg;
+    113            int FontSizeY;
+    114            if (!s)
+   \   00000E   EA           MOV     A,R2
+   \   00000F   45..         ORL     A,?V0 + 5
+   \   000011   7003         JNZ     $+5
+   \   000013   02....       LJMP    ??GUI_UC_DispString_0 & 0xFFFF
+    115              return;
+    116            halIntState_t state;
+    117            GUI_LOCK(state);
+   \   000016   A2AF         MOV     C,0xa8.7
+   \   000018   E4           CLR     A
+   \   000019   33           RLC     A
+   \   00001A   85..82       MOV     DPL,?XSP + 0
+   \   00001D   85..83       MOV     DPH,?XSP + 1
+   \   000020   F0           MOVX    @DPTR,A
+   \   000021   C2AF         CLR     0xa8.7
+    118            FontSizeY = GUI_Context.pAFont->YSize;
+   \   000023   90....       MOV     DPTR,#GUI_Context + 21
+   \   000026   E0           MOVX    A,@DPTR
+   \   000027   F8           MOV     R0,A
+   \   000028   A3           INC     DPTR
+   \   000029   E0           MOVX    A,@DPTR
+   \   00002A   F583         MOV     DPH,A
+   \   00002C   8882         MOV     DPL,R0
+   \   00002E   A3           INC     DPTR
+   \   00002F   A3           INC     DPTR
+   \   000030   A3           INC     DPTR
+   \   000031   A3           INC     DPTR
+   \   000032   A3           INC     DPTR
+   \   000033   A3           INC     DPTR
+   \   000034   A3           INC     DPTR
+   \   000035   A3           INC     DPTR
+   \   000036   A3           INC     DPTR
+   \   000037   A3           INC     DPTR
+   \   000038   E0           MOVX    A,@DPTR
+   \   000039   F5..         MOV     ?V0 + 0,A
+    119            xOrg = GUI_Context.DispPosX;
+   \   00003B   90....       MOV     DPTR,#GUI_Context + 27
+   \   00003E   12....       LCALL   ?Subroutine7 & 0xFFFF
+   \                     ??CrossCallReturnLabel_20:
+   \   000041   740B         MOV     A,#0xb
+   \   000043   12....       LCALL   ?XSTACK_DISP0_8
+   \   000046   12....       LCALL   ?Subroutine3 & 0xFFFF
+    120           /* Adjust vertical position */
+    121            yAdjust = GUI_GetYAdjust();
+   \                     ??CrossCallReturnLabel_5:
+   \   000049                ; Setup parameters for call to function GUI_GetYAdjust
+   \   000049   12....       LCALL   ??GUI_GetYAdjust?relay
+   \   00004C   7401         MOV     A,#0x1
+   \   00004E   12....       LCALL   ?XSTACK_DISP0_8
+   \   000051   EA           MOV     A,R2
+   \   000052   F0           MOVX    @DPTR,A
+   \   000053   A3           INC     DPTR
+   \   000054   EB           MOV     A,R3
+   \   000055   F0           MOVX    @DPTR,A
+    122            GUI_Context.DispPosY -= yAdjust;
+   \   000056   7401         MOV     A,#0x1
+   \   000058   12....       LCALL   ?XSTACK_DISP0_8
+   \   00005B   12....       LCALL   ?Subroutine0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_0:
+   \   00005E   C3           CLR     C
+   \   00005F   E0           MOVX    A,@DPTR
+   \   000060   98           SUBB    A,R0
+   \   000061   F0           MOVX    @DPTR,A
+   \   000062   A3           INC     DPTR
+   \   000063   E0           MOVX    A,@DPTR
+   \   000064   99           SUBB    A,R1
+   \   000065   F0           MOVX    @DPTR,A
+   \   000066   800C         SJMP    ??GUI_UC_DispString_1
+    123            for (; *s; s++) {
+   \                     ??GUI_UC_DispString_2:
+   \   000068   E5..         MOV     A,?V0 + 4
+   \   00006A   2402         ADD     A,#0x2
+   \   00006C   F5..         MOV     ?V0 + 4,A
+   \   00006E   E5..         MOV     A,?V0 + 5
+   \   000070   3400         ADDC    A,#0x0
+   \   000072   F5..         MOV     ?V0 + 5,A
+   \                     ??GUI_UC_DispString_1:
+   \   000074   12....       LCALL   ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_18:
+   \   000077   7003         JNZ     $+5
+   \   000079   02....       LJMP    ??GUI_UC_DispString_3 & 0xFFFF
+    124              GUI_RECT r;
+    125              int LineLen= _GetLineLen(s,0x7fff);
+   \   00007C   A8..         MOV     R0,?V0 + 4
+   \   00007E   A9..         MOV     R1,?V0 + 5
+   \   000080   7A00         MOV     R2,#0x0
+   \   000082   7B00         MOV     R3,#0x0
+   \   000084   E8           MOV     A,R0
+   \   000085   49           ORL     A,R1
+   \   000086   7017         JNZ     ??GUI_UC_DispString_4
+   \   000088   7E00         MOV     R6,#0x0
+   \   00008A   7F00         MOV     R7,#0x0
+   \   00008C   802C         SJMP    ??GUI_UC_DispString_5
+   \                     ??GUI_UC_DispString_6:
+   \   00008E   EA           MOV     A,R2
+   \   00008F   2401         ADD     A,#0x1
+   \   000091   0A           INC     R2
+   \   000092   EB           MOV     A,R3
+   \   000093   3400         ADDC    A,#0x0
+   \   000095   FB           MOV     R3,A
+   \   000096   E8           MOV     A,R0
+   \   000097   2402         ADD     A,#0x2
+   \   000099   08           INC     R0
+   \   00009A   08           INC     R0
+   \   00009B   E9           MOV     A,R1
+   \   00009C   3400         ADDC    A,#0x0
+   \   00009E   F9           MOV     R1,A
+   \                     ??GUI_UC_DispString_4:
+   \   00009F   8882         MOV     DPL,R0
+   \   0000A1   8983         MOV     DPH,R1
+   \   0000A3   E0           MOVX    A,@DPTR
+   \   0000A4   FC           MOV     R4,A
+   \   0000A5   A3           INC     DPTR
+   \   0000A6   E0           MOVX    A,@DPTR
+   \   0000A7   FD           MOV     R5,A
+   \   0000A8   EC           MOV     A,R4
+   \   0000A9   4D           ORL     A,R5
+   \   0000AA   600A         JZ      ??GUI_UC_DispString_7
+   \   0000AC   74FF         MOV     A,#-0x1
+   \   0000AE   6A           XRL     A,R2
+   \   0000AF   7003         JNZ     ??GUI_UC_DispString_8
+   \   0000B1   747F         MOV     A,#0x7f
+   \   0000B3   6B           XRL     A,R3
+   \                     ??GUI_UC_DispString_8:
+   \   0000B4   70D8         JNZ     ??GUI_UC_DispString_6
+   \                     ??GUI_UC_DispString_7:
+   \   0000B6   EA           MOV     A,R2
+   \   0000B7   FE           MOV     R6,A
+   \   0000B8   EB           MOV     A,R3
+   \   0000B9   FF           MOV     R7,A
+    126              int xLineSize = _GetLineDistX(s, LineLen);
+   \                     ??GUI_UC_DispString_5:
+   \   0000BA   8E..         MOV     ?V0 + 8,R6
+   \   0000BC   8F..         MOV     ?V0 + 9,R7
+   \   0000BE   85....       MOV     ?V0 + 6,?V0 + 4
+   \   0000C1   85....       MOV     ?V0 + 7,?V0 + 5
+   \   0000C4   75..00       MOV     ?V0 + 2,#0x0
+   \   0000C7   75..00       MOV     ?V0 + 3,#0x0
+   \   0000CA   E5..         MOV     A,?V0 + 6
+   \   0000CC   45..         ORL     A,?V0 + 7
+   \   0000CE   6036         JZ      ??GUI_UC_DispString_9
+   \   0000D0   8019         SJMP    ??GUI_UC_DispString_10
+   \                     ??GUI_UC_DispString_11:
+   \   0000D2   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_3:
+   \   0000D5   12....       LCALL   ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_13:
+   \   0000D8                ; Setup parameters for call to function GUI_GetCharDistX
+   \   0000D8   12....       LCALL   ??GUI_GetCharDistX?relay
+   \   0000DB   8A..         MOV     ?V0 + 10,R2
+   \   0000DD   8B..         MOV     ?V0 + 11,R3
+   \   0000DF   E5..         MOV     A,?V0 + 2
+   \   0000E1   25..         ADD     A,?V0 + 10
+   \   0000E3   F5..         MOV     ?V0 + 2,A
+   \   0000E5   E5..         MOV     A,?V0 + 3
+   \   0000E7   35..         ADDC    A,?V0 + 11
+   \   0000E9   F5..         MOV     ?V0 + 3,A
+   \                     ??GUI_UC_DispString_10:
+   \   0000EB   85..82       MOV     DPL,?V0 + 6
+   \   0000EE   85..83       MOV     DPH,?V0 + 7
+   \   0000F1   E0           MOVX    A,@DPTR
+   \   0000F2   FA           MOV     R2,A
+   \   0000F3   A3           INC     DPTR
+   \   0000F4   E0           MOVX    A,@DPTR
+   \   0000F5   FB           MOV     R3,A
+   \   0000F6   EA           MOV     A,R2
+   \   0000F7   4B           ORL     A,R3
+   \   0000F8   600C         JZ      ??GUI_UC_DispString_9
+   \   0000FA   C3           CLR     C
+   \   0000FB   E5..         MOV     A,?V0 + 9
+   \   0000FD   9400         SUBB    A,#0x0
+   \   0000FF   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   000101   65D0         XRL     A,PSW
+   \   000103   33           RLC     A
+   \   000104   50CC         JNC     ??GUI_UC_DispString_11
+    127            /* Check if x-position needs to be changed due to h-alignment */
+    128              switch (GUI_Context.TextAlign & GUI_TA_HORIZONTAL) { 
+   \                     ??GUI_UC_DispString_9:
+   \   000106   90....       MOV     DPTR,#GUI_Context + 37
+   \   000109   E0           MOVX    A,@DPTR
+   \   00010A   5403         ANL     A,#0x3
+   \   00010C   14           DEC     A
+   \   00010D   6010         JZ      ??GUI_UC_DispString_12
+   \   00010F   14           DEC     A
+   \   000110   7013         JNZ     ??GUI_UC_DispString_13
+    129              case GUI_TA_CENTER: xAdjust= xLineSize/2; break;
+   \   000112   A8..         MOV     R0,?V0 + 2
+   \   000114   A9..         MOV     R1,?V0 + 3
+   \   000116   7A02         MOV     R2,#0x2
+   \   000118   7B00         MOV     R3,#0x0
+   \   00011A   12....       LCALL   ?S_DIV_MOD
+   \   00011D   800A         SJMP    ??GUI_UC_DispString_14
+    130              case GUI_TA_RIGHT:  xAdjust= xLineSize; break;
+   \                     ??GUI_UC_DispString_12:
+   \   00011F   A8..         MOV     R0,?V0 + 2
+   \   000121   A9..         MOV     R1,?V0 + 3
+   \   000123   8004         SJMP    ??GUI_UC_DispString_14
+    131              default:            xAdjust= 0;
+   \                     ??GUI_UC_DispString_13:
+   \   000125   7800         MOV     R0,#0x0
+   \   000127   7900         MOV     R1,#0x0
+    132              }
+    133              r.x0 = GUI_Context.DispPosX -= xAdjust;
+   \                     ??GUI_UC_DispString_14:
+   \   000129   90....       MOV     DPTR,#GUI_Context + 27
+   \   00012C   C3           CLR     C
+   \   00012D   E0           MOVX    A,@DPTR
+   \   00012E   98           SUBB    A,R0
+   \   00012F   F0           MOVX    @DPTR,A
+   \   000130   A3           INC     DPTR
+   \   000131   E0           MOVX    A,@DPTR
+   \   000132   99           SUBB    A,R1
+   \   000133   F0           MOVX    @DPTR,A
+   \   000134   90....       MOV     DPTR,#GUI_Context + 27
+   \   000137   E0           MOVX    A,@DPTR
+   \   000138   F5..         MOV     ?V0 + 14,A
+   \   00013A   A3           INC     DPTR
+   \   00013B   E0           MOVX    A,@DPTR
+   \   00013C   F5..         MOV     ?V0 + 15,A
+    134              r.x1 = r.x0 + xLineSize-1;    
+    135              r.y0 = GUI_Context.DispPosY;
+   \   00013E   A3           INC     DPTR
+   \   00013F   E0           MOVX    A,@DPTR
+   \   000140   F5..         MOV     ?V0 + 10,A
+   \   000142   A3           INC     DPTR
+   \   000143   E0           MOVX    A,@DPTR
+   \   000144   F5..         MOV     ?V0 + 11,A
+    136              r.y1 = r.y0 + FontSizeY-1;    
+    137              _DispLine(s, LineLen, &r);
+   \   000146   7403         MOV     A,#0x3
+   \   000148   12....       LCALL   ?XSTACK_DISP0_8
+   \   00014B   E5..         MOV     A,?V0 + 14
+   \   00014D   F0           MOVX    @DPTR,A
+   \   00014E   A3           INC     DPTR
+   \   00014F   E5..         MOV     A,?V0 + 15
+   \   000151   F0           MOVX    @DPTR,A
+   \   000152   7405         MOV     A,#0x5
+   \   000154   12....       LCALL   ?XSTACK_DISP0_8
+   \   000157   E5..         MOV     A,?V0 + 10
+   \   000159   F0           MOVX    @DPTR,A
+   \   00015A   A3           INC     DPTR
+   \   00015B   E5..         MOV     A,?V0 + 11
+   \   00015D   F0           MOVX    @DPTR,A
+   \   00015E   12....       LCALL   ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_15:
+   \   000161   E8           MOV     A,R0
+   \   000162   24FF         ADD     A,#-0x1
+   \   000164   18           DEC     R0
+   \   000165   E9           MOV     A,R1
+   \   000166   34FF         ADDC    A,#-0x1
+   \   000168   F9           MOV     R1,A
+   \   000169   7407         MOV     A,#0x7
+   \   00016B   12....       LCALL   ?XSTACK_DISP0_8
+   \   00016E   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_6:
+   \   000171   E5..         MOV     A,?V0 + 10
+   \   000173   25..         ADD     A,?V0 + 0
+   \   000175   F8           MOV     R0,A
+   \   000176   E5..         MOV     A,?V0 + 11
+   \   000178   3400         ADDC    A,#0x0
+   \   00017A   F9           MOV     R1,A
+   \   00017B   E8           MOV     A,R0
+   \   00017C   24FF         ADD     A,#-0x1
+   \   00017E   18           DEC     R0
+   \   00017F   E9           MOV     A,R1
+   \   000180   34FF         ADDC    A,#-0x1
+   \   000182   F9           MOV     R1,A
+   \   000183   7409         MOV     A,#0x9
+   \   000185   12....       LCALL   ?XSTACK_DISP0_8
+   \   000188   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_7:
+   \   00018B   7403         MOV     A,#0x3
+   \   00018D   12....       LCALL   ?XSTACK_DISP0_8
+   \   000190   12....       LCALL   ?Subroutine4 & 0xFFFF
+   \                     ??CrossCallReturnLabel_11:
+   \   000193   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_8:
+   \   000196   7405         MOV     A,#0x5
+   \   000198   12....       LCALL   ?XSTACK_DISP0_8
+   \   00019B   12....       LCALL   ?Subroutine0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_1:
+   \   00019E   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_9:
+   \   0001A1   8E..         MOV     ?V0 + 8,R6
+   \   0001A3   8F..         MOV     ?V0 + 9,R7
+   \   0001A5   85....       MOV     ?V0 + 6,?V0 + 4
+   \   0001A8   85....       MOV     ?V0 + 7,?V0 + 5
+   \   0001AB   90....       MOV     DPTR,#GUI_Context + 15
+   \   0001AE   12....       LCALL   ??Subroutine8_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_17:
+   \   0001B1   602E         JZ      ??GUI_UC_DispString_15
+   \   0001B3                ; Setup parameters for call to function GUI_RectsIntersect
+   \   0001B3   7403         MOV     A,#0x3
+   \   0001B5   12....       LCALL   ?XSTACK_DISP0_8
+   \   0001B8   AC82         MOV     R4,DPL
+   \   0001BA   AD83         MOV     R5,DPH
+   \   0001BC   90....       MOV     DPTR,#GUI_Context + 15
+   \   0001BF   E0           MOVX    A,@DPTR
+   \   0001C0   FA           MOV     R2,A
+   \   0001C1   A3           INC     DPTR
+   \   0001C2   E0           MOVX    A,@DPTR
+   \   0001C3   FB           MOV     R3,A
+   \   0001C4   12....       LCALL   ??GUI_RectsIntersect?relay
+   \   0001C7   8B..         MOV     ?V0 + 13,R3
+   \   0001C9   EA           MOV     A,R2
+   \   0001CA   45..         ORL     A,?V0 + 13
+   \   0001CC   7013         JNZ     ??GUI_UC_DispString_15
+   \   0001CE   801E         SJMP    ??GUI_UC_DispString_16
+   \                     ??GUI_UC_DispString_17:
+   \   0001D0   85..82       MOV     DPL,?V0 + 6
+   \   0001D3   85..83       MOV     DPH,?V0 + 7
+   \   0001D6   E0           MOVX    A,@DPTR
+   \   0001D7   FA           MOV     R2,A
+   \   0001D8   A3           INC     DPTR
+   \   0001D9   E0           MOVX    A,@DPTR
+   \   0001DA   FB           MOV     R3,A
+   \   0001DB   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_4:
+   \   0001DE                ; Setup parameters for call to function GL_DispChar
+   \   0001DE   12....       LCALL   ??GL_DispChar?relay
+   \                     ??GUI_UC_DispString_15:
+   \   0001E1   12....       LCALL   ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_14:
+   \   0001E4   C3           CLR     C
+   \   0001E5   9400         SUBB    A,#0x0
+   \   0001E7   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   0001E9   65D0         XRL     A,PSW
+   \   0001EB   33           RLC     A
+   \   0001EC   50E2         JNC     ??GUI_UC_DispString_17
+    138              GUI_Context.DispPosY = r.y0;
+   \                     ??GUI_UC_DispString_16:
+   \   0001EE   90....       MOV     DPTR,#GUI_Context + 29
+   \   0001F1   E5..         MOV     A,?V0 + 10
+   \   0001F3   F0           MOVX    @DPTR,A
+   \   0001F4   A3           INC     DPTR
+   \   0001F5   E5..         MOV     A,?V0 + 11
+   \   0001F7   F0           MOVX    @DPTR,A
+    139              s += LineLen;
+   \   0001F8   EE           MOV     A,R6
+   \   0001F9   C3           CLR     C
+   \   0001FA   33           RLC     A
+   \   0001FB   FE           MOV     R6,A
+   \   0001FC   EF           MOV     A,R7
+   \   0001FD   33           RLC     A
+   \   0001FE   FF           MOV     R7,A
+   \   0001FF   E5..         MOV     A,?V0 + 4
+   \   000201   2E           ADD     A,R6
+   \   000202   F5..         MOV     ?V0 + 4,A
+   \   000204   E5..         MOV     A,?V0 + 5
+   \   000206   3F           ADDC    A,R7
+   \   000207   F5..         MOV     ?V0 + 5,A
+    140              if (*s=='\n') {
+   \   000209   85..82       MOV     DPL,?V0 + 4
+   \   00020C   F583         MOV     DPH,A
+   \   00020E   E0           MOVX    A,@DPTR
+   \   00020F   640A         XRL     A,#0xa
+   \   000211   7002         JNZ     ??GUI_UC_DispString_18
+   \   000213   A3           INC     DPTR
+   \   000214   E0           MOVX    A,@DPTR
+   \                     ??GUI_UC_DispString_18:
+   \   000215   7036         JNZ     ??GUI_UC_DispString_19
+    141                switch (GUI_Context.TextAlign & GUI_TA_HORIZONTAL) { 
+   \   000217   90....       MOV     DPTR,#GUI_Context + 37
+   \   00021A   E0           MOVX    A,@DPTR
+   \   00021B   5403         ANL     A,#0x3
+   \   00021D   14           DEC     A
+   \   00021E   6003         JZ      ??GUI_UC_DispString_20
+   \   000220   14           DEC     A
+   \   000221   700A         JNZ     ??GUI_UC_DispString_21
+    142                case GUI_TA_CENTER:
+    143                case GUI_TA_RIGHT:
+    144                  GUI_Context.DispPosX = xOrg;
+   \                     ??GUI_UC_DispString_20:
+   \   000223   740B         MOV     A,#0xb
+   \   000225   12....       LCALL   ?XSTACK_DISP0_8
+   \   000228   12....       LCALL   ?Subroutine4 & 0xFFFF
+   \                     ??CrossCallReturnLabel_12:
+   \   00022B   8007         SJMP    ??GUI_UC_DispString_22
+    145                  break;
+    146                default:
+    147                  GUI_Context.DispPosX = GUI_Context.LBorder;
+   \                     ??GUI_UC_DispString_21:
+   \   00022D   90....       MOV     DPTR,#GUI_Context + 25
+   \   000230   12....       LCALL   ?Subroutine7 & 0xFFFF
+   \                     ??CrossCallReturnLabel_21:
+   \   000233   A3           INC     DPTR
+   \                     ??GUI_UC_DispString_22:
+   \   000234   12....       LCALL   ?Subroutine3 & 0xFFFF
+    148                  break;
+    149                }
+    150                GUI_Context.DispPosY += GUI_GetFontDistY();
+   \                     ??CrossCallReturnLabel_10:
+   \   000237                ; Setup parameters for call to function GUI_GetFontDistY
+   \   000237   12....       LCALL   ??GUI_GetFontDistY?relay
+   \   00023A   8A..         MOV     ?V0 + 2,R2
+   \   00023C   8B..         MOV     ?V0 + 3,R3
+   \   00023E   A8..         MOV     R0,?V0 + 2
+   \   000240   A9..         MOV     R1,?V0 + 3
+   \   000242   90....       MOV     DPTR,#GUI_Context + 29
+   \   000245   E0           MOVX    A,@DPTR
+   \   000246   28           ADD     A,R0
+   \   000247   F0           MOVX    @DPTR,A
+   \   000248   A3           INC     DPTR
+   \   000249   E0           MOVX    A,@DPTR
+   \   00024A   39           ADDC    A,R1
+   \   00024B   800A         SJMP    ??GUI_UC_DispString_23
+    151              } else {
+    152                GUI_Context.DispPosX = r.x0+xLineSize;
+   \                     ??GUI_UC_DispString_19:
+   \   00024D   12....       LCALL   ?Subroutine6 & 0xFFFF
+    153              }
+   \                     ??CrossCallReturnLabel_16:
+   \   000250   90....       MOV     DPTR,#GUI_Context + 27
+   \   000253   E8           MOV     A,R0
+   \   000254   F0           MOVX    @DPTR,A
+   \   000255   A3           INC     DPTR
+   \   000256   E9           MOV     A,R1
+   \                     ??GUI_UC_DispString_23:
+   \   000257   F0           MOVX    @DPTR,A
+    154              if (*s==0)    /* end of string (last line) reached ? */
+   \   000258   12....       LCALL   ?Subroutine1 & 0xFFFF
+    155                break;
+    156            }
+   \                     ??CrossCallReturnLabel_19:
+   \   00025B   6003         JZ      $+5
+   \   00025D   02....       LJMP    ??GUI_UC_DispString_2 & 0xFFFF
+    157            GUI_Context.DispPosY += yAdjust;
+   \                     ??GUI_UC_DispString_3:
+   \   000260   7401         MOV     A,#0x1
+   \   000262   12....       LCALL   ?XSTACK_DISP0_8
+   \   000265   12....       LCALL   ?Subroutine0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_2:
+   \   000268   E0           MOVX    A,@DPTR
+   \   000269   28           ADD     A,R0
+   \   00026A   F0           MOVX    @DPTR,A
+   \   00026B   A3           INC     DPTR
+   \   00026C   E0           MOVX    A,@DPTR
+   \   00026D   39           ADDC    A,R1
+   \   00026E   F0           MOVX    @DPTR,A
+    158            GUI_Context.TextAlign &= ~GUI_TA_HORIZONTAL;
+   \   00026F   90....       MOV     DPTR,#GUI_Context + 37
+   \   000272   E0           MOVX    A,@DPTR
+   \   000273   54FC         ANL     A,#0xfc
+   \   000275   F0           MOVX    @DPTR,A
+    159            GUI_UNLOCK(state);
+   \   000276   85..82       MOV     DPL,?XSP + 0
+   \   000279   85..83       MOV     DPH,?XSP + 1
+   \   00027C   E0           MOVX    A,@DPTR
+   \   00027D   A2E0         MOV     C,0xE0 /* A   */.0
+   \   00027F   92AF         MOV     0xa8.7,C
+    160          }
+   \                     ??GUI_UC_DispString_0:
+   \   000281   740D         MOV     A,#0xd
+   \   000283   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000286   7F10         MOV     R7,#0x10
+   \   000288   02....       LJMP    ?BANKED_LEAVE_XDATA
+   \   00028B                REQUIRE _A_IEN0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine6:
+   \   000000   E5..         MOV     A,?V0 + 14
+   \   000002   25..         ADD     A,?V0 + 2
+   \   000004   F8           MOV     R0,A
+   \   000005   E5..         MOV     A,?V0 + 15
+   \   000007   35..         ADDC    A,?V0 + 3
+   \   000009   F9           MOV     R1,A
+   \   00000A   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine4:
+   \   000000   12....       LCALL   ?Subroutine7 & 0xFFFF
+   \                     ??CrossCallReturnLabel_23:
+   \   000003   90....       MOV     DPTR,#GUI_Context + 27
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   E8           MOV     A,R0
+   \   000001   F0           MOVX    @DPTR,A
+   \   000002   A3           INC     DPTR
+   \   000003   E9           MOV     A,R1
+   \   000004   F0           MOVX    @DPTR,A
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   85..82       MOV     DPL,?V0 + 4
+   \   000003   85..83       MOV     DPH,?V0 + 5
+   \   000006                REQUIRE ??Subroutine8_0
+   \   000006                ; // Fall through to label ??Subroutine8_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine8_0:
+   \   000000   12....       LCALL   ?Subroutine7 & 0xFFFF
+   \                     ??CrossCallReturnLabel_24:
+   \   000003   E8           MOV     A,R0
+   \   000004   49           ORL     A,R1
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine7:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F8           MOV     R0,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   F9           MOV     R1,A
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   12....       LCALL   ?Subroutine7 & 0xFFFF
+   \                     ??CrossCallReturnLabel_22:
+   \   000003   90....       MOV     DPTR,#GUI_Context + 29
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine5:
+   \   000000   E5..         MOV     A,?V0 + 8
+   \   000002   24FF         ADD     A,#-0x1
+   \   000004   F5..         MOV     ?V0 + 8,A
+   \   000006   E5..         MOV     A,?V0 + 9
+   \   000008   34FF         ADDC    A,#-0x1
+   \   00000A   F5..         MOV     ?V0 + 9,A
+   \   00000C   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   E5..         MOV     A,?V0 + 6
+   \   000002   2402         ADD     A,#0x2
+   \   000004   F5..         MOV     ?V0 + 6,A
+   \   000006   E5..         MOV     A,?V0 + 7
+   \   000008   3400         ADDC    A,#0x0
+   \   00000A   F5..         MOV     ?V0 + 7,A
+   \   00000C   22           RET
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI_UC_DispString?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI_UC_DispString
+    161          
+    162          /*************************** End of file ****************************/
+
+   Maximum stack usage in bytes:
+
+     Function                ISTACK PSTACK XSTACK
+     --------                ------ ------ ------
+     GUI_UC_DispString           1      0     37
+       -> GUI_GetYAdjust         0      0     74
+       -> GUI_GetCharDistX       0      0     74
+       -> GUI_RectsIntersect     0      0     74
+       -> GL_DispChar            0      0     74
+       -> GUI_GetFontDistY       0      0     74
+
+
+   Segment part sizes:
+
+     Function/Label            Bytes
+     --------------            -----
+     _A_IEN0                      1
+     GUI_UC_DispString          651
+     ?Subroutine6                11
+     ?Subroutine4                 7
+     ?Subroutine3                 6
+     ?Subroutine1                 6
+     ??Subroutine8_0              6
+     ?Subroutine7                 6
+     ?Subroutine0                 7
+     ?Subroutine5                13
+     ?Subroutine2                13
+     ??GUI_UC_DispString?relay    6
+
+ 
+ 726 bytes in segment BANKED_CODE
+   6 bytes in segment BANK_RELAYS
+   1 byte  in segment SFR_AN
+ 
+ 732 bytes of CODE memory
+   0 bytes of DATA memory (+ 1 byte shared)
+
+Errors: none
+Warnings: none

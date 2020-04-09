@@ -1,0 +1,858 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V8.10.1.10194/W32 for 8051        14/Jun/2016  16:18:38 /
+// Copyright 2004-2011 IAR Systems AB.                                        /
+//                                                                            /
+//    Core               =  plain                                             /
+//    Code model         =  banked                                            /
+//    Data model         =  large                                             /
+//    Calling convention =  xdata reentrant                                   /
+//    Constant location  =  data_rom                                          /
+//    Dptr setup         =  1,16                                              /
+//    Source file        =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\C /
+//                          ore\LCD_L0_Generic.c                              /
+//    Command line       =  -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂ /
+//                          ç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack /
+//                          \Utilities\SerialApp\CC2530DB\..\..\..\Tools\CC25 /
+//                          30DB\f8wCoord.cfg (-DCPU32MHZ -DROOT=__near_func  /
+//                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                  /
+//                          -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8        /
+//                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)   /
+//                          -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂ /
+//                          ç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack /
+//                          \Utilities\SerialApp\CC2530DB\..\..\..\Tools\CC25 /
+//                          30DB\f8wConfig.cfg (-DZIGBEEPRO -DSECURE=0        /
+//                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                 /
+//                          -DDEFAULT_CHANLIST=0x00000800                     /
+//                          -DZDAPP_CONFIG_PAN_ID=0x1001                      /
+//                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
+//                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
+//                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
+//                          -DLINK_STATUS_JITTER_MASK=0x007F                  /
+//                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_P /
+//                          OLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7           /
+//                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3   /
+//                          -DNWK_MAX_DATA_RETRIES=2                          /
+//                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9        /
+//                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40          /
+//                          -DNWK_MAX_BINDING_ENTRIES=4                       /
+//                          -DMAX_BINDING_CLUSTER_IDS=4                       /
+//                          "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07, 0x09,     /
+//                          0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08,   /
+//                          0x0A, 0x0C, 0x0D}" -DMAC_MAX_FRAME_SIZE=116       /
+//                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const    /
+//                          __code" -DGENERIC=__generic                       /
+//                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
+//                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
+//                          -DREJOIN_POLL_RATE=440 F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹ /
+//                          âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2. /
+//                          5.1a\Components\uCGUI\Core\LCD_L0_Generic.c -D    /
+//                          HAL_UART=TRUE -D SERIAL_APP_PORT=0 -D COOR -D     /
+//                          LCD_SUPPORTED -D NV_INIT -lC                      /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\CoordinatorEB\List\    /
+//                          -lA F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍø /
+//                          Âç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstac /
+//                          k\Utilities\SerialApp\CC2530DB\CoordinatorEB\List /
+//                          \ --diag_suppress Pe001,Pa010 -o                  /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\CoordinatorEB\Obj\ -e  /
+//                          --no_code_motion --debug --core=plain             /
+//                          --dptr=16,1 --data_model=large                    /
+//                          --code_model=banked --calling_convention=xdata_re /
+//                          entrant --place_constants=data_rom                /
+//                          --nr_virtual_regs 16 -I                           /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\ -I                    /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\Public\ -I          /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\uCGUI\Core\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ× /
+//                          ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a /
+//                          \Projects\zstack\Utilities\SerialApp\CC2530DB\..\ /
+//                          ..\..\..\..\Components\uCGUI\MultiLayer\ -I       /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\uCGUI\Config\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅ /
+//                          Ì×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5. /
+//                          1a\Projects\zstack\Utilities\SerialApp\CC2530DB\. /
+//                          .\Coordinator\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×Ê /
+//                          ÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\ /
+//                          Projects\zstack\Utilities\SerialApp\CC2530DB\..\. /
+//                          .\..\ZMain\TI2530DB\ -I                           /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\hal\include\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ /
+//                          ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Utilities\SerialApp\CC2530DB\.. /
+//                          \..\..\..\..\Components\hal\target\CC2530EB\ -I   /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mac\include\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ /
+//                          ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Utilities\SerialApp\CC2530DB\.. /
+//                          \..\..\..\..\Components\mac\high_level\ -I        /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mac\low_level\srf04\ -I                       /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mac\low_level\srf04\single_chip\ -I           /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mt\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Z /
+//                          igBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Project /
+//                          s\zstack\Utilities\SerialApp\CC2530DB\..\..\..\.. /
+//                          \..\Components\osal\include\ -I                   /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\services\saddr\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹ /
+//                          âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2. /
+//                          5.1a\Projects\zstack\Utilities\SerialApp\CC2530DB /
+//                          \..\..\..\..\..\Components\services\sdata\ -I     /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\stack\af\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁ /
+//                          Ï210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\P /
+//                          rojects\zstack\Utilities\SerialApp\CC2530DB\..\.. /
+//                          \..\..\..\Components\stack\nwk\ -I                /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\stack\sapi\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ× /
+//                          ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a /
+//                          \Projects\zstack\Utilities\SerialApp\CC2530DB\..\ /
+//                          ..\..\..\..\Components\stack\sec\ -I              /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\stack\sys\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×Ê /
+//                          ÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\ /
+//                          Projects\zstack\Utilities\SerialApp\CC2530DB\..\. /
+//                          .\..\..\..\Components\stack\zdo\ -I               /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\zmac\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210 /
+//                          \ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proje /
+//                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ /
+//                          ..\..\Components\zmac\f8w\ -Ohz                   /
+//                          --require_prototypes                              /
+//    List file          =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\CoordinatorEB\List\LCD /
+//                          _L0_Generic.s51                                   /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME LCD_L0_Generic
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+
+        PUBLIC ??LCD_L0_Color2Index?relay
+        FUNCTION ??LCD_L0_Color2Index?relay,0203H
+        PUBLIC ??LCD_L0_GetIndexMask?relay
+        FUNCTION ??LCD_L0_GetIndexMask?relay,0203H
+        PUBLIC ??LCD_L0_GetRect?relay
+        FUNCTION ??LCD_L0_GetRect?relay,0203H
+        PUBLIC ??LCD_L0_Index2Color?relay
+        FUNCTION ??LCD_L0_Index2Color?relay,0203H
+        PUBLIC LCD_L0_Color2Index
+        FUNCTION LCD_L0_Color2Index,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 12, STACK
+        PUBLIC LCD_L0_GetIndexMask
+        FUNCTION LCD_L0_GetIndexMask,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC LCD_L0_GetRect
+        FUNCTION LCD_L0_GetRect,0203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC LCD_L0_Index2Color
+        FUNCTION LCD_L0_Index2Color,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA_SP SP IDATA
+        CFI StackFrame CFA_PSP16 PSP16 XDATA
+        CFI StackFrame CFA_XSP16 XSP16 XDATA
+        CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+        CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+        CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+        CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+        CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+        CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+        CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+        CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+        CFI Resource V8:8, V9:8, V10:8, V11:8, V12:8, V13:8, V14:8, V15:8, SP:8
+        CFI Resource PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+        CFI VirtualResource ?RET:24
+        CFI Resource ?BRET_EXT:8
+        CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+        CFI ResourceParts PSP16 PSPH, PSPL
+        CFI ResourceParts XSP16 XSPH, XSPL
+        CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign -1
+        CFI ReturnAddress ?RET CODE
+        CFI CFA_DOVERLAY Used
+        CFI CFA_IOVERLAY Used
+        CFI CFA_SP SP+-3
+        CFI CFA_PSP16 PSP16+0
+        CFI CFA_XSP16 XSP16+0
+        CFI `PSW.CY` SameValue
+        CFI `B.BR0` SameValue
+        CFI `B.BR1` SameValue
+        CFI `B.BR2` SameValue
+        CFI `B.BR3` SameValue
+        CFI `B.BR4` SameValue
+        CFI `B.BR5` SameValue
+        CFI `B.BR6` SameValue
+        CFI `B.BR7` SameValue
+        CFI `VB.BR8` SameValue
+        CFI `VB.BR9` SameValue
+        CFI `VB.BR10` SameValue
+        CFI `VB.BR11` SameValue
+        CFI `VB.BR12` SameValue
+        CFI `VB.BR13` SameValue
+        CFI `VB.BR14` SameValue
+        CFI `VB.BR15` SameValue
+        CFI VB SameValue
+        CFI B Undefined
+        CFI A Undefined
+        CFI PSW SameValue
+        CFI DPL0 SameValue
+        CFI DPH0 SameValue
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 Undefined
+        CFI R5 Undefined
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI V0 SameValue
+        CFI V1 SameValue
+        CFI V2 SameValue
+        CFI V3 SameValue
+        CFI V4 SameValue
+        CFI V5 SameValue
+        CFI V6 SameValue
+        CFI V7 SameValue
+        CFI V8 SameValue
+        CFI V9 SameValue
+        CFI V10 SameValue
+        CFI V11 SameValue
+        CFI V12 SameValue
+        CFI V13 SameValue
+        CFI V14 SameValue
+        CFI V15 SameValue
+        CFI PSPH Undefined
+        CFI PSPL Undefined
+        CFI XSPH Undefined
+        CFI XSPL Undefined
+        CFI ?RET Concat
+        CFI ?BRET_EXT Frame(CFA_SP, 3)
+        CFI ?RET_HIGH Frame(CFA_SP, 2)
+        CFI ?RET_LOW Frame(CFA_SP, 1)
+        CFI EndCommon cfiCommon0
+        
+        
+        CFI Common cfiCommon1 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign -1
+        CFI ReturnAddress ?RET CODE
+        CFI CFA_DOVERLAY Used
+        CFI CFA_IOVERLAY Used
+        CFI CFA_SP SP+-2
+        CFI CFA_PSP16 PSP16+0
+        CFI CFA_XSP16 XSP16+0
+        CFI `PSW.CY` SameValue
+        CFI `B.BR0` SameValue
+        CFI `B.BR1` SameValue
+        CFI `B.BR2` SameValue
+        CFI `B.BR3` SameValue
+        CFI `B.BR4` SameValue
+        CFI `B.BR5` SameValue
+        CFI `B.BR6` SameValue
+        CFI `B.BR7` SameValue
+        CFI `VB.BR8` SameValue
+        CFI `VB.BR9` SameValue
+        CFI `VB.BR10` SameValue
+        CFI `VB.BR11` SameValue
+        CFI `VB.BR12` SameValue
+        CFI `VB.BR13` SameValue
+        CFI `VB.BR14` SameValue
+        CFI `VB.BR15` SameValue
+        CFI VB SameValue
+        CFI B SameValue
+        CFI A SameValue
+        CFI PSW SameValue
+        CFI DPL0 SameValue
+        CFI DPH0 SameValue
+        CFI R0 SameValue
+        CFI R1 SameValue
+        CFI R2 SameValue
+        CFI R3 SameValue
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI V0 SameValue
+        CFI V1 SameValue
+        CFI V2 SameValue
+        CFI V3 SameValue
+        CFI V4 SameValue
+        CFI V5 SameValue
+        CFI V6 SameValue
+        CFI V7 SameValue
+        CFI V8 SameValue
+        CFI V9 SameValue
+        CFI V10 SameValue
+        CFI V11 SameValue
+        CFI V12 SameValue
+        CFI V13 SameValue
+        CFI V14 SameValue
+        CFI V15 SameValue
+        CFI PSPH Undefined
+        CFI PSPL Undefined
+        CFI XSPH Undefined
+        CFI XSPL Undefined
+        CFI ?RET Concat
+        CFI ?BRET_EXT SameValue
+        CFI ?RET_HIGH Frame(CFA_SP, 2)
+        CFI ?RET_LOW Frame(CFA_SP, 1)
+        CFI EndCommon cfiCommon1
+        
+LCD_Color2Index_M565 SYMBOL "LCD_Color2Index_M565"
+LCD_Index2Color_M565 SYMBOL "LCD_Index2Color_M565"
+LCD_GetIndexMask_M565 SYMBOL "LCD_GetIndexMask_M565"
+??LCD_Color2Index_M565?relay SYMBOL "?relay", LCD_Color2Index_M565
+??LCD_GetIndexMask_M565?relay SYMBOL "?relay", LCD_GetIndexMask_M565
+??LCD_Index2Color_M565?relay SYMBOL "?relay", LCD_Index2Color_M565
+LCD_L0_Color2Index  SYMBOL "LCD_L0_Color2Index"
+??LCD_L0_Color2Index?relay SYMBOL "?relay", LCD_L0_Color2Index
+LCD_L0_GetIndexMask SYMBOL "LCD_L0_GetIndexMask"
+??LCD_L0_GetIndexMask?relay SYMBOL "?relay", LCD_L0_GetIndexMask
+LCD_L0_GetRect      SYMBOL "LCD_L0_GetRect"
+??LCD_L0_GetRect?relay SYMBOL "?relay", LCD_L0_GetRect
+LCD_L0_Index2Color  SYMBOL "LCD_L0_Index2Color"
+??LCD_L0_Index2Color?relay SYMBOL "?relay", LCD_L0_Index2Color
+
+        EXTERN LCD_Color2Index_M565
+        FUNCTION LCD_Color2Index_M565,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN LCD_Index2Color_M565
+        FUNCTION LCD_Index2Color_M565,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN LCD_GetIndexMask_M565
+        FUNCTION LCD_GetIndexMask_M565,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ??LCD_Color2Index_M565?relay
+        FUNCTION ??LCD_Color2Index_M565?relay,00H
+        EXTERN ??LCD_GetIndexMask_M565?relay
+        FUNCTION ??LCD_GetIndexMask_M565?relay,00H
+        EXTERN ??LCD_Index2Color_M565?relay
+        FUNCTION ??LCD_Index2Color_M565?relay,00H
+
+// F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\Core\LCD_L0_Generic.c
+//    1 /*
+//    2 *********************************************************************************************************
+//    3 *                                                uC/GUI
+//    4 *                        Universal graphic software for embedded applications
+//    5 *
+//    6 *                       (c) Copyright 2002, Micrium Inc., Weston, FL
+//    7 *                       (c) Copyright 2002, SEGGER Microcontroller Systeme GmbH
+//    8 *
+//    9 *              µC/GUI is protected by international copyright laws. Knowledge of the
+//   10 *              source code may not be used to write a similar product. This file may
+//   11 *              only be used in accordance with a license and should not be redistributed
+//   12 *              in any way. We appreciate your understanding and fairness.
+//   13 *
+//   14 ----------------------------------------------------------------------
+//   15 File        : LCD_L0_Generic.c
+//   16 Purpose     : Color conversion routines for LCD-drivers
+//   17               This file may not be compiled by itself, but needs
+//   18               to be included in every LCD driver
+//   19 ---------------------------END-OF-HEADER------------------------------
+//   20 */
+//   21 
+//   22 #ifndef LCD_INCLUDEDRIVER_H     /* includes only for stand-alone compilation, not as included file */
+//   23   #include <stddef.h>           /* needed for definition of NULL */
+//   24   #include "LCD_Private.h"      /* private modul definitions & config */
+//   25   #include "GUI_Private.h"
+//   26   #include "GUIDebug.h"
+//   27 #endif
+//   28 
+//   29 /*********************************************************************
+//   30 *
+//   31 *       Defines
+//   32 *
+//   33 **********************************************************************
+//   34 */
+//   35 
+//   36 #define FIXEDPALETTE LCD_FIXEDPALETTE
+//   37 
+//   38 #if   FIXEDPALETTE == -1     /* User defined color conversion routines */
+//   39   #define COLOR2INDEX(Color) LCD_Color2Index_User(Color)
+//   40   #define INDEX2COLOR(Index) LCD_Index2Color_User(Index)
+//   41   #define GETINDEXMASK()     LCD_GetIndexMask_User()
+//   42 #elif FIXEDPALETTE == 0      /* User defined colors (LCD_PHYSCOLORS) */
+//   43   #define COLOR2INDEX(Color) LCD_Color2Index_0(Color, &LCD_PhysPal)
+//   44   #define INDEX2COLOR(Index) LCD_Index2Color_0(Index, &LCD_PhysPal)
+//   45   #define GETINDEXMASK()     LCD_GetIndexMask_0()
+//   46 #elif FIXEDPALETTE == 1
+//   47   #define COLOR2INDEX(Color) LCD_Color2Index_1(Color)
+//   48   #define INDEX2COLOR(Index) LCD_Index2Color_1(Index)
+//   49   #define GETINDEXMASK()     LCD_GetIndexMask_1()
+//   50 #elif FIXEDPALETTE == 2
+//   51   #define COLOR2INDEX(Color) LCD_Color2Index_2(Color)
+//   52   #define INDEX2COLOR(Index) LCD_Index2Color_2(Index)
+//   53   #define GETINDEXMASK()     LCD_GetIndexMask_2()
+//   54 #elif FIXEDPALETTE == 4
+//   55   #define COLOR2INDEX(Color) LCD_Color2Index_4(Color)
+//   56   #define INDEX2COLOR(Index) LCD_Index2Color_4(Index)
+//   57   #define GETINDEXMASK()     LCD_GetIndexMask_4()
+//   58 #elif (FIXEDPALETTE == 111) && (LCD_SWAP_RB==0)
+//   59   #define COLOR2INDEX(Color) LCD_Color2Index_111(Color)
+//   60   #define INDEX2COLOR(Index) LCD_Index2Color_111(Index)
+//   61   #define GETINDEXMASK()     LCD_GetIndexMask_111()
+//   62 #elif (FIXEDPALETTE == 111) && (LCD_SWAP_RB)
+//   63   #define COLOR2INDEX(Color) LCD_Color2Index_M111(Color)
+//   64   #define INDEX2COLOR(Index) LCD_Index2Color_M111(Index)
+//   65   #define GETINDEXMASK()     LCD_GetIndexMask_M111()
+//   66 #elif (FIXEDPALETTE == 222) && (LCD_SWAP_RB==0)
+//   67   #define COLOR2INDEX(Color) LCD_Color2Index_222(Color)
+//   68   #define INDEX2COLOR(Index) LCD_Index2Color_222(Index)
+//   69   #define GETINDEXMASK()     LCD_GetIndexMask_222()
+//   70 #elif (FIXEDPALETTE == 222) && (LCD_SWAP_RB==1)
+//   71   #define COLOR2INDEX(Color) LCD_Color2Index_M222(Color)
+//   72   #define INDEX2COLOR(Index) LCD_Index2Color_M222(Index)
+//   73   #define GETINDEXMASK()     LCD_GetIndexMask_M222()
+//   74 #elif (FIXEDPALETTE == 233) && (LCD_SWAP_RB==0)
+//   75   #define COLOR2INDEX(Color) LCD_Color2Index_233(Color)
+//   76   #define INDEX2COLOR(Index) LCD_Index2Color_233(Index)
+//   77   #define GETINDEXMASK()     LCD_GetIndexMask_233()
+//   78 #elif (FIXEDPALETTE == 233) && (LCD_SWAP_RB==1)
+//   79   #define COLOR2INDEX(Color) LCD_Color2Index_M233(Color)
+//   80   #define INDEX2COLOR(Index) LCD_Index2Color_M233(Index)
+//   81   #define GETINDEXMASK()     LCD_GetIndexMask_M233()
+//   82 #elif (FIXEDPALETTE == 323) && (LCD_SWAP_RB==0)
+//   83   #define COLOR2INDEX(Color) LCD_Color2Index_323(Color)
+//   84   #define INDEX2COLOR(Index) LCD_Index2Color_323(Index)
+//   85   #define GETINDEXMASK()     LCD_GetIndexMask_323()
+//   86 #elif (FIXEDPALETTE == 323) && (LCD_SWAP_RB==1)
+//   87   #define COLOR2INDEX(Color) LCD_Color2Index_M323(Color)
+//   88   #define INDEX2COLOR(Index) LCD_Index2Color_M323(Index)
+//   89   #define GETINDEXMASK()     LCD_GetIndexMask_M323()
+//   90 #elif (FIXEDPALETTE == 332) && (LCD_SWAP_RB==0)
+//   91   #define COLOR2INDEX(Color) LCD_Color2Index_332(Color)
+//   92   #define INDEX2COLOR(Index) LCD_Index2Color_332(Index)
+//   93   #define GETINDEXMASK()     LCD_GetIndexMask_332()
+//   94 #elif (FIXEDPALETTE == 332) && (LCD_SWAP_RB==1)
+//   95   #define COLOR2INDEX(Color) LCD_Color2Index_M332(Color)
+//   96   #define INDEX2COLOR(Index) LCD_Index2Color_M332(Index)
+//   97   #define GETINDEXMASK()     LCD_GetIndexMask_M332()
+//   98 #elif (FIXEDPALETTE == 444121)
+//   99   #define COLOR2INDEX(Color) LCD_Color2Index_444_12_1(Color)
+//  100   #define INDEX2COLOR(Index) LCD_Index2Color_444_12_1(Index)
+//  101   #define GETINDEXMASK()     LCD_GetIndexMask_444_12_1()
+//  102 #elif (FIXEDPALETTE == 44412) && (LCD_SWAP_RB==0)
+//  103   #define COLOR2INDEX(Color) LCD_Color2Index_444_12(Color)
+//  104   #define INDEX2COLOR(Index) LCD_Index2Color_444_12(Index)
+//  105   #define GETINDEXMASK()     LCD_GetIndexMask_444_12()
+//  106 #elif (FIXEDPALETTE == 44416)  && (LCD_SWAP_RB==0)
+//  107   #define COLOR2INDEX(Color) LCD_Color2Index_444_16(Color)
+//  108   #define INDEX2COLOR(Index) LCD_Index2Color_444_16(Index)
+//  109   #define GETINDEXMASK()     LCD_GetIndexMask_444_16()
+//  110 #elif (FIXEDPALETTE == 44412)  && (LCD_SWAP_RB==1)
+//  111   #define COLOR2INDEX(Color) LCD_Color2Index_M444_12(Color)
+//  112   #define INDEX2COLOR(Index) LCD_Index2Color_M444_12(Index)
+//  113   #define GETINDEXMASK()     LCD_GetIndexMask_M444_12()
+//  114 #elif (FIXEDPALETTE == 44416)  && (LCD_SWAP_RB==1)
+//  115   #define COLOR2INDEX(Color) LCD_Color2Index_M444_16(Color)
+//  116   #define INDEX2COLOR(Index) LCD_Index2Color_M444_16(Index)
+//  117   #define GETINDEXMASK()     LCD_GetIndexMask_M444_16()
+//  118 #elif (FIXEDPALETTE == 555)  && (LCD_SWAP_RB==0)
+//  119   #define COLOR2INDEX(Color) LCD_Color2Index_555(Color)
+//  120   #define INDEX2COLOR(Index) LCD_Index2Color_555(Index)
+//  121   #define GETINDEXMASK()     LCD_GetIndexMask_555()
+//  122 #elif (FIXEDPALETTE == 555)  && (LCD_SWAP_RB)
+//  123   #define COLOR2INDEX(Color) LCD_Color2Index_M555(Color)
+//  124   #define INDEX2COLOR(Index) LCD_Index2Color_M555(Index)
+//  125   #define GETINDEXMASK()     LCD_GetIndexMask_M555()
+//  126 #elif (FIXEDPALETTE == 556) && (LCD_SWAP_RB==0)
+//  127   #define COLOR2INDEX(Color) LCD_Color2Index_556(Color)
+//  128   #define INDEX2COLOR(Index) LCD_Index2Color_556(Index)
+//  129   #define GETINDEXMASK()     LCD_GetIndexMask_556()
+//  130 #elif (FIXEDPALETTE == 556) && (LCD_SWAP_RB)
+//  131   #define COLOR2INDEX(Color) LCD_Color2Index_M556(Color)
+//  132   #define INDEX2COLOR(Index) LCD_Index2Color_M556(Index)
+//  133   #define GETINDEXMASK()     LCD_GetIndexMask_M556()
+//  134 #elif (FIXEDPALETTE == 565) && (LCD_SWAP_RB==0)
+//  135   #define COLOR2INDEX(Color) LCD_Color2Index_565(Color)
+//  136   #define INDEX2COLOR(Index) LCD_Index2Color_565(Index)
+//  137   #define GETINDEXMASK()     LCD_GetIndexMask_565()
+//  138 #elif (FIXEDPALETTE == 565) && (LCD_SWAP_RB)
+//  139   #define COLOR2INDEX(Color) LCD_Color2Index_M565(Color)
+//  140   #define INDEX2COLOR(Index) LCD_Index2Color_M565(Index)
+//  141   #define GETINDEXMASK()     LCD_GetIndexMask_M565()
+//  142 #elif (FIXEDPALETTE == 655) && (LCD_SWAP_RB==0)
+//  143   #define COLOR2INDEX(Color) LCD_Color2Index_655(Color)
+//  144   #define INDEX2COLOR(Index) LCD_Index2Color_655(Index)
+//  145   #define GETINDEXMASK()     LCD_GetIndexMask_655()
+//  146 #elif (FIXEDPALETTE == 655) && (LCD_SWAP_RB)
+//  147   #define COLOR2INDEX(Color) LCD_Color2Index_M655(Color)
+//  148   #define INDEX2COLOR(Index) LCD_Index2Color_M655(Index)
+//  149   #define GETINDEXMASK()     LCD_GetIndexMask_M655()
+//  150 #elif FIXEDPALETTE == 8666
+//  151   #define COLOR2INDEX(Color) LCD_Color2Index_8666(Color)
+//  152   #define INDEX2COLOR(Index) LCD_Index2Color_8666(Index)
+//  153   #define GETINDEXMASK()     LCD_GetIndexMask_8666()
+//  154 #elif FIXEDPALETTE == 86661
+//  155   #define COLOR2INDEX(Color) LCD_Color2Index_8666_1(Color)
+//  156   #define INDEX2COLOR(Index) LCD_Index2Color_8666_1(Index)
+//  157   #define GETINDEXMASK()     LCD_GetIndexMask_8666_1()
+//  158 #else
+//  159   #error Unsupported color mode
+//  160 #endif
+//  161 
+//  162 /*********************************************************************
+//  163 *
+//  164 *       Static data
+//  165 *
+//  166 **********************************************************************
+//  167 */
+//  168 
+//  169 #if (LCD_FIXEDPALETTE==0)
+//  170   #if !LCD_PHYSCOLORS_IN_RAM
+//  171     const
+//  172   #endif
+//  173   LCD_COLOR       LCD_PhysColors[]   = { LCD_PHYSCOLORS };
+//  174   const LCD_PHYSPALETTE LCD_PhysPal  = { LCD_NUM_COLORS, &LCD_PhysColors[0] };
+//  175 #endif
+//  176 
+//  177 /*********************************************************************
+//  178 *
+//  179 *       Public code
+//  180 *
+//  181 **********************************************************************
+//  182 */
+//  183 /*********************************************************************
+//  184 *
+//  185 *           LCD_L0_Color2Index
+//  186 */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  187 unsigned int LCD_L0_Color2Index(LCD_COLOR Color) {
+LCD_L0_Color2Index:
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function LCD_L0_Color2Index
+        CODE
+        FUNCALL LCD_L0_Color2Index, LCD_Color2Index_M565
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 12, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0xc
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 12)
+        ; Saved register size: 12
+        ; Auto size: 0
+//  188   unsigned int Index;
+//  189   Index = COLOR2INDEX(Color);
+//  190   #if LCD_REVERSE
+//  191     Index ^= ((1<<LCD_BITSPERPIXEL)-1);
+//  192   #endif
+//  193   return Index;
+        ; Setup parameters for call to function LCD_Color2Index_M565
+        LCALL   ??LCD_Color2Index_M565?relay
+        MOV     R7,#0x4
+        LJMP    ?BANKED_LEAVE_XDATA
+        CFI EndBlock cfiBlock0
+//  194 }
+//  195 
+//  196 /*********************************************************************
+//  197 *
+//  198 *       LCD_L0_Index2Color
+//  199 */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  200 LCD_COLOR LCD_L0_Index2Color(int Index) {
+LCD_L0_Index2Color:
+        CFI Block cfiBlock1 Using cfiCommon0
+        CFI Function LCD_L0_Index2Color
+        CODE
+        FUNCALL LCD_L0_Index2Color, LCD_Index2Color_M565
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI CFA_SP SP+-4
+        PUSH    DPH
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  201   #if LCD_REVERSE
+//  202     Index ^= ((1<<LCD_BITSPERPIXEL)-1);
+//  203   #endif
+//  204   return INDEX2COLOR(Index);
+        ; Setup parameters for call to function LCD_Index2Color_M565
+        LCALL   ??LCD_Index2Color_M565?relay
+        CFI EndBlock cfiBlock1
+        REQUIRE ?Subroutine0
+        ; // Fall through to label ?Subroutine0
+//  205 }
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine0:
+        CFI Block cfiBlock2 Using cfiCommon0
+        CFI NoFunction
+        CFI CFA_SP SP+-5
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI DPH0 Frame(CFA_SP, 5)
+        POP     DPH
+        CFI CFA_SP SP+-4
+        CFI DPH0 SameValue
+        POP     DPL
+        CFI CFA_SP SP+-3
+        CFI DPL0 SameValue
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock2
+//  206 
+//  207 /*********************************************************************
+//  208 *
+//  209 *       LCD_L0_GetIndexMask
+//  210 */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  211 unsigned int LCD_L0_GetIndexMask(void) {
+LCD_L0_GetIndexMask:
+        CFI Block cfiBlock3 Using cfiCommon0
+        CFI Function LCD_L0_GetIndexMask
+        CODE
+        FUNCALL LCD_L0_GetIndexMask, LCD_GetIndexMask_M565
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI CFA_SP SP+-4
+        PUSH    DPH
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  212   return GETINDEXMASK();
+        ; Setup parameters for call to function LCD_GetIndexMask_M565
+        LCALL   ??LCD_GetIndexMask_M565?relay
+        SJMP    ?Subroutine0
+        CFI EndBlock cfiBlock3
+//  213 }
+//  214 
+//  215 /*********************************************************************
+//  216 *
+//  217 *       LCD_L0_GetRect
+//  218 */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  219 void LCD_L0_GetRect(LCD_RECT *pRect) {
+LCD_L0_GetRect:
+        CFI Block cfiBlock4 Using cfiCommon0
+        CFI Function LCD_L0_GetRect
+        CODE
+        PUSH    DPL
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI CFA_SP SP+-4
+        PUSH    DPH
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  220   pRect->x0 = 0;
+        MOV     DPL,R2
+        MOV     DPH,R3
+        CLR     A
+        LCALL   ?Subroutine1 & 0xFFFF
+//  221   pRect->y0 = 0;
+??CrossCallReturnLabel_0:
+        LCALL   ?Subroutine1 & 0xFFFF
+//  222   pRect->x1 = LCD_XSIZE - 1;
+??CrossCallReturnLabel_1:
+        INC     DPTR
+        INC     DPTR
+        MOV     A,#-0x11
+        MOVX    @DPTR,A
+        INC     DPTR
+        CLR     A
+        MOVX    @DPTR,A
+//  223   pRect->y1 = LCD_YSIZE - 1;
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        MOV     A,#0x3f
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,#0x1
+        MOVX    @DPTR,A
+//  224 }
+        SJMP    ?Subroutine0
+        CFI EndBlock cfiBlock4
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine1:
+        CFI Block cfiCond5 Using cfiCommon0
+        CFI NoFunction
+        CFI Conditional ??CrossCallReturnLabel_0
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        CFI Block cfiCond6 Using cfiCommon0
+        CFI (cfiCond6) NoFunction
+        CFI (cfiCond6) Conditional ??CrossCallReturnLabel_1
+        CFI (cfiCond6) DPL0 Frame(CFA_SP, 4)
+        CFI (cfiCond6) DPH0 Frame(CFA_SP, 5)
+        CFI (cfiCond6) CFA_SP SP+-5
+        CFI Block cfiPicker7 Using cfiCommon1
+        CFI (cfiPicker7) NoFunction
+        CFI (cfiPicker7) Picker
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOVX    @DPTR,A
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        INC     DPTR
+        RET
+        CFI EndBlock cfiCond5
+        CFI EndBlock cfiCond6
+        CFI EndBlock cfiPicker7
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??LCD_L0_Color2Index?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    LCD_L0_Color2Index
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??LCD_L0_Index2Color?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    LCD_L0_Index2Color
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??LCD_L0_GetIndexMask?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    LCD_L0_GetIndexMask
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??LCD_L0_GetRect?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    LCD_L0_GetRect
+
+        END
+//  225 
+//  226 /*************************** End of file ****************************/
+// 
+// 88 bytes in segment BANKED_CODE
+// 24 bytes in segment BANK_RELAYS
+// 
+// 112 bytes of CODE memory
+//
+//Errors: none
+//Warnings: none

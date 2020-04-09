@@ -1,0 +1,4044 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V8.10.1.10194/W32 for 8051        14/Jun/2016  16:18:42 /
+// Copyright 2004-2011 IAR Systems AB.                                        /
+//                                                                            /
+//    Core               =  plain                                             /
+//    Code model         =  banked                                            /
+//    Data model         =  large                                             /
+//    Calling convention =  xdata reentrant                                   /
+//    Constant location  =  data_rom                                          /
+//    Dptr setup         =  1,16                                              /
+//    Source file        =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\F /
+//                          ont\F6x8.c                                        /
+//    Command line       =  -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂ /
+//                          ç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack /
+//                          \Utilities\SerialApp\CC2530DB\..\..\..\Tools\CC25 /
+//                          30DB\f8wCoord.cfg (-DCPU32MHZ -DROOT=__near_func  /
+//                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                  /
+//                          -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8        /
+//                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)   /
+//                          -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂ /
+//                          ç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack /
+//                          \Utilities\SerialApp\CC2530DB\..\..\..\Tools\CC25 /
+//                          30DB\f8wConfig.cfg (-DZIGBEEPRO -DSECURE=0        /
+//                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                 /
+//                          -DDEFAULT_CHANLIST=0x00000800                     /
+//                          -DZDAPP_CONFIG_PAN_ID=0x1001                      /
+//                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
+//                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
+//                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
+//                          -DLINK_STATUS_JITTER_MASK=0x007F                  /
+//                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_P /
+//                          OLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7           /
+//                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3   /
+//                          -DNWK_MAX_DATA_RETRIES=2                          /
+//                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9        /
+//                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40          /
+//                          -DNWK_MAX_BINDING_ENTRIES=4                       /
+//                          -DMAX_BINDING_CLUSTER_IDS=4                       /
+//                          "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07, 0x09,     /
+//                          0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08,   /
+//                          0x0A, 0x0C, 0x0D}" -DMAC_MAX_FRAME_SIZE=116       /
+//                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const    /
+//                          __code" -DGENERIC=__generic                       /
+//                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
+//                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
+//                          -DREJOIN_POLL_RATE=440 F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹ /
+//                          âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2. /
+//                          5.1a\Components\uCGUI\Font\F6x8.c -D              /
+//                          HAL_UART=TRUE -D SERIAL_APP_PORT=0 -D COOR -D     /
+//                          LCD_SUPPORTED -D NV_INIT -lC                      /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\CoordinatorEB\List\    /
+//                          -lA F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍø /
+//                          Âç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstac /
+//                          k\Utilities\SerialApp\CC2530DB\CoordinatorEB\List /
+//                          \ --diag_suppress Pe001,Pa010 -o                  /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\CoordinatorEB\Obj\ -e  /
+//                          --no_code_motion --debug --core=plain             /
+//                          --dptr=16,1 --data_model=large                    /
+//                          --code_model=banked --calling_convention=xdata_re /
+//                          entrant --place_constants=data_rom                /
+//                          --nr_virtual_regs 16 -I                           /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\ -I                    /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\Public\ -I          /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\uCGUI\Core\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ× /
+//                          ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a /
+//                          \Projects\zstack\Utilities\SerialApp\CC2530DB\..\ /
+//                          ..\..\..\..\Components\uCGUI\MultiLayer\ -I       /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\uCGUI\Config\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅ /
+//                          Ì×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5. /
+//                          1a\Projects\zstack\Utilities\SerialApp\CC2530DB\. /
+//                          .\Coordinator\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×Ê /
+//                          ÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\ /
+//                          Projects\zstack\Utilities\SerialApp\CC2530DB\..\. /
+//                          .\..\ZMain\TI2530DB\ -I                           /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\hal\include\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ /
+//                          ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Utilities\SerialApp\CC2530DB\.. /
+//                          \..\..\..\..\Components\hal\target\CC2530EB\ -I   /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mac\include\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ /
+//                          ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Utilities\SerialApp\CC2530DB\.. /
+//                          \..\..\..\..\Components\mac\high_level\ -I        /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mac\low_level\srf04\ -I                       /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mac\low_level\srf04\single_chip\ -I           /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mt\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Z /
+//                          igBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Project /
+//                          s\zstack\Utilities\SerialApp\CC2530DB\..\..\..\.. /
+//                          \..\Components\osal\include\ -I                   /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\services\saddr\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹ /
+//                          âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2. /
+//                          5.1a\Projects\zstack\Utilities\SerialApp\CC2530DB /
+//                          \..\..\..\..\..\Components\services\sdata\ -I     /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\stack\af\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁ /
+//                          Ï210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\P /
+//                          rojects\zstack\Utilities\SerialApp\CC2530DB\..\.. /
+//                          \..\..\..\Components\stack\nwk\ -I                /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\stack\sapi\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ× /
+//                          ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a /
+//                          \Projects\zstack\Utilities\SerialApp\CC2530DB\..\ /
+//                          ..\..\..\..\Components\stack\sec\ -I              /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\stack\sys\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×Ê /
+//                          ÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\ /
+//                          Projects\zstack\Utilities\SerialApp\CC2530DB\..\. /
+//                          .\..\..\..\Components\stack\zdo\ -I               /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\zmac\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210 /
+//                          \ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proje /
+//                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ /
+//                          ..\..\Components\zmac\f8w\ -Ohz                   /
+//                          --require_prototypes                              /
+//    List file          =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\CoordinatorEB\List\F6x /
+//                          8.s51                                             /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME F6x8
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        PUBLIC GUI_F6x8_Mono
+        PUBLIC GUI_F6x8_TI8859_1
+        PUBLIC GUI_F6x8_TL8859_1
+        PUBLIC GUI_Font6x8
+        PUBLIC GUI_Font6x9
+        PUBLIC GUI_acFont6x8
+`?<Name GUIMONO_DispChar 0>` SYMBOL "GUIMONO_DispChar"
+??GUIMONO_DispChar?relay SYMBOL "?relay", `?<Name GUIMONO_DispChar 0>`
+`?<Name GUIMONO_GetCharDistX 2>` SYMBOL "GUIMONO_GetCharDistX"
+??GUIMONO_GetCharDistX?relay SYMBOL "?relay", `?<Name GUIMONO_GetCharDistX 2>`
+`?<Name GUIMONO_GetFontInfo 4>` SYMBOL "GUIMONO_GetFontInfo"
+??GUIMONO_GetFontInfo?relay SYMBOL "?relay", `?<Name GUIMONO_GetFontInfo 4>`
+`?<Name GUIMONO_IsInFont 6>` SYMBOL "GUIMONO_IsInFont"
+??GUIMONO_IsInFont?relay SYMBOL "?relay", `?<Name GUIMONO_IsInFont 6>`
+
+        EXTERN ??GUIMONO_DispChar?relay
+        FUNCTION ??GUIMONO_DispChar?relay,00H
+        EXTERN ??GUIMONO_GetCharDistX?relay
+        FUNCTION ??GUIMONO_GetCharDistX?relay,00H
+        EXTERN ??GUIMONO_GetFontInfo?relay
+        FUNCTION ??GUIMONO_GetFontInfo?relay,00H
+        EXTERN ??GUIMONO_IsInFont?relay
+        FUNCTION ??GUIMONO_IsInFont?relay,00H
+
+// F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\Font\F6x8.c
+//    1 /*
+//    2 *********************************************************************************************************
+//    3 *                                                uC/GUI
+//    4 *                        Universal graphic software for embedded applications
+//    5 *
+//    6 *                       (c) Copyright 2002, Micrium Inc., Weston, FL
+//    7 *                       (c) Copyright 2002, SEGGER Microcontroller Systeme GmbH
+//    8 *
+//    9 *              µC/GUI is protected by international copyright laws. Knowledge of the
+//   10 *              source code may not be used to write a similar product. This file may
+//   11 *              only be used in accordance with a license and should not be redistributed
+//   12 *              in any way. We appreciate your understanding and fairness.
+//   13 *
+//   14 ----------------------------------------------------------------------
+//   15 File        : F6x8.C
+//   16 Purpose     : Contains standard font
+//   17 Height      : 8
+//   18 ---------------------------END-OF-HEADER------------------------------
+//   19 */
+//   20 
+//   21 #include "GUI_FontIntern.h"
+//   22 
+//   23 #ifndef GUI_NOFCHARS
+//   24   #define GUI_NOFCHARS (163)
+//   25 #endif
+//   26 
+//   27 /*      *********************************
+//   28         *                               *
+//   29         *   Special character codes     *
+//   30         *                               *
+//   31         *********************************
+//   32 */
+//   33 
+//   34 /* No 95 to 125 for European character set  */
+//   35 
+//   36 #define CODE_SACCAGUE     95     /*  small accent ague */
+//   37 #define CODE_SACCGRAV     96
+//   38 #define CODE_SACCCIRC     97
+//   39 #define CODE_SUMLAUT      98
+//   40 #define CODE_STILDE       99
+//   41 #define CODE_I_NOPOINT    100
+//   42 
+//   43 #define CODE_SHARPS       101
+//   44 #define CODE_A_RING       102
+//   45 #define CODE_SA_RING      103
+//   46 #define CODE_AE           104
+//   47 #define CODE_ETH          105
+//   48 #define CODE_THORN        106
+//   49 #define CODE_SMALLAE      107
+//   50 #define CODE_SMALLETH     108
+//   51 #define CODE_SMALLTHORN   109
+//   52 #define CODE_OSLASH       110
+//   53 #define CODE_SOSLASH      111
+//   54 #define CODE_LITTLE_A     112
+//   55 #define CODE_LITTLE_E     113
+//   56 #define CODE_LITTLE_I     114
+//   57 #define CODE_LITTLE_O     115
+//   58 #define CODE_LITTLE_U     116
+//   59 #define CODE_LITTLE_N     117
+//   60 
+//   61 #define CODE_INVEXCLAM    118
+//   62 #define CODE_INVQUEST     119
+//   63 
+//   64 #define CODE_CACCAGUE     120    /* capital accent ague */
+//   65 #define CODE_CACCGRAV     121
+//   66 #define CODE_CACCCIRC     122
+//   67 #define CODE_CUMLAUT      123
+//   68 #define CODE_CTILDE       124
+//   69 #define CODE_CEDILLA      125
+//   70 
+//   71 /* No 126 to 156 for complete ISO 8859_1 western latin character set  */
+//   72 #define CODE_NB_SPACE     126
+//   73 #define CODE_CENT         127
+//   74 #define CODE_POUND        128
+//   75 #define CODE_CURRENCY     129
+//   76 #define CODE_YEN          130
+//   77 #define CODE_BROKEN_BAR   131
+//   78 #define CODE_SECTION      132
+//   79 #define CODE_DIERESIS     133
+//   80 #define CODE_COPYRIGHT    134
+//   81 #define CODE_FEMININE     135
+//   82 #define CODE_LEFT_QUOTE   136
+//   83 #define CODE_NOT          137
+//   84 #define CODE_HYPHEN       138
+//   85 #define CODE_TRADEMARK    139
+//   86 #define CODE_MACRON       140
+//   87 #define CODE_DEGREE       141
+//   88 #define CODE_PLUS_MINUS   142
+//   89 #define CODE_SUPER_TWO    143
+//   90 #define CODE_SUPER_THREE  144
+//   91 #define CODE_ACUTE        145
+//   92 #define CODE_MICRO        146
+//   93 #define CODE_PARAGRAPH    147
+//   94 #define CODE_MIDDLE_DOT   148
+//   95 #define CODE_SUPER_ONE    149
+//   96 #define CODE_MASCULINE    150
+//   97 #define CODE_RIGHT_QUOTE  151
+//   98 #define CODE_ONE_FOURTH   152
+//   99 #define CODE_ONE_HALF     153
+//  100 #define CODE_THREE_FOURTH 154
+//  101 #define CODE_MULTIPLY     155
+//  102 #define CODE_DIVISION     156
+//  103 /* The following are extensions to ISO 8859-1 in the area which is not
+//  104    defined by the standard.
+//  105 */
+//  106 #define CODE_ARROW_LEFT   157
+//  107 #define CODE_ARROW_RIGHT  158
+//  108 #define CODE_ARROW_UP     159
+//  109 #define CODE_ARROW_DOWN   160
+//  110 #define CODE_ENTER        161
+//  111 #define CODE_CHECKMARK    162
+//  112 
+//  113 
+//  114 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  115 GUI_CONST_STORAGE unsigned char GUI_acFont6x8[GUI_NOFCHARS][8] = {
+GUI_acFont6x8:
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 32
+        DB 32
+        DB 32
+        DB 32
+        DB 32
+        DB 0
+        DB 32
+        DB 0
+        DB 72
+        DB 72
+        DB 72
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 80
+        DB 80
+        DB 248
+        DB 80
+        DB 248
+        DB 80
+        DB 80
+        DB 0
+        DB 32
+        DB 120
+        DB 160
+        DB 112
+        DB 40
+        DB 240
+        DB 32
+        DB 0
+        DB 192
+        DB 200
+        DB 16
+        DB 32
+        DB 64
+        DB 152
+        DB 24
+        DB 0
+        DB 96
+        DB 144
+        DB 160
+        DB 64
+        DB 168
+        DB 144
+        DB 104
+        DB 0
+        DB 96
+        DB 32
+        DB 64
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 16
+        DB 32
+        DB 64
+        DB 64
+        DB 64
+        DB 32
+        DB 16
+        DB 0
+        DB 64
+        DB 32
+        DB 16
+        DB 16
+        DB 16
+        DB 32
+        DB 64
+        DB 0
+        DB 0
+        DB 80
+        DB 32
+        DB 248
+        DB 32
+        DB 80
+        DB 0
+        DB 0
+        DB 0
+        DB 32
+        DB 32
+        DB 248
+        DB 32
+        DB 32
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 96
+        DB 32
+        DB 64
+        DB 0
+        DB 0
+        DB 0
+        DB 248
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 96
+        DB 96
+        DB 0
+        DB 0
+        DB 8
+        DB 16
+        DB 32
+        DB 64
+        DB 128
+        DB 0
+        DB 0
+        DB 112
+        DB 136
+        DB 152
+        DB 168
+        DB 200
+        DB 136
+        DB 112
+        DB 0
+        DB 32
+        DB 96
+        DB 32
+        DB 32
+        DB 32
+        DB 32
+        DB 112
+        DB 0
+        DB 112
+        DB 136
+        DB 8
+        DB 48
+        DB 64
+        DB 128
+        DB 248
+        DB 0
+        DB 112
+        DB 136
+        DB 8
+        DB 48
+        DB 8
+        DB 136
+        DB 112
+        DB 0
+        DB 16
+        DB 48
+        DB 80
+        DB 144
+        DB 248
+        DB 16
+        DB 16
+        DB 0
+        DB 248
+        DB 128
+        DB 240
+        DB 8
+        DB 8
+        DB 136
+        DB 112
+        DB 0
+        DB 48
+        DB 64
+        DB 128
+        DB 240
+        DB 136
+        DB 136
+        DB 112
+        DB 0
+        DB 248
+        DB 8
+        DB 16
+        DB 32
+        DB 64
+        DB 64
+        DB 64
+        DB 0
+        DB 112
+        DB 136
+        DB 136
+        DB 112
+        DB 136
+        DB 136
+        DB 112
+        DB 0
+        DB 112
+        DB 136
+        DB 136
+        DB 120
+        DB 8
+        DB 16
+        DB 96
+        DB 0
+        DB 0
+        DB 96
+        DB 96
+        DB 0
+        DB 96
+        DB 96
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 96
+        DB 96
+        DB 0
+        DB 96
+        DB 32
+        DB 64
+        DB 16
+        DB 32
+        DB 64
+        DB 128
+        DB 64
+        DB 32
+        DB 16
+        DB 0
+        DB 0
+        DB 0
+        DB 248
+        DB 0
+        DB 248
+        DB 0
+        DB 0
+        DB 0
+        DB 128
+        DB 64
+        DB 32
+        DB 16
+        DB 32
+        DB 64
+        DB 128
+        DB 0
+        DB 112
+        DB 136
+        DB 8
+        DB 16
+        DB 32
+        DB 0
+        DB 32
+        DB 0
+        DB 112
+        DB 136
+        DB 8
+        DB 104
+        DB 168
+        DB 168
+        DB 112
+        DB 0
+        DB 112
+        DB 136
+        DB 136
+        DB 248
+        DB 136
+        DB 136
+        DB 136
+        DB 0
+        DB 240
+        DB 136
+        DB 136
+        DB 240
+        DB 136
+        DB 136
+        DB 240
+        DB 0
+        DB 112
+        DB 136
+        DB 128
+        DB 128
+        DB 128
+        DB 136
+        DB 112
+        DB 0
+        DB 224
+        DB 144
+        DB 136
+        DB 136
+        DB 136
+        DB 144
+        DB 224
+        DB 0
+        DB 248
+        DB 128
+        DB 128
+        DB 240
+        DB 128
+        DB 128
+        DB 248
+        DB 0
+        DB 248
+        DB 128
+        DB 128
+        DB 240
+        DB 128
+        DB 128
+        DB 128
+        DB 0
+        DB 112
+        DB 136
+        DB 128
+        DB 128
+        DB 152
+        DB 136
+        DB 120
+        DB 0
+        DB 136
+        DB 136
+        DB 136
+        DB 248
+        DB 136
+        DB 136
+        DB 136
+        DB 0
+        DB 112
+        DB 32
+        DB 32
+        DB 32
+        DB 32
+        DB 32
+        DB 112
+        DB 0
+        DB 56
+        DB 16
+        DB 16
+        DB 16
+        DB 16
+        DB 144
+        DB 96
+        DB 0
+        DB 136
+        DB 144
+        DB 160
+        DB 192
+        DB 160
+        DB 144
+        DB 136
+        DB 0
+        DB 128
+        DB 128
+        DB 128
+        DB 128
+        DB 128
+        DB 128
+        DB 248
+        DB 0
+        DB 136
+        DB 216
+        DB 168
+        DB 168
+        DB 136
+        DB 136
+        DB 136
+        DB 0
+        DB 136
+        DB 136
+        DB 200
+        DB 168
+        DB 152
+        DB 136
+        DB 136
+        DB 0
+        DB 112
+        DB 136
+        DB 136
+        DB 136
+        DB 136
+        DB 136
+        DB 112
+        DB 0
+        DB 240
+        DB 136
+        DB 136
+        DB 240
+        DB 128
+        DB 128
+        DB 128
+        DB 0
+        DB 112
+        DB 136
+        DB 136
+        DB 136
+        DB 168
+        DB 144
+        DB 104
+        DB 0
+        DB 240
+        DB 136
+        DB 136
+        DB 240
+        DB 160
+        DB 144
+        DB 136
+        DB 0
+        DB 112
+        DB 136
+        DB 128
+        DB 112
+        DB 8
+        DB 136
+        DB 112
+        DB 0
+        DB 248
+        DB 32
+        DB 32
+        DB 32
+        DB 32
+        DB 32
+        DB 32
+        DB 0
+        DB 136
+        DB 136
+        DB 136
+        DB 136
+        DB 136
+        DB 136
+        DB 112
+        DB 0
+        DB 136
+        DB 136
+        DB 136
+        DB 136
+        DB 136
+        DB 80
+        DB 32
+        DB 0
+        DB 136
+        DB 136
+        DB 136
+        DB 168
+        DB 168
+        DB 168
+        DB 80
+        DB 0
+        DB 136
+        DB 136
+        DB 80
+        DB 32
+        DB 80
+        DB 136
+        DB 136
+        DB 0
+        DB 136
+        DB 136
+        DB 136
+        DB 80
+        DB 32
+        DB 32
+        DB 32
+        DB 0
+        DB 248
+        DB 8
+        DB 16
+        DB 32
+        DB 64
+        DB 128
+        DB 248
+        DB 0
+        DB 112
+        DB 64
+        DB 64
+        DB 64
+        DB 64
+        DB 64
+        DB 112
+        DB 0
+        DB 0
+        DB 128
+        DB 64
+        DB 32
+        DB 16
+        DB 8
+        DB 0
+        DB 0
+        DB 112
+        DB 16
+        DB 16
+        DB 16
+        DB 16
+        DB 16
+        DB 112
+        DB 0
+        DB 32
+        DB 80
+        DB 136
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 248
+        DB 64
+        DB 32
+        DB 16
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 112
+        DB 8
+        DB 120
+        DB 136
+        DB 120
+        DB 0
+        DB 128
+        DB 128
+        DB 176
+        DB 200
+        DB 136
+        DB 136
+        DB 240
+        DB 0
+        DB 0
+        DB 0
+        DB 112
+        DB 128
+        DB 128
+        DB 136
+        DB 112
+        DB 0
+        DB 8
+        DB 8
+        DB 104
+        DB 152
+        DB 136
+        DB 136
+        DB 120
+        DB 0
+        DB 0
+        DB 0
+        DB 112
+        DB 136
+        DB 248
+        DB 128
+        DB 112
+        DB 0
+        DB 48
+        DB 72
+        DB 64
+        DB 224
+        DB 64
+        DB 64
+        DB 64
+        DB 0
+        DB 0
+        DB 0
+        DB 120
+        DB 136
+        DB 136
+        DB 120
+        DB 8
+        DB 112
+        DB 128
+        DB 128
+        DB 176
+        DB 200
+        DB 136
+        DB 136
+        DB 136
+        DB 0
+        DB 32
+        DB 0
+        DB 96
+        DB 32
+        DB 32
+        DB 32
+        DB 112
+        DB 0
+        DB 16
+        DB 0
+        DB 48
+        DB 16
+        DB 16
+        DB 16
+        DB 144
+        DB 96
+        DB 128
+        DB 128
+        DB 144
+        DB 160
+        DB 192
+        DB 160
+        DB 144
+        DB 0
+        DB 96
+        DB 32
+        DB 32
+        DB 32
+        DB 32
+        DB 32
+        DB 112
+        DB 0
+        DB 0
+        DB 0
+        DB 208
+        DB 168
+        DB 136
+        DB 136
+        DB 136
+        DB 0
+        DB 0
+        DB 0
+        DB 176
+        DB 200
+        DB 136
+        DB 136
+        DB 136
+        DB 0
+        DB 0
+        DB 0
+        DB 112
+        DB 136
+        DB 136
+        DB 136
+        DB 112
+        DB 0
+        DB 0
+        DB 0
+        DB 240
+        DB 136
+        DB 136
+        DB 240
+        DB 128
+        DB 128
+        DB 0
+        DB 0
+        DB 120
+        DB 136
+        DB 136
+        DB 120
+        DB 8
+        DB 8
+        DB 0
+        DB 0
+        DB 176
+        DB 200
+        DB 128
+        DB 128
+        DB 128
+        DB 0
+        DB 0
+        DB 0
+        DB 120
+        DB 128
+        DB 112
+        DB 8
+        DB 240
+        DB 0
+        DB 64
+        DB 64
+        DB 224
+        DB 64
+        DB 64
+        DB 72
+        DB 48
+        DB 0
+        DB 0
+        DB 0
+        DB 136
+        DB 136
+        DB 136
+        DB 152
+        DB 104
+        DB 0
+        DB 0
+        DB 0
+        DB 136
+        DB 136
+        DB 136
+        DB 80
+        DB 32
+        DB 0
+        DB 0
+        DB 0
+        DB 136
+        DB 136
+        DB 168
+        DB 168
+        DB 80
+        DB 0
+        DB 0
+        DB 0
+        DB 136
+        DB 80
+        DB 32
+        DB 80
+        DB 136
+        DB 0
+        DB 0
+        DB 0
+        DB 136
+        DB 136
+        DB 136
+        DB 120
+        DB 8
+        DB 112
+        DB 0
+        DB 0
+        DB 248
+        DB 16
+        DB 32
+        DB 64
+        DB 248
+        DB 0
+        DB 16
+        DB 32
+        DB 32
+        DB 64
+        DB 32
+        DB 32
+        DB 16
+        DB 0
+        DB 32
+        DB 32
+        DB 32
+        DB 32
+        DB 32
+        DB 32
+        DB 32
+        DB 0
+        DB 64
+        DB 32
+        DB 32
+        DB 16
+        DB 32
+        DB 32
+        DB 64
+        DB 0
+        DB 104
+        DB 144
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 24
+        DB 32
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 192
+        DB 32
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 112
+        DB 136
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 80
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 104
+        DB 144
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 96
+        DB 32
+        DB 32
+        DB 112
+        DB 0
+        DB 0
+        DB 96
+        DB 144
+        DB 240
+        DB 136
+        DB 136
+        DB 176
+        DB 128
+        DB 32
+        DB 0
+        DB 112
+        DB 136
+        DB 248
+        DB 136
+        DB 136
+        DB 0
+        DB 32
+        DB 0
+        DB 112
+        DB 8
+        DB 120
+        DB 136
+        DB 120
+        DB 0
+        DB 56
+        DB 96
+        DB 160
+        DB 184
+        DB 224
+        DB 160
+        DB 184
+        DB 0
+        DB 112
+        DB 72
+        DB 72
+        DB 232
+        DB 72
+        DB 72
+        DB 112
+        DB 0
+        DB 224
+        DB 64
+        DB 112
+        DB 72
+        DB 72
+        DB 112
+        DB 64
+        DB 224
+        DB 0
+        DB 0
+        DB 208
+        DB 40
+        DB 120
+        DB 160
+        DB 88
+        DB 0
+        DB 160
+        DB 64
+        DB 160
+        DB 16
+        DB 120
+        DB 136
+        DB 112
+        DB 0
+        DB 96
+        DB 32
+        DB 48
+        DB 40
+        DB 48
+        DB 32
+        DB 112
+        DB 0
+        DB 112
+        DB 136
+        DB 152
+        DB 168
+        DB 200
+        DB 136
+        DB 112
+        DB 0
+        DB 0
+        DB 0
+        DB 112
+        DB 152
+        DB 168
+        DB 200
+        DB 112
+        DB 0
+        DB 0
+        DB 0
+        DB 112
+        DB 136
+        DB 248
+        DB 136
+        DB 136
+        DB 0
+        DB 0
+        DB 0
+        DB 248
+        DB 128
+        DB 224
+        DB 128
+        DB 248
+        DB 0
+        DB 0
+        DB 0
+        DB 112
+        DB 32
+        DB 32
+        DB 32
+        DB 112
+        DB 0
+        DB 0
+        DB 0
+        DB 112
+        DB 136
+        DB 136
+        DB 136
+        DB 112
+        DB 0
+        DB 0
+        DB 0
+        DB 136
+        DB 136
+        DB 136
+        DB 136
+        DB 112
+        DB 0
+        DB 0
+        DB 0
+        DB 136
+        DB 200
+        DB 168
+        DB 152
+        DB 136
+        DB 0
+        DB 32
+        DB 0
+        DB 32
+        DB 32
+        DB 32
+        DB 32
+        DB 32
+        DB 0
+        DB 32
+        DB 0
+        DB 32
+        DB 64
+        DB 128
+        DB 136
+        DB 112
+        DB 0
+        DB 24
+        DB 32
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 192
+        DB 32
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 32
+        DB 80
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 80
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 104
+        DB 144
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 32
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 32
+        DB 112
+        DB 160
+        DB 160
+        DB 168
+        DB 112
+        DB 32
+        DB 48
+        DB 64
+        DB 64
+        DB 224
+        DB 64
+        DB 72
+        DB 176
+        DB 0
+        DB 0
+        DB 0
+        DB 136
+        DB 112
+        DB 80
+        DB 112
+        DB 136
+        DB 0
+        DB 136
+        DB 80
+        DB 248
+        DB 32
+        DB 248
+        DB 32
+        DB 32
+        DB 0
+        DB 32
+        DB 32
+        DB 32
+        DB 0
+        DB 32
+        DB 32
+        DB 32
+        DB 0
+        DB 48
+        DB 72
+        DB 32
+        DB 80
+        DB 32
+        DB 144
+        DB 96
+        DB 0
+        DB 136
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 248
+        DB 136
+        DB 168
+        DB 184
+        DB 168
+        DB 136
+        DB 248
+        DB 0
+        DB 112
+        DB 8
+        DB 120
+        DB 136
+        DB 112
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 40
+        DB 80
+        DB 160
+        DB 80
+        DB 40
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 248
+        DB 8
+        DB 8
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 112
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 248
+        DB 136
+        DB 168
+        DB 136
+        DB 152
+        DB 168
+        DB 248
+        DB 0
+        DB 248
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 32
+        DB 80
+        DB 32
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 32
+        DB 112
+        DB 32
+        DB 0
+        DB 112
+        DB 0
+        DB 0
+        DB 96
+        DB 144
+        DB 32
+        DB 64
+        DB 240
+        DB 0
+        DB 0
+        DB 0
+        DB 224
+        DB 16
+        DB 96
+        DB 16
+        DB 224
+        DB 0
+        DB 0
+        DB 0
+        DB 24
+        DB 32
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 136
+        DB 136
+        DB 136
+        DB 200
+        DB 176
+        DB 128
+        DB 120
+        DB 152
+        DB 152
+        DB 120
+        DB 24
+        DB 24
+        DB 24
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 48
+        DB 48
+        DB 0
+        DB 0
+        DB 0
+        DB 64
+        DB 192
+        DB 64
+        DB 64
+        DB 224
+        DB 0
+        DB 0
+        DB 0
+        DB 112
+        DB 136
+        DB 136
+        DB 136
+        DB 112
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 160
+        DB 80
+        DB 40
+        DB 80
+        DB 160
+        DB 0
+        DB 0
+        DB 136
+        DB 144
+        DB 160
+        DB 80
+        DB 176
+        DB 80
+        DB 120
+        DB 16
+        DB 136
+        DB 144
+        DB 160
+        DB 64
+        DB 184
+        DB 8
+        DB 16
+        DB 56
+        DB 192
+        DB 64
+        DB 192
+        DB 72
+        DB 216
+        DB 40
+        DB 56
+        DB 8
+        DB 0
+        DB 136
+        DB 80
+        DB 32
+        DB 80
+        DB 136
+        DB 0
+        DB 0
+        DB 0
+        DB 32
+        DB 0
+        DB 248
+        DB 0
+        DB 32
+        DB 0
+        DB 0
+        DB 16
+        DB 48
+        DB 112
+        DB 252
+        DB 112
+        DB 48
+        DB 16
+        DB 0
+        DB 32
+        DB 48
+        DB 56
+        DB 252
+        DB 56
+        DB 48
+        DB 32
+        DB 0
+        DB 0
+        DB 32
+        DB 112
+        DB 248
+        DB 32
+        DB 32
+        DB 0
+        DB 0
+        DB 0
+        DB 32
+        DB 32
+        DB 248
+        DB 112
+        DB 32
+        DB 0
+        DB 0
+        DB 0
+        DB 8
+        DB 40
+        DB 104
+        DB 248
+        DB 96
+        DB 32
+        DB 0
+        DB 0
+        DB 4
+        DB 4
+        DB 8
+        DB 8
+        DB 144
+        DB 80
+        DB 32
+//  116   {
+//  117    ________,
+//  118    ________,
+//  119    ________,
+//  120    ________,
+//  121    ________,
+//  122    ________,
+//  123    ________,
+//  124    ________}
+//  125 
+//  126 /*  !  */
+//  127  ,{
+//  128    __X_____,
+//  129    __X_____,
+//  130    __X_____,
+//  131    __X_____,
+//  132    __X_____,
+//  133    ________,
+//  134    __X_____,
+//  135    ________}
+//  136 
+//  137 
+//  138 /*  "  */
+//  139  ,{
+//  140    _X__X___,
+//  141    _X__X___,
+//  142    _X__X___,
+//  143    ________,
+//  144    ________,
+//  145    ________,
+//  146    ________,
+//  147    ________}
+//  148 
+//  149 /* #  */
+//  150  ,{
+//  151    _X_X____,
+//  152    _X_X____,
+//  153    XXXXX___,
+//  154    _X_X____,
+//  155    XXXXX___,
+//  156    _X_X____,
+//  157    _X_X____,
+//  158    ________}
+//  159 
+//  160 /*  $  */
+//  161  ,{
+//  162    __X_____,
+//  163    _XXXX___,
+//  164    X_X_____,
+//  165    _XXX____,
+//  166    __X_X___,
+//  167    XXXX____,
+//  168    __X_____}
+//  169 
+//  170 /*  %  */
+//  171  ,{
+//  172    XX______,
+//  173    XX__X___,
+//  174    ___X____,
+//  175    __X_____,
+//  176    _X______,
+//  177    X__XX___,
+//  178    ___XX___,
+//  179    ________}
+//  180 
+//  181 /*  &  */
+//  182  ,{
+//  183    _XX_____,
+//  184    X__X____,
+//  185    X_X_____,
+//  186    _X______,
+//  187    X_X_X___,
+//  188    X__X____,
+//  189    _XX_X___,
+//  190    ________}
+//  191 
+//  192 /*  '  */
+//  193  ,{
+//  194    _XX_____,
+//  195    __X_____,
+//  196    _X______,
+//  197    ________,
+//  198    ________,
+//  199    ________,
+//  200    ________,
+//  201    ________}
+//  202 
+//  203 /*  (  */
+//  204  ,{
+//  205    ___X____,
+//  206    __X_____,
+//  207    _X______,
+//  208    _X______,
+//  209    _X______,
+//  210    __X_____,
+//  211    ___X____,
+//  212    ________}
+//  213 
+//  214 /*  )  */
+//  215  ,{
+//  216    _X______,
+//  217    __X_____,
+//  218    ___X____,
+//  219    ___X____,
+//  220    ___X____,
+//  221    __X_____,
+//  222    _X______,
+//  223    ________}
+//  224 
+//  225 /*  *  */
+//  226  ,{
+//  227    ________,
+//  228    _X_X____,
+//  229    __X_____,
+//  230    XXXXX___,
+//  231    __X_____,
+//  232    _X_X____,
+//  233    ________,
+//  234    ________}
+//  235 
+//  236  ,{
+//  237    ________,
+//  238    __X_____,
+//  239    __X_____,
+//  240    XXXXX___,
+//  241    __X_____,
+//  242    __X_____,
+//  243    ________,
+//  244    ________}
+//  245 
+//  246  ,{
+//  247    ________,
+//  248    ________,
+//  249    ________,
+//  250    ________,
+//  251    ________,
+//  252    _XX_____,
+//  253    __X_____,
+//  254    _X______}
+//  255 
+//  256  ,{
+//  257    ________,
+//  258    ________,
+//  259    ________,
+//  260    XXXXX___,
+//  261    ________,
+//  262    ________,
+//  263    ________,
+//  264    ________}
+//  265 
+//  266  ,{
+//  267    ________,
+//  268    ________,
+//  269    ________,
+//  270    ________,
+//  271    ________,
+//  272    _XX_____,
+//  273    _XX_____,
+//  274    ________}
+//  275 
+//  276  ,{
+//  277    ________,
+//  278    ____X___,
+//  279    ___X____,
+//  280    __X_____,
+//  281    _X______,
+//  282    X_______,
+//  283    ________,
+//  284    ________}
+//  285 
+//  286 /* 0 */
+//  287  ,{
+//  288    _XXX____,
+//  289    X___X___,
+//  290    X__XX___,
+//  291    X_X_X___,
+//  292    XX__X___,
+//  293    X___X___,
+//  294    _XXX____,
+//  295    ________}
+//  296 
+//  297 /* 1 */
+//  298  ,{
+//  299    __X_____,
+//  300    _XX_____,
+//  301    __X_____,
+//  302    __X_____,
+//  303    __X_____,
+//  304    __X_____,
+//  305    _XXX____,
+//  306    ________}
+//  307 
+//  308 /* 2 */
+//  309  ,{
+//  310    _XXX____,
+//  311    X___X___,
+//  312    ____X___,
+//  313    __XX____,
+//  314    _X______,
+//  315    X_______,
+//  316    XXXXX___,
+//  317    ________}
+//  318 
+//  319 /* 3 */
+//  320  ,{
+//  321    _XXX____,
+//  322    X___X___,
+//  323    ____X___,
+//  324    __XX____,
+//  325    ____X___,
+//  326    X___X___,
+//  327    _XXX____,
+//  328    ________}
+//  329 
+//  330 /* 4 */
+//  331  ,{
+//  332    ___X____,
+//  333    __XX____,
+//  334    _X_X____,
+//  335    X__X____,
+//  336    XXXXX___,
+//  337    ___X____,
+//  338    ___X____,
+//  339    ________}
+//  340 
+//  341 /* 5 */
+//  342  ,{
+//  343    XXXXX___,
+//  344    X_______,
+//  345    XXXX____,
+//  346    ____X___,
+//  347    ____X___,
+//  348    X___X___,
+//  349    _XXX____,
+//  350    ________}
+//  351 
+//  352 /* 6 */
+//  353  ,{
+//  354    __XX____,
+//  355    _X______,
+//  356    X_______,
+//  357    XXXX____,
+//  358    X___X___,
+//  359    X___X___,
+//  360    _XXX____,
+//  361    ________}
+//  362 
+//  363 /* 7 */
+//  364  ,{
+//  365    XXXXX___,
+//  366    ____X___,
+//  367    ___X____,
+//  368    __X_____,
+//  369    _X______,
+//  370    _X______,
+//  371    _X______,
+//  372    ________}
+//  373 
+//  374 /* 8 */
+//  375  ,{
+//  376    _XXX____,
+//  377    X___X___,
+//  378    X___X___,
+//  379    _XXX____,
+//  380    X___X___,
+//  381    X___X___,
+//  382    _XXX____,
+//  383    ________}
+//  384 
+//  385 /* 9 */
+//  386  ,{
+//  387    _XXX____,
+//  388    X___X___,
+//  389    X___X___,
+//  390    _XXXX___,
+//  391    ____X___,
+//  392    ___X____,
+//  393    _XX_____,
+//  394    ________}
+//  395 
+//  396 /* ':' 3a */
+//  397  ,{
+//  398    ________,
+//  399    _XX_____,
+//  400    _XX_____,
+//  401    ________,
+//  402    _XX_____,
+//  403    _XX_____,
+//  404    ________,
+//  405    ________}
+//  406 
+//  407 /* ';' 3b */
+//  408  ,{
+//  409    ________,
+//  410    ________,
+//  411    _XX_____,
+//  412    _XX_____,
+//  413    ________,
+//  414    _XX_____,
+//  415    __X_____,
+//  416    _X______}
+//  417 
+//  418 
+//  419 /* '<' 3c */
+//  420  ,{
+//  421    ___X____,
+//  422    __X_____,
+//  423    _X______,
+//  424    X_______,
+//  425    _X______,
+//  426    __X_____,
+//  427    ___X____,
+//  428    ________}
+//  429 
+//  430 /* '=' 3d */
+//  431  ,{
+//  432    ________,
+//  433    ________,
+//  434    XXXXX___,
+//  435    ________,
+//  436    XXXXX___,
+//  437    ________,
+//  438    ________,
+//  439    ________}
+//  440 
+//  441 /* '>' */
+//  442  ,{
+//  443    X_______,
+//  444    _X______,
+//  445    __X_____,
+//  446    ___X____,
+//  447    __X_____,
+//  448    _X______,
+//  449    X_______,
+//  450    ________}
+//  451 
+//  452 /* '?' */
+//  453  ,{
+//  454    _XXX____,
+//  455    X___X___,
+//  456    ____X___,
+//  457    ___X____,
+//  458    __X_____,
+//  459    ________,
+//  460    __X_____,
+//  461    ________}
+//  462 
+//  463 /* @ */
+//  464  ,{
+//  465    _XXX____,
+//  466    X___X___,
+//  467    ____X___,
+//  468    _XX_X___,
+//  469    X_X_X___,
+//  470    X_X_X___,
+//  471    _XXX____,
+//  472    ________}
+//  473 
+//  474 /* A */
+//  475  ,{
+//  476    _XXX____,
+//  477    X___X___,
+//  478    X___X___,
+//  479    XXXXX___,
+//  480    X___X___,
+//  481    X___X___,
+//  482    X___X___,
+//  483    ________}
+//  484 
+//  485 /* B */
+//  486  ,{
+//  487    XXXX____,
+//  488    X___X___,
+//  489    X___X___,
+//  490    XXXX____,
+//  491    X___X___,
+//  492    X___X___,
+//  493    XXXX____,
+//  494    ________}
+//  495 
+//  496 /* C */
+//  497  ,{
+//  498    _XXX____,
+//  499    X___X___,
+//  500    X_______,
+//  501    X_______,
+//  502    X_______,
+//  503    X___X___,
+//  504    _XXX____,
+//  505    ________}
+//  506 
+//  507 /* D */
+//  508  ,{
+//  509    XXX_____,
+//  510    X__X____,
+//  511    X___X___,
+//  512    X___X___,
+//  513    X___X___,
+//  514    X__X____,
+//  515    XXX_____,
+//  516    ________}
+//  517 
+//  518 /* E */
+//  519  ,{
+//  520    XXXXX___,
+//  521    X_______,
+//  522    X_______,
+//  523    XXXX____,
+//  524    X_______,
+//  525    X_______,
+//  526    XXXXX___,
+//  527    ________}
+//  528 
+//  529 /* 1 */
+//  530  ,{
+//  531    XXXXX___,
+//  532    X_______,
+//  533    X_______,
+//  534    XXXX____,
+//  535    X_______,
+//  536    X_______,
+//  537    X_______,
+//  538    ________}
+//  539 
+//  540 /* 1 */
+//  541  ,{
+//  542    _XXX____,
+//  543    X___X___,
+//  544    X_______,
+//  545    X_______,
+//  546    X__XX___,
+//  547    X___X___,
+//  548    _XXXX___,
+//  549    ________}
+//  550 
+//  551 /* 1 */
+//  552  ,{
+//  553    X___X___,
+//  554    X___X___,
+//  555    X___X___,
+//  556    XXXXX___,
+//  557    X___X___,
+//  558    X___X___,
+//  559    X___X___,
+//  560    ________}
+//  561 
+//  562 /* I */
+//  563  ,{
+//  564    _XXX____,
+//  565    __X_____,
+//  566    __X_____,
+//  567    __X_____,
+//  568    __X_____,
+//  569    __X_____,
+//  570    _XXX____,
+//  571    ________}
+//  572 
+//  573 /* J */
+//  574  ,{
+//  575    __XXX___,
+//  576    ___X____,
+//  577    ___X____,
+//  578    ___X____,
+//  579    ___X____,
+//  580    X__X____,
+//  581    _XX_____,
+//  582    ________}
+//  583 
+//  584 /* K */
+//  585  ,{
+//  586    X___X___,
+//  587    X__X____,
+//  588    X_X_____,
+//  589    XX______,
+//  590    X_X_____,
+//  591    X__X____,
+//  592    X___X___,
+//  593    ________}
+//  594 
+//  595 /* L */
+//  596  ,{
+//  597    X_______,
+//  598    X_______,
+//  599    X_______,
+//  600    X_______,
+//  601    X_______,
+//  602    X_______,
+//  603    XXXXX___,
+//  604    ________}
+//  605 
+//  606 /* M */
+//  607  ,{
+//  608    X___X___,
+//  609    XX_XX___,
+//  610    X_X_X___,
+//  611    X_X_X___,
+//  612    X___X___,
+//  613    X___X___,
+//  614    X___X___,
+//  615    ________}
+//  616 
+//  617 /* N */
+//  618  ,{
+//  619    X___X___,
+//  620    X___X___,
+//  621    XX__X___,
+//  622    X_X_X___,
+//  623    X__XX___,
+//  624    X___X___,
+//  625    X___X___,
+//  626    ________}
+//  627 
+//  628 /* O */
+//  629  ,{
+//  630    _XXX____,
+//  631    X___X___,
+//  632    X___X___,
+//  633    X___X___,
+//  634    X___X___,
+//  635    X___X___,
+//  636    _XXX____,
+//  637    ________}
+//  638 
+//  639 /* P */
+//  640  ,{
+//  641    XXXX____,
+//  642    X___X___,
+//  643    X___X___,
+//  644    XXXX____,
+//  645    X_______,
+//  646    X_______,
+//  647    X_______,
+//  648    ________}
+//  649 
+//  650 /* Q */
+//  651  ,{
+//  652    _XXX____,
+//  653    X___X___,
+//  654    X___X___,
+//  655    X___X___,
+//  656    X_X_X___,
+//  657    X__X____,
+//  658    _XX_X___,
+//  659    ________}
+//  660 
+//  661 /* R */
+//  662  ,{
+//  663    XXXX____,
+//  664    X___X___,
+//  665    X___X___,
+//  666    XXXX____,
+//  667    X_X_____,
+//  668    X__X____,
+//  669    X___X___,
+//  670    ________}
+//  671 
+//  672 /* S */
+//  673  ,{
+//  674    _XXX____,
+//  675    X___X___,
+//  676    X_______,
+//  677    _XXX____,
+//  678    ____X___,
+//  679    X___X___,
+//  680    _XXX____,
+//  681    ________}
+//  682 
+//  683 /* T */
+//  684  ,{
+//  685    XXXXX___,
+//  686    __X_____,
+//  687    __X_____,
+//  688    __X_____,
+//  689    __X_____,
+//  690    __X_____,
+//  691    __X_____,
+//  692    ________}
+//  693 
+//  694 /* U */
+//  695  ,{
+//  696    X___X___,
+//  697    X___X___,
+//  698    X___X___,
+//  699    X___X___,
+//  700    X___X___,
+//  701    X___X___,
+//  702    _XXX____,
+//  703    ________}
+//  704 
+//  705 /* V */
+//  706  ,{
+//  707    X___X___,
+//  708    X___X___,
+//  709    X___X___,
+//  710    X___X___,
+//  711    X___X___,
+//  712    _X_X____,
+//  713    __X_____,
+//  714    ________}
+//  715 
+//  716 /* W */
+//  717  ,{
+//  718    X___X___,
+//  719    X___X___,
+//  720    X___X___,
+//  721    X_X_X___,
+//  722    X_X_X___,
+//  723    X_X_X___,
+//  724    _X_X____,
+//  725    ________}
+//  726 
+//  727 /* X */
+//  728  ,{
+//  729    X___X___,
+//  730    X___X___,
+//  731    _X_X____,
+//  732    __X_____,
+//  733    _X_X____,
+//  734    X___X___,
+//  735    X___X___,
+//  736    ________}
+//  737 
+//  738 /* Y */
+//  739  ,{
+//  740    X___X___,
+//  741    X___X___,
+//  742    X___X___,
+//  743    _X_X____,
+//  744    __X_____,
+//  745    __X_____,
+//  746    __X_____,
+//  747    ________}
+//  748 
+//  749 /* Z */
+//  750  ,{
+//  751    XXXXX___,
+//  752    ____X___,
+//  753    ___X____,
+//  754    __X_____,
+//  755    _X______,
+//  756    X_______,
+//  757    XXXXX___,
+//  758    ________}
+//  759 
+//  760 /* 5b */
+//  761  ,{
+//  762    _XXX____,
+//  763    _X______,
+//  764    _X______,
+//  765    _X______,
+//  766    _X______,
+//  767    _X______,
+//  768    _XXX____,
+//  769    ________}
+//  770 
+//  771 /* 5c */
+//  772  ,{
+//  773    ________,
+//  774    X_______,
+//  775    _X______,
+//  776    __X_____,
+//  777    ___X____,
+//  778    ____X___,
+//  779    ________,
+//  780    ________}
+//  781 
+//  782 /* 5d */
+//  783  ,{
+//  784    _XXX____,
+//  785    ___X____,
+//  786    ___X____,
+//  787    ___X____,
+//  788    ___X____,
+//  789    ___X____,
+//  790    _XXX____,
+//  791    ________}
+//  792 
+//  793 /* 5e */
+//  794  ,{
+//  795    __X_____,
+//  796    _X_X____,
+//  797    X___X___,
+//  798    ________,
+//  799    ________,
+//  800    ________,
+//  801    ________,
+//  802    ________}
+//  803 
+//  804 /* 5f */
+//  805  ,{
+//  806    ________,
+//  807    ________,
+//  808    ________,
+//  809    ________,
+//  810    ________,
+//  811    ________,
+//  812    ________,
+//  813    XXXXX___}
+//  814 
+//  815 /* 60 */
+//  816  ,{
+//  817    _X______,
+//  818    __X_____,
+//  819    ___X____,
+//  820    ________,
+//  821    ________,
+//  822    ________,
+//  823    ________,
+//  824    ________}
+//  825 
+//  826 /* a */
+//  827  ,{
+//  828    ________,
+//  829    ________,
+//  830    _XXX____,
+//  831    ____X___,
+//  832    _XXXX___,
+//  833    X___X___,
+//  834    _XXXX___,
+//  835    ________}
+//  836 
+//  837 /* b */
+//  838  ,{
+//  839    X_______,
+//  840    X_______,
+//  841    X_XX____,
+//  842    XX__X___,
+//  843    X___X___,
+//  844    X___X___,
+//  845    XXXX____,
+//  846    ________}
+//  847 
+//  848 /* c */
+//  849  ,{
+//  850    ________,
+//  851    ________,
+//  852    _XXX____,
+//  853    X_______,
+//  854    X_______,
+//  855    X___X___,
+//  856    _XXX____,
+//  857    ________}
+//  858 
+//  859 /* d */
+//  860  ,{
+//  861    ____X___,
+//  862    ____X___,
+//  863    _XX_X___,
+//  864    X__XX___,
+//  865    X___X___,
+//  866    X___X___,
+//  867    _XXXX___,
+//  868    ________}
+//  869 
+//  870 /* e */
+//  871  ,{
+//  872    ________,
+//  873    ________,
+//  874    _XXX____,
+//  875    X___X___,
+//  876    XXXXX___,
+//  877    X_______,
+//  878    _XXX____,
+//  879    ________}
+//  880 
+//  881 /* f */
+//  882  ,{
+//  883    __XX____,
+//  884    _X__X___,
+//  885    _X______,
+//  886    XXX_____,
+//  887    _X______,
+//  888    _X______,
+//  889    _X______,
+//  890    ________}
+//  891 
+//  892 /* g */
+//  893  ,{
+//  894    ________,
+//  895    ________,
+//  896    _XXXX___,
+//  897    X___X___,
+//  898    X___X___,
+//  899    _XXXX___,
+//  900    ____X___,
+//  901    _XXX____}
+//  902 
+//  903 /* h */
+//  904  ,{
+//  905    X_______,
+//  906    X_______,
+//  907    X_XX____,
+//  908    XX__X___,
+//  909    X___X___,
+//  910    X___X___,
+//  911    X___X___,
+//  912    ________}
+//  913 
+//  914 /* i */
+//  915  ,{
+//  916    __X_____,
+//  917    ________,
+//  918    _XX_____,
+//  919    __X_____,
+//  920    __X_____,
+//  921    __X_____,
+//  922    _XXX____,
+//  923    ________}
+//  924 
+//  925 /* j */
+//  926  ,{
+//  927    ___X____,
+//  928    ________,
+//  929    __XX____,
+//  930    ___X____,
+//  931    ___X____,
+//  932    ___X____,
+//  933    X__X____,
+//  934    _XX_____}
+//  935 
+//  936 /* k */
+//  937  ,{
+//  938    X_______,
+//  939    X_______,
+//  940    X__X____,
+//  941    X_X_____,
+//  942    XX______,
+//  943    X_X_____,
+//  944    X__X____,
+//  945    ________}
+//  946 
+//  947 /* l */
+//  948  ,{
+//  949    _XX_____,
+//  950    __X_____,
+//  951    __X_____,
+//  952    __X_____,
+//  953    __X_____,
+//  954    __X_____,
+//  955    _XXX____,
+//  956    ________}
+//  957 
+//  958 /* m */
+//  959  ,{
+//  960    ________,
+//  961    ________,
+//  962    XX_X____,
+//  963    X_X_X___,
+//  964    X___X___,
+//  965    X___X___,
+//  966    X___X___,
+//  967    ________}
+//  968 
+//  969 /* n */
+//  970  ,{
+//  971    ________,
+//  972    ________,
+//  973    X_XX____,
+//  974    XX__X___,
+//  975    X___X___,
+//  976    X___X___,
+//  977    X___X___,
+//  978    ________}
+//  979 
+//  980 /* o */
+//  981  ,{
+//  982    ________,
+//  983    ________,
+//  984    _XXX____,
+//  985    X___X___,
+//  986    X___X___,
+//  987    X___X___,
+//  988    _XXX____,
+//  989    ________}
+//  990 
+//  991 /* p */
+//  992  ,{
+//  993    ________,
+//  994    ________,
+//  995    XXXX____,
+//  996    X___X___,
+//  997    X___X___,
+//  998    XXXX____,
+//  999    X_______,
+// 1000    X_______}
+// 1001 
+// 1002 /* q */
+// 1003  ,{
+// 1004    ________,
+// 1005    ________,
+// 1006    _XXXX___,
+// 1007    X___X___,
+// 1008    X___X___,
+// 1009    _XXXX___,
+// 1010    ____X___,
+// 1011    ____X___}
+// 1012 
+// 1013 /* r */
+// 1014  ,{
+// 1015    ________,
+// 1016    ________,
+// 1017    X_XX____,
+// 1018    XX__X___,
+// 1019    X_______,
+// 1020    X_______,
+// 1021    X_______,
+// 1022    ________}
+// 1023 
+// 1024 /* s */
+// 1025  ,{
+// 1026    ________,
+// 1027    ________,
+// 1028    _XXXX___,
+// 1029    X_______,
+// 1030    _XXX____,
+// 1031    ____X___,
+// 1032    XXXX____,
+// 1033    ________}
+// 1034 
+// 1035 /* t */
+// 1036  ,{
+// 1037    _X______,
+// 1038    _X______,
+// 1039    XXX_____,
+// 1040    _X______,
+// 1041    _X______,
+// 1042    _X__X___,
+// 1043    __XX____,
+// 1044    ________}
+// 1045 
+// 1046 /* u */
+// 1047  ,{
+// 1048    ________,
+// 1049    ________,
+// 1050    X___X___,
+// 1051    X___X___,
+// 1052    X___X___,
+// 1053    X__XX___,
+// 1054    _XX_X___,
+// 1055    ________}
+// 1056 
+// 1057 /* v */
+// 1058  ,{
+// 1059    ________,
+// 1060    ________,
+// 1061    X___X___,
+// 1062    X___X___,
+// 1063    X___X___,
+// 1064    _X_X____,
+// 1065    __X_____,
+// 1066    ________}
+// 1067 
+// 1068 /* w */
+// 1069  ,{
+// 1070    ________,
+// 1071    ________,
+// 1072    X___X___,
+// 1073    X___X___,
+// 1074    X_X_X___,
+// 1075    X_X_X___,
+// 1076    _X_X____,
+// 1077    ________}
+// 1078 
+// 1079 /* X */
+// 1080  ,{
+// 1081    ________,
+// 1082    ________,
+// 1083    X___X___,
+// 1084    _X_X____,
+// 1085    __X_____,
+// 1086    _X_X____,
+// 1087    X___X___,
+// 1088    ________}
+// 1089 
+// 1090 /* y */
+// 1091  ,{
+// 1092    ________,
+// 1093    ________,
+// 1094    X___X___,
+// 1095    X___X___,
+// 1096    X___X___,
+// 1097    _XXXX___,
+// 1098    ____X___,
+// 1099    _XXX____}
+// 1100 
+// 1101 /* z */
+// 1102  ,{
+// 1103    ________,
+// 1104    ________,
+// 1105    XXXXX___,
+// 1106    ___X____,
+// 1107    __X_____,
+// 1108    _X______,
+// 1109    XXXXX___,
+// 1110    ________}
+// 1111 
+// 1112 /* 0x7b */
+// 1113  ,{
+// 1114    ___X____,
+// 1115    __X_____,
+// 1116    __X_____,
+// 1117    _X______,
+// 1118    __X_____,
+// 1119    __X_____,
+// 1120    ___X____,
+// 1121    ________}
+// 1122 
+// 1123 /* 0x7c */
+// 1124  ,{
+// 1125    __X_____,
+// 1126    __X_____,
+// 1127    __X_____,
+// 1128    __X_____,
+// 1129    __X_____,
+// 1130    __X_____,
+// 1131    __X_____,
+// 1132    ________}
+// 1133 
+// 1134 /* 0x7d */
+// 1135  ,{
+// 1136    _X______,
+// 1137    __X_____,
+// 1138    __X_____,
+// 1139    ___X____,
+// 1140    __X_____,
+// 1141    __X_____,
+// 1142    _X______,
+// 1143    ________}
+// 1144 
+// 1145 /* 0x7e */
+// 1146  ,{
+// 1147    _XX_X___,
+// 1148    X__X____,
+// 1149    ________,
+// 1150    ________,
+// 1151    ________,
+// 1152    ________,
+// 1153    ________,
+// 1154    ________}
+// 1155 
+// 1156 
+// 1157 /*  additional characters for European character set  */
+// 1158 
+// 1159 #if (GUI_NOFCHARS>95)
+// 1160 /* small accent ague, 95*/
+// 1161  ,{
+// 1162    ___XX___,
+// 1163    __X_____,
+// 1164    ________,
+// 1165    ________,
+// 1166    ________,
+// 1167    ________,
+// 1168    ________,
+// 1169    ________}
+// 1170 
+// 1171 #endif
+// 1172 #if (GUI_NOFCHARS>96)
+// 1173 
+// 1174 /* small accent grave, 96 */
+// 1175  ,{
+// 1176    XX______,
+// 1177    __X_____,
+// 1178    ________,
+// 1179    ________,
+// 1180    ________,
+// 1181    ________,
+// 1182    ________,
+// 1183    ________}
+// 1184 
+// 1185 #endif
+// 1186 #if (GUI_NOFCHARS>97)
+// 1187 
+// 1188 /* small accent circonflex, 97 */
+// 1189  ,{
+// 1190    _XXX____,
+// 1191    X___X___,
+// 1192    ________,
+// 1193    ________,
+// 1194    ________,
+// 1195    ________,
+// 1196    ________,
+// 1197    ________}
+// 1198 
+// 1199 #endif
+// 1200 #if (GUI_NOFCHARS>98)
+// 1201 
+// 1202 /* small umlaut, 98 */
+// 1203  ,{
+// 1204    _X_X____,
+// 1205    ________,
+// 1206    ________,
+// 1207    ________,
+// 1208    ________,
+// 1209    ________,
+// 1210    ________,
+// 1211    ________}
+// 1212 
+// 1213 #endif
+// 1214 #if (GUI_NOFCHARS>99)
+// 1215 
+// 1216 /* small tilde, 99 */
+// 1217  ,{
+// 1218    _XX_X___,
+// 1219    X__X____,
+// 1220    ________,
+// 1221    ________,
+// 1222    ________,
+// 1223    ________,
+// 1224    ________,
+// 1225    ________}
+// 1226 
+// 1227 #endif
+// 1228 #if (GUI_NOFCHARS>100)
+// 1229 
+// 1230 /* i without dot, 100 */
+// 1231  ,{
+// 1232    ________,
+// 1233    ________,
+// 1234    ________,
+// 1235    _XX_____,
+// 1236    __X_____,
+// 1237    __X_____,
+// 1238    _XXX____,
+// 1239    ________}
+// 1240 
+// 1241 #endif
+// 1242 #if (GUI_NOFCHARS>101)
+// 1243 
+// 1244 /* sharps eg á, 101  */
+// 1245  ,{
+// 1246    ________,
+// 1247    _XX_____,
+// 1248    X__X____,
+// 1249    XXXX____,
+// 1250    X___X___,
+// 1251    X___X___,
+// 1252    X_XX____,
+// 1253    X_______}
+// 1254 
+// 1255 #endif
+// 1256 #if (GUI_NOFCHARS>102)
+// 1257 
+// 1258 /* capital A with ring, 102 */
+// 1259  ,{
+// 1260    __X_____,
+// 1261    ________,
+// 1262    _XXX____,
+// 1263    X___X___,
+// 1264    XXXXX___,
+// 1265    X___X___,
+// 1266    X___X___,
+// 1267    ________}
+// 1268 
+// 1269 #endif
+// 1270 #if (GUI_NOFCHARS>103)
+// 1271 
+// 1272 /* small a with ring, 103 */
+// 1273  ,{
+// 1274    __X_____,
+// 1275    ________,
+// 1276    _XXX____,
+// 1277    ____X___,
+// 1278    _XXXX___,
+// 1279    X___X___,
+// 1280    _XXXX___,
+// 1281    ________}
+// 1282 
+// 1283 #endif
+// 1284 #if (GUI_NOFCHARS>104)
+// 1285 
+// 1286 /*  capital A diphtong, ligature, 104 */
+// 1287  ,{
+// 1288    __XXX___,
+// 1289    _XX_____,
+// 1290    X_X_____,
+// 1291    X_XXX___,
+// 1292    XXX_____,
+// 1293    X_X_____,
+// 1294    X_XXX___,
+// 1295    ________}
+// 1296 
+// 1297 #endif
+// 1298 #if (GUI_NOFCHARS>105)
+// 1299 
+// 1300 /*  Icelandic eth, 105 */
+// 1301  ,{
+// 1302    _XXX____,
+// 1303    _X__X___,
+// 1304    _X__X___,
+// 1305    XXX_X___,
+// 1306    _X__X___,
+// 1307    _X__X___,
+// 1308    _XXX____,
+// 1309    ________}
+// 1310 
+// 1311 #endif
+// 1312 #if (GUI_NOFCHARS>106)
+// 1313 
+// 1314 /*  Icelandic Thorn, 106 */
+// 1315  ,{
+// 1316    XXX_____,
+// 1317    _X______,
+// 1318    _XXX____,
+// 1319    _X__X___,
+// 1320    _X__X___,
+// 1321    _XXX____,
+// 1322    _X______,
+// 1323    XXX_____}
+// 1324 
+// 1325 #endif
+// 1326 #if (GUI_NOFCHARS>107)
+// 1327 
+// 1328 /*  small a diphtong, ligature, 107 */
+// 1329  ,{
+// 1330    ________,
+// 1331    ________,
+// 1332    XX_X____,
+// 1333    __X_X___,
+// 1334    _XXXX___,
+// 1335    X_X_____,
+// 1336    _X_XX___,
+// 1337    ________}
+// 1338 
+// 1339 #endif
+// 1340 #if (GUI_NOFCHARS>108)
+// 1341 
+// 1342 /*  small Icelanic Eth, 108 */
+// 1343  ,{
+// 1344    X_X_____,
+// 1345    _X______,
+// 1346    X_X_____,
+// 1347    ___X____,
+// 1348    _XXXX___,
+// 1349    X___X___,
+// 1350    _XXX____,
+// 1351    ________}
+// 1352 
+// 1353 #endif
+// 1354 #if (GUI_NOFCHARS>109)
+// 1355 
+// 1356 /*  small Icelandic Thorn, 109 */
+// 1357  ,{
+// 1358    _XX_____,
+// 1359    __X_____,
+// 1360    __XX____,
+// 1361    __X_X___,
+// 1362    __XX____,
+// 1363    __X_____,
+// 1364    _XXX____,
+// 1365    ________}
+// 1366 
+// 1367 #endif
+// 1368 #if (GUI_NOFCHARS>110)
+// 1369 
+// 1370 /*  Capital O with slash, 110 */
+// 1371  ,{
+// 1372    _XXX____,
+// 1373    X___X___,
+// 1374    X__XX___,
+// 1375    X_X_X___,
+// 1376    XX__X___,
+// 1377    X___X___,
+// 1378    _XXX____,
+// 1379    ________}
+// 1380 
+// 1381 #endif
+// 1382 #if (GUI_NOFCHARS>111)
+// 1383 
+// 1384 /*  small o with slash, 111 */
+// 1385  ,{
+// 1386    ________,
+// 1387    ________,
+// 1388    _XXX____,
+// 1389    X__XX___,
+// 1390    X_X_X___,
+// 1391    XX__X___,
+// 1392    _XXX____,
+// 1393    ________}
+// 1394 
+// 1395 
+// 1396 /*  Capital letters  */
+// 1397 
+// 1398 
+// 1399 #endif
+// 1400 #if (GUI_NOFCHARS>112)
+// 1401 
+// 1402 /*  Little capital A, 112 */
+// 1403  ,{
+// 1404    ________,
+// 1405    ________,
+// 1406    _XXX____,
+// 1407    X___X___,
+// 1408    XXXXX___,
+// 1409    X___X___,
+// 1410    X___X___,
+// 1411    ________}
+// 1412 
+// 1413 #endif
+// 1414 #if (GUI_NOFCHARS>113)
+// 1415 
+// 1416 /*  Little capital E, 113 */
+// 1417  ,{
+// 1418    ________,
+// 1419    ________,
+// 1420    XXXXX___,
+// 1421    X_______,
+// 1422    XXX_____,
+// 1423    X_______,
+// 1424    XXXXX___,
+// 1425    ________}
+// 1426 
+// 1427 #endif
+// 1428 #if (GUI_NOFCHARS>114)
+// 1429 
+// 1430 /*  Little capital I, 114 */
+// 1431  ,{
+// 1432    ________,
+// 1433    ________,
+// 1434    _XXX____,
+// 1435    __X_____,
+// 1436    __X_____,
+// 1437    __X_____,
+// 1438    _XXX____,
+// 1439    ________}
+// 1440 
+// 1441 #endif
+// 1442 #if (GUI_NOFCHARS>115)
+// 1443 
+// 1444 /*  Little capital O, 115 */
+// 1445  ,{
+// 1446    ________,
+// 1447    ________,
+// 1448    _XXX____,
+// 1449    X___X___,
+// 1450    X___X___,
+// 1451    X___X___,
+// 1452    _XXX____,
+// 1453    ________}
+// 1454 
+// 1455 #endif
+// 1456 #if (GUI_NOFCHARS>116)
+// 1457 
+// 1458 /*  Little capital U, 116 */
+// 1459  ,{
+// 1460    ________,
+// 1461    ________,
+// 1462    X___X___,
+// 1463    X___X___,
+// 1464    X___X___,
+// 1465    X___X___,
+// 1466    _XXX____,
+// 1467    ________}
+// 1468 
+// 1469 #endif
+// 1470 #if (GUI_NOFCHARS>117)
+// 1471 
+// 1472 /*  Little capital N, 117 */
+// 1473  ,{
+// 1474    ________,
+// 1475    ________,
+// 1476    X___X___,
+// 1477    XX__X___,
+// 1478    X_X_X___,
+// 1479    X__XX___,
+// 1480    X___X___,
+// 1481    ________}
+// 1482 
+// 1483 
+// 1484 #endif
+// 1485 #if (GUI_NOFCHARS>118)
+// 1486 
+// 1487 /*  inverted exclamation, 118 */
+// 1488  ,{
+// 1489    __X_____,
+// 1490    ________,
+// 1491    __X_____,
+// 1492    __X_____,
+// 1493    __X_____,
+// 1494    __X_____,
+// 1495    __X_____,
+// 1496    ________}
+// 1497 
+// 1498 #endif
+// 1499 #if (GUI_NOFCHARS>119)
+// 1500 
+// 1501 /*  inverted question mark, 119 */
+// 1502  ,{
+// 1503    __X_____,
+// 1504    ________,
+// 1505    __X_____,
+// 1506    _X______,
+// 1507    X_______,
+// 1508    X___X___,
+// 1509    _XXX____,
+// 1510    ________}
+// 1511 
+// 1512 #endif
+// 1513 #if (GUI_NOFCHARS>120)
+// 1514 
+// 1515 /* capital accent ague, 120 */
+// 1516  ,{
+// 1517    ___XX___,
+// 1518    __X_____,
+// 1519    ________,
+// 1520    ________,
+// 1521    ________,
+// 1522    ________,
+// 1523    ________,
+// 1524    ________}
+// 1525 
+// 1526 #endif
+// 1527 #if (GUI_NOFCHARS>121)
+// 1528 
+// 1529 /* capital accent grave, 121 */
+// 1530  ,{
+// 1531    XX______,
+// 1532    __X_____,
+// 1533    ________,
+// 1534    ________,
+// 1535    ________,
+// 1536    ________,
+// 1537    ________,
+// 1538    ________}
+// 1539 
+// 1540 #endif
+// 1541 #if (GUI_NOFCHARS>122)
+// 1542 
+// 1543 /* capital accent circonflex, 122 */
+// 1544  ,{
+// 1545    __X_____,
+// 1546    _X_X____,
+// 1547    ________,
+// 1548    ________,
+// 1549    ________,
+// 1550    ________,
+// 1551    ________,
+// 1552    ________}
+// 1553 
+// 1554 #endif
+// 1555 #if (GUI_NOFCHARS>123)
+// 1556 
+// 1557 /* capital umlaut, 123 */
+// 1558  ,{
+// 1559    _X_X____,
+// 1560    ________,
+// 1561    ________,
+// 1562    ________,
+// 1563    ________,
+// 1564    ________,
+// 1565    ________,
+// 1566    ________}
+// 1567 
+// 1568 #endif
+// 1569 #if (GUI_NOFCHARS>124)
+// 1570 
+// 1571 /* capital tilde, 124 */
+// 1572  ,{
+// 1573    _XX_X___,
+// 1574    X__X____,
+// 1575    ________,
+// 1576    ________,
+// 1577    ________,
+// 1578    ________,
+// 1579    ________,
+// 1580    ________}
+// 1581 
+// 1582 #endif
+// 1583 #if (GUI_NOFCHARS>125)
+// 1584 
+// 1585 /* cedilla, 125 */
+// 1586  ,{
+// 1587    ________,
+// 1588    ________,
+// 1589    ________,
+// 1590    ________,
+// 1591    ________,
+// 1592    ________,
+// 1593    ________,
+// 1594    __X_____}
+// 1595 
+// 1596 #endif
+// 1597 
+// 1598 /*  additional characters for complete ISO 8859-1 character set  */
+// 1599 
+// 1600 #if (GUI_NOFCHARS>126)
+// 1601 /* Non breaking space, ISO-Code: 160, internal code: 126  */
+// 1602  ,{
+// 1603    ________,
+// 1604    ________,
+// 1605    ________,
+// 1606    ________,
+// 1607    ________,
+// 1608    ________,
+// 1609    ________,
+// 1610    ________}
+// 1611 
+// 1612 #endif
+// 1613 #if (GUI_NOFCHARS>127)
+// 1614 /* cent sign, ISO-Code: 162, internal code: 127  */
+// 1615  ,{
+// 1616    ________,
+// 1617    __X_____,
+// 1618    _XXX____,
+// 1619    X_X_____,
+// 1620    X_X_____,
+// 1621    X_X_X___,
+// 1622    _XXX____,
+// 1623    __X_____}
+// 1624 
+// 1625 #endif
+// 1626 #if (GUI_NOFCHARS>128)
+// 1627 /* pound sterling, ISO-Code: 163, internal code: 128  */
+// 1628  ,{
+// 1629    __XX____,
+// 1630    _X______,
+// 1631    _X______,
+// 1632    XXX_____,
+// 1633    _X______,
+// 1634    _X__X___,
+// 1635    X_XX____,
+// 1636    ________}
+// 1637 
+// 1638 #endif
+// 1639 #if (GUI_NOFCHARS>129)
+// 1640 /* general currency sign, ISO-Code: 164, internal code: 129  */
+// 1641  ,{
+// 1642    ________,
+// 1643    ________,
+// 1644    X___X___,
+// 1645    _XXX____,
+// 1646    _X_X____,
+// 1647    _XXX____,
+// 1648    X___X___,
+// 1649    ________}
+// 1650 
+// 1651 #endif
+// 1652 #if (GUI_NOFCHARS>130)
+// 1653 /* yen sign, ISO-Code: 165, internal code: 130  */
+// 1654  ,{
+// 1655    X___X___,
+// 1656    _X_X____,
+// 1657    XXXXX___,
+// 1658    __X_____,
+// 1659    XXXXX___,
+// 1660    __X_____,
+// 1661    __X_____,
+// 1662    ________}
+// 1663 
+// 1664 #endif
+// 1665 #if (GUI_NOFCHARS>131)
+// 1666 /* broken vertical bar, ISO-Code: 166, internal code: 131  */
+// 1667  ,{
+// 1668    __X_____,
+// 1669    __X_____,
+// 1670    __X_____,
+// 1671    ________,
+// 1672    __X_____,
+// 1673    __X_____,
+// 1674    __X_____,
+// 1675    ________}
+// 1676 
+// 1677 #endif
+// 1678 #if (GUI_NOFCHARS>132)
+// 1679 /* section sign, ISO-Code: 167, internal code: 132  */
+// 1680  ,{
+// 1681    __XX____,
+// 1682    _X__X___,
+// 1683    __X_____,
+// 1684    _X_X____,
+// 1685    __X_____,
+// 1686    X__X____,
+// 1687    _XX_____,
+// 1688    ________}
+// 1689 
+// 1690 #endif
+// 1691 #if (GUI_NOFCHARS>133)
+// 1692 /* umlaut (dieresis), ISO-Code: 168, internal code: 133  */
+// 1693  ,{
+// 1694    X___X___,
+// 1695    ________,
+// 1696    ________,
+// 1697    ________,
+// 1698    ________,
+// 1699    ________,
+// 1700    ________,
+// 1701    ________}
+// 1702 
+// 1703 #endif
+// 1704 #if (GUI_NOFCHARS>134)
+// 1705 /* copyright, ISO-Code: 169, internal code: 134  */
+// 1706  ,{
+// 1707    XXXXX___,
+// 1708    X___X___,
+// 1709    X_X_X___,
+// 1710    X_XXX___,
+// 1711    X_X_X___,
+// 1712    X___X___,
+// 1713    XXXXX___,
+// 1714    ________}
+// 1715 
+// 1716 #endif
+// 1717 #if (GUI_NOFCHARS>135)
+// 1718 /* feminine ordinal, ISO-Code: 170, internal code: 135  */
+// 1719  ,{
+// 1720    _XXX____,
+// 1721    ____X___,
+// 1722    _XXXX___,
+// 1723    X___X___,
+// 1724    _XXX____,
+// 1725    ________,
+// 1726    ________,
+// 1727    ________}
+// 1728 
+// 1729 #endif
+// 1730 #if (GUI_NOFCHARS>136)
+// 1731 /* left angle quote, ISO-Code: 171, internal code: 136  */
+// 1732  ,{
+// 1733    ________,
+// 1734    __X_X___,
+// 1735    _X_X____,
+// 1736    X_X_____,
+// 1737    _X_X____,
+// 1738    __X_X___,
+// 1739    ________,
+// 1740    ________}
+// 1741 
+// 1742 #endif
+// 1743 #if (GUI_NOFCHARS>137)
+// 1744 /* not sign, ISO-Code: 172, internal code: 137  */
+// 1745  ,{
+// 1746    ________,
+// 1747    ________,
+// 1748    ________,
+// 1749    XXXXX___,
+// 1750    ____X___,
+// 1751    ____X___,
+// 1752    ________,
+// 1753    ________}
+// 1754 
+// 1755 #endif
+// 1756 #if (GUI_NOFCHARS>138)
+// 1757 /* soft hyphen, ISO-Code: 173, internal code: 138  */
+// 1758  ,{
+// 1759    ________,
+// 1760    ________,
+// 1761    ________,
+// 1762    _XXX____,
+// 1763    ________,
+// 1764    ________,
+// 1765    ________,
+// 1766    ________}
+// 1767 
+// 1768 #endif
+// 1769 #if (GUI_NOFCHARS>139)
+// 1770 /* rgistered trademark, ISO-Code: 174, internal code: 139  */
+// 1771  ,{
+// 1772    XXXXX___,
+// 1773    X___X___,
+// 1774    X_X_X___,
+// 1775    X___X___,
+// 1776    X__XX___,
+// 1777    X_X_X___,
+// 1778    XXXXX___,
+// 1779    ________}
+// 1780 
+// 1781 #endif
+// 1782 #if (GUI_NOFCHARS>140)
+// 1783 /* macron accent, ISO-Code: 175, internal code: 140  */
+// 1784  ,{
+// 1785    XXXXX___,
+// 1786    ________,
+// 1787    ________,
+// 1788    ________,
+// 1789    ________,
+// 1790    ________,
+// 1791    ________,
+// 1792    ________}
+// 1793 
+// 1794 #endif
+// 1795 #if (GUI_NOFCHARS>141)
+// 1796 /* degree sign, ISO-Code: 176, internal code: 141  */
+// 1797  ,{
+// 1798    __X_____,
+// 1799    _X_X____,
+// 1800    __X_____,
+// 1801    ________,
+// 1802    ________,
+// 1803    ________,
+// 1804    ________,
+// 1805    ________}
+// 1806 
+// 1807 #endif
+// 1808 #if (GUI_NOFCHARS>142)
+// 1809 /* plus or minus, ISO-Code: 177, internal code: 142  */
+// 1810  ,{
+// 1811    ________,
+// 1812    __X_____,
+// 1813    _XXX____,
+// 1814    __X_____,
+// 1815    ________,
+// 1816    _XXX____,
+// 1817    ________,
+// 1818    ________}
+// 1819 
+// 1820 #endif
+// 1821 #if (GUI_NOFCHARS>143)
+// 1822 /* superscript two, ISO-Code: 178, internal code: 143  */
+// 1823  ,{
+// 1824    _XX_____,
+// 1825    X__X____,
+// 1826    __X_____,
+// 1827    _X______,
+// 1828    XXXX____,
+// 1829    ________,
+// 1830    ________,
+// 1831    ________}
+// 1832 
+// 1833 #endif
+// 1834 #if (GUI_NOFCHARS>144)
+// 1835 /* superscript three, ISO-Code: 179, internal code: 144  */
+// 1836  ,{
+// 1837    XXX_____,
+// 1838    ___X____,
+// 1839    _XX_____,
+// 1840    ___X____,
+// 1841    XXX_____,
+// 1842    ________,
+// 1843    ________,
+// 1844    ________}
+// 1845 
+// 1846 #endif
+// 1847 #if (GUI_NOFCHARS>145)
+// 1848 /* acute accent, ISO-Code: 180, internal code: 145  */
+// 1849  ,{
+// 1850    ___XX___,
+// 1851    __X_____,
+// 1852    ________,
+// 1853    ________,
+// 1854    ________,
+// 1855    ________,
+// 1856    ________,
+// 1857    ________}
+// 1858 
+// 1859 
+// 1860 #endif
+// 1861 #if (GUI_NOFCHARS>146)
+// 1862 /* micro sign, ISO-Code: 181, internal code: 146  */
+// 1863  ,{
+// 1864    ________,
+// 1865    ________,
+// 1866    X___X___,
+// 1867    X___X___,
+// 1868    X___X___,
+// 1869    XX__X___,
+// 1870    X_XX____,
+// 1871    X_______}
+// 1872 
+// 1873 #endif
+// 1874 #if (GUI_NOFCHARS>147)
+// 1875 /* paragraph sign, ISO-Code: 182, internal code: 147  */
+// 1876  ,{
+// 1877    _XXXX___,
+// 1878    X__XX___,
+// 1879    X__XX___,
+// 1880    _XXXX___,
+// 1881    ___XX___,
+// 1882    ___XX___,
+// 1883    ___XX___,
+// 1884    ________}
+// 1885 
+// 1886 #endif
+// 1887 #if (GUI_NOFCHARS>148)
+// 1888 /* middle dot, ISO-Code: 183, internal code: 148  */
+// 1889  ,{
+// 1890    ________,
+// 1891    ________,
+// 1892    ________,
+// 1893    __XX____,
+// 1894    __XX____,
+// 1895    ________,
+// 1896    ________,
+// 1897    ________}
+// 1898 
+// 1899 #endif
+// 1900 #if (GUI_NOFCHARS>149)
+// 1901 /* superscript one, ISO-Code: 185, internal code: 149  */
+// 1902  ,{
+// 1903    _X______,
+// 1904    XX______,
+// 1905    _X______,
+// 1906    _X______,
+// 1907    XXX_____,
+// 1908    ________,
+// 1909    ________,
+// 1910    ________}
+// 1911 
+// 1912 #endif
+// 1913 #if (GUI_NOFCHARS>150)
+// 1914 /* masculine ordinal, ISO-Code: 186, internal code: 150  */
+// 1915  ,{
+// 1916    _XXX____,
+// 1917    X___X___,
+// 1918    X___X___,
+// 1919    X___X___,
+// 1920    _XXX____,
+// 1921    ________,
+// 1922    ________,
+// 1923    ________}
+// 1924 
+// 1925 #endif
+// 1926 #if (GUI_NOFCHARS>151)
+// 1927 /* right angle quote, ISO-Code: 187, internal code: 151  */
+// 1928  ,{
+// 1929    ________,
+// 1930    X_X_____,
+// 1931    _X_X____,
+// 1932    __X_X___,
+// 1933    _X_X____,
+// 1934    X_X_____,
+// 1935    ________,
+// 1936    ________}
+// 1937 
+// 1938 #endif
+// 1939 #if (GUI_NOFCHARS>152)
+// 1940 /* fraction one-fourth, ISO-Code: 188, internal code: 152  */
+// 1941  ,{
+// 1942    X___X___,
+// 1943    X__X____,
+// 1944    X_X_____,
+// 1945    _X_X____,
+// 1946    X_XX____,
+// 1947    _X_X____,
+// 1948    _XXXX___,
+// 1949    ___X____}
+// 1950 
+// 1951 #endif
+// 1952 #if (GUI_NOFCHARS>153)
+// 1953 /* fraction one-half, ISO-Code: 189, internal code: 153  */
+// 1954  ,{
+// 1955    X___X___,
+// 1956    X__X____,
+// 1957    X_X_____,
+// 1958    _X______,
+// 1959    X_XXX___,
+// 1960    ____X___,
+// 1961    ___X____,
+// 1962    __XXX___}
+// 1963 
+// 1964 #endif
+// 1965 #if (GUI_NOFCHARS>154)
+// 1966 /* fraction three-fourth, ISO-Code: 190, internal code: 154  */
+// 1967  ,{
+// 1968    XX______,
+// 1969    _X______,
+// 1970    XX______,
+// 1971    _X__X___,
+// 1972    XX_XX___,
+// 1973    __X_X___,
+// 1974    __XXX___,
+// 1975    ____X___}
+// 1976 
+// 1977 #endif
+// 1978 #if (GUI_NOFCHARS>155)
+// 1979 /* multiply sign, ISO-Code: 215, internal code: 155  */
+// 1980  ,{
+// 1981    ________,
+// 1982    X___X___,
+// 1983    _X_X____,
+// 1984    __X_____,
+// 1985    _X_X____,
+// 1986    X___X___,
+// 1987    ________,
+// 1988    ________}
+// 1989 
+// 1990 #endif
+// 1991 #if (GUI_NOFCHARS>156)
+// 1992 /* division sign, ISO-Code: 247, internal code: 156  */
+// 1993  ,{
+// 1994    ________,
+// 1995    __X_____,
+// 1996    ________,
+// 1997    XXXXX___,
+// 1998    ________,
+// 1999    __X_____,
+// 2000    ________,
+// 2001    ________}
+// 2002 
+// 2003 #endif
+// 2004 
+// 2005 #if (GUI_NOFCHARS>157)
+// 2006 /* left arrow, ISO-Code: ---, internal code: 157  */
+// 2007  ,{
+// 2008    ___X____,
+// 2009    __XX____,
+// 2010    _XXX____,
+// 2011    XXXXXX__,
+// 2012    _XXX____,
+// 2013    __XX____,
+// 2014    ___X____,
+// 2015    ________}
+// 2016 #endif
+// 2017 
+// 2018 #if (GUI_NOFCHARS>158)
+// 2019 /* right arrow, ISO-Code: ---, internal code: 158  */
+// 2020  ,{
+// 2021    __X_____,
+// 2022    __XX____,
+// 2023    __XXX___,
+// 2024    XXXXXX__,
+// 2025    __XXX___,
+// 2026    __XX____,
+// 2027    __X_____,
+// 2028    ________}
+// 2029 #endif
+// 2030 
+// 2031 #if (GUI_NOFCHARS>159)
+// 2032 /* up arrow, ISO-Code: ---, internal code: 159 */
+// 2033  ,{
+// 2034    ________,
+// 2035    __X_____,
+// 2036    _XXX____,
+// 2037    XXXXX___,
+// 2038    __X_____,
+// 2039    __X_____,
+// 2040    ________,
+// 2041    ________}
+// 2042 #endif
+// 2043 
+// 2044 #if (GUI_NOFCHARS>160)
+// 2045 /* down arrow, ISO-Code: ---, internal code: 160  */
+// 2046  ,{
+// 2047    ________,
+// 2048    __X_____,
+// 2049    __X_____,
+// 2050    XXXXX___,
+// 2051    _XXX____,
+// 2052    __X_____,
+// 2053    ________,
+// 2054    ________}
+// 2055 #endif
+// 2056 
+// 2057 #if (GUI_NOFCHARS>161)
+// 2058 /* ENTER character, ISO-Code: ---, internal code: 161  */
+// 2059  ,{
+// 2060    ________,
+// 2061    ____X___,
+// 2062    __X_X___,
+// 2063    _XX_X___,
+// 2064    XXXXX___,
+// 2065    _XX_____,
+// 2066    __X_____,
+// 2067    ________}
+// 2068 #endif
+// 2069 
+// 2070 #if (GUI_NOFCHARS>162)
+// 2071 /* ENTER character, ISO-Code: ---, internal code: 162  */
+// 2072  ,{
+// 2073    ________,
+// 2074    _____X__,
+// 2075    _____X__,
+// 2076    ____X___,
+// 2077    ____X___,
+// 2078    X__X____,
+// 2079    _X_X____,
+// 2080    __X_____}
+// 2081 #endif
+// 2082 
+// 2083 
+// 2084 };
+// 2085 
+// 2086 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+// 2087 GUI_CONST_STORAGE GUI_FONT_TRANSLIST GUI_F6x8_TL8859_1[112] = {
+GUI_F6x8_TL8859_1:
+        DATA16
+        DW 157
+        DW -1
+        DW 158
+        DW -1
+        DW 159
+        DW -1
+        DW 160
+        DW -1
+        DW 161
+        DW -1
+        DW 162
+        DW -1
+        DW -1
+        DW -1
+        DW -1
+        DW -1
+        DW -1
+        DW -1
+        DW -1
+        DW -1
+        DW -1
+        DW -1
+        DW -1
+        DW -1
+        DW -1
+        DW -1
+        DW -1
+        DW -1
+        DW -1
+        DW -1
+        DW -1
+        DW -1
+        DW 126
+        DW -1
+        DW 118
+        DW -1
+        DW 127
+        DW -1
+        DW 128
+        DW -1
+        DW 129
+        DW -1
+        DW 130
+        DW -1
+        DW 131
+        DW -1
+        DW 132
+        DW -1
+        DW 133
+        DW -1
+        DW 134
+        DW -1
+        DW 135
+        DW -1
+        DW 136
+        DW -1
+        DW 137
+        DW -1
+        DW 138
+        DW -1
+        DW 139
+        DW -1
+        DW 140
+        DW -1
+        DW 141
+        DW -1
+        DW 142
+        DW -1
+        DW 143
+        DW -1
+        DW 144
+        DW -1
+        DW 145
+        DW -1
+        DW 146
+        DW -1
+        DW 147
+        DW -1
+        DW 148
+        DW -1
+        DW 125
+        DW -1
+        DW 149
+        DW -1
+        DW 150
+        DW -1
+        DW 151
+        DW -1
+        DW 152
+        DW -1
+        DW 153
+        DW -1
+        DW 154
+        DW -1
+        DW 119
+        DW -1
+        DW 112
+        DW 121
+        DW 112
+        DW 120
+        DW 112
+        DW 122
+        DW 112
+        DW 124
+        DW 112
+        DW 123
+        DW 102
+        DW -1
+        DW 104
+        DW -1
+        DW 35
+        DW 125
+        DW 113
+        DW 121
+        DW 113
+        DW 120
+        DW 113
+        DW 122
+        DW 113
+        DW 123
+        DW 114
+        DW 121
+        DW 114
+        DW 120
+        DW 114
+        DW 122
+        DW 114
+        DW 123
+        DW 105
+        DW -1
+        DW 117
+        DW 124
+        DW 115
+        DW 121
+        DW 115
+        DW 120
+        DW 115
+        DW 122
+        DW 115
+        DW 124
+        DW 115
+        DW 123
+        DW 155
+        DW -1
+        DW 110
+        DW -1
+        DW 116
+        DW 121
+        DW 116
+        DW 120
+        DW 116
+        DW 122
+        DW 116
+        DW 123
+        DW 57
+        DW 120
+        DW 106
+        DW -1
+        DW 101
+        DW -1
+        DW 65
+        DW 96
+        DW 65
+        DW 95
+        DW 65
+        DW 97
+        DW 65
+        DW 99
+        DW 65
+        DW 98
+        DW 103
+        DW -1
+        DW 107
+        DW -1
+        DW 67
+        DW 125
+        DW 69
+        DW 96
+        DW 69
+        DW 95
+        DW 69
+        DW 97
+        DW 69
+        DW 98
+        DW 100
+        DW 96
+        DW 100
+        DW 95
+        DW 100
+        DW 97
+        DW 100
+        DW 98
+        DW 108
+        DW -1
+        DW 78
+        DW 99
+        DW 79
+        DW 96
+        DW 79
+        DW 95
+        DW 79
+        DW 97
+        DW 79
+        DW 99
+        DW 79
+        DW 98
+        DW 156
+        DW -1
+        DW 111
+        DW -1
+        DW 85
+        DW 95
+        DW 85
+        DW 96
+        DW 85
+        DW 97
+        DW 85
+        DW 98
+        DW 89
+        DW 95
+        DW 109
+        DW -1
+        DW 89
+        DW 98
+// 2088 /*
+// 2089    The folowing are extensions to ISO 8859-1.
+// 2090    Since ISO 8859-1 does not define any characters for the codes
+// 2091    128 - 159, this area can be used by an application.
+// 2092    The most commonly used symbols in embedded applications are
+// 2093    therefor inserted here.
+// 2094 */
+// 2095   {CODE_ARROW_LEFT,-1},			/* 144, arrow left */
+// 2096   {CODE_ARROW_RIGHT,-1},		/* 145, arrow right */
+// 2097   {CODE_ARROW_UP,-1},			/* 146, arrow up */
+// 2098   {CODE_ARROW_DOWN,-1},			/* 147, arrow down */
+// 2099   {CODE_ENTER,-1},                      /* 148, enter symbol */
+// 2100   {CODE_CHECKMARK,-1},			/* 149, checkmark symbol */
+// 2101   {-1,-1},				/* 150, unused symbol */
+// 2102   {-1,-1},				/* 151, unused symbol */
+// 2103   {-1,-1},				/* 152, unused symbol */
+// 2104   {-1,-1},				/* 153, unused symbol */
+// 2105   {-1,-1},				/* 154, unused symbol */
+// 2106   {-1,-1},				/* 155, unused symbol */
+// 2107   {-1,-1},				/* 156, unused symbol */
+// 2108   {-1,-1},				/* 157, unused symbol */
+// 2109   {-1,-1},				/* 158, unused symbol */
+// 2110   {-1,-1},				/* 159, unused symbol */
+// 2111 /* starting at character code 160 are the characters defined
+// 2112    by ISO 8859-1
+// 2113 */
+// 2114   {CODE_NB_SPACE,-1},                   /* 160, non-breaking space */
+// 2115   {CODE_INVEXCLAM,-1},                  /* 161, inverted exclamation sign */
+// 2116   {CODE_CENT,-1},                       /* 162, cent sign */
+// 2117   {CODE_POUND,-1},                      /* 163, pound sterling */
+// 2118   {CODE_CURRENCY,-1},                   /* 164, general currency sign */
+// 2119   {CODE_YEN,-1},                        /* 165, yen sign */
+// 2120   {CODE_BROKEN_BAR,-1},                 /* 166, broken vertical bar */
+// 2121   {CODE_SECTION,-1},                    /* 167, section sign */
+// 2122   {CODE_DIERESIS,-1},                   /* 168, umlaut */
+// 2123   {CODE_COPYRIGHT,-1},                  /* 169, copyright */
+// 2124   {CODE_FEMININE,-1},                   /* 170,  */
+// 2125   {CODE_LEFT_QUOTE,-1},                 /* 171,  */
+// 2126   {CODE_NOT,-1},                        /* 172,  */
+// 2127   {CODE_HYPHEN,-1},                     /* 173,  */
+// 2128   {CODE_TRADEMARK,-1},                  /* 174,  */
+// 2129   {CODE_MACRON,-1},                     /* 175,  */
+// 2130   {CODE_DEGREE,-1},                     /* 176,  */
+// 2131   {CODE_PLUS_MINUS,-1},                 /* 177,  */
+// 2132   {CODE_SUPER_TWO,-1},                  /* 178,  */
+// 2133   {CODE_SUPER_THREE,-1},                /* 179,  */
+// 2134   {CODE_ACUTE,-1},                      /* 180,  */
+// 2135   {CODE_MICRO,-1},                      /* 181,  */
+// 2136   {CODE_PARAGRAPH,-1},                  /* 182,  */
+// 2137   {CODE_MIDDLE_DOT,-1},                 /* 183,  */
+// 2138   {CODE_CEDILLA,-1},                    /* 184,  */
+// 2139   {CODE_SUPER_ONE,-1},                  /* 185,  */
+// 2140   {CODE_MASCULINE,-1},                  /* 186,  */
+// 2141   {CODE_RIGHT_QUOTE,-1},                /* 187,  */
+// 2142   {CODE_ONE_FOURTH,-1},                 /* 188,  */
+// 2143   {CODE_ONE_HALF,-1},                   /* 189,  */
+// 2144   {CODE_THREE_FOURTH,-1},               /* 190,  */
+// 2145   {CODE_INVQUEST,-1},                   /* 191,  */
+// 2146   {CODE_LITTLE_A,CODE_CACCGRAV},        /* 192,  */
+// 2147   {CODE_LITTLE_A,CODE_CACCAGUE},        /* 193,  */
+// 2148   {CODE_LITTLE_A,CODE_CACCCIRC},        /* 194,  */
+// 2149   {CODE_LITTLE_A,CODE_CTILDE},          /* 195,  */
+// 2150   {CODE_LITTLE_A,CODE_CUMLAUT},         /* 196,  */
+// 2151   {CODE_A_RING,-1},                     /* 197,  */
+// 2152   {CODE_AE,-1},                         /* 198,  */
+// 2153   {'C'-32,CODE_CEDILLA},                /* 199,  */
+// 2154   {CODE_LITTLE_E,CODE_CACCGRAV},        /* 200,  */
+// 2155   {CODE_LITTLE_E,CODE_CACCAGUE},        /* 201,  */
+// 2156   {CODE_LITTLE_E,CODE_CACCCIRC},        /* 202,  */
+// 2157   {CODE_LITTLE_E,CODE_CUMLAUT},         /* 203,  */
+// 2158   {CODE_LITTLE_I,CODE_CACCGRAV},        /* 204,  */
+// 2159   {CODE_LITTLE_I,CODE_CACCAGUE},        /* 205,  */
+// 2160   {CODE_LITTLE_I,CODE_CACCCIRC},        /* 206,  */
+// 2161   {CODE_LITTLE_I,CODE_CUMLAUT},         /* 207,  */
+// 2162   {CODE_ETH,-1},                        /* 208,  */
+// 2163   {CODE_LITTLE_N,CODE_CTILDE},          /* 209,  */
+// 2164   {CODE_LITTLE_O,CODE_CACCGRAV},        /* 210,  */
+// 2165   {CODE_LITTLE_O,CODE_CACCAGUE},        /* 211,  */
+// 2166   {CODE_LITTLE_O,CODE_CACCCIRC},        /* 212,  */
+// 2167   {CODE_LITTLE_O,CODE_CTILDE},          /* 213,  */
+// 2168   {CODE_LITTLE_O,CODE_CUMLAUT},         /* 214,  */
+// 2169   {CODE_MULTIPLY,-1},                   /* 215,  */
+// 2170   {CODE_OSLASH,-1},                     /* 216,  */
+// 2171   {CODE_LITTLE_U,CODE_CACCGRAV},        /* 217,  */
+// 2172   {CODE_LITTLE_U,CODE_CACCAGUE},        /* 218,  */
+// 2173   {CODE_LITTLE_U,CODE_CACCCIRC},        /* 219,  */
+// 2174   {CODE_LITTLE_U,CODE_CUMLAUT},         /* 220,  */
+// 2175   {'Y'-32,CODE_CACCAGUE},               /* 221,  */
+// 2176   {CODE_THORN,-1},                      /* 222,  */
+// 2177   {CODE_SHARPS,-1},                     /* 223,  */
+// 2178   {'a'-32,CODE_SACCGRAV},               /* 224,  */
+// 2179   {'a'-32,CODE_SACCAGUE},               /* 225,  */
+// 2180   {'a'-32,CODE_SACCCIRC},               /* 226,  */
+// 2181   {'a'-32,CODE_STILDE},                 /* 227,  */
+// 2182   {'a'-32,CODE_SUMLAUT},                /* 228,  */
+// 2183   {CODE_SA_RING,-1},                    /* 229,  */
+// 2184   {CODE_SMALLAE,-1},                    /* 230,  */
+// 2185   {'c'-32,CODE_CEDILLA},                /* 231,  */
+// 2186   {'e'-32,CODE_SACCGRAV},               /* 232,  */
+// 2187   {'e'-32,CODE_SACCAGUE},               /* 233,  */
+// 2188   {'e'-32,CODE_SACCCIRC},               /* 234,  */
+// 2189   {'e'-32,CODE_SUMLAUT},                /* 235,  */
+// 2190   {CODE_I_NOPOINT,CODE_SACCGRAV},       /* 236,  */
+// 2191   {CODE_I_NOPOINT,CODE_SACCAGUE},       /* 237,  */
+// 2192   {CODE_I_NOPOINT,CODE_SACCCIRC},       /* 238,  */
+// 2193   {CODE_I_NOPOINT,CODE_SUMLAUT},        /* 239,  */
+// 2194   {CODE_SMALLETH,-1},                   /* 240, small eth, Icelandic */
+// 2195   {'n'-32,CODE_STILDE},                 /* 241, small n, tilde */
+// 2196   {'o'-32,CODE_SACCGRAV},               /* 242, small o, grave accent */
+// 2197   {'o'-32,CODE_SACCAGUE},               /* 243, small o, acute accent */
+// 2198   {'o'-32,CODE_SACCCIRC},               /* 244, small o, circumflex  */
+// 2199   {'o'-32,CODE_STILDE},                 /* 245, small o, tilde  */
+// 2200   {'o'-32,CODE_SUMLAUT},                /* 246, small o, umlaut  */
+// 2201   {CODE_DIVISION,-1},                   /* 247, division sign */
+// 2202   {CODE_SOSLASH,-1},                    /* 248, small o slash */
+// 2203   {'u'-32,CODE_SACCAGUE},               /* 249,  */
+// 2204   {'u'-32,CODE_SACCGRAV},               /* 250,  */
+// 2205   {'u'-32,CODE_SACCCIRC},               /* 251,  */
+// 2206   {'u'-32,CODE_SUMLAUT},                /* 252, small u, umlaut  */
+// 2207   {'y'-32,CODE_SACCAGUE},               /* 253, small y, acute accent */
+// 2208   {CODE_SMALLTHORN,-1},                 /* 254, small thorn, Icelandic  */
+// 2209   {'y'-32,CODE_SUMLAUT},                /* 255, */
+// 2210 };
+// 2211 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+// 2212 GUI_CONST_STORAGE GUI_FONT_TRANSINFO GUI_F6x8_TI8859_1 = {
+GUI_F6x8_TI8859_1:
+        DATA16
+        DW 144
+        DW 255
+        DW GUI_F6x8_TL8859_1
+// 2213   144,  /* First character for translation */
+// 2214   255,  /* Last character for translation */
+// 2215   &GUI_F6x8_TL8859_1[0]
+// 2216 };
+// 2217 
+// 2218 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+// 2219 GUI_CONST_STORAGE GUI_FONT_MONO GUI_F6x8_Mono = {
+GUI_F6x8_Mono:
+        DATA16
+        DW GUI_acFont6x8
+        DW GUI_acFont6x8
+        DW GUI_F6x8_TI8859_1
+        DW 32
+        DW 126
+        DATA8
+        DB 6
+        DB 6
+        DB 1
+// 2220  GUI_acFont6x8[0],
+// 2221  GUI_acFont6x8[0],
+// 2222  &GUI_F6x8_TI8859_1,
+// 2223  32, 126, 6, 6, 1
+// 2224 };
+// 2225 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+// 2226 GUI_CONST_STORAGE GUI_FONT GUI_Font6x8 = { GUI_FONTTYPE_MONO, 8,8,1,1, {&GUI_F6x8_Mono}, 7, 5, 7 };
+GUI_Font6x8:
+        DATA16
+        DW ??GUIMONO_DispChar?relay
+        DW ??GUIMONO_GetCharDistX?relay
+        DW ??GUIMONO_GetFontInfo?relay
+        DW ??GUIMONO_IsInFont?relay
+        DW 0H
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DB 1
+        DATA16
+        DW GUI_F6x8_Mono
+        DATA8
+        DB 7
+        DB 5
+        DB 7
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+// 2227 GUI_CONST_STORAGE GUI_FONT GUI_Font6x9 = { GUI_FONTTYPE_MONO, 8,9,1,1, {&GUI_F6x8_Mono}, 7, 5, 7 };
+GUI_Font6x9:
+        DATA16
+        DW ??GUIMONO_DispChar?relay
+        DW ??GUIMONO_GetCharDistX?relay
+        DW ??GUIMONO_GetFontInfo?relay
+        DW ??GUIMONO_IsInFont?relay
+        DW 0H
+        DATA8
+        DB 8
+        DB 9
+        DB 1
+        DB 1
+        DATA16
+        DW GUI_F6x8_Mono
+        DATA8
+        DB 7
+        DB 5
+        DB 7
+
+        END
+// 
+// 1 809 bytes in segment XDATA_ROM_C
+// 
+// 1 809 bytes of CONST memory
+//
+//Errors: none
+//Warnings: none

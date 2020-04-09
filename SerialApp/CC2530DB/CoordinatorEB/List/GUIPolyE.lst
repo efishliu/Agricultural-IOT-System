@@ -1,0 +1,986 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.1.10194/W32 for 8051         14/Jun/2016  16:18:48 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ210\ZigBeeอ๘ย็\WS #
+#                          N-CSิดย๋\ZStack-CC2530-2.5.1a\Components\uCGUI\Cor #
+#                          e\GUIPolyE.c                                       #
+#    Command line       =  -f F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ210\ZigBeeอ๘ย็ #
+#                          \WSN-CSิดย๋\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\..\..\..\Tools\CC2530D #
+#                          B\f8wCoord.cfg (-DCPU32MHZ -DROOT=__near_func      #
+#                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                   #
+#                          -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8         #
+#                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)    #
+#                          -f F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ210\ZigBeeอ๘ย็ #
+#                          \WSN-CSิดย๋\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\..\..\..\Tools\CC2530D #
+#                          B\f8wConfig.cfg (-DZIGBEEPRO -DSECURE=0            #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0x1001                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโ #
+#                          ลฬืสมฯ210\ZigBeeอ๘ย็\WSN-CSิดย๋\ZStack-CC2530-2.5. #
+#                          1a\Components\uCGUI\Core\GUIPolyE.c -D             #
+#                          HAL_UART=TRUE -D SERIAL_APP_PORT=0 -D COOR -D      #
+#                          LCD_SUPPORTED -D NV_INIT -lC                       #
+#                          F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ210\ZigBeeอ๘ย็\WS #
+#                          N-CSิดย๋\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\List\ -lA   #
+#                          F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ210\ZigBeeอ๘ย็\WS #
+#                          N-CSิดย๋\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\List\       #
+#                          --diag_suppress Pe001,Pa010 -o                     #
+#                          F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ210\ZigBeeอ๘ย็\WS #
+#                          N-CSิดย๋\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\Obj\ -e     #
+#                          --no_code_motion --debug --core=plain --dptr=16,1  #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ210\ZigBeeอ๘ย็ #
+#                          \WSN-CSิดย๋\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\ -I                    #
+#                          F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ210\ZigBeeอ๘ย็\WS #
+#                          N-CSิดย๋\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\Public\ -I             #
+#                          F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ210\ZigBeeอ๘ย็\WS #
+#                          N-CSิดย๋\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \uCGUI\Core\ -I F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ2 #
+#                          10\ZigBeeอ๘ย็\WSN-CSิดย๋\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ #
+#                          ..\..\Components\uCGUI\MultiLayer\ -I              #
+#                          F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ210\ZigBeeอ๘ย็\WS #
+#                          N-CSิดย๋\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \uCGUI\Config\ -I F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสม #
+#                          ฯ210\ZigBeeอ๘ย็\WSN-CSิดย๋\ZStack-CC2530-2.5.1a\Pr #
+#                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\Coor #
+#                          dinator\ -I F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ210\Z #
+#                          igBeeอ๘ย็\WSN-CSิดย๋\ZStack-CC2530-2.5.1a\Projects #
+#                          \zstack\Utilities\SerialApp\CC2530DB\..\..\..\ZMai #
+#                          n\TI2530DB\ -I F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ21 #
+#                          0\ZigBeeอ๘ย็\WSN-CSิดย๋\ZStack-CC2530-2.5.1a\Proje #
+#                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\. #
+#                          .\..\Components\hal\include\ -I                    #
+#                          F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ210\ZigBeeอ๘ย็\WS #
+#                          N-CSิดย๋\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \hal\target\CC2530EB\ -I                           #
+#                          F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ210\ZigBeeอ๘ย็\WS #
+#                          N-CSิดย๋\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\include\ -I F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ #
+#                          210\ZigBeeอ๘ย็\WSN-CSิดย๋\ZStack-CC2530-2.5.1a\Pro #
+#                          jects\zstack\Utilities\SerialApp\CC2530DB\..\..\.. #
+#                          \..\..\Components\mac\high_level\ -I               #
+#                          F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ210\ZigBeeอ๘ย็\WS #
+#                          N-CSิดย๋\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\low_level\srf04\ -I                           #
+#                          F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ210\ZigBeeอ๘ย็\WS #
+#                          N-CSิดย๋\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\low_level\srf04\single_chip\ -I               #
+#                          F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ210\ZigBeeอ๘ย็\WS #
+#                          N-CSิดย๋\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mt\ -I F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ210\ZigBe #
+#                          eอ๘ย็\WSN-CSิดย๋\ZStack-CC2530-2.5.1a\Projects\zst #
+#                          ack\Utilities\SerialApp\CC2530DB\..\..\..\..\..\Co #
+#                          mponents\osal\include\ -I                          #
+#                          F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ210\ZigBeeอ๘ย็\WS #
+#                          N-CSิดย๋\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \services\saddr\ -I F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬื #
+#                          สมฯ210\ZigBeeอ๘ย็\WSN-CSิดย๋\ZStack-CC2530-2.5.1a\ #
+#                          Projects\zstack\Utilities\SerialApp\CC2530DB\..\.. #
+#                          \..\..\..\Components\services\sdata\ -I            #
+#                          F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ210\ZigBeeอ๘ย็\WS #
+#                          N-CSิดย๋\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\af\ -I F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ210 #
+#                          \ZigBeeอ๘ย็\WSN-CSิดย๋\ZStack-CC2530-2.5.1a\Projec #
+#                          ts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\.. #
+#                          \..\Components\stack\nwk\ -I                       #
+#                          F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ210\ZigBeeอ๘ย็\WS #
+#                          N-CSิดย๋\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\sapi\ -I F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ2 #
+#                          10\ZigBeeอ๘ย็\WSN-CSิดย๋\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ #
+#                          ..\..\Components\stack\sec\ -I                     #
+#                          F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ210\ZigBeeอ๘ย็\WS #
+#                          N-CSิดย๋\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\sys\ -I F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ21 #
+#                          0\ZigBeeอ๘ย็\WSN-CSิดย๋\ZStack-CC2530-2.5.1a\Proje #
+#                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\. #
+#                          .\..\Components\stack\zdo\ -I                      #
+#                          F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ210\ZigBeeอ๘ย็\WS #
+#                          N-CSิดย๋\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \zmac\ -I F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ210\Zig #
+#                          Beeอ๘ย็\WSN-CSิดย๋\ZStack-CC2530-2.5.1a\Projects\z #
+#                          stack\Utilities\SerialApp\CC2530DB\..\..\..\..\..\ #
+#                          Components\zmac\f8w\ -Ohz --require_prototypes     #
+#    List file          =  F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ210\ZigBeeอ๘ย็\WS #
+#                          N-CSิดย๋\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\List\GUIPol #
+#                          yE.lst                                             #
+#    Object file        =  F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ210\ZigBeeอ๘ย็\WS #
+#                          N-CSิดย๋\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\Obj\GUIPoly #
+#                          E.r51                                              #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+F:\นโลฬืสมฯ\ETC-WSNฮ๏มชอ๘นโลฬืสมฯ210\ZigBeeอ๘ย็\WSN-CSิดย๋\ZStack-CC2530-2.5.1a\Components\uCGUI\Core\GUIPolyE.c
+      1          /*
+      2          *********************************************************************************************************
+      3          *                                                uC/GUI
+      4          *                        Universal graphic software for embedded applications
+      5          *
+      6          *                       (c) Copyright 2002, Micrium Inc., Weston, FL
+      7          *                       (c) Copyright 2002, SEGGER Microcontroller Systeme GmbH
+      8          *
+      9          *              ตC/GUI is protected by international copyright laws. Knowledge of the
+     10          *              source code may not be used to write a similar product. This file may
+     11          *              only be used in accordance with a license and should not be redistributed
+     12          *              in any way. We appreciate your understanding and fairness.
+     13          *
+     14          ----------------------------------------------------------------------
+     15          File        : GUIPolyE.c
+     16          Purpose     : Polygon enlarge
+     17          ----------------------------------------------------------------------
+     18          */
+     19          
+     20          #include <math.h>
+     21          #include "GUI.h"
+     22          #include "GUIDebug.h"
+     23          
+     24          /*********************************************************************
+     25          *
+     26          *       Types
+     27          *
+     28          **********************************************************************
+     29          */
+     30          
+     31          typedef struct {
+     32            float x, y;
+     33          } tfPoint;
+     34          
+     35          /*********************************************************************
+     36          *
+     37          *       Static code
+     38          *
+     39          **********************************************************************
+     40          */
+     41          /*********************************************************************
+     42          *
+     43          *       _fround
+     44          */
+     45          static int _fround(float f) {
+     46            if (f>0)
+     47              return (int)(f+0.5);
+     48            return (int)(f-0.5);
+     49          }
+     50          
+     51          /*********************************************************************
+     52          *
+     53          *       _Normalize
+     54          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     55          static void _Normalize(tfPoint* pfPoint) {
+   \                     _Normalize:
+   \   000000   74E8         MOV     A,#-0x18
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 24
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+     56            float fx = pfPoint->x;
+   \   000009   8E82         MOV     DPL,R6
+   \   00000B   8F83         MOV     DPH,R7
+   \   00000D   78..         MOV     R0,#?V0 + 4
+   \   00000F   12....       LCALL   ?L_MOV_X
+     57            float fy = pfPoint->y;
+   \   000012   8E82         MOV     DPL,R6
+   \   000014   8F83         MOV     DPH,R7
+   \   000016   A3           INC     DPTR
+   \   000017   A3           INC     DPTR
+   \   000018   A3           INC     DPTR
+   \   000019   A3           INC     DPTR
+   \   00001A   78..         MOV     R0,#?V0 + 8
+   \   00001C   12....       LCALL   ?L_MOV_X
+     58            float r = sqrt(fx*fx + fy*fy);
+   \   00001F                ; Setup parameters for call to function sqrt
+   \   00001F   85....       MOV     ?V0 + 12,?V0 + 4
+   \   000022   85....       MOV     ?V0 + 13,?V0 + 5
+   \   000025   85....       MOV     ?V0 + 14,?V0 + 6
+   \   000028   85....       MOV     ?V0 + 15,?V0 + 7
+   \   00002B   78..         MOV     R0,#?V0 + 12
+   \   00002D   79..         MOV     R1,#?V0 + 4
+   \   00002F   12....       LCALL   ?FLT_MUL
+   \   000032   85....       MOV     ?V0 + 0,?V0 + 8
+   \   000035   85....       MOV     ?V0 + 1,?V0 + 9
+   \   000038   85....       MOV     ?V0 + 2,?V0 + 10
+   \   00003B   85....       MOV     ?V0 + 3,?V0 + 11
+   \   00003E   78..         MOV     R0,#?V0 + 0
+   \   000040   79..         MOV     R1,#?V0 + 8
+   \   000042   12....       LCALL   ?FLT_MUL
+   \   000045   78..         MOV     R0,#?V0 + 12
+   \   000047   79..         MOV     R1,#?V0 + 0
+   \   000049   12....       LCALL   ?FLT_ADD
+   \   00004C   AA..         MOV     R2,?V0 + 12
+   \   00004E   AB..         MOV     R3,?V0 + 13
+   \   000050   AC..         MOV     R4,?V0 + 14
+   \   000052   AD..         MOV     R5,?V0 + 15
+   \   000054   12....       LCALL   ??sqrt?relay
+   \   000057   8A..         MOV     ?V0 + 0,R2
+   \   000059   8B..         MOV     ?V0 + 1,R3
+   \   00005B   8C..         MOV     ?V0 + 2,R4
+   \   00005D   8D..         MOV     ?V0 + 3,R5
+     59            if (r > 0) {
+   \   00005F   90....       MOV     DPTR,#__Constant_1
+   \   000062   78..         MOV     R0,#?V0 + 12
+   \   000064   12....       LCALL   ?L_MOV_X
+   \   000067   78..         MOV     R0,#?V0 + 0
+   \   000069   79..         MOV     R1,#?V0 + 12
+   \   00006B   12....       LCALL   ?FLT_GE
+   \   00006E   5024         JNC     ??_Normalize_0
+     60              pfPoint->x = fx/r;
+   \   000070   78..         MOV     R0,#?V0 + 4
+   \   000072   79..         MOV     R1,#?V0 + 0
+   \   000074   12....       LCALL   ?FLT_DIV
+   \   000077   8E82         MOV     DPL,R6
+   \   000079   8F83         MOV     DPH,R7
+   \   00007B   78..         MOV     R0,#?V0 + 4
+   \   00007D   12....       LCALL   ?L_MOV_TO_X
+     61              pfPoint->y = fy/r;
+   \   000080   78..         MOV     R0,#?V0 + 8
+   \   000082   79..         MOV     R1,#?V0 + 0
+   \   000084   12....       LCALL   ?FLT_DIV
+   \   000087   8E82         MOV     DPL,R6
+   \   000089   8F83         MOV     DPH,R7
+   \   00008B   A3           INC     DPTR
+   \   00008C   A3           INC     DPTR
+   \   00008D   A3           INC     DPTR
+   \   00008E   A3           INC     DPTR
+   \   00008F   78..         MOV     R0,#?V0 + 8
+   \   000091   12....       LCALL   ?L_MOV_TO_X
+     62            }
+     63          }
+   \                     ??_Normalize_0:
+   \   000094                REQUIRE ?Subroutine0
+   \   000094                ; // Fall through to label ?Subroutine0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   7F10         MOV     R7,#0x10
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+     64          
+     65          /*********************************************************************
+     66          *
+     67          *       _ReverseLen
+     68          */
+     69          static void _ReverseLen(tfPoint* pfPoint) {
+     70            float fx = pfPoint->x;
+     71            float fy = pfPoint->y;
+     72            float r = sqrt(fx*fx/2 + fy*fy/2);
+     73            if (r > 0) {
+     74              pfPoint->x = fx/r/r;
+     75              pfPoint->y = fy/r/r;
+     76            }
+     77          }
+     78          
+     79          /*********************************************************************
+     80          *
+     81          *       _GetVect
+     82          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     83          static void _GetVect(tfPoint* pfPoint, const GUI_POINT* pSrc, int NumPoints, int Index) {
+   \                     _GetVect:
+   \   000000   74F0         MOV     A,#-0x10
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 0
+   \   000005   8A..         MOV     ?V0 + 2,R2
+   \   000007   8B..         MOV     ?V0 + 3,R3
+   \   000009   EC           MOV     A,R4
+   \   00000A   FE           MOV     R6,A
+   \   00000B   ED           MOV     A,R5
+   \   00000C   FF           MOV     R7,A
+   \   00000D   7410         MOV     A,#0x10
+   \   00000F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000012   E0           MOVX    A,@DPTR
+   \   000013   FC           MOV     R4,A
+   \   000014   A3           INC     DPTR
+   \   000015   E0           MOVX    A,@DPTR
+   \   000016   FD           MOV     R5,A
+   \   000017   7412         MOV     A,#0x12
+   \   000019   12....       LCALL   ?XSTACK_DISP0_8
+   \   00001C   E0           MOVX    A,@DPTR
+   \   00001D   F5..         MOV     ?V0 + 0,A
+   \   00001F   A3           INC     DPTR
+   \   000020   E0           MOVX    A,@DPTR
+   \   000021   F5..         MOV     ?V0 + 1,A
+     84            int Off0 = (Index + NumPoints-1) % NumPoints;
+   \   000023   E5..         MOV     A,?V0 + 0
+   \   000025   2C           ADD     A,R4
+   \   000026   F8           MOV     R0,A
+   \   000027   E5..         MOV     A,?V0 + 1
+   \   000029   3D           ADDC    A,R5
+   \   00002A   F9           MOV     R1,A
+   \   00002B   E8           MOV     A,R0
+   \   00002C   24FF         ADD     A,#-0x1
+   \   00002E   18           DEC     R0
+   \   00002F   E9           MOV     A,R1
+   \   000030   34FF         ADDC    A,#-0x1
+   \   000032   F9           MOV     R1,A
+   \   000033   EC           MOV     A,R4
+   \   000034   FA           MOV     R2,A
+   \   000035   ED           MOV     A,R5
+   \   000036   FB           MOV     R3,A
+   \   000037   12....       LCALL   ?S_DIV_MOD
+   \   00003A   8A..         MOV     ?V0 + 4,R2
+   \   00003C   8B..         MOV     ?V0 + 5,R3
+     85            int Off1 = Index % NumPoints;
+   \   00003E   A8..         MOV     R0,?V0 + 0
+   \   000040   A9..         MOV     R1,?V0 + 1
+   \   000042   EC           MOV     A,R4
+   \   000043   FA           MOV     R2,A
+   \   000044   ED           MOV     A,R5
+   \   000045   FB           MOV     R3,A
+   \   000046   12....       LCALL   ?S_DIV_MOD
+   \   000049   8A..         MOV     ?V0 + 0,R2
+   \   00004B   8B..         MOV     ?V0 + 1,R3
+     86            pfPoint->x = pSrc[Off1].x - pSrc[Off0].x; 
+   \   00004D   7402         MOV     A,#0x2
+   \   00004F   78..         MOV     R0,#?V0 + 4
+   \   000051   12....       LCALL   ?S_SHL
+   \   000054   EE           MOV     A,R6
+   \   000055   25..         ADD     A,?V0 + 4
+   \   000057   F8           MOV     R0,A
+   \   000058   EF           MOV     A,R7
+   \   000059   35..         ADDC    A,?V0 + 5
+   \   00005B   F9           MOV     R1,A
+   \   00005C   E8           MOV     A,R0
+   \   00005D   FA           MOV     R2,A
+   \   00005E   E9           MOV     A,R1
+   \   00005F   FB           MOV     R3,A
+   \   000060   7402         MOV     A,#0x2
+   \   000062   78..         MOV     R0,#?V0 + 0
+   \   000064   12....       LCALL   ?S_SHL
+   \   000067   EE           MOV     A,R6
+   \   000068   25..         ADD     A,?V0 + 0
+   \   00006A   F8           MOV     R0,A
+   \   00006B   EF           MOV     A,R7
+   \   00006C   35..         ADDC    A,?V0 + 1
+   \   00006E   F9           MOV     R1,A
+   \   00006F   E8           MOV     A,R0
+   \   000070   FC           MOV     R4,A
+   \   000071   E9           MOV     A,R1
+   \   000072   FD           MOV     R5,A
+   \   000073   8A82         MOV     DPL,R2
+   \   000075   8B83         MOV     DPH,R3
+   \   000077   E0           MOVX    A,@DPTR
+   \   000078   F8           MOV     R0,A
+   \   000079   A3           INC     DPTR
+   \   00007A   E0           MOVX    A,@DPTR
+   \   00007B   F9           MOV     R1,A
+   \   00007C   8D83         MOV     DPH,R5
+   \   00007E   8C82         MOV     DPL,R4
+   \   000080   12....       LCALL   ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_0:
+   \   000083   12....       LCALL   ?L_TO_FLT
+   \   000086   85..82       MOV     DPL,?V0 + 2
+   \   000089   85..83       MOV     DPH,?V0 + 3
+   \   00008C   78..         MOV     R0,#?V0 + 4
+   \   00008E   12....       LCALL   ?L_MOV_TO_X
+     87            pfPoint->y = pSrc[Off1].y - pSrc[Off0].y; 
+   \   000091   8C82         MOV     DPL,R4
+   \   000093   8D83         MOV     DPH,R5
+   \   000095   A3           INC     DPTR
+   \   000096   A3           INC     DPTR
+   \   000097   C082         PUSH    DPL
+   \   000099   C083         PUSH    DPH
+   \   00009B   8A82         MOV     DPL,R2
+   \   00009D   8B83         MOV     DPH,R3
+   \   00009F   A3           INC     DPTR
+   \   0000A0   A3           INC     DPTR
+   \   0000A1   E0           MOVX    A,@DPTR
+   \   0000A2   F8           MOV     R0,A
+   \   0000A3   A3           INC     DPTR
+   \   0000A4   E0           MOVX    A,@DPTR
+   \   0000A5   F9           MOV     R1,A
+   \   0000A6   D083         POP     DPH
+   \   0000A8   D082         POP     DPL
+   \   0000AA   12....       LCALL   ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_1:
+   \   0000AD   12....       LCALL   ?L_TO_FLT
+   \   0000B0   85..82       MOV     DPL,?V0 + 2
+   \   0000B3   85..83       MOV     DPH,?V0 + 3
+   \   0000B6   A3           INC     DPTR
+   \   0000B7   A3           INC     DPTR
+   \   0000B8   A3           INC     DPTR
+   \   0000B9   A3           INC     DPTR
+   \   0000BA   78..         MOV     R0,#?V0 + 4
+   \   0000BC   12....       LCALL   ?L_MOV_TO_X
+     88          }
+   \   0000BF   7F08         MOV     R7,#0x8
+   \   0000C1   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   C3           CLR     C
+   \   000002   98           SUBB    A,R0
+   \   000003   F5..         MOV     ?V0 + 0,A
+   \   000005   A3           INC     DPTR
+   \   000006   E0           MOVX    A,@DPTR
+   \   000007   99           SUBB    A,R1
+   \   000008   85....       MOV     ?V0 + 4,?V0 + 0
+   \   00000B   F5..         MOV     ?V0 + 5,A
+   \   00000D   33           RLC     A
+   \   00000E   95E0         SUBB    A,0xE0 /* A   */
+   \   000010   F5..         MOV     ?V0 + 6,A
+   \   000012   F5..         MOV     ?V0 + 7,A
+   \   000014   78..         MOV     R0,#?V0 + 4
+   \   000016   22           RET
+     89          
+     90          /*********************************************************************
+     91          *
+     92          *       Public code
+     93          *
+     94          **********************************************************************
+     95          */
+     96          /*********************************************************************
+     97          *
+     98          *       GUI_EnlargePolygon
+     99          */
+    100          #if 0
+    101          void GUI_EnlargePolygon(GUI_POINT* pDest, const GUI_POINT* pSrc, int NumPoints, int Len) {
+    102            int j;
+    103            /* Calc destination points */
+    104            for (j=0; j<NumPoints; j++) {
+    105              int x, y;
+    106              tfPoint aVect[2];
+    107              /* Get the vectors */
+    108              _GetVect(&aVect[0], pSrc, NumPoints, j);
+    109              _GetVect(&aVect[1], pSrc, NumPoints, j+1);
+    110              /* Normalize the vectors and add vectors */
+    111              _Normalize(&aVect[0]);
+    112              _Normalize(&aVect[1]);
+    113              aVect[0].x += aVect[1].x;
+    114              aVect[0].y += aVect[1].y;
+    115              /* Resulting vector needs to be normalized again */
+    116              _Normalize(&aVect[0]);
+    117              x =  _fround(aVect[0].y * Len);
+    118              y = -_fround(aVect[0].x * Len);
+    119              /* Store destination */
+    120              (pDest+j)->x = (pSrc+j)->x + x;
+    121              (pDest+j)->y = (pSrc+j)->y + y;
+    122            }
+    123          }
+    124          
+    125          #else
+    126          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    127          void GUI_EnlargePolygon(GUI_POINT* pDest, const GUI_POINT* pSrc, int NumPoints, int Len) {
+   \                     GUI_EnlargePolygon:
+   \   000000   74E8         MOV     A,#-0x18
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 24
+   \   000005                ; Auto size: 20
+   \   000005   74EC         MOV     A,#-0x14
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   7412         MOV     A,#0x12
+   \   00000C   12....       LCALL   ?XSTACK_DISP0_8
+   \   00000F   EA           MOV     A,R2
+   \   000010   F0           MOVX    @DPTR,A
+   \   000011   A3           INC     DPTR
+   \   000012   EB           MOV     A,R3
+   \   000013   F0           MOVX    @DPTR,A
+   \   000014   85..82       MOV     DPL,?XSP + 0
+   \   000017   85..83       MOV     DPH,?XSP + 1
+   \   00001A   EC           MOV     A,R4
+   \   00001B   F0           MOVX    @DPTR,A
+   \   00001C   A3           INC     DPTR
+   \   00001D   ED           MOV     A,R5
+   \   00001E   F0           MOVX    @DPTR,A
+    128            int j;
+    129            /* Calc destination points */
+    130            for (j=0; j<NumPoints; j++) {
+   \   00001F   7E00         MOV     R6,#0x0
+   \   000021   7F00         MOV     R7,#0x0
+   \   000023   8079         SJMP    ??GUI_EnlargePolygon_0
+   \                     ??GUI_EnlargePolygon_1:
+   \   000025   90....       MOV     DPTR,#__Constant_bf000000
+   \                     ??GUI_EnlargePolygon_2:
+   \   000028   78..         MOV     R0,#?V0 + 4
+   \   00002A   12....       LCALL   ?L_MOV_X
+   \   00002D   78..         MOV     R0,#?V0 + 0
+   \   00002F   79..         MOV     R1,#?V0 + 4
+   \   000031   12....       LCALL   ?FLT_ADD
+   \   000034   78..         MOV     R0,#?V0 + 0
+   \   000036   12....       LCALL   ?FLT_TO_L
+   \   000039   85....       MOV     ?V0 + 2,?V0 + 0
+   \   00003C   85....       MOV     ?V0 + 3,?V0 + 1
+    131              int x, y;
+    132              tfPoint aVect[2];
+    133              /* Get the vectors */
+    134              _GetVect(&aVect[0], pSrc, NumPoints, j);
+    135              _GetVect(&aVect[1], pSrc, NumPoints, j+1);
+    136              /* Normalize the vectors and add vectors */
+    137              _Normalize(&aVect[0]);
+    138              _Normalize(&aVect[1]);
+    139              aVect[0].x += aVect[1].x;
+    140              aVect[0].y += aVect[1].y;
+    141              /* Resulting vector needs to be normalized again */
+    142              _ReverseLen(&aVect[0]);
+    143              x =  _fround(aVect[0].y * Len);
+    144              y = -_fround(aVect[0].x * Len);
+    145              /* Store destination */
+    146              (pDest+j)->x = (pSrc+j)->x + x;
+   \   00003F   8E..         MOV     ?V0 + 0,R6
+   \   000041   8F..         MOV     ?V0 + 1,R7
+   \   000043   7402         MOV     A,#0x2
+   \   000045   78..         MOV     R0,#?V0 + 0
+   \   000047   12....       LCALL   ?S_SHL
+   \   00004A   AA..         MOV     R2,?V0 + 0
+   \   00004C   AB..         MOV     R3,?V0 + 1
+   \   00004E   7412         MOV     A,#0x12
+   \   000050   12....       LCALL   ?XSTACK_DISP0_8
+   \   000053   E0           MOVX    A,@DPTR
+   \   000054   2A           ADD     A,R2
+   \   000055   F8           MOV     R0,A
+   \   000056   A3           INC     DPTR
+   \   000057   E0           MOVX    A,@DPTR
+   \   000058   3B           ADDC    A,R3
+   \   000059   F9           MOV     R1,A
+   \   00005A   85..82       MOV     DPL,?XSP + 0
+   \   00005D   85..83       MOV     DPH,?XSP + 1
+   \   000060   E0           MOVX    A,@DPTR
+   \   000061   2A           ADD     A,R2
+   \   000062   FA           MOV     R2,A
+   \   000063   A3           INC     DPTR
+   \   000064   E0           MOVX    A,@DPTR
+   \   000065   3B           ADDC    A,R3
+   \   000066   FB           MOV     R3,A
+   \   000067   8A82         MOV     DPL,R2
+   \   000069   8B83         MOV     DPH,R3
+   \   00006B   E0           MOVX    A,@DPTR
+   \   00006C   2C           ADD     A,R4
+   \   00006D   FC           MOV     R4,A
+   \   00006E   A3           INC     DPTR
+   \   00006F   E0           MOVX    A,@DPTR
+   \   000070   3D           ADDC    A,R5
+   \   000071   FD           MOV     R5,A
+   \   000072   8882         MOV     DPL,R0
+   \   000074   8983         MOV     DPH,R1
+   \   000076   EC           MOV     A,R4
+   \   000077   F0           MOVX    @DPTR,A
+   \   000078   A3           INC     DPTR
+   \   000079   ED           MOV     A,R5
+   \   00007A   F0           MOVX    @DPTR,A
+    147              (pDest+j)->y = (pSrc+j)->y + y;
+   \   00007B   8A82         MOV     DPL,R2
+   \   00007D   8B83         MOV     DPH,R3
+   \   00007F   A3           INC     DPTR
+   \   000080   A3           INC     DPTR
+   \   000081   E0           MOVX    A,@DPTR
+   \   000082   C3           CLR     C
+   \   000083   95..         SUBB    A,?V0 + 2
+   \   000085   FA           MOV     R2,A
+   \   000086   A3           INC     DPTR
+   \   000087   E0           MOVX    A,@DPTR
+   \   000088   95..         SUBB    A,?V0 + 3
+   \   00008A   FB           MOV     R3,A
+   \   00008B   8882         MOV     DPL,R0
+   \   00008D   8983         MOV     DPH,R1
+   \   00008F   A3           INC     DPTR
+   \   000090   A3           INC     DPTR
+   \   000091   EA           MOV     A,R2
+   \   000092   F0           MOVX    @DPTR,A
+   \   000093   A3           INC     DPTR
+   \   000094   EB           MOV     A,R3
+   \   000095   F0           MOVX    @DPTR,A
+   \   000096   EE           MOV     A,R6
+   \   000097   2401         ADD     A,#0x1
+   \   000099   0E           INC     R6
+   \   00009A   EF           MOV     A,R7
+   \   00009B   3400         ADDC    A,#0x0
+   \   00009D   FF           MOV     R7,A
+   \                     ??GUI_EnlargePolygon_0:
+   \   00009E   742C         MOV     A,#0x2c
+   \   0000A0   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000A3   E0           MOVX    A,@DPTR
+   \   0000A4   F8           MOV     R0,A
+   \   0000A5   A3           INC     DPTR
+   \   0000A6   E0           MOVX    A,@DPTR
+   \   0000A7   F9           MOV     R1,A
+   \   0000A8   C3           CLR     C
+   \   0000A9   EE           MOV     A,R6
+   \   0000AA   98           SUBB    A,R0
+   \   0000AB   EF           MOV     A,R7
+   \   0000AC   99           SUBB    A,R1
+   \   0000AD   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   0000AF   65D0         XRL     A,PSW
+   \   0000B1   33           RLC     A
+   \   0000B2   4003         JC      $+5
+   \   0000B4   02....       LJMP    ??GUI_EnlargePolygon_3 & 0xFFFF
+   \   0000B7                ; Setup parameters for call to function _GetVect
+   \   0000B7   8E..         MOV     ?V0 + 0,R6
+   \   0000B9   8F..         MOV     ?V0 + 1,R7
+   \   0000BB   78..         MOV     R0,#?V0 + 0
+   \   0000BD   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000C0   742E         MOV     A,#0x2e
+   \   0000C2   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000C5   12....       LCALL   ?PUSH_XSTACK8_X_TWO
+   \   0000C8   7404         MOV     A,#0x4
+   \   0000CA   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000CD   E0           MOVX    A,@DPTR
+   \   0000CE   FC           MOV     R4,A
+   \   0000CF   A3           INC     DPTR
+   \   0000D0   E0           MOVX    A,@DPTR
+   \   0000D1   FD           MOV     R5,A
+   \   0000D2   7406         MOV     A,#0x6
+   \   0000D4   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000D7   AA82         MOV     R2,DPL
+   \   0000D9   AB83         MOV     R3,DPH
+   \   0000DB   12....       LCALL   ??_GetVect?relay
+   \   0000DE   7404         MOV     A,#0x4
+   \   0000E0   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0000E3                ; Setup parameters for call to function _GetVect
+   \   0000E3   EE           MOV     A,R6
+   \   0000E4   2401         ADD     A,#0x1
+   \   0000E6   F5..         MOV     ?V0 + 0,A
+   \   0000E8   EF           MOV     A,R7
+   \   0000E9   3400         ADDC    A,#0x0
+   \   0000EB   F5..         MOV     ?V0 + 1,A
+   \   0000ED   78..         MOV     R0,#?V0 + 0
+   \   0000EF   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000F2   742E         MOV     A,#0x2e
+   \   0000F4   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000F7   12....       LCALL   ?PUSH_XSTACK8_X_TWO
+   \   0000FA   7404         MOV     A,#0x4
+   \   0000FC   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000FF   E0           MOVX    A,@DPTR
+   \   000100   FC           MOV     R4,A
+   \   000101   A3           INC     DPTR
+   \   000102   E0           MOVX    A,@DPTR
+   \   000103   FD           MOV     R5,A
+   \   000104   740E         MOV     A,#0xe
+   \   000106   12....       LCALL   ?XSTACK_DISP0_8
+   \   000109   AA82         MOV     R2,DPL
+   \   00010B   AB83         MOV     R3,DPH
+   \   00010D   12....       LCALL   ??_GetVect?relay
+   \   000110   7404         MOV     A,#0x4
+   \   000112   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000115                ; Setup parameters for call to function _Normalize
+   \   000115   7402         MOV     A,#0x2
+   \   000117   12....       LCALL   ?XSTACK_DISP0_8
+   \   00011A   AA82         MOV     R2,DPL
+   \   00011C   AB83         MOV     R3,DPH
+   \   00011E   12....       LCALL   ??_Normalize?relay
+   \   000121                ; Setup parameters for call to function _Normalize
+   \   000121   740A         MOV     A,#0xa
+   \   000123   12....       LCALL   ?XSTACK_DISP0_8
+   \   000126   AA82         MOV     R2,DPL
+   \   000128   AB83         MOV     R3,DPH
+   \   00012A   12....       LCALL   ??_Normalize?relay
+   \   00012D   7402         MOV     A,#0x2
+   \   00012F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000132   78..         MOV     R0,#?V0 + 0
+   \   000134   12....       LCALL   ?L_MOV_X
+   \   000137   740A         MOV     A,#0xa
+   \   000139   12....       LCALL   ?XSTACK_DISP0_8
+   \   00013C   78..         MOV     R0,#?V0 + 4
+   \   00013E   12....       LCALL   ?L_MOV_X
+   \   000141   78..         MOV     R0,#?V0 + 0
+   \   000143   79..         MOV     R1,#?V0 + 4
+   \   000145   12....       LCALL   ?FLT_ADD
+   \   000148   7402         MOV     A,#0x2
+   \   00014A   12....       LCALL   ?XSTACK_DISP0_8
+   \   00014D   78..         MOV     R0,#?V0 + 0
+   \   00014F   12....       LCALL   ?L_MOV_TO_X
+   \   000152   7406         MOV     A,#0x6
+   \   000154   12....       LCALL   ?XSTACK_DISP0_8
+   \   000157   78..         MOV     R0,#?V0 + 8
+   \   000159   12....       LCALL   ?L_MOV_X
+   \   00015C   740E         MOV     A,#0xe
+   \   00015E   12....       LCALL   ?XSTACK_DISP0_8
+   \   000161   78..         MOV     R0,#?V0 + 0
+   \   000163   12....       LCALL   ?L_MOV_X
+   \   000166   78..         MOV     R0,#?V0 + 8
+   \   000168   79..         MOV     R1,#?V0 + 0
+   \   00016A   12....       LCALL   ?FLT_ADD
+   \   00016D   7406         MOV     A,#0x6
+   \   00016F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000172   78..         MOV     R0,#?V0 + 8
+   \   000174   12....       LCALL   ?L_MOV_TO_X
+   \   000177   7402         MOV     A,#0x2
+   \   000179   12....       LCALL   ?XSTACK_DISP0_8
+   \   00017C   78..         MOV     R0,#?V0 + 0
+   \   00017E   12....       LCALL   ?L_MOV_X
+   \   000181   85....       MOV     ?V0 + 4,?V0 + 8
+   \   000184   85....       MOV     ?V0 + 5,?V0 + 9
+   \   000187   85....       MOV     ?V0 + 6,?V0 + 10
+   \   00018A   85....       MOV     ?V0 + 7,?V0 + 11
+   \   00018D                ; Setup parameters for call to function sqrt
+   \   00018D   85....       MOV     ?V0 + 8,?V0 + 0
+   \   000190   85....       MOV     ?V0 + 9,?V0 + 1
+   \   000193   85....       MOV     ?V0 + 10,?V0 + 2
+   \   000196   85....       MOV     ?V0 + 11,?V0 + 3
+   \   000199   78..         MOV     R0,#?V0 + 8
+   \   00019B   79..         MOV     R1,#?V0 + 0
+   \   00019D   12....       LCALL   ?FLT_MUL
+   \   0001A0   90....       MOV     DPTR,#__Constant_3f000000
+   \   0001A3   78..         MOV     R0,#?V0 + 12
+   \   0001A5   12....       LCALL   ?L_MOV_X
+   \   0001A8   78..         MOV     R0,#?V0 + 8
+   \   0001AA   79..         MOV     R1,#?V0 + 12
+   \   0001AC   12....       LCALL   ?FLT_MUL
+   \   0001AF   C0..         PUSH    ?V0 + 8
+   \   0001B1   C0..         PUSH    ?V0 + 9
+   \   0001B3   C0..         PUSH    ?V0 + 10
+   \   0001B5   C0..         PUSH    ?V0 + 11
+   \   0001B7   85....       MOV     ?V0 + 12,?V0 + 4
+   \   0001BA   85....       MOV     ?V0 + 13,?V0 + 5
+   \   0001BD   85....       MOV     ?V0 + 14,?V0 + 6
+   \   0001C0   85....       MOV     ?V0 + 15,?V0 + 7
+   \   0001C3   78..         MOV     R0,#?V0 + 12
+   \   0001C5   79..         MOV     R1,#?V0 + 4
+   \   0001C7   12....       LCALL   ?FLT_MUL
+   \   0001CA   90....       MOV     DPTR,#__Constant_3f000000
+   \   0001CD   78..         MOV     R0,#?V0 + 8
+   \   0001CF   12....       LCALL   ?L_MOV_X
+   \   0001D2   78..         MOV     R0,#?V0 + 12
+   \   0001D4   79..         MOV     R1,#?V0 + 8
+   \   0001D6   12....       LCALL   ?FLT_MUL
+   \   0001D9   D0..         POP     ?V0 + 11
+   \   0001DB   D0..         POP     ?V0 + 10
+   \   0001DD   D0..         POP     ?V0 + 9
+   \   0001DF   D0..         POP     ?V0 + 8
+   \   0001E1   78..         MOV     R0,#?V0 + 8
+   \   0001E3   79..         MOV     R1,#?V0 + 12
+   \   0001E5   12....       LCALL   ?FLT_ADD
+   \   0001E8   AA..         MOV     R2,?V0 + 8
+   \   0001EA   AB..         MOV     R3,?V0 + 9
+   \   0001EC   AC..         MOV     R4,?V0 + 10
+   \   0001EE   AD..         MOV     R5,?V0 + 11
+   \   0001F0   12....       LCALL   ??sqrt?relay
+   \   0001F3   8A..         MOV     ?V0 + 8,R2
+   \   0001F5   8B..         MOV     ?V0 + 9,R3
+   \   0001F7   8C..         MOV     ?V0 + 10,R4
+   \   0001F9   8D..         MOV     ?V0 + 11,R5
+   \   0001FB   90....       MOV     DPTR,#__Constant_1
+   \   0001FE   78..         MOV     R0,#?V0 + 12
+   \   000200   12....       LCALL   ?L_MOV_X
+   \   000203   78..         MOV     R0,#?V0 + 8
+   \   000205   79..         MOV     R1,#?V0 + 12
+   \   000207   12....       LCALL   ?FLT_GE
+   \   00020A   5030         JNC     ??GUI_EnlargePolygon_4
+   \   00020C   78..         MOV     R0,#?V0 + 0
+   \   00020E   79..         MOV     R1,#?V0 + 8
+   \   000210   12....       LCALL   ?FLT_DIV
+   \   000213   78..         MOV     R0,#?V0 + 0
+   \   000215   79..         MOV     R1,#?V0 + 8
+   \   000217   12....       LCALL   ?FLT_DIV
+   \   00021A   7402         MOV     A,#0x2
+   \   00021C   12....       LCALL   ?XSTACK_DISP0_8
+   \   00021F   78..         MOV     R0,#?V0 + 0
+   \   000221   12....       LCALL   ?L_MOV_TO_X
+   \   000224   78..         MOV     R0,#?V0 + 4
+   \   000226   79..         MOV     R1,#?V0 + 8
+   \   000228   12....       LCALL   ?FLT_DIV
+   \   00022B   78..         MOV     R0,#?V0 + 4
+   \   00022D   79..         MOV     R1,#?V0 + 8
+   \   00022F   12....       LCALL   ?FLT_DIV
+   \   000232   7406         MOV     A,#0x6
+   \   000234   12....       LCALL   ?XSTACK_DISP0_8
+   \   000237   78..         MOV     R0,#?V0 + 4
+   \   000239   12....       LCALL   ?L_MOV_TO_X
+   \                     ??GUI_EnlargePolygon_4:
+   \   00023C   742E         MOV     A,#0x2e
+   \   00023E   12....       LCALL   ?XSTACK_DISP0_8
+   \   000241   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_2:
+   \   000244   12....       LCALL   ?L_TO_FLT
+   \   000247   7406         MOV     A,#0x6
+   \   000249   12....       LCALL   ?XSTACK_DISP0_8
+   \   00024C   78..         MOV     R0,#?V0 + 4
+   \   00024E   12....       LCALL   ?L_MOV_X
+   \   000251   78..         MOV     R0,#?V0 + 0
+   \   000253   79..         MOV     R1,#?V0 + 4
+   \   000255   12....       LCALL   ?FLT_MUL
+   \   000258   90....       MOV     DPTR,#__Constant_1
+   \   00025B   78..         MOV     R0,#?V0 + 4
+   \   00025D   12....       LCALL   ?L_MOV_X
+   \   000260   78..         MOV     R0,#?V0 + 0
+   \   000262   79..         MOV     R1,#?V0 + 4
+   \   000264   12....       LCALL   ?FLT_GE
+   \   000267   5005         JNC     ??GUI_EnlargePolygon_5
+   \   000269   90....       MOV     DPTR,#__Constant_3f000000
+   \   00026C   8003         SJMP    ??GUI_EnlargePolygon_6
+   \                     ??GUI_EnlargePolygon_5:
+   \   00026E   90....       MOV     DPTR,#__Constant_bf000000
+   \                     ??GUI_EnlargePolygon_6:
+   \   000271   78..         MOV     R0,#?V0 + 4
+   \   000273   12....       LCALL   ?L_MOV_X
+   \   000276   78..         MOV     R0,#?V0 + 0
+   \   000278   79..         MOV     R1,#?V0 + 4
+   \   00027A   12....       LCALL   ?FLT_ADD
+   \   00027D   78..         MOV     R0,#?V0 + 0
+   \   00027F   12....       LCALL   ?FLT_TO_L
+   \   000282   AC..         MOV     R4,?V0 + 0
+   \   000284   AD..         MOV     R5,?V0 + 1
+   \   000286   742E         MOV     A,#0x2e
+   \   000288   12....       LCALL   ?XSTACK_DISP0_8
+   \   00028B   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_3:
+   \   00028E   12....       LCALL   ?L_TO_FLT
+   \   000291   7402         MOV     A,#0x2
+   \   000293   12....       LCALL   ?XSTACK_DISP0_8
+   \   000296   78..         MOV     R0,#?V0 + 4
+   \   000298   12....       LCALL   ?L_MOV_X
+   \   00029B   78..         MOV     R0,#?V0 + 0
+   \   00029D   79..         MOV     R1,#?V0 + 4
+   \   00029F   12....       LCALL   ?FLT_MUL
+   \   0002A2   90....       MOV     DPTR,#__Constant_1
+   \   0002A5   78..         MOV     R0,#?V0 + 4
+   \   0002A7   12....       LCALL   ?L_MOV_X
+   \   0002AA   78..         MOV     R0,#?V0 + 0
+   \   0002AC   79..         MOV     R1,#?V0 + 4
+   \   0002AE   12....       LCALL   ?FLT_GE
+   \   0002B1   4003         JC      $+5
+   \   0002B3   02....       LJMP    ??GUI_EnlargePolygon_1 & 0xFFFF
+   \   0002B6   90....       MOV     DPTR,#__Constant_3f000000
+   \   0002B9   02....       LJMP    ??GUI_EnlargePolygon_2 & 0xFFFF
+    148            }
+    149          }
+   \                     ??GUI_EnlargePolygon_3:
+   \   0002BC   7414         MOV     A,#0x14
+   \   0002BE   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0002C1   02....       LJMP    ?Subroutine0 & 0xFFFF
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F5..         MOV     ?V0 + 0,A
+   \   000003   A3           INC     DPTR
+   \   000004   E0           MOVX    A,@DPTR
+   \   000005   F5..         MOV     ?V0 + 1,A
+   \   000007   33           RLC     A
+   \   000008   95E0         SUBB    A,0xE0 /* A   */
+   \   00000A   F5..         MOV     ?V0 + 2,A
+   \   00000C   F5..         MOV     ?V0 + 3,A
+   \   00000E   78..         MOV     R0,#?V0 + 0
+   \   000010   22           RET
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_1:
+   \   000000   01000000     DD 1H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_bf000000:
+   \   000000   000000BF     DD 0BF000000H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_3f000000:
+   \   000000   0000003F     DD 3F000000H
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??_Normalize?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    _Normalize
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??_GetVect?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    _GetVect
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI_EnlargePolygon?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI_EnlargePolygon
+    150          #endif
+    151          
+    152          /*************************** End of file ****************************/
+
+   Maximum stack usage in bytes:
+
+     Function           ISTACK PSTACK XSTACK
+     --------           ------ ------ ------
+     GUI_EnlargePolygon     4      0     52
+       -> _GetVect          0      0     96
+       -> _GetVect          0      0     96
+       -> _Normalize        0      0     88
+       -> _Normalize        0      0     88
+       -> sqrt              0      0     88
+     _GetVect               2      0     64
+     _Normalize             0      0     68
+       -> sqrt              0      0     48
+
+
+   Segment part sizes:
+
+     Function/Label             Bytes
+     --------------             -----
+     _Normalize                  148
+     ?Subroutine0                  5
+     _GetVect                    196
+     ?Subroutine1                 23
+     GUI_EnlargePolygon          708
+     ?Subroutine2                 17
+     __Constant_1                  4
+     __Constant_bf000000           4
+     __Constant_3f000000           4
+     ??_Normalize?relay            6
+     ??_GetVect?relay              6
+     ??GUI_EnlargePolygon?relay    6
+
+ 
+ 1 097 bytes in segment BANKED_CODE
+    18 bytes in segment BANK_RELAYS
+    12 bytes in segment XDATA_ROM_C
+ 
+ 1 115 bytes of CODE  memory
+     0 bytes of CONST memory (+ 12 bytes shared)
+
+Errors: none
+Warnings: none

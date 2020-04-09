@@ -1,0 +1,3463 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.1.10194/W32 for 8051         14/Jun/2016  16:18:21 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\Cor #
+#                          e\GUI2DLib.c                                       #
+#    Command line       =  -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\..\..\..\Tools\CC2530D #
+#                          B\f8wCoord.cfg (-DCPU32MHZ -DROOT=__near_func      #
+#                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                   #
+#                          -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8         #
+#                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)    #
+#                          -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\..\..\..\Tools\CC2530D #
+#                          B\f8wConfig.cfg (-DZIGBEEPRO -DSECURE=0            #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0x1001                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹â #
+#                          ÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5. #
+#                          1a\Components\uCGUI\Core\GUI2DLib.c -D             #
+#                          HAL_UART=TRUE -D SERIAL_APP_PORT=0 -D COOR -D      #
+#                          LCD_SUPPORTED -D NV_INIT -lC                       #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\List\ -lA   #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\List\       #
+#                          --diag_suppress Pe001,Pa010 -o                     #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\Obj\ -e     #
+#                          --no_code_motion --debug --core=plain --dptr=16,1  #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\ -I                    #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\Public\ -I             #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \uCGUI\Core\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ2 #
+#                          10\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ #
+#                          ..\..\Components\uCGUI\MultiLayer\ -I              #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \uCGUI\Config\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁ #
+#                          Ï210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Pr #
+#                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\Coor #
+#                          dinator\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Z #
+#                          igBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects #
+#                          \zstack\Utilities\SerialApp\CC2530DB\..\..\..\ZMai #
+#                          n\TI2530DB\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ21 #
+#                          0\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proje #
+#                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\. #
+#                          .\..\Components\hal\include\ -I                    #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \hal\target\CC2530EB\ -I                           #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\include\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ #
+#                          210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Pro #
+#                          jects\zstack\Utilities\SerialApp\CC2530DB\..\..\.. #
+#                          \..\..\Components\mac\high_level\ -I               #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\low_level\srf04\ -I                           #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\low_level\srf04\single_chip\ -I               #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mt\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBe #
+#                          eÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zst #
+#                          ack\Utilities\SerialApp\CC2530DB\..\..\..\..\..\Co #
+#                          mponents\osal\include\ -I                          #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \services\saddr\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ× #
+#                          ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\ #
+#                          Projects\zstack\Utilities\SerialApp\CC2530DB\..\.. #
+#                          \..\..\..\Components\services\sdata\ -I            #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\af\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210 #
+#                          \ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projec #
+#                          ts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\.. #
+#                          \..\Components\stack\nwk\ -I                       #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\sapi\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ2 #
+#                          10\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ #
+#                          ..\..\Components\stack\sec\ -I                     #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\sys\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ21 #
+#                          0\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proje #
+#                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\. #
+#                          .\..\Components\stack\zdo\ -I                      #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \zmac\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Zig #
+#                          BeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\z #
+#                          stack\Utilities\SerialApp\CC2530DB\..\..\..\..\..\ #
+#                          Components\zmac\f8w\ -Ohz --require_prototypes     #
+#    List file          =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\List\GUI2DL #
+#                          ib.lst                                             #
+#    Object file        =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\Obj\GUI2DLi #
+#                          b.r51                                              #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\Core\GUI2DLib.c
+      1          /*
+      2          *********************************************************************************************************
+      3          *                                                uC/GUI
+      4          *                        Universal graphic software for embedded applications
+      5          *
+      6          *                       (c) Copyright 2002, Micrium Inc., Weston, FL
+      7          *                       (c) Copyright 2002, SEGGER Microcontroller Systeme GmbH
+      8          *
+      9          *              µC/GUI is protected by international copyright laws. Knowledge of the
+     10          *              source code may not be used to write a similar product. This file may
+     11          *              only be used in accordance with a license and should not be redistributed
+     12          *              in any way. We appreciate your understanding and fairness.
+     13          *
+     14          ----------------------------------------------------------------------
+     15          File        : GUI2DLib.C
+     16          Purpose     : Main part of the 2D graphics library
+     17          ---------------------------END-OF-HEADER------------------------------
+     18          */
+     19          
+     20          #include <stddef.h>           /* needed for definition of NULL */
+     21          #include "GUI_Protected.h"
+
+   \                                 In  segment SFR_AN, at 0xa8
+   \   union <unnamed> volatile __sfr _A_IEN0
+   \                     _A_IEN0:
+   \   000000                DS 1
+     22          #include "GUIDebug.h"
+     23          #include "hal_defs.h"
+     24          
+     25          /*********************************************************************
+     26          *
+     27          *       defines
+     28          *
+     29          **********************************************************************
+     30          */
+     31          
+     32          //#define ABS(v) ((v>0) ? v : -v)
+     33          
+     34          /*********************************************************************
+     35          *
+     36          *       static code, helper functions
+     37          *
+     38          **********************************************************************
+     39          */
+     40          /*********************************************************************
+     41          *
+     42          *       _SwapInt
+     43          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     44          static void _SwapInt(int* pa, int* pb) {
+   \                     _SwapInt:
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+     45            int t;
+     46            t = *pa;
+   \   000005   8A82         MOV     DPL,R2
+   \   000007   8B83         MOV     DPH,R3
+   \   000009   E0           MOVX    A,@DPTR
+   \   00000A   FE           MOV     R6,A
+   \   00000B   A3           INC     DPTR
+   \   00000C   E0           MOVX    A,@DPTR
+   \   00000D   FF           MOV     R7,A
+     47            *pa = *pb;
+   \   00000E   8C82         MOV     DPL,R4
+   \   000010   8D83         MOV     DPH,R5
+   \   000012   12....       LCALL   ??Subroutine37_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_62:
+   \   000015   8A82         MOV     DPL,R2
+   \   000017   8B83         MOV     DPH,R3
+   \   000019   12....       LCALL   ??Subroutine38_0 & 0xFFFF
+     48            *pb = t;
+   \                     ??CrossCallReturnLabel_69:
+   \   00001C   8C82         MOV     DPL,R4
+   \   00001E   8D83         MOV     DPH,R5
+   \   000020   EE           MOV     A,R6
+   \   000021   F0           MOVX    @DPTR,A
+   \   000022   A3           INC     DPTR
+   \   000023   EF           MOV     A,R7
+   \   000024   F0           MOVX    @DPTR,A
+     49          }
+   \   000025   02....       LJMP    ??Subroutine43_0 & 0xFFFF
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine37_0:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F8           MOV     R0,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   F9           MOV     R1,A
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine38_0:
+   \   000000   E8           MOV     A,R0
+   \   000001   F0           MOVX    @DPTR,A
+   \   000002   A3           INC     DPTR
+   \   000003   E9           MOV     A,R1
+   \   000004   F0           MOVX    @DPTR,A
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine43_0:
+   \   000000   7F01         MOV     R7,#0x1
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+     50          
+     51          /*********************************************************************
+     52          *
+     53          *       Abs
+     54          */
+     55          static int Abs(int v) {
+     56            return ABS(v);
+     57          }
+     58          
+     59          /*********************************************************************
+     60          *
+     61          *       trigonometric functions
+     62          *
+     63          *  NOTE:
+     64          *   All trigonometric functions are for internal usage only and
+     65          *   use the following conventions:
+     66          *
+     67          *      Angles: 4096 <==> 360?*
+     68          **********************************************************************
+     69          */
+     70          
+     71          #if GUI_45DEG != 512
+     72            #error Wrong define for this library !
+     73          #endif
+     74          
+     75          /*********************************************************************
+     76          *
+     77          *       sin / cos (internal)
+     78          *
+     79          *  Angle : 90/1024?*  Data  : 1/1024
+     80          */
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     81          static const U16 aSin[] = {
+   \                     aSin:
+   \   000000   0000         DW 0
+   \   000002   6400         DW 100
+   \   000004   C800         DW 200
+   \   000006   2901         DW 297
+   \   000008   8801         DW 392
+   \   00000A   E301         DW 483
+   \   00000C   3902         DW 569
+   \   00000E   8A02         DW 650
+   \   000010   D402         DW 724
+   \   000012   1803         DW 792
+   \   000014   5303         DW 851
+   \   000016   8703         DW 903
+   \   000018   B203         DW 946
+   \   00001A   D403         DW 980
+   \   00001C   EC03         DW 1004
+   \   00001E   FB03         DW 1019
+   \   000020   0004         DW 1024
+     82            0,       /*  1/16 *90?*/
+     83            100,     /*  1/16 *90?*/
+     84            200,     /*  2/16 *90?*/
+     85            297,     /*  3/16 *90?*/
+     86            392,     /*  4/16 *90?*/
+     87            483,     /*  5/16 *90?*/
+     88            569,     /*  6/16 *90?*/
+     89            650,     /*  7/16 *90?*/
+     90            724,     /*  8/16 *90?*/
+     91            792,     /*  9/16 *90?*/
+     92            851,     /* 10/16 *90?*/
+     93            903,     /* 11/16 *90?*/
+     94            946,     /* 12/16 *90?*/
+     95            980,     /* 13/16 *90?*/
+     96            1004,    /* 14/16 *90?*/
+     97            1019,    /* 15/16 *90?*/
+     98            1024     /* 16/16 *90?*/
+     99          };
+    100          
+    101          /*********************************************************************
+    102          *
+    103          *       GUI_sin
+    104          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    105          int GUI_sin(int angle) {
+   \                     GUI_sin:
+   \   000000   74F0         MOV     A,#-0x10
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 0
+    106            char IsNeg =0;
+   \   000005   7E00         MOV     R6,#0x0
+    107            int i;
+    108          	U16 Faktor;
+    109            U32 t;
+    110            angle &= ((1<<12)-1);  /* reduce to 0-360 degrees */
+   \   000007   740F         MOV     A,#0xf
+   \   000009   5B           ANL     A,R3
+   \   00000A   FB           MOV     R3,A
+    111            if (angle> 2* GUI_90DEG) {
+   \   00000B   C3           CLR     C
+   \   00000C   EA           MOV     A,R2
+   \   00000D   9401         SUBB    A,#0x1
+   \   00000F   EB           MOV     A,R3
+   \   000010   9408         SUBB    A,#0x8
+   \   000012   C3           CLR     C
+   \   000013   65D0         XRL     A,PSW
+   \   000015   33           RLC     A
+   \   000016   4008         JC      ??GUI_sin_0
+    112              angle -= 2* GUI_90DEG;
+   \   000018   EA           MOV     A,R2
+   \   000019   2400         ADD     A,#0x0
+   \   00001B   EB           MOV     A,R3
+   \   00001C   34F8         ADDC    A,#-0x8
+   \   00001E   FB           MOV     R3,A
+    113              IsNeg =1;
+   \   00001F   0E           INC     R6
+    114            }
+    115            if (angle> GUI_90DEG) {  /* between 90-180 */
+   \                     ??GUI_sin_0:
+   \   000020   C3           CLR     C
+   \   000021   EA           MOV     A,R2
+   \   000022   9401         SUBB    A,#0x1
+   \   000024   EB           MOV     A,R3
+   \   000025   9404         SUBB    A,#0x4
+   \   000027   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   000029   65D0         XRL     A,PSW
+   \   00002B   33           RLC     A
+   \   00002C   4008         JC      ??GUI_sin_1
+    116              angle = 2*GUI_90DEG-angle;   /* use sine symetry */
+   \   00002E   E4           CLR     A
+   \   00002F   C3           CLR     C
+   \   000030   9A           SUBB    A,R2
+   \   000031   FA           MOV     R2,A
+   \   000032   7408         MOV     A,#0x8
+   \   000034   9B           SUBB    A,R3
+   \   000035   FB           MOV     R3,A
+    117            }
+    118            /* Now angle is reduced to 0?<= <= 90?*/
+    119          #if 0
+    120            angle >>=2;    /* make sure we do not exceed 16 bits in calculations */
+    121            i = angle>>4;
+    122            Faktor = (1<<4)-(angle&((1<<4)-1));
+    123            r = aSin[i]*Faktor;
+    124            if (Faktor !=(1<<4)) {
+    125              r += aSin[i+1]*((1<<4)-Faktor);
+    126            }
+    127            r = (r+(1<<3)) >>4;   /* divide,incl. rounding */
+    128          #else
+    129            i = angle>>6;
+   \                     ??GUI_sin_1:
+   \   000036   8A..         MOV     ?V0 + 0,R2
+   \   000038   8B..         MOV     ?V0 + 1,R3
+   \   00003A   7406         MOV     A,#0x6
+   \   00003C   78..         MOV     R0,#?V0 + 0
+   \   00003E   12....       LCALL   ?SS_SHR
+   \   000041   AC..         MOV     R4,?V0 + 0
+   \   000043   AD..         MOV     R5,?V0 + 1
+    130            {
+    131              Faktor = (U16)((1<<6)-(angle&((1<<6)-1)));
+   \   000045   EA           MOV     A,R2
+   \   000046   543F         ANL     A,#0x3f
+   \   000048   F8           MOV     R0,A
+   \   000049   7440         MOV     A,#0x40
+   \   00004B   C3           CLR     C
+   \   00004C   98           SUBB    A,R0
+   \   00004D   FA           MOV     R2,A
+   \   00004E   95E0         SUBB    A,0xE0 /* A   */
+   \   000050   FB           MOV     R3,A
+    132              t = aSin[i]*(U32)Faktor;
+   \   000051   EC           MOV     A,R4
+   \   000052   F8           MOV     R0,A
+   \   000053   ED           MOV     A,R5
+   \   000054   F9           MOV     R1,A
+   \   000055   E8           MOV     A,R0
+   \   000056   C3           CLR     C
+   \   000057   33           RLC     A
+   \   000058   F8           MOV     R0,A
+   \   000059   E9           MOV     A,R1
+   \   00005A   33           RLC     A
+   \   00005B   F9           MOV     R1,A
+   \   00005C   74..         MOV     A,#aSin & 0xff
+   \   00005E   28           ADD     A,R0
+   \   00005F   F582         MOV     DPL,A
+   \   000061   74..         MOV     A,#(aSin >> 8) & 0xff
+   \   000063   39           ADDC    A,R1
+   \   000064   F583         MOV     DPH,A
+   \   000066   12....       LCALL   ?Subroutine29 & 0xFFFF
+   \                     ??CrossCallReturnLabel_47:
+   \   000069   E4           CLR     A
+   \   00006A   F5..         MOV     ?V0 + 2,A
+   \   00006C   F5..         MOV     ?V0 + 3,A
+   \   00006E   8A..         MOV     ?V0 + 4,R2
+   \   000070   8B..         MOV     ?V0 + 5,R3
+   \   000072   F5..         MOV     ?V0 + 6,A
+   \   000074   F5..         MOV     ?V0 + 7,A
+   \   000076   78..         MOV     R0,#?V0 + 0
+   \   000078   79..         MOV     R1,#?V0 + 4
+   \   00007A   12....       LCALL   ?L_MUL
+    133              if (Faktor !=(1<<6)) {
+   \   00007D   7440         MOV     A,#0x40
+   \   00007F   6A           XRL     A,R2
+   \   000080   7001         JNZ     ??GUI_sin_2
+   \   000082   EB           MOV     A,R3
+   \                     ??GUI_sin_2:
+   \   000083   6037         JZ      ??GUI_sin_3
+    134                t += aSin[i+1]*((1<<6)-Faktor);
+   \   000085   EC           MOV     A,R4
+   \   000086   C3           CLR     C
+   \   000087   33           RLC     A
+   \   000088   FC           MOV     R4,A
+   \   000089   ED           MOV     A,R5
+   \   00008A   33           RLC     A
+   \   00008B   FD           MOV     R5,A
+   \   00008C   74..         MOV     A,#(aSin + 2) & 0xff
+   \   00008E   2C           ADD     A,R4
+   \   00008F   F582         MOV     DPL,A
+   \   000091   74..         MOV     A,#((aSin + 2) >> 8) & 0xff
+   \   000093   3D           ADDC    A,R5
+   \   000094   F583         MOV     DPH,A
+   \   000096   12....       LCALL   ?Subroutine30 & 0xFFFF
+    135              }
+    136          	}
+   \                     ??CrossCallReturnLabel_50:
+   \   000099   7440         MOV     A,#0x40
+   \   00009B   C3           CLR     C
+   \   00009C   9A           SUBB    A,R2
+   \   00009D   F5..         MOV     ?V0 + 6,A
+   \   00009F   E5..         MOV     A,?V0 + 4
+   \   0000A1   85..F0       MOV     B,?V0 + 6
+   \   0000A4   A4           MUL     AB
+   \   0000A5   F5..         MOV     ?V0 + 4,A
+   \   0000A7   A8F0         MOV     R0,B
+   \   0000A9   85..F0       MOV     B,?V0 + 6
+   \   0000AC   E5..         MOV     A,?V0 + 5
+   \   0000AE   A4           MUL     AB
+   \   0000AF   28           ADD     A,R0
+   \   0000B0   F5..         MOV     ?V0 + 5,A
+   \   0000B2   E4           CLR     A
+   \   0000B3   F5..         MOV     ?V0 + 6,A
+   \   0000B5   78..         MOV     R0,#?V0 + 0
+   \   0000B7   79..         MOV     R1,#?V0 + 4
+   \   0000B9   12....       LCALL   ?L_ADD
+    137            t = (t+(1<<5)) >>6;   /* divide,incl. rounding */
+   \                     ??GUI_sin_3:
+   \   0000BC   90....       MOV     DPTR,#__Constant_20
+   \   0000BF   78..         MOV     R0,#?V0 + 0
+   \   0000C1   12....       LCALL   ?L_ADD_X
+   \   0000C4   7406         MOV     A,#0x6
+   \   0000C6   78..         MOV     R0,#?V0 + 0
+   \   0000C8   12....       LCALL   ?UL_SHR
+    138          #endif
+    139            return (IsNeg) ? 0-t : t;
+   \   0000CB   EE           MOV     A,R6
+   \   0000CC   A2E0         MOV     C,0xE0 /* A   */.0
+   \   0000CE   500B         JNC     ??GUI_sin_4
+   \   0000D0   C3           CLR     C
+   \   0000D1   E4           CLR     A
+   \   0000D2   95..         SUBB    A,?V0 + 0
+   \   0000D4   FA           MOV     R2,A
+   \   0000D5   E4           CLR     A
+   \   0000D6   95..         SUBB    A,?V0 + 1
+   \   0000D8   FB           MOV     R3,A
+   \   0000D9   8004         SJMP    ??GUI_sin_5
+   \                     ??GUI_sin_4:
+   \   0000DB   AA..         MOV     R2,?V0 + 0
+   \   0000DD   AB..         MOV     R3,?V0 + 1
+   \                     ??GUI_sin_5:
+   \   0000DF                REQUIRE ?Subroutine1
+   \   0000DF                ; // Fall through to label ?Subroutine1
+    140          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   7F08         MOV     R7,#0x8
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine30:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F5..         MOV     ?V0 + 4,A
+   \   000003   A3           INC     DPTR
+   \   000004   E0           MOVX    A,@DPTR
+   \   000005   F5..         MOV     ?V0 + 5,A
+   \   000007   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine29:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F5..         MOV     ?V0 + 0,A
+   \   000003   A3           INC     DPTR
+   \   000004   E0           MOVX    A,@DPTR
+   \   000005   F5..         MOV     ?V0 + 1,A
+   \   000007   22           RET
+    141          
+    142          /*********************************************************************
+    143          *
+    144          *       GUI_cos
+    145          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    146          int GUI_cos(int angle) {
+   \                     GUI_cos:
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    147            return GUI_sin(angle+GUI_90DEG);
+   \   000004                ; Setup parameters for call to function GUI_sin
+   \   000004   EA           MOV     A,R2
+   \   000005   2400         ADD     A,#0x0
+   \   000007   EB           MOV     A,R3
+   \   000008   3404         ADDC    A,#0x4
+   \   00000A   FB           MOV     R3,A
+   \   00000B   12....       LCALL   ??GUI_sin?relay
+   \   00000E                REQUIRE ?Subroutine2
+   \   00000E                ; // Fall through to label ?Subroutine2
+    148          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   D083         POP     DPH
+   \   000002   D082         POP     DPL
+   \   000004   02....       LJMP    ?BRET
+    149          
+    150          /*********************************************************************
+    151          *
+    152          *       atan() (internal)
+    153          *
+    154          *  Angle : 360/4096?*/
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    155          const I16 aTan[] = {
+   \                     aTan:
+   \   000000   0000         DW 0
+   \   000002   2900         DW 41
+   \   000004   5100         DW 81
+   \   000006   7900         DW 121
+   \   000008   A000         DW 160
+   \   00000A   C500         DW 197
+   \   00000C   EA00         DW 234
+   \   00000E   0D01         DW 269
+   \   000010   2E01         DW 302
+   \   000012   4E01         DW 334
+   \   000014   6C01         DW 364
+   \   000016   8901         DW 393
+   \   000018   A301         DW 419
+   \   00001A   BD01         DW 445
+   \   00001C   D501         DW 469
+   \   00001E   EB01         DW 491
+   \   000020   0002         DW 512
+    156            0,       /* atan(0/16) */
+    157            41,      /* atan(1/16) */
+    158            81,      /* atan(2/16) */
+    159            121,     /* atan(3/16) */
+    160            160,     /* atan(4/16) */
+    161            197,     /* atan(5/16) */
+    162            234,     /* atan(6/16) */
+    163            269,     /* atan(7/16) */
+    164            302,     /* atan(8/16) */
+    165            334,     /* atan(9/16) */
+    166            364,     /* atan(10/16) */
+    167            393,     /* atan(11/16) */
+    168            419,     /* atan(12/16) */
+    169            445,     /* atan(13/16) */
+    170            469,     /* atan(14/16) */
+    171            491,     /* atan(15/16) */
+    172            512      /* atan(1) = 45?= 512/1024 */
+    173          };
+    174          
+    175          /*********************************************************************
+    176          *
+    177          *       _atan0_45
+    178          *
+    179          * Calculate arctan of q, where q is any where between 0 and 1024
+    180          */
+    181          static int _atan0_45(int q) {
+    182            int r;
+    183            int i, Faktor;
+    184            /* Now angle is reduced to 0?<= <= 90?==>  0 <= <= 256*/
+    185            q >>=2;    /* make sure we do not exceed 16 bits in calculations */
+    186            i = q>>4;
+    187            Faktor = (1<<4)-(q&((1<<4)-1));
+    188            r = aTan[i]*Faktor;
+    189            if (Faktor !=(1<<4)) {
+    190              r += aTan[i+1]*((1<<4)-Faktor);
+    191            }
+    192            r = (r+(1<<3))/(1<<4);   /* divide  incl. rounding */
+    193            return r;
+    194          }
+    195          
+    196          /*********************************************************************
+    197          *
+    198          *       _atan2
+    199          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    200          static int _atan2(I32 x, I32 y) {
+   \                     _atan2:
+   \   000000   74E8         MOV     A,#-0x18
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 24
+   \   000005                ; Auto size: 0
+   \   000005   8A..         MOV     ?V0 + 4,R2
+   \   000007   8B..         MOV     ?V0 + 5,R3
+   \   000009   8C..         MOV     ?V0 + 6,R4
+   \   00000B   8D..         MOV     ?V0 + 7,R5
+   \   00000D   7418         MOV     A,#0x18
+   \   00000F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000012   78..         MOV     R0,#?V0 + 8
+   \   000014   12....       LCALL   ?L_MOV_X
+    201            U8 q =0;
+   \   000017   7C00         MOV     R4,#0x0
+    202            int angle;
+    203          /* first make sure we are in angle between 0 and 45?*/
+    204            if (x<0) {
+   \   000019   90....       MOV     DPTR,#__Constant_0
+   \   00001C   78..         MOV     R0,#?V0 + 4
+   \   00001E   12....       LCALL   ?SL_GE_X
+   \   000021   4006         JC      ??_atan2_0
+    205              q=1;
+   \   000023   0C           INC     R4
+    206              x=-x;
+   \   000024   78..         MOV     R0,#?V0 + 4
+   \   000026   12....       LCALL   ?L_NEG
+    207            }
+    208            if (y<0) {
+   \                     ??_atan2_0:
+   \   000029   90....       MOV     DPTR,#__Constant_0
+   \   00002C   78..         MOV     R0,#?V0 + 8
+   \   00002E   12....       LCALL   ?SL_GE_X
+   \   000031   4009         JC      ??_atan2_1
+    209              q |= (1<<1);
+   \   000033   EC           MOV     A,R4
+   \   000034   D2E1         SETB    0xE0 /* A   */.1
+   \   000036   FC           MOV     R4,A
+    210              y=-y;
+   \   000037   78..         MOV     R0,#?V0 + 8
+   \   000039   12....       LCALL   ?L_NEG
+    211            }
+    212            if (y>x) {
+   \                     ??_atan2_1:
+   \   00003C   78..         MOV     R0,#?V0 + 8
+   \   00003E   79..         MOV     R1,#?V0 + 4
+   \   000040   12....       LCALL   ?SL_GT
+   \   000043   501A         JNC     ??_atan2_2
+    213              int t = y;
+   \   000045   A8..         MOV     R0,?V0 + 8
+   \   000047   A9..         MOV     R1,?V0 + 9
+    214              y=x;
+   \   000049   85....       MOV     ?V0 + 8,?V0 + 4
+   \   00004C   85....       MOV     ?V0 + 9,?V0 + 5
+   \   00004F   85....       MOV     ?V0 + 10,?V0 + 6
+   \   000052   85....       MOV     ?V0 + 11,?V0 + 7
+    215              x=t;
+   \   000055   88..         MOV     ?V0 + 4,R0
+   \   000057   E9           MOV     A,R1
+   \   000058   12....       LCALL   ?Subroutine35 & 0xFFFF
+    216              q |= (1<<2);  
+   \                     ??CrossCallReturnLabel_60:
+   \   00005B   EC           MOV     A,R4
+   \   00005C   D2E2         SETB    0xE0 /* A   */.2
+   \   00005E   FC           MOV     R4,A
+    217            }
+    218            y <<=10;
+    219            y += (x/2);
+    220            y /= x;
+    221            angle = _atan0_45(y);
+   \                     ??_atan2_2:
+   \   00005F   740A         MOV     A,#0xa
+   \   000061   78..         MOV     R0,#?V0 + 8
+   \   000063   12....       LCALL   ?L_SHL
+   \   000066   85....       MOV     ?V0 + 0,?V0 + 4
+   \   000069   85....       MOV     ?V0 + 1,?V0 + 5
+   \   00006C   85....       MOV     ?V0 + 2,?V0 + 6
+   \   00006F   85....       MOV     ?V0 + 3,?V0 + 7
+   \   000072   90....       MOV     DPTR,#__Constant_2
+   \   000075   78..         MOV     R0,#?V0 + 12
+   \   000077   12....       LCALL   ?L_MOV_X
+   \   00007A   78..         MOV     R0,#?V0 + 0
+   \   00007C   79..         MOV     R1,#?V0 + 12
+   \   00007E   12....       LCALL   ?L_DIV_MOD
+   \   000081   78..         MOV     R0,#?V0 + 8
+   \   000083   79..         MOV     R1,#?V0 + 0
+   \   000085   12....       LCALL   ?L_ADD
+   \   000088   78..         MOV     R0,#?V0 + 8
+   \   00008A   79..         MOV     R1,#?V0 + 4
+   \   00008C   12....       LCALL   ?L_DIV_MOD
+   \   00008F   7402         MOV     A,#0x2
+   \   000091   78..         MOV     R0,#?V0 + 8
+   \   000093   12....       LCALL   ?SS_SHR
+   \   000096   AA..         MOV     R2,?V0 + 8
+   \   000098   AB..         MOV     R3,?V0 + 9
+   \   00009A   8A..         MOV     ?V0 + 0,R2
+   \   00009C   8B..         MOV     ?V0 + 1,R3
+   \   00009E   7404         MOV     A,#0x4
+   \   0000A0   78..         MOV     R0,#?V0 + 0
+   \   0000A2   12....       LCALL   ?SS_SHR
+   \   0000A5   A8..         MOV     R0,?V0 + 0
+   \   0000A7   A9..         MOV     R1,?V0 + 1
+   \   0000A9   EA           MOV     A,R2
+   \   0000AA   540F         ANL     A,#0xf
+   \   0000AC   FA           MOV     R2,A
+   \   0000AD   7410         MOV     A,#0x10
+   \   0000AF   C3           CLR     C
+   \   0000B0   9A           SUBB    A,R2
+   \   0000B1   F5..         MOV     ?V0 + 0,A
+   \   0000B3   95E0         SUBB    A,0xE0 /* A   */
+   \   0000B5   F5..         MOV     ?V0 + 1,A
+   \   0000B7   E8           MOV     A,R0
+   \   0000B8   FA           MOV     R2,A
+   \   0000B9   E9           MOV     A,R1
+   \   0000BA   FB           MOV     R3,A
+   \   0000BB   EA           MOV     A,R2
+   \   0000BC   C3           CLR     C
+   \   0000BD   33           RLC     A
+   \   0000BE   FA           MOV     R2,A
+   \   0000BF   EB           MOV     A,R3
+   \   0000C0   33           RLC     A
+   \   0000C1   FB           MOV     R3,A
+   \   0000C2   74..         MOV     A,#aTan & 0xff
+   \   0000C4   2A           ADD     A,R2
+   \   0000C5   F582         MOV     DPL,A
+   \   0000C7   74..         MOV     A,#(aTan >> 8) & 0xff
+   \   0000C9   3B           ADDC    A,R3
+   \   0000CA   F583         MOV     DPH,A
+   \   0000CC   12....       LCALL   ??Subroutine40_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_84:
+   \   0000CF   EA           MOV     A,R2
+   \   0000D0   85..F0       MOV     B,?V0 + 0
+   \   0000D3   A4           MUL     AB
+   \   0000D4   CA           XCH     A,R2
+   \   0000D5   ADF0         MOV     R5,B
+   \   0000D7   85..F0       MOV     B,?V0 + 1
+   \   0000DA   A4           MUL     AB
+   \   0000DB   2D           ADD     A,R5
+   \   0000DC   FD           MOV     R5,A
+   \   0000DD   85..F0       MOV     B,?V0 + 0
+   \   0000E0   EB           MOV     A,R3
+   \   0000E1   A4           MUL     AB
+   \   0000E2   2D           ADD     A,R5
+   \   0000E3   FB           MOV     R3,A
+   \   0000E4   7410         MOV     A,#0x10
+   \   0000E6   65..         XRL     A,?V0 + 0
+   \   0000E8   7002         JNZ     ??_atan2_3
+   \   0000EA   E5..         MOV     A,?V0 + 1
+   \                     ??_atan2_3:
+   \   0000EC   6030         JZ      ??_atan2_4
+   \   0000EE   E8           MOV     A,R0
+   \   0000EF   C3           CLR     C
+   \   0000F0   33           RLC     A
+   \   0000F1   F8           MOV     R0,A
+   \   0000F2   E9           MOV     A,R1
+   \   0000F3   33           RLC     A
+   \   0000F4   F9           MOV     R1,A
+   \   0000F5   74..         MOV     A,#(aTan + 2) & 0xff
+   \   0000F7   28           ADD     A,R0
+   \   0000F8   F582         MOV     DPL,A
+   \   0000FA   74..         MOV     A,#((aTan + 2) >> 8) & 0xff
+   \   0000FC   39           ADDC    A,R1
+   \   0000FD   F583         MOV     DPH,A
+   \   0000FF   12....       LCALL   ??Subroutine37_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_63:
+   \   000102   7410         MOV     A,#0x10
+   \   000104   C3           CLR     C
+   \   000105   95..         SUBB    A,?V0 + 0
+   \   000107   F5..         MOV     ?V0 + 0,A
+   \   000109   E8           MOV     A,R0
+   \   00010A   85..F0       MOV     B,?V0 + 0
+   \   00010D   A4           MUL     AB
+   \   00010E   F8           MOV     R0,A
+   \   00010F   ADF0         MOV     R5,B
+   \   000111   85..F0       MOV     B,?V0 + 0
+   \   000114   E9           MOV     A,R1
+   \   000115   A4           MUL     AB
+   \   000116   2D           ADD     A,R5
+   \   000117   F9           MOV     R1,A
+   \   000118   EA           MOV     A,R2
+   \   000119   28           ADD     A,R0
+   \   00011A   FA           MOV     R2,A
+   \   00011B   EB           MOV     A,R3
+   \   00011C   39           ADDC    A,R1
+   \   00011D   FB           MOV     R3,A
+   \                     ??_atan2_4:
+   \   00011E   EA           MOV     A,R2
+   \   00011F   2408         ADD     A,#0x8
+   \   000121   F8           MOV     R0,A
+   \   000122   EB           MOV     A,R3
+   \   000123   3400         ADDC    A,#0x0
+   \   000125   F9           MOV     R1,A
+   \   000126   7A10         MOV     R2,#0x10
+   \   000128   7B00         MOV     R3,#0x0
+   \   00012A   12....       LCALL   ?S_DIV_MOD
+   \   00012D   88..         MOV     ?V0 + 0,R0
+   \   00012F   89..         MOV     ?V0 + 1,R1
+   \   000131   AA..         MOV     R2,?V0 + 0
+   \   000133   AB..         MOV     R3,?V0 + 1
+    222            if (q&(1<<2)) { /* y/x reverse ? */
+   \   000135   EC           MOV     A,R4
+   \   000136   A2E2         MOV     C,0xE0 /* A   */.2
+   \   000138   5008         JNC     ??_atan2_5
+    223              angle = GUI_90DEG-angle;
+   \   00013A   E4           CLR     A
+   \   00013B   C3           CLR     C
+   \   00013C   9A           SUBB    A,R2
+   \   00013D   FA           MOV     R2,A
+   \   00013E   7404         MOV     A,#0x4
+   \   000140   9B           SUBB    A,R3
+   \   000141   FB           MOV     R3,A
+    224            }
+    225            if (q&1) {  /* xreverse ? */
+   \                     ??_atan2_5:
+   \   000142   EC           MOV     A,R4
+   \   000143   A2E0         MOV     C,0xE0 /* A   */.0
+   \   000145   5008         JNC     ??_atan2_6
+    226              angle = GUI_180DEG-angle;
+   \   000147   E4           CLR     A
+   \   000148   C3           CLR     C
+   \   000149   9A           SUBB    A,R2
+   \   00014A   FA           MOV     R2,A
+   \   00014B   7408         MOV     A,#0x8
+   \   00014D   9B           SUBB    A,R3
+   \   00014E   FB           MOV     R3,A
+    227            }
+    228            if (q&(1<<1)) { /* y-reverse ? */
+   \                     ??_atan2_6:
+   \   00014F   EC           MOV     A,R4
+   \   000150   A2E1         MOV     C,0xE0 /* A   */.1
+   \   000152   5008         JNC     ??_atan2_7
+    229              angle = GUI_360DEG-angle;
+   \   000154   E4           CLR     A
+   \   000155   C3           CLR     C
+   \   000156   9A           SUBB    A,R2
+   \   000157   FA           MOV     R2,A
+   \   000158   7410         MOV     A,#0x10
+   \   00015A   9B           SUBB    A,R3
+   \   00015B   FB           MOV     R3,A
+    230            }
+    231            return angle;
+   \                     ??_atan2_7:
+   \   00015C                REQUIRE ?Subroutine3
+   \   00015C                ; // Fall through to label ?Subroutine3
+    232          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   7F10         MOV     R7,#0x10
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine35:
+   \   000000   F5..         MOV     ?V0 + 5,A
+   \   000002                REQUIRE ??Subroutine36_0
+   \   000002                ; // Fall through to label ??Subroutine36_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine36_0:
+   \   000000   33           RLC     A
+   \   000001   95E0         SUBB    A,0xE0 /* A   */
+   \   000003   F5..         MOV     ?V0 + 6,A
+   \   000005   F5..         MOV     ?V0 + 7,A
+   \   000007   22           RET
+    233          
+    234          /*********************************************************************
+    235          *
+    236          *       _SetLineColor
+    237          */
+    238          static int _SetLineColor(int i) {
+    239            switch (GUI_Context.LineStyle) {
+    240            case GUI_LS_DASH:
+    241              i = (i+6)%16;
+    242              return (i<12);
+    243            case GUI_LS_DOT:
+    244              i %= 4;
+    245              return (i<2);
+    246            case GUI_LS_DASHDOT:
+    247              i %= 20;
+    248              if (i<12)
+    249                return 1;
+    250              else if ((i>=16) && (i<18))
+    251                return 1;
+    252              return 0;
+    253            case GUI_LS_DASHDOTDOT:
+    254              i %= 24;
+    255              if (i<12)
+    256                return 1;
+    257              else if ((i>=16) && (i<18))
+    258                return 1;
+    259              else if ((i>=20) && (i<22))
+    260                return 1;
+    261              else 
+    262                return 0;
+    263            }
+    264            return 0;
+    265          }
+    266          
+    267          /*********************************************************************
+    268          *
+    269          *       _atan2
+    270          */
+    271          #if 0
+    272          int _atan2(int xDiff, int yDiff) {
+    273            double atanf = atan2(xDiff, yDiff);
+    274            return (int)(atanf*(16384.0/6.2831852));
+    275          }
+    276          #endif
+    277          
+    278          /*********************************************************************
+    279          *
+    280          *       _CalcOrto
+    281          */
+    282          static void _CalcOrto(int xDiff, int yDiff, I32 r, int*px, int*py) {
+    283            I32 x,y;
+    284          /*
+    285            int Angle = _atan2(xDiff, yDiff);
+    286          */
+    287          #if 0
+    288            double Angle = atan2(xDiff, yDiff);
+    289            x = (int)(-r*cos(Angle));
+    290            y = (int)(r*sin(Angle));
+    291          #else
+    292            int Angle = _atan2(xDiff, yDiff);
+    293            Angle+= GUI_90DEG;
+    294            x = ( r*(I32)GUI_cos(Angle));
+    295            y = ( r*(I32)GUI_sin(Angle));
+    296          #endif
+    297            x = (x<0) ? -((-x+512)>>10) : ((x+512)>>10);
+    298            y = (y<0) ? -((-y+512)>>10) : ((y+512)>>10);
+    299            *px = x;
+    300            *py = y;
+    301          }
+    302          
+    303          /*********************************************************************
+    304          *
+    305          *       DrawLine, public
+    306          *
+    307          * Draw end points of the line.
+    308          * In most cases, this is a circle.
+    309          *
+    310          **********************************************************************
+    311          */
+    312          /*********************************************************************
+    313          *
+    314          *       _DrawLineEnd
+    315          */
+    316          static void _DrawLineEnd(int x0, int y0) {
+    317            switch (GUI_Context.PenShape) {
+    318            case GUI_PS_ROUND:
+    319              GL_DrawPoint(x0,y0);
+    320              break;
+    321            case GUI_PS_FLAT:
+    322              break;
+    323            }
+    324          }
+    325          
+    326          /*********************************************************************
+    327          *
+    328          *       DrawLine, public
+    329          *
+    330          **********************************************************************
+    331          */
+    332          /*********************************************************************
+    333          *
+    334          *       GL_DrawLine
+    335          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    336          void GL_DrawLine(int x0, int y0, int x1, int y1) {
+   \                     GL_DrawLine:
+   \   000000   74E8         MOV     A,#-0x18
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 24
+   \   000005                ; Auto size: 20
+   \   000005   74EC         MOV     A,#-0x14
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   7402         MOV     A,#0x2
+   \   00000C   12....       LCALL   ?XSTACK_DISP0_8
+   \   00000F   12....       LCALL   ?Subroutine26 & 0xFFFF
+   \                     ??CrossCallReturnLabel_39:
+   \   000012   85..82       MOV     DPL,?XSP + 0
+   \   000015   85..83       MOV     DPH,?XSP + 1
+   \   000018   EC           MOV     A,R4
+   \   000019   F0           MOVX    @DPTR,A
+   \   00001A   A3           INC     DPTR
+   \   00001B   ED           MOV     A,R5
+   \   00001C   F0           MOVX    @DPTR,A
+   \   00001D   742C         MOV     A,#0x2c
+   \   00001F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000022   E0           MOVX    A,@DPTR
+   \   000023   F5..         MOV     ?V0 + 14,A
+   \   000025   A3           INC     DPTR
+   \   000026   E0           MOVX    A,@DPTR
+   \   000027   F5..         MOV     ?V0 + 15,A
+   \   000029   742E         MOV     A,#0x2e
+   \   00002B   12....       LCALL   ?XSTACK_DISP0_8
+   \   00002E   E0           MOVX    A,@DPTR
+   \   00002F   FE           MOV     R6,A
+   \   000030   A3           INC     DPTR
+   \   000031   E0           MOVX    A,@DPTR
+   \   000032   FF           MOV     R7,A
+    337            if (GUI_Context.PenSize ==1) {
+   \   000033   90....       MOV     DPTR,#GUI_Context + 17
+   \   000036   E0           MOVX    A,@DPTR
+   \   000037   6401         XRL     A,#0x1
+   \   000039   7029         JNZ     ??GL_DrawLine_0
+    338              GL_DrawLine1(x0,y0,x1,y1);
+   \   00003B                ; Setup parameters for call to function GL_DrawLine1
+   \   00003B   8E..         MOV     ?V0 + 0,R6
+   \   00003D   8F..         MOV     ?V0 + 1,R7
+   \   00003F   78..         MOV     R0,#?V0 + 0
+   \   000041   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000044   78..         MOV     R0,#?V0 + 14
+   \   000046   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000049   7404         MOV     A,#0x4
+   \   00004B   12....       LCALL   ?XSTACK_DISP0_8
+   \   00004E   12....       LCALL   ?Subroutine20 & 0xFFFF
+    339            } else {
+   \                     ??CrossCallReturnLabel_27:
+   \   000051   7406         MOV     A,#0x6
+   \   000053   12....       LCALL   ?XSTACK_DISP0_8
+   \   000056   12....       LCALL   ??Subroutine40_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_85:
+   \   000059   12....       LCALL   ??GL_DrawLine1?relay
+   \   00005C   7404         MOV     A,#0x4
+   \   00005E   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000061   02....       LJMP    ??GL_DrawLine_1 & 0xFFFF
+    340              int xdiff, ydiff;
+    341              xdiff = x0-x1;
+    342              ydiff = y0-y1;
+    343              if (xdiff | ydiff) {    
+   \                     ??GL_DrawLine_0:
+   \   000064   7402         MOV     A,#0x2
+   \   000066   12....       LCALL   ?XSTACK_DISP0_8
+   \   000069   12....       LCALL   ?Subroutine13 & 0xFFFF
+   \                     ??CrossCallReturnLabel_17:
+   \   00006C   85..82       MOV     DPL,?XSP + 0
+   \   00006F   85..83       MOV     DPH,?XSP + 1
+   \   000072   E0           MOVX    A,@DPTR
+   \   000073   C3           CLR     C
+   \   000074   9E           SUBB    A,R6
+   \   000075   F8           MOV     R0,A
+   \   000076   A3           INC     DPTR
+   \   000077   E0           MOVX    A,@DPTR
+   \   000078   9F           SUBB    A,R7
+   \   000079   F9           MOV     R1,A
+   \   00007A   EA           MOV     A,R2
+   \   00007B   48           ORL     A,R0
+   \   00007C   F8           MOV     R0,A
+   \   00007D   EB           MOV     A,R3
+   \   00007E   49           ORL     A,R1
+   \   00007F   F9           MOV     R1,A
+   \   000080   E8           MOV     A,R0
+   \   000081   49           ORL     A,R1
+   \   000082   7003         JNZ     $+5
+   \   000084   02....       LJMP    ??GL_DrawLine_1 & 0xFFFF
+    344                GUI_POINT Poly[4];
+    345                int xOff, yOff;
+    346                int xOffP, yOffP, xOffM, yOffM;
+    347                _CalcOrto(x0-x1,y0-y1, (I32)(GUI_Context.PenSize-1), &xOff, &yOff);
+   \   000087   90....       MOV     DPTR,#GUI_Context + 17
+   \   00008A   E0           MOVX    A,@DPTR
+   \   00008B   24FF         ADD     A,#-0x1
+   \   00008D   F5..         MOV     ?V0 + 4,A
+   \   00008F   E4           CLR     A
+   \   000090   34FF         ADDC    A,#-0x1
+   \   000092   12....       LCALL   ?Subroutine35 & 0xFFFF
+   \                     ??CrossCallReturnLabel_61:
+   \   000095                ; Setup parameters for call to function _atan2
+   \   000095   85..82       MOV     DPL,?XSP + 0
+   \   000098   85..83       MOV     DPH,?XSP + 1
+   \   00009B   E0           MOVX    A,@DPTR
+   \   00009C   C3           CLR     C
+   \   00009D   9E           SUBB    A,R6
+   \   00009E   F5..         MOV     ?V0 + 0,A
+   \   0000A0   A3           INC     DPTR
+   \   0000A1   E0           MOVX    A,@DPTR
+   \   0000A2   9F           SUBB    A,R7
+   \   0000A3   F5..         MOV     ?V0 + 1,A
+   \   0000A5   33           RLC     A
+   \   0000A6   95E0         SUBB    A,0xE0 /* A   */
+   \   0000A8   F5..         MOV     ?V0 + 2,A
+   \   0000AA   F5..         MOV     ?V0 + 3,A
+   \   0000AC   78..         MOV     R0,#?V0 + 0
+   \   0000AE   12....       LCALL   ?PUSH_XSTACK_I_FOUR
+   \   0000B1   7406         MOV     A,#0x6
+   \   0000B3   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000B6   12....       LCALL   ?Subroutine13 & 0xFFFF
+   \                     ??CrossCallReturnLabel_18:
+   \   0000B9   33           RLC     A
+   \   0000BA   95E0         SUBB    A,0xE0 /* A   */
+   \   0000BC   FC           MOV     R4,A
+   \   0000BD   FD           MOV     R5,A
+   \   0000BE   12....       LCALL   ??_atan2?relay
+   \   0000C1   7404         MOV     A,#0x4
+   \   0000C3   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0000C6   8A..         MOV     ?V0 + 12,R2
+   \   0000C8   EA           MOV     A,R2
+   \   0000C9   2400         ADD     A,#0x0
+   \   0000CB   EB           MOV     A,R3
+   \   0000CC   3404         ADDC    A,#0x4
+   \   0000CE   F5..         MOV     ?V0 + 13,A
+   \   0000D0                ; Setup parameters for call to function GUI_cos
+   \   0000D0   FB           MOV     R3,A
+   \   0000D1   12....       LCALL   ??GUI_cos?relay
+   \   0000D4   8A..         MOV     ?V0 + 8,R2
+   \   0000D6   EB           MOV     A,R3
+   \   0000D7   F5..         MOV     ?V0 + 9,A
+   \   0000D9   33           RLC     A
+   \   0000DA   95E0         SUBB    A,0xE0 /* A   */
+   \   0000DC   F5..         MOV     ?V0 + 10,A
+   \   0000DE   F5..         MOV     ?V0 + 11,A
+   \   0000E0   85....       MOV     ?V0 + 0,?V0 + 4
+   \   0000E3   85....       MOV     ?V0 + 1,?V0 + 5
+   \   0000E6   85....       MOV     ?V0 + 2,?V0 + 6
+   \   0000E9   85....       MOV     ?V0 + 3,?V0 + 7
+   \   0000EC   78..         MOV     R0,#?V0 + 0
+   \   0000EE   79..         MOV     R1,#?V0 + 8
+   \   0000F0   12....       LCALL   ?L_MUL
+   \   0000F3                ; Setup parameters for call to function GUI_sin
+   \   0000F3   AA..         MOV     R2,?V0 + 12
+   \   0000F5   AB..         MOV     R3,?V0 + 13
+   \   0000F7   12....       LCALL   ??GUI_sin?relay
+   \   0000FA   8A..         MOV     ?V0 + 8,R2
+   \   0000FC   EB           MOV     A,R3
+   \   0000FD   F5..         MOV     ?V0 + 9,A
+   \   0000FF   33           RLC     A
+   \   000100   95E0         SUBB    A,0xE0 /* A   */
+   \   000102   F5..         MOV     ?V0 + 10,A
+   \   000104   F5..         MOV     ?V0 + 11,A
+   \   000106   78..         MOV     R0,#?V0 + 4
+   \   000108   79..         MOV     R1,#?V0 + 8
+   \   00010A   12....       LCALL   ?L_MUL
+   \   00010D   90....       MOV     DPTR,#__Constant_0
+   \   000110   78..         MOV     R0,#?V0 + 0
+   \   000112   12....       LCALL   ?SL_GE_X
+   \   000115   4027         JC      ??GL_DrawLine_2
+   \   000117   75..00       MOV     ?V0 + 8,#0x0
+   \   00011A   75..02       MOV     ?V0 + 9,#0x2
+   \   00011D   75..00       MOV     ?V0 + 10,#0x0
+   \   000120   75..00       MOV     ?V0 + 11,#0x0
+   \   000123   78..         MOV     R0,#?V0 + 8
+   \   000125   79..         MOV     R1,#?V0 + 0
+   \   000127   12....       LCALL   ?L_SUB
+   \   00012A   740A         MOV     A,#0xa
+   \   00012C   78..         MOV     R0,#?V0 + 8
+   \   00012E   12....       LCALL   ?SL_SHR
+   \   000131   78..         MOV     R0,#?V0 + 8
+   \   000133   12....       LCALL   ?L_NEG
+   \   000136   85....       MOV     ?V0 + 0,?V0 + 8
+   \   000139   85....       MOV     ?V0 + 1,?V0 + 9
+   \   00013C   800F         SJMP    ??GL_DrawLine_3
+   \                     ??GL_DrawLine_2:
+   \   00013E   90....       MOV     DPTR,#__Constant_200
+   \   000141   78..         MOV     R0,#?V0 + 0
+   \   000143   12....       LCALL   ?L_ADD_X
+   \   000146   740A         MOV     A,#0xa
+   \   000148   78..         MOV     R0,#?V0 + 0
+   \   00014A   12....       LCALL   ?SL_SHR
+   \                     ??GL_DrawLine_3:
+   \   00014D   90....       MOV     DPTR,#__Constant_0
+   \   000150   78..         MOV     R0,#?V0 + 4
+   \   000152   12....       LCALL   ?SL_GE_X
+   \   000155   4027         JC      ??GL_DrawLine_4
+   \   000157   75..00       MOV     ?V0 + 8,#0x0
+   \   00015A   75..02       MOV     ?V0 + 9,#0x2
+   \   00015D   75..00       MOV     ?V0 + 10,#0x0
+   \   000160   75..00       MOV     ?V0 + 11,#0x0
+   \   000163   78..         MOV     R0,#?V0 + 8
+   \   000165   79..         MOV     R1,#?V0 + 4
+   \   000167   12....       LCALL   ?L_SUB
+   \   00016A   740A         MOV     A,#0xa
+   \   00016C   78..         MOV     R0,#?V0 + 8
+   \   00016E   12....       LCALL   ?SL_SHR
+   \   000171   78..         MOV     R0,#?V0 + 8
+   \   000173   12....       LCALL   ?L_NEG
+   \   000176   85....       MOV     ?V0 + 4,?V0 + 8
+   \   000179   85....       MOV     ?V0 + 5,?V0 + 9
+   \   00017C   800F         SJMP    ??GL_DrawLine_5
+   \                     ??GL_DrawLine_4:
+   \   00017E   90....       MOV     DPTR,#__Constant_200
+   \   000181   78..         MOV     R0,#?V0 + 4
+   \   000183   12....       LCALL   ?L_ADD_X
+   \   000186   740A         MOV     A,#0xa
+   \   000188   78..         MOV     R0,#?V0 + 4
+   \   00018A   12....       LCALL   ?SL_SHR
+   \                     ??GL_DrawLine_5:
+   \   00018D   AC..         MOV     R4,?V0 + 0
+   \   00018F   AD..         MOV     R5,?V0 + 1
+   \   000191   85....       MOV     ?V0 + 0,?V0 + 4
+   \   000194   85....       MOV     ?V0 + 1,?V0 + 5
+    348            /* Do rounding for offsets */
+    349                if (xOff >0) {
+   \   000197   C3           CLR     C
+   \   000198   EC           MOV     A,R4
+   \   000199   9401         SUBB    A,#0x1
+   \   00019B   ED           MOV     A,R5
+   \   00019C   12....       LCALL   ??Subroutine39_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_77:
+   \   00019F   EC           MOV     A,R4
+   \   0001A0   4017         JC      ??GL_DrawLine_6
+    350                  xOffP = (xOff+1)/2;
+   \   0001A2   2401         ADD     A,#0x1
+   \   0001A4   F8           MOV     R0,A
+   \   0001A5   ED           MOV     A,R5
+   \   0001A6   3400         ADDC    A,#0x0
+   \   0001A8   F9           MOV     R1,A
+   \   0001A9   7A02         MOV     R2,#0x2
+   \   0001AB   7B00         MOV     R3,#0x0
+   \   0001AD   12....       LCALL   ?S_DIV_MOD
+   \   0001B0   88..         MOV     ?V0 + 2,R0
+   \   0001B2   89..         MOV     ?V0 + 3,R1
+    351                  xOffM =  xOff   /2;
+   \   0001B4   EC           MOV     A,R4
+   \   0001B5   F8           MOV     R0,A
+   \   0001B6   ED           MOV     A,R5
+   \   0001B7   8015         SJMP    ??GL_DrawLine_7
+    352                } else {
+    353                  xOffP =   xOff/2;
+   \                     ??GL_DrawLine_6:
+   \   0001B9   F8           MOV     R0,A
+   \   0001BA   ED           MOV     A,R5
+   \   0001BB   F9           MOV     R1,A
+   \   0001BC   7A02         MOV     R2,#0x2
+   \   0001BE   7B00         MOV     R3,#0x0
+   \   0001C0   12....       LCALL   ?S_DIV_MOD
+   \   0001C3   88..         MOV     ?V0 + 2,R0
+   \   0001C5   89..         MOV     ?V0 + 3,R1
+    354                  xOffM =  (xOff-1)   /2;
+   \   0001C7   EC           MOV     A,R4
+   \   0001C8   24FF         ADD     A,#-0x1
+   \   0001CA   F8           MOV     R0,A
+   \   0001CB   ED           MOV     A,R5
+   \   0001CC   34FF         ADDC    A,#-0x1
+   \                     ??GL_DrawLine_7:
+   \   0001CE   F9           MOV     R1,A
+   \   0001CF   7A02         MOV     R2,#0x2
+   \   0001D1   7B00         MOV     R3,#0x0
+   \   0001D3   12....       LCALL   ?S_DIV_MOD
+   \   0001D6   88..         MOV     ?V0 + 4,R0
+   \   0001D8   89..         MOV     ?V0 + 5,R1
+    355                }
+    356                if (yOff >0) {
+   \   0001DA   C3           CLR     C
+   \   0001DB   E5..         MOV     A,?V0 + 0
+   \   0001DD   9401         SUBB    A,#0x1
+   \   0001DF   E5..         MOV     A,?V0 + 1
+   \   0001E1   12....       LCALL   ??Subroutine39_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_78:
+   \   0001E4   401F         JC      ??GL_DrawLine_8
+    357                  yOffP = (yOff+1)/2;
+   \   0001E6   E5..         MOV     A,?V0 + 0
+   \   0001E8   2401         ADD     A,#0x1
+   \   0001EA   F8           MOV     R0,A
+   \   0001EB   E5..         MOV     A,?V0 + 1
+   \   0001ED   3400         ADDC    A,#0x0
+   \   0001EF   F9           MOV     R1,A
+   \   0001F0   7A02         MOV     R2,#0x2
+   \   0001F2   7B00         MOV     R3,#0x0
+   \   0001F4   12....       LCALL   ?S_DIV_MOD
+   \   0001F7   88..         MOV     ?V0 + 6,R0
+   \   0001F9   89..         MOV     ?V0 + 7,R1
+   \   0001FB   AC..         MOV     R4,?V0 + 6
+   \   0001FD   AD..         MOV     R5,?V0 + 7
+    358                  yOffM =  yOff   /2;
+   \   0001FF   A8..         MOV     R0,?V0 + 0
+   \   000201   A9..         MOV     R1,?V0 + 1
+   \   000203   801D         SJMP    ??GL_DrawLine_9
+    359                } else {
+    360                  yOffP =   yOff/2;
+   \                     ??GL_DrawLine_8:
+   \   000205   A8..         MOV     R0,?V0 + 0
+   \   000207   A9..         MOV     R1,?V0 + 1
+   \   000209   7A02         MOV     R2,#0x2
+   \   00020B   7B00         MOV     R3,#0x0
+   \   00020D   12....       LCALL   ?S_DIV_MOD
+   \   000210   88..         MOV     ?V0 + 6,R0
+   \   000212   89..         MOV     ?V0 + 7,R1
+   \   000214   AC..         MOV     R4,?V0 + 6
+   \   000216   AD..         MOV     R5,?V0 + 7
+    361                  yOffM =  (yOff-1)   /2;
+   \   000218   E5..         MOV     A,?V0 + 0
+   \   00021A   24FF         ADD     A,#-0x1
+   \   00021C   F8           MOV     R0,A
+   \   00021D   E5..         MOV     A,?V0 + 1
+   \   00021F   34FF         ADDC    A,#-0x1
+   \   000221   F9           MOV     R1,A
+   \                     ??GL_DrawLine_9:
+   \   000222   7A02         MOV     R2,#0x2
+   \   000224   7B00         MOV     R3,#0x0
+   \   000226   12....       LCALL   ?S_DIV_MOD
+    362                }
+    363                Poly[0].x = x0+xOffP;
+   \   000229   7402         MOV     A,#0x2
+   \   00022B   12....       LCALL   ?XSTACK_DISP0_8
+   \   00022E   E0           MOVX    A,@DPTR
+   \   00022F   25..         ADD     A,?V0 + 2
+   \   000231   FA           MOV     R2,A
+   \   000232   A3           INC     DPTR
+   \   000233   E0           MOVX    A,@DPTR
+   \   000234   35..         ADDC    A,?V0 + 3
+   \   000236   FB           MOV     R3,A
+   \   000237   7404         MOV     A,#0x4
+   \   000239   12....       LCALL   ?XSTACK_DISP0_8
+   \   00023C   12....       LCALL   ?Subroutine24 & 0xFFFF
+    364                Poly[0].y = y0+yOffP;
+   \                     ??CrossCallReturnLabel_37:
+   \   00023F   2C           ADD     A,R4
+   \   000240   FA           MOV     R2,A
+   \   000241   A3           INC     DPTR
+   \   000242   E0           MOVX    A,@DPTR
+   \   000243   3D           ADDC    A,R5
+   \   000244   FB           MOV     R3,A
+   \   000245   7406         MOV     A,#0x6
+   \   000247   12....       LCALL   ?XSTACK_DISP0_8
+   \   00024A   12....       LCALL   ?Subroutine26 & 0xFFFF
+    365                Poly[1].x = x0-xOffM; 
+   \                     ??CrossCallReturnLabel_40:
+   \   00024D   7402         MOV     A,#0x2
+   \   00024F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000252   E0           MOVX    A,@DPTR
+   \   000253   C3           CLR     C
+   \   000254   95..         SUBB    A,?V0 + 4
+   \   000256   FA           MOV     R2,A
+   \   000257   A3           INC     DPTR
+   \   000258   E0           MOVX    A,@DPTR
+   \   000259   95..         SUBB    A,?V0 + 5
+   \   00025B   FB           MOV     R3,A
+   \   00025C   7408         MOV     A,#0x8
+   \   00025E   12....       LCALL   ?XSTACK_DISP0_8
+   \   000261   12....       LCALL   ?Subroutine24 & 0xFFFF
+    366                Poly[1].y = y0-yOffM; 
+   \                     ??CrossCallReturnLabel_38:
+   \   000264   C3           CLR     C
+   \   000265   98           SUBB    A,R0
+   \   000266   FA           MOV     R2,A
+   \   000267   A3           INC     DPTR
+   \   000268   E0           MOVX    A,@DPTR
+   \   000269   99           SUBB    A,R1
+   \   00026A   FB           MOV     R3,A
+   \   00026B   740A         MOV     A,#0xa
+   \   00026D   12....       LCALL   ?XSTACK_DISP0_8
+   \   000270   12....       LCALL   ?Subroutine26 & 0xFFFF
+    367                Poly[2].x = x1-xOffM;
+   \                     ??CrossCallReturnLabel_41:
+   \   000273   E5..         MOV     A,?V0 + 14
+   \   000275   C3           CLR     C
+   \   000276   95..         SUBB    A,?V0 + 4
+   \   000278   FA           MOV     R2,A
+   \   000279   E5..         MOV     A,?V0 + 15
+   \   00027B   95..         SUBB    A,?V0 + 5
+   \   00027D   FB           MOV     R3,A
+   \   00027E   740C         MOV     A,#0xc
+   \   000280   12....       LCALL   ?XSTACK_DISP0_8
+   \   000283   12....       LCALL   ?Subroutine26 & 0xFFFF
+    368                Poly[2].y = y1-yOffM;
+   \                     ??CrossCallReturnLabel_42:
+   \   000286   EE           MOV     A,R6
+   \   000287   C3           CLR     C
+   \   000288   98           SUBB    A,R0
+   \   000289   F8           MOV     R0,A
+   \   00028A   EF           MOV     A,R7
+   \   00028B   99           SUBB    A,R1
+   \   00028C   F9           MOV     R1,A
+   \   00028D   740E         MOV     A,#0xe
+   \   00028F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000292   12....       LCALL   ??Subroutine38_0 & 0xFFFF
+    369                Poly[3].x = x1+xOffP; 
+   \                     ??CrossCallReturnLabel_70:
+   \   000295   E5..         MOV     A,?V0 + 14
+   \   000297   25..         ADD     A,?V0 + 2
+   \   000299   F8           MOV     R0,A
+   \   00029A   E5..         MOV     A,?V0 + 15
+   \   00029C   35..         ADDC    A,?V0 + 3
+   \   00029E   F9           MOV     R1,A
+   \   00029F   7410         MOV     A,#0x10
+   \   0002A1   12....       LCALL   ?XSTACK_DISP0_8
+   \   0002A4   12....       LCALL   ??Subroutine38_0 & 0xFFFF
+    370                Poly[3].y = y1+yOffP;
+   \                     ??CrossCallReturnLabel_71:
+   \   0002A7   EE           MOV     A,R6
+   \   0002A8   2C           ADD     A,R4
+   \   0002A9   F8           MOV     R0,A
+   \   0002AA   EF           MOV     A,R7
+   \   0002AB   3D           ADDC    A,R5
+   \   0002AC   F9           MOV     R1,A
+   \   0002AD   7412         MOV     A,#0x12
+   \   0002AF   12....       LCALL   ?XSTACK_DISP0_8
+   \   0002B2   12....       LCALL   ??Subroutine38_0 & 0xFFFF
+    371                GL_FillPolygon(&Poly[0], 4, 0,0);
+   \                     ??CrossCallReturnLabel_72:
+   \   0002B5                ; Setup parameters for call to function GL_FillPolygon
+   \   0002B5   E4           CLR     A
+   \   0002B6   F5..         MOV     ?V0 + 0,A
+   \   0002B8   F5..         MOV     ?V0 + 1,A
+   \   0002BA   78..         MOV     R0,#?V0 + 0
+   \   0002BC   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0002BF   78..         MOV     R0,#?V0 + 0
+   \   0002C1   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0002C4   7C04         MOV     R4,#0x4
+   \   0002C6   7D00         MOV     R5,#0x0
+   \   0002C8   7408         MOV     A,#0x8
+   \   0002CA   12....       LCALL   ?XSTACK_DISP0_8
+   \   0002CD   AA82         MOV     R2,DPL
+   \   0002CF   AB83         MOV     R3,DPH
+   \   0002D1   12....       LCALL   ??GL_FillPolygon?relay
+   \   0002D4   7404         MOV     A,#0x4
+   \   0002D6   12....       LCALL   ?DEALLOC_XSTACK8
+    372                _DrawLineEnd(x0,y0);
+   \   0002D9   90....       MOV     DPTR,#GUI_Context + 18
+   \   0002DC   E0           MOVX    A,@DPTR
+   \   0002DD   7011         JNZ     ??CrossCallReturnLabel_25
+   \   0002DF                ; Setup parameters for call to function GL_DrawPoint
+   \   0002DF   85..82       MOV     DPL,?XSP + 0
+   \   0002E2   85..83       MOV     DPH,?XSP + 1
+   \   0002E5   12....       LCALL   ?Subroutine20 & 0xFFFF
+   \                     ??CrossCallReturnLabel_28:
+   \   0002E8   7402         MOV     A,#0x2
+   \   0002EA   12....       LCALL   ?XSTACK_DISP0_8
+   \   0002ED   12....       LCALL   ?Subroutine18 & 0xFFFF
+    373                _DrawLineEnd(x1,y1);
+   \                     ??CrossCallReturnLabel_25:
+   \   0002F0   90....       MOV     DPTR,#GUI_Context + 18
+   \   0002F3   E0           MOVX    A,@DPTR
+   \   0002F4   700B         JNZ     ??GL_DrawLine_1
+   \   0002F6                ; Setup parameters for call to function GL_DrawPoint
+   \   0002F6   EE           MOV     A,R6
+   \   0002F7   FC           MOV     R4,A
+   \   0002F8   EF           MOV     A,R7
+   \   0002F9   FD           MOV     R5,A
+   \   0002FA   AA..         MOV     R2,?V0 + 14
+   \   0002FC   AB..         MOV     R3,?V0 + 15
+   \   0002FE   12....       LCALL   ??GL_DrawPoint?relay
+    374              }
+    375            }
+    376          }
+   \                     ??GL_DrawLine_1:
+   \   000301   7414         MOV     A,#0x14
+   \   000303   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000306   02....       LJMP    ?Subroutine3 & 0xFFFF
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine24:
+   \   000000   EA           MOV     A,R2
+   \   000001   F0           MOVX    @DPTR,A
+   \   000002   A3           INC     DPTR
+   \   000003   EB           MOV     A,R3
+   \   000004   F0           MOVX    @DPTR,A
+   \   000005   85..82       MOV     DPL,?XSP + 0
+   \   000008   85..83       MOV     DPH,?XSP + 1
+   \   00000B   E0           MOVX    A,@DPTR
+   \   00000C   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine13:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   C3           CLR     C
+   \   000002   95..         SUBB    A,?V0 + 14
+   \   000004   FA           MOV     R2,A
+   \   000005   A3           INC     DPTR
+   \   000006   E0           MOVX    A,@DPTR
+   \   000007   95..         SUBB    A,?V0 + 15
+   \   000009   FB           MOV     R3,A
+   \   00000A   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine39_0:
+   \   000000   9400         SUBB    A,#0x0
+   \   000002   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   000004   65D0         XRL     A,PSW
+   \   000006   33           RLC     A
+   \   000007   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine20:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   FC           MOV     R4,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   FD           MOV     R5,A
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine40_0:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   FA           MOV     R2,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   FB           MOV     R3,A
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine26:
+   \   000000   EA           MOV     A,R2
+   \   000001   F0           MOVX    @DPTR,A
+   \   000002   A3           INC     DPTR
+   \   000003   EB           MOV     A,R3
+   \   000004   F0           MOVX    @DPTR,A
+   \   000005   22           RET
+    377          
+    378          /*********************************************************************
+    379          *
+    380          *       GUI_DrawLine
+    381          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    382          void GUI_DrawLine(int x0, int y0, int x1, int y1) {
+   \                     GUI_DrawLine:
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+   \   000005   740C         MOV     A,#0xc
+   \   000007   12....       LCALL   ?XSTACK_DISP0_8
+   \   00000A   12....       LCALL   ?Subroutine17 & 0xFFFF
+   \                     ??CrossCallReturnLabel_23:
+   \   00000D   12....       LCALL   ?XSTACK_DISP0_8
+   \   000010   12....       LCALL   ?Subroutine10 & 0xFFFF
+    383            halIntState_t state;
+    384            GUI_LOCK(state);
+    385            #if (GUI_WINSUPPORT)
+    386              WM_ADDORG(x0,y0);
+    387              WM_ADDORG(x1,y1);
+    388              WM_ITERATE_START(NULL); {
+    389            #endif
+    390            GL_DrawLine (x0, y0, x1, y1);
+   \                     ??CrossCallReturnLabel_11:
+   \   000013   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000016   78..         MOV     R0,#?V0 + 0
+   \   000018   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00001B   12....       LCALL   ??GL_DrawLine?relay
+   \   00001E   02....       LJMP    ?Subroutine4 & 0xFFFF
+   \   000021                REQUIRE _A_IEN0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine17:
+   \   000000   12....       LCALL   ?Subroutine29 & 0xFFFF
+   \                     ??CrossCallReturnLabel_49:
+   \   000003   740E         MOV     A,#0xe
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine10:
+   \   000000   12....       LCALL   ?Subroutine31 & 0xFFFF
+   \                     ??CrossCallReturnLabel_53:
+   \   000003   FE           MOV     R6,A
+   \   000004   C2AF         CLR     0xa8.7
+   \   000006                ; Setup parameters for call to function GL_DrawLine
+   \   000006                ; Setup parameters for call to function GL_DrawPolygon
+   \   000006   78..         MOV     R0,#?V0 + 2
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine4:
+   \   000000   7404         MOV     A,#0x4
+   \   000002   12....       LCALL   ?DEALLOC_XSTACK8
+    391            #if (GUI_WINSUPPORT)
+    392              } WM_ITERATE_END();
+    393            #endif
+    394            GUI_UNLOCK(state);
+   \   000005                REQUIRE ??Subroutine41_0
+   \   000005                ; // Fall through to label ??Subroutine41_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine41_0:
+   \   000000   EE           MOV     A,R6
+   \   000001   A2E7         MOV     C,0xE0 /* A   */.7
+   \   000003   92AF         MOV     0xa8.7,C
+    395          }
+   \   000005                REQUIRE ??Subroutine42_0
+   \   000005                ; // Fall through to label ??Subroutine42_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine42_0:
+   \   000000   7F04         MOV     R7,#0x4
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine31:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F5..         MOV     ?V0 + 2,A
+   \   000003   A3           INC     DPTR
+   \   000004   E0           MOVX    A,@DPTR
+   \   000005   F5..         MOV     ?V0 + 3,A
+   \   000007   E5A8         MOV     A,0xa8
+   \   000009   22           RET
+    396          
+    397          /*********************************************************************
+    398          *
+    399          *       GL_DrawPolygon
+    400          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    401          void GL_DrawPolygon(const GUI_POINT*pPoints, int NumPoints, int x0, int y0) {
+   \                     GL_DrawPolygon:
+   \   000000   74F0         MOV     A,#-0x10
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+   \   000009   8C..         MOV     ?V0 + 6,R4
+   \   00000B   8D..         MOV     ?V0 + 7,R5
+   \   00000D   7410         MOV     A,#0x10
+   \   00000F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000012   12....       LCALL   ?Subroutine30 & 0xFFFF
+   \                     ??CrossCallReturnLabel_51:
+   \   000015   7412         MOV     A,#0x12
+   \   000017   12....       LCALL   ?XSTACK_DISP0_8
+   \   00001A   E0           MOVX    A,@DPTR
+   \   00001B   F5..         MOV     ?V0 + 2,A
+   \   00001D   A3           INC     DPTR
+   \   00001E   E0           MOVX    A,@DPTR
+   \   00001F   F5..         MOV     ?V0 + 3,A
+    402            const GUI_POINT* pPoint = pPoints;
+   \   000021   8E..         MOV     ?V0 + 0,R6
+   \   000023   8F..         MOV     ?V0 + 1,R7
+    403            GL_MoveTo(pPoint->x+x0, pPoint->y+y0);
+   \   000025                ; Setup parameters for call to function GL_MoveTo
+   \   000025   8A82         MOV     DPL,R2
+   \   000027   8B83         MOV     DPH,R3
+   \   000029   12....       LCALL   ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_6:
+   \   00002C   8A82         MOV     DPL,R2
+   \   00002E   8B83         MOV     DPH,R3
+   \   000030   12....       LCALL   ?Subroutine22 & 0xFFFF
+   \                     ??CrossCallReturnLabel_33:
+   \   000033   FB           MOV     R3,A
+   \   000034   12....       LCALL   ??GL_MoveTo?relay
+   \   000037   801D         SJMP    ??CrossCallReturnLabel_13
+    404            while (--NumPoints >0) {
+    405              pPoint++;
+   \                     ??GL_DrawPolygon_0:
+   \   000039   E5..         MOV     A,?V0 + 0
+   \   00003B   2404         ADD     A,#0x4
+   \   00003D   F5..         MOV     ?V0 + 0,A
+   \   00003F   E5..         MOV     A,?V0 + 1
+   \   000041   3400         ADDC    A,#0x0
+   \   000043   F5..         MOV     ?V0 + 1,A
+    406              GL_DrawLineTo(pPoint->x+x0, pPoint->y+y0);
+   \   000045                ; Setup parameters for call to function GL_DrawLineTo
+   \   000045   85..82       MOV     DPL,?V0 + 0
+   \   000048   F583         MOV     DPH,A
+   \   00004A   12....       LCALL   ?Subroutine8 & 0xFFFF
+    407            }
+   \                     ??CrossCallReturnLabel_7:
+   \   00004D   85..82       MOV     DPL,?V0 + 0
+   \   000050   85..83       MOV     DPH,?V0 + 1
+   \   000053   12....       LCALL   ?Subroutine11 & 0xFFFF
+   \                     ??CrossCallReturnLabel_13:
+   \   000056   E5..         MOV     A,?V0 + 6
+   \   000058   24FF         ADD     A,#-0x1
+   \   00005A   F5..         MOV     ?V0 + 6,A
+   \   00005C   E5..         MOV     A,?V0 + 7
+   \   00005E   34FF         ADDC    A,#-0x1
+   \   000060   F5..         MOV     ?V0 + 7,A
+   \   000062   C3           CLR     C
+   \   000063   E5..         MOV     A,?V0 + 6
+   \   000065   9401         SUBB    A,#0x1
+   \   000067   E5..         MOV     A,?V0 + 7
+   \   000069   12....       LCALL   ??Subroutine39_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_79:
+   \   00006C   50CB         JNC     ??GL_DrawPolygon_0
+    408            /* Now draw closing line unless it has already been closed */
+    409            if ( (pPoint->x != pPoints->x)
+    410               ||(pPoint->y != pPoints->y))
+   \   00006E   85..82       MOV     DPL,?V0 + 0
+   \   000071   85..83       MOV     DPH,?V0 + 1
+   \   000074   12....       LCALL   ?Subroutine15 & 0xFFFF
+   \                     ??CrossCallReturnLabel_21:
+   \   000077   E0           MOVX    A,@DPTR
+   \   000078   68           XRL     A,R0
+   \   000079   7003         JNZ     ??GL_DrawPolygon_1
+   \   00007B   A3           INC     DPTR
+   \   00007C   E0           MOVX    A,@DPTR
+   \   00007D   69           XRL     A,R1
+   \                     ??GL_DrawPolygon_1:
+   \   00007E   7016         JNZ     ??GL_DrawPolygon_2
+   \   000080   85..82       MOV     DPL,?V0 + 0
+   \   000083   85..83       MOV     DPH,?V0 + 1
+   \   000086   A3           INC     DPTR
+   \   000087   A3           INC     DPTR
+   \   000088   12....       LCALL   ?Subroutine15 & 0xFFFF
+   \                     ??CrossCallReturnLabel_22:
+   \   00008B   A3           INC     DPTR
+   \   00008C   A3           INC     DPTR
+   \   00008D   E0           MOVX    A,@DPTR
+   \   00008E   68           XRL     A,R0
+   \   00008F   7003         JNZ     ??GL_DrawPolygon_3
+   \   000091   A3           INC     DPTR
+   \   000092   E0           MOVX    A,@DPTR
+   \   000093   69           XRL     A,R1
+   \                     ??GL_DrawPolygon_3:
+   \   000094   600E         JZ      ??CrossCallReturnLabel_14
+    411            {
+    412              GL_DrawLineTo(pPoints->x+x0, pPoints->y+y0);
+   \                     ??GL_DrawPolygon_2:
+   \   000096                ; Setup parameters for call to function GL_DrawLineTo
+   \   000096   8E82         MOV     DPL,R6
+   \   000098   8F83         MOV     DPH,R7
+   \   00009A   12....       LCALL   ?Subroutine8 & 0xFFFF
+    413            }
+   \                     ??CrossCallReturnLabel_8:
+   \   00009D   8E82         MOV     DPL,R6
+   \   00009F   8F83         MOV     DPH,R7
+   \   0000A1   12....       LCALL   ?Subroutine11 & 0xFFFF
+    414          }
+   \                     ??CrossCallReturnLabel_14:
+   \   0000A4   02....       LJMP    ?Subroutine1 & 0xFFFF
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine15:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F8           MOV     R0,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   F9           MOV     R1,A
+   \   000005   8E82         MOV     DPL,R6
+   \   000007   8F83         MOV     DPH,R7
+   \   000009   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine11:
+   \   000000   12....       LCALL   ?Subroutine32 & 0xFFFF
+   \                     ??CrossCallReturnLabel_55:
+   \   000003   FB           MOV     R3,A
+   \   000004   12....       LCALL   ??GL_DrawLineTo?relay
+   \   000007   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine8:
+   \   000000   A3           INC     DPTR
+   \   000001   A3           INC     DPTR
+   \   000002   E0           MOVX    A,@DPTR
+   \   000003   25..         ADD     A,?V0 + 2
+   \   000005   FC           MOV     R4,A
+   \   000006   A3           INC     DPTR
+   \   000007   E0           MOVX    A,@DPTR
+   \   000008   35..         ADDC    A,?V0 + 3
+   \   00000A   FD           MOV     R5,A
+   \   00000B   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine22:
+   \   000000   12....       LCALL   ?Subroutine32 & 0xFFFF
+   \                     ??CrossCallReturnLabel_56:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine32:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   25..         ADD     A,?V0 + 4
+   \   000003   FA           MOV     R2,A
+   \   000004   A3           INC     DPTR
+   \   000005   E0           MOVX    A,@DPTR
+   \   000006   35..         ADDC    A,?V0 + 5
+   \   000008   22           RET
+    415          
+    416          /*********************************************************************
+    417          *
+    418          *       GUI_DrawPolygon
+    419          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    420          void GUI_DrawPolygon(const GUI_POINT* pPoints, int NumPoints, int x0, int y0) {
+   \                     GUI_DrawPolygon:
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+   \   000005   740C         MOV     A,#0xc
+   \   000007   12....       LCALL   ?XSTACK_DISP0_8
+   \   00000A   12....       LCALL   ?Subroutine17 & 0xFFFF
+   \                     ??CrossCallReturnLabel_24:
+   \   00000D   12....       LCALL   ?XSTACK_DISP0_8
+   \   000010   12....       LCALL   ?Subroutine10 & 0xFFFF
+    421            halIntState_t state;
+    422            GUI_LOCK(state);
+    423            #if (GUI_WINSUPPORT)
+    424              WM_ADDORG(x0,y0);
+    425              WM_ITERATE_START(NULL); {
+    426            #endif
+    427            GL_DrawPolygon (pPoints, NumPoints, x0, y0);
+   \                     ??CrossCallReturnLabel_12:
+   \   000013   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000016   78..         MOV     R0,#?V0 + 0
+   \   000018   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00001B   12....       LCALL   ??GL_DrawPolygon?relay
+   \   00001E   02....       LJMP    ?Subroutine4 & 0xFFFF
+   \   000021                REQUIRE _A_IEN0
+    428            #if (GUI_WINSUPPORT)
+    429              } WM_ITERATE_END();
+    430            #endif
+    431            GUI_UNLOCK(state);
+    432          }
+    433          
+    434          /*********************************************************************
+    435          *
+    436          *       Draw Line to group
+    437          *
+    438          **********************************************************************
+    439          */
+    440          /*********************************************************************
+    441          *
+    442          *       GL_DrawLineRelNM
+    443          */
+    444          static void GL_DrawLineRelNM(int dx, int dy) {
+    445            GL_DrawLine (GUI_Context.DrawPosX,    GUI_Context.DrawPosY, 
+    446                         GUI_Context.DrawPosX+dx, GUI_Context.DrawPosY+dy); 
+    447          }
+    448          
+    449          /*********************************************************************
+    450          *
+    451          *       GUI_DrawLineRel
+    452          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    453          void GUI_DrawLineRel(int dx, int dy) {
+   \                     GUI_DrawLineRel:
+   \   000000   74F2         MOV     A,#-0xe
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 14
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+   \   000009   8C..         MOV     ?V0 + 0,R4
+   \   00000B   8D..         MOV     ?V0 + 1,R5
+    454            halIntState_t state;
+    455            GUI_LOCK(state);
+   \   00000D   E5A8         MOV     A,0xa8
+   \   00000F   F5..         MOV     ?V0 + 2,A
+   \   000011   C2AF         CLR     0xa8.7
+    456            #if (GUI_WINSUPPORT)
+    457              WM_ITERATE_START(NULL); {
+    458            #endif
+    459            GL_DrawLineRelNM(dx,dy);
+   \   000013   90....       MOV     DPTR,#GUI_Context + 31
+   \   000016   12....       LCALL   ??Subroutine40_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_86:
+   \   000019   A3           INC     DPTR
+   \   00001A   12....       LCALL   ?Subroutine20 & 0xFFFF
+   \                     ??CrossCallReturnLabel_29:
+   \   00001D                ; Setup parameters for call to function GL_DrawLine
+   \   00001D   EC           MOV     A,R4
+   \   00001E   25..         ADD     A,?V0 + 0
+   \   000020   F5..         MOV     ?V0 + 4,A
+   \   000022   ED           MOV     A,R5
+   \   000023   35..         ADDC    A,?V0 + 1
+   \   000025   F5..         MOV     ?V0 + 5,A
+   \   000027   78..         MOV     R0,#?V0 + 4
+   \   000029   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00002C   EA           MOV     A,R2
+   \   00002D   2E           ADD     A,R6
+   \   00002E   F5..         MOV     ?V0 + 4,A
+   \   000030   EB           MOV     A,R3
+   \   000031   3F           ADDC    A,R7
+   \   000032   F5..         MOV     ?V0 + 5,A
+   \   000034   78..         MOV     R0,#?V0 + 4
+   \   000036   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000039   12....       LCALL   ??GL_DrawLine?relay
+   \   00003C   7404         MOV     A,#0x4
+   \   00003E   12....       LCALL   ?DEALLOC_XSTACK8
+    460            #if (GUI_WINSUPPORT)
+    461              } WM_ITERATE_END();
+    462            #endif
+    463            GUI_MoveRel(dx,dy);
+   \   000041                ; Setup parameters for call to function GUI_MoveRel
+   \   000041   AC..         MOV     R4,?V0 + 0
+   \   000043   AD..         MOV     R5,?V0 + 1
+   \   000045   EE           MOV     A,R6
+   \   000046   FA           MOV     R2,A
+   \   000047   EF           MOV     A,R7
+   \   000048   FB           MOV     R3,A
+   \   000049   12....       LCALL   ??GUI_MoveRel?relay
+    464            GUI_UNLOCK(state);
+   \   00004C   E5..         MOV     A,?V0 + 2
+   \   00004E   A2E7         MOV     C,0xE0 /* A   */.7
+   \   000050   92AF         MOV     0xa8.7,C
+    465          }
+   \   000052   7F06         MOV     R7,#0x6
+   \   000054   02....       LJMP    ?BANKED_LEAVE_XDATA
+   \   000057                REQUIRE _A_IEN0
+    466          
+    467          /*********************************************************************
+    468          *
+    469          *       GL_DrawLineTo
+    470          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    471          void GL_DrawLineTo(int x, int y) {
+   \                     GL_DrawLineTo:
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+   \   000005   8A..         MOV     ?V0 + 0,R2
+   \   000007   8B..         MOV     ?V0 + 1,R3
+   \   000009   8C..         MOV     ?V0 + 2,R4
+   \   00000B   8D..         MOV     ?V0 + 3,R5
+    472            GL_DrawLine (GUI_Context.DrawPosX, GUI_Context.DrawPosY, x, y); 
+   \   00000D                ; Setup parameters for call to function GL_DrawLine
+   \   00000D   78..         MOV     R0,#?V0 + 2
+   \   00000F   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000012   78..         MOV     R0,#?V0 + 0
+   \   000014   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000017   12....       LCALL   ?Subroutine7 & 0xFFFF
+   \                     ??CrossCallReturnLabel_4:
+   \   00001A   12....       LCALL   ?DEALLOC_XSTACK8
+    473            GUI_Context.DrawPosX = x;
+   \   00001D   90....       MOV     DPTR,#GUI_Context + 31
+   \   000020   E5..         MOV     A,?V0 + 0
+   \   000022   F0           MOVX    @DPTR,A
+   \   000023   A3           INC     DPTR
+   \   000024   E5..         MOV     A,?V0 + 1
+   \   000026   F0           MOVX    @DPTR,A
+    474            GUI_Context.DrawPosY = y;
+   \   000027   A3           INC     DPTR
+   \   000028   E5..         MOV     A,?V0 + 2
+   \   00002A   F0           MOVX    @DPTR,A
+   \   00002B   A3           INC     DPTR
+   \   00002C   E5..         MOV     A,?V0 + 3
+   \   00002E   F0           MOVX    @DPTR,A
+    475          }
+   \   00002F   80..         SJMP    ??Subroutine42_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine7:
+   \   000000   90....       MOV     DPTR,#GUI_Context + 33
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   FC           MOV     R4,A
+   \   000005   A3           INC     DPTR
+   \   000006   E0           MOVX    A,@DPTR
+   \   000007   FD           MOV     R5,A
+   \   000008   90....       MOV     DPTR,#GUI_Context + 31
+   \   00000B   E0           MOVX    A,@DPTR
+   \   00000C   FA           MOV     R2,A
+   \   00000D   A3           INC     DPTR
+   \   00000E   E0           MOVX    A,@DPTR
+   \   00000F   FB           MOV     R3,A
+   \   000010   12....       LCALL   ??GL_DrawLine?relay
+   \   000013   7404         MOV     A,#0x4
+   \   000015   22           RET
+    476          
+    477          /*********************************************************************
+    478          *
+    479          *       GL_DrawLineToNM
+    480          */
+    481          static void GL_DrawLineToNM(int x, int y) {
+    482            GL_DrawLine (GUI_Context.DrawPosX, GUI_Context.DrawPosY, x, y); 
+    483          }
+    484          
+    485          /*********************************************************************
+    486          *
+    487          *       GUI_DrawLineTo
+    488          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    489          void GUI_DrawLineTo(int x, int y) {
+   \                     GUI_DrawLineTo:
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+   \   000005   8A..         MOV     ?V0 + 0,R2
+   \   000007   8B..         MOV     ?V0 + 1,R3
+   \   000009   8C..         MOV     ?V0 + 2,R4
+   \   00000B   8D..         MOV     ?V0 + 3,R5
+    490            halIntState_t state;
+    491            GUI_LOCK(state);
+   \   00000D   E5A8         MOV     A,0xa8
+   \   00000F   FE           MOV     R6,A
+   \   000010   C2AF         CLR     0xa8.7
+    492            #if (GUI_WINSUPPORT)
+    493              WM_ADDORG(x,y);
+    494              WM_ITERATE_START(NULL); {
+    495            #endif
+    496            GL_DrawLineToNM(x,y);
+   \   000012                ; Setup parameters for call to function GL_DrawLine
+   \   000012   78..         MOV     R0,#?V0 + 2
+   \   000014   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000017   78..         MOV     R0,#?V0 + 0
+   \   000019   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00001C   12....       LCALL   ?Subroutine7 & 0xFFFF
+   \                     ??CrossCallReturnLabel_5:
+   \   00001F   12....       LCALL   ?DEALLOC_XSTACK8
+    497            #if (GUI_WINSUPPORT)
+    498              } WM_ITERATE_END();
+    499            #endif
+    500            GL_MoveTo(x,y);
+   \   000022                ; Setup parameters for call to function GL_MoveTo
+   \   000022   AC..         MOV     R4,?V0 + 2
+   \   000024   AD..         MOV     R5,?V0 + 3
+   \   000026   AA..         MOV     R2,?V0 + 0
+   \   000028   AB..         MOV     R3,?V0 + 1
+   \   00002A   12....       LCALL   ??GL_MoveTo?relay
+    501            GUI_UNLOCK(state);
+   \   00002D   80..         SJMP    ??Subroutine41_0
+   \   00002F                REQUIRE _A_IEN0
+    502          }
+    503          
+    504          /*********************************************************************
+    505          *
+    506          *       GUI_MoveRel
+    507          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    508          void GUI_MoveRel(int dx, int dy) { /*tbd: GL_LinePos. */
+   \                     GUI_MoveRel:
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    509            halIntState_t state;
+    510            GUI_LOCK(state);
+   \   000004   E5A8         MOV     A,0xa8
+   \   000006   F8           MOV     R0,A
+   \   000007   C2AF         CLR     0xa8.7
+    511            GUI_Context.DrawPosX += dx;
+   \   000009   90....       MOV     DPTR,#GUI_Context + 31
+   \   00000C   E0           MOVX    A,@DPTR
+   \   00000D   2A           ADD     A,R2
+   \   00000E   F0           MOVX    @DPTR,A
+   \   00000F   A3           INC     DPTR
+   \   000010   E0           MOVX    A,@DPTR
+   \   000011   3B           ADDC    A,R3
+   \   000012   F0           MOVX    @DPTR,A
+    512            GUI_Context.DrawPosY += dy;
+   \   000013   A3           INC     DPTR
+   \   000014   E0           MOVX    A,@DPTR
+   \   000015   2C           ADD     A,R4
+   \   000016   F0           MOVX    @DPTR,A
+   \   000017   A3           INC     DPTR
+   \   000018   E0           MOVX    A,@DPTR
+   \   000019   3D           ADDC    A,R5
+   \   00001A   F0           MOVX    @DPTR,A
+    513            GUI_UNLOCK(state);
+   \   00001B   E8           MOV     A,R0
+   \   00001C   A2E7         MOV     C,0xE0 /* A   */.7
+   \   00001E   92AF         MOV     0xa8.7,C
+    514          }
+   \   000020   02....       LJMP    ?Subroutine2 & 0xFFFF
+   \   000023                REQUIRE _A_IEN0
+    515          
+    516          /*********************************************************************
+    517          *
+    518          *       GL_MoveTo
+    519          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    520          void GL_MoveTo(int x, int y) {
+   \                     GL_MoveTo:
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    521            GUI_Context.DrawPosX = x;
+   \   000004   90....       MOV     DPTR,#GUI_Context + 31
+   \   000007   12....       LCALL   ?Subroutine26 & 0xFFFF
+    522            GUI_Context.DrawPosY = y;
+   \                     ??CrossCallReturnLabel_43:
+   \   00000A   A3           INC     DPTR
+   \   00000B   EC           MOV     A,R4
+   \   00000C   F0           MOVX    @DPTR,A
+   \   00000D   A3           INC     DPTR
+   \   00000E   ED           MOV     A,R5
+   \   00000F   F0           MOVX    @DPTR,A
+    523          }
+   \   000010   02....       LJMP    ?Subroutine2 & 0xFFFF
+    524          
+    525          /*********************************************************************
+    526          *
+    527          *       GUI_MoveTo
+    528          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    529          void GUI_MoveTo(int x, int y) {
+   \                     GUI_MoveTo:
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+    530            halIntState_t state;
+    531            GUI_LOCK(state);
+   \   000005   E5A8         MOV     A,0xa8
+   \   000007   FE           MOV     R6,A
+   \   000008   C2AF         CLR     0xa8.7
+    532            #if (GUI_WINSUPPORT)
+    533              WM_ADDORG(x,y);
+    534            #endif
+    535            GL_MoveTo(x,y);
+   \   00000A                ; Setup parameters for call to function GL_MoveTo
+   \   00000A   12....       LCALL   ??GL_MoveTo?relay
+    536            GUI_UNLOCK(state);
+   \   00000D                REQUIRE ?Subroutine0
+   \   00000D                REQUIRE _A_IEN0
+   \   00000D                ; // Fall through to label ?Subroutine0
+    537          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   EE           MOV     A,R6
+   \   000001   A2E7         MOV     C,0xE0 /* A   */.7
+   \   000003   92AF         MOV     0xa8.7,C
+   \   000005                REQUIRE ??Subroutine43_0
+   \   000005                ; // Fall through to label ??Subroutine43_0
+    538          
+    539          /*********************************************************************
+    540          *
+    541          *       Rectangle filling / inverting
+    542          *
+    543          **********************************************************************
+    544          */
+    545          /*********************************************************************
+    546          *
+    547          *       _DrawRect
+    548          */
+    549          static void _DrawRect(int x0, int y0, int x1, int y1) {
+    550            LCD_DrawHLine(x0, y0, x1);
+    551            LCD_DrawHLine(x0, y1, x1);
+    552            LCD_DrawVLine(x0, y0 + 1, y1 - 1);
+    553            LCD_DrawVLine(x1, y0 + 1, y1 - 1);
+    554          }
+    555          
+    556          /*********************************************************************
+    557          *
+    558          *       GUI_DrawRect
+    559          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    560          void GUI_DrawRect(int x0, int y0, int x1, int y1) {
+   \                     GUI_DrawRect:
+   \   000000   74F0         MOV     A,#-0x10
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+   \   000009   8C..         MOV     ?V0 + 0,R4
+   \   00000B   8D..         MOV     ?V0 + 1,R5
+   \   00000D   7410         MOV     A,#0x10
+   \   00000F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000012   E0           MOVX    A,@DPTR
+   \   000013   F5..         MOV     ?V0 + 6,A
+   \   000015   A3           INC     DPTR
+   \   000016   E0           MOVX    A,@DPTR
+   \   000017   F5..         MOV     ?V0 + 7,A
+   \   000019   7412         MOV     A,#0x12
+   \   00001B   12....       LCALL   ?XSTACK_DISP0_8
+   \   00001E   12....       LCALL   ?Subroutine31 & 0xFFFF
+    561            #if (GUI_WINSUPPORT)
+    562              int Off;
+    563              GUI_RECT r;
+    564            #endif
+    565            halIntState_t state;
+    566            GUI_LOCK(state);
+   \                     ??CrossCallReturnLabel_54:
+   \   000021   F5..         MOV     ?V0 + 4,A
+   \   000023   C2AF         CLR     0xa8.7
+    567            #if (GUI_WINSUPPORT)
+    568              Off = GUI_Context.PenSize -1;
+    569              WM_ADDORG(x0,y0);
+    570              WM_ADDORG(x1,y1);
+    571              r.x0 = x0 - Off;
+    572              r.x1 = x1 + Off;
+    573              r.y0 = y0 - Off;
+    574              r.y1 = y1 + Off;
+    575              WM_ITERATE_START(&r); {
+    576            #endif
+    577            _DrawRect(x0, y0, x1, y1);
+   \   000025                ; Setup parameters for call to function LCD_DrawHLine
+   \   000025   78..         MOV     R0,#?V0 + 6
+   \   000027   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00002A   12....       LCALL   ??LCD_DrawHLine?relay
+   \   00002D   7402         MOV     A,#0x2
+   \   00002F   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000032                ; Setup parameters for call to function LCD_DrawHLine
+   \   000032   78..         MOV     R0,#?V0 + 6
+   \   000034   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000037   AC..         MOV     R4,?V0 + 2
+   \   000039   AD..         MOV     R5,?V0 + 3
+   \   00003B   EE           MOV     A,R6
+   \   00003C   FA           MOV     R2,A
+   \   00003D   EF           MOV     A,R7
+   \   00003E   FB           MOV     R3,A
+   \   00003F   12....       LCALL   ??LCD_DrawHLine?relay
+   \   000042   7402         MOV     A,#0x2
+   \   000044   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000047   E5..         MOV     A,?V0 + 0
+   \   000049   2401         ADD     A,#0x1
+   \   00004B   F5..         MOV     ?V0 + 0,A
+   \   00004D   E5..         MOV     A,?V0 + 1
+   \   00004F   3400         ADDC    A,#0x0
+   \   000051   F5..         MOV     ?V0 + 1,A
+   \   000053   E5..         MOV     A,?V0 + 2
+   \   000055   24FF         ADD     A,#-0x1
+   \   000057   F5..         MOV     ?V0 + 2,A
+   \   000059   E5..         MOV     A,?V0 + 3
+   \   00005B   34FF         ADDC    A,#-0x1
+   \   00005D   F5..         MOV     ?V0 + 3,A
+   \   00005F                ; Setup parameters for call to function LCD_DrawVLine
+   \   00005F   78..         MOV     R0,#?V0 + 2
+   \   000061   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000064   AC..         MOV     R4,?V0 + 0
+   \   000066   AD..         MOV     R5,?V0 + 1
+   \   000068   EE           MOV     A,R6
+   \   000069   FA           MOV     R2,A
+   \   00006A   EF           MOV     A,R7
+   \   00006B   FB           MOV     R3,A
+   \   00006C   12....       LCALL   ??LCD_DrawVLine?relay
+   \   00006F   7402         MOV     A,#0x2
+   \   000071   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000074                ; Setup parameters for call to function LCD_DrawVLine
+   \   000074   78..         MOV     R0,#?V0 + 2
+   \   000076   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000079   AC..         MOV     R4,?V0 + 0
+   \   00007B   AD..         MOV     R5,?V0 + 1
+   \   00007D   AA..         MOV     R2,?V0 + 6
+   \   00007F   AB..         MOV     R3,?V0 + 7
+   \   000081   12....       LCALL   ??LCD_DrawVLine?relay
+   \   000084   7402         MOV     A,#0x2
+   \   000086   12....       LCALL   ?DEALLOC_XSTACK8
+    578            #if (GUI_WINSUPPORT)
+    579              } WM_ITERATE_END();
+    580            #endif
+    581            GUI_UNLOCK(state);
+   \   000089   E5..         MOV     A,?V0 + 4
+   \   00008B   A2E7         MOV     C,0xE0 /* A   */.7
+   \   00008D   92AF         MOV     0xa8.7,C
+    582          }
+   \   00008F   02....       LJMP    ?Subroutine1 & 0xFFFF
+   \   000092                REQUIRE _A_IEN0
+    583          
+    584          /*********************************************************************
+    585          *
+    586          *       DrawLine, internal, 1 pixel
+    587          *
+    588          **********************************************************************
+    589          */
+    590          /*********************************************************************
+    591          *
+    592          *       GL_DrawLine1
+    593          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine16:
+   \   000000   85..82       MOV     DPL,?XSP + 0
+   \   000003   85..83       MOV     DPH,?XSP + 1
+   \   000006                REQUIRE ??Subroutine37_0
+   \   000006                ; // Fall through to label ??Subroutine37_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine25:
+   \   000000   85..82       MOV     DPL,?XSP + 0
+   \   000003   85..83       MOV     DPH,?XSP + 1
+   \   000006                REQUIRE ??Subroutine38_0
+   \   000006                ; // Fall through to label ??Subroutine38_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine27:
+   \   000000   8A..         MOV     ?V0 + 2,R2
+   \   000002   8B..         MOV     ?V0 + 3,R3
+   \   000004   A8..         MOV     R0,?V0 + 2
+   \   000006   A9..         MOV     R1,?V0 + 3
+   \   000008   C3           CLR     C
+   \   000009   E8           MOV     A,R0
+   \   00000A   940C         SUBB    A,#0xc
+   \   00000C   E9           MOV     A,R1
+   \   00000D                REQUIRE ??Subroutine39_0
+   \   00000D                ; // Fall through to label ??Subroutine39_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine19:
+   \   000000   A8..         MOV     R0,?V0 + 4
+   \   000002   A9..         MOV     R1,?V0 + 5
+   \   000004   85..82       MOV     DPL,?XSP + 0
+   \   000007   85..83       MOV     DPH,?XSP + 1
+   \   00000A                REQUIRE ??Subroutine40_0
+   \   00000A                ; // Fall through to label ??Subroutine40_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    594          void GL_DrawLine1(int x0, int y0, int x1, int y1) {
+   \                     GL_DrawLine1:
+   \   000000   74ED         MOV     A,#-0x13
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 19
+   \   000005                ; Auto size: 8
+   \   000005   74F8         MOV     A,#-0x8
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   7406         MOV     A,#0x6
+   \   00000C   12....       LCALL   ?XSTACK_DISP0_8
+   \   00000F   12....       LCALL   ?Subroutine26 & 0xFFFF
+   \                     ??CrossCallReturnLabel_44:
+   \   000012   7404         MOV     A,#0x4
+   \   000014   12....       LCALL   ?XSTACK_DISP0_8
+   \   000017   EC           MOV     A,R4
+   \   000018   F0           MOVX    @DPTR,A
+   \   000019   A3           INC     DPTR
+   \   00001A   ED           MOV     A,R5
+   \   00001B   F0           MOVX    @DPTR,A
+    595            int xdiff = x1-x0;
+   \   00001C   741B         MOV     A,#0x1b
+   \   00001E   12....       LCALL   ?XSTACK_DISP0_8
+   \   000021   C082         PUSH    DPL
+   \   000023   C083         PUSH    DPH
+   \   000025   7406         MOV     A,#0x6
+   \   000027   12....       LCALL   ?XSTACK_DISP0_8
+   \   00002A   12....       LCALL   ??Subroutine37_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_64:
+   \   00002D   D083         POP     DPH
+   \   00002F   D082         POP     DPL
+   \   000031   12....       LCALL   ?Subroutine21 & 0xFFFF
+   \                     ??CrossCallReturnLabel_31:
+   \   000034   12....       LCALL   ?Subroutine25 & 0xFFFF
+    596            int ydiff = y1-y0;
+   \                     ??CrossCallReturnLabel_75:
+   \   000037   741D         MOV     A,#0x1d
+   \   000039   12....       LCALL   ?XSTACK_DISP0_8
+   \   00003C   C082         PUSH    DPL
+   \   00003E   C083         PUSH    DPH
+   \   000040   7404         MOV     A,#0x4
+   \   000042   12....       LCALL   ?XSTACK_DISP0_8
+   \   000045   12....       LCALL   ??Subroutine37_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_65:
+   \   000048   D083         POP     DPH
+   \   00004A   D082         POP     DPL
+   \   00004C   12....       LCALL   ?Subroutine21 & 0xFFFF
+   \                     ??CrossCallReturnLabel_32:
+   \   00004F   7402         MOV     A,#0x2
+   \   000051   12....       LCALL   ?XSTACK_DISP0_8
+   \   000054   12....       LCALL   ??Subroutine38_0 & 0xFFFF
+    597            int xdiffby2;
+    598            int i;
+    599            char Swapped =0;
+   \                     ??CrossCallReturnLabel_73:
+   \   000057   75..00       MOV     ?V0 + 10,#0x0
+    600          /* check if no line */
+    601            if (!(xdiff|ydiff)) {
+   \   00005A   12....       LCALL   ?Subroutine16 & 0xFFFF
+   \                     ??CrossCallReturnLabel_67:
+   \   00005D   7402         MOV     A,#0x2
+   \   00005F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000062   E0           MOVX    A,@DPTR
+   \   000063   48           ORL     A,R0
+   \   000064   F8           MOV     R0,A
+   \   000065   A3           INC     DPTR
+   \   000066   E0           MOVX    A,@DPTR
+   \   000067   49           ORL     A,R1
+   \   000068   F9           MOV     R1,A
+   \   000069   E8           MOV     A,R0
+   \   00006A   49           ORL     A,R1
+   \   00006B   701A         JNZ     ??GL_DrawLine1_0
+    602              GL_DrawPoint(x0,y0);
+   \   00006D                ; Setup parameters for call to function GL_DrawPoint
+   \   00006D   7404         MOV     A,#0x4
+   \   00006F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000072   12....       LCALL   ?Subroutine20 & 0xFFFF
+   \                     ??CrossCallReturnLabel_30:
+   \   000075   7406         MOV     A,#0x6
+   \   000077   12....       LCALL   ?XSTACK_DISP0_8
+   \   00007A   12....       LCALL   ?Subroutine18 & 0xFFFF
+    603              return;
+   \                     ??CrossCallReturnLabel_26:
+   \   00007D   7408         MOV     A,#0x8
+   \   00007F   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000082   7F0B         MOV     R7,#0xb
+   \   000084   02....       LJMP    ?BANKED_LEAVE_XDATA
+    604            }
+    605          #if 0
+    606          /* check if horizontal line */
+    607            if (!xdiff) {
+    608              GL_DrawVLine(x0,y0,y1);
+    609              return;
+    610            }
+    611          /* check if vertical line */
+    612            if (!ydiff) {
+    613              GL_DrawHLine(y0,x0,x1);
+    614              return;
+    615            }
+    616          #endif
+    617          /* check if we swap x and y for calculation */
+    618            if (Abs(xdiff) < Abs(ydiff)) {
+   \                     ??GL_DrawLine1_0:
+   \   000087   12....       LCALL   ?Subroutine9 & 0xFFFF
+   \                     ??CrossCallReturnLabel_9:
+   \   00008A   500C         JNC     ??GL_DrawLine1_1
+   \   00008C   F8           MOV     R0,A
+   \   00008D   A3           INC     DPTR
+   \   00008E   E0           MOVX    A,@DPTR
+   \   00008F   F9           MOV     R1,A
+   \   000090   C3           CLR     C
+   \   000091   E4           CLR     A
+   \   000092   98           SUBB    A,R0
+   \   000093   FA           MOV     R2,A
+   \   000094   E4           CLR     A
+   \   000095   99           SUBB    A,R1
+   \   000096   8003         SJMP    ??GL_DrawLine1_2
+   \                     ??GL_DrawLine1_1:
+   \   000098   FA           MOV     R2,A
+   \   000099   A3           INC     DPTR
+   \   00009A   E0           MOVX    A,@DPTR
+   \                     ??GL_DrawLine1_2:
+   \   00009B   FB           MOV     R3,A
+   \   00009C   7402         MOV     A,#0x2
+   \   00009E   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000A1   12....       LCALL   ?Subroutine23 & 0xFFFF
+   \                     ??CrossCallReturnLabel_35:
+   \   0000A4   7402         MOV     A,#0x2
+   \   0000A6   500E         JNC     ??GL_DrawLine1_3
+   \   0000A8   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000AB   12....       LCALL   ??Subroutine37_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_66:
+   \   0000AE   C3           CLR     C
+   \   0000AF   E4           CLR     A
+   \   0000B0   98           SUBB    A,R0
+   \   0000B1   F8           MOV     R0,A
+   \   0000B2   E4           CLR     A
+   \   0000B3   99           SUBB    A,R1
+   \   0000B4   8007         SJMP    ??GL_DrawLine1_4
+   \                     ??GL_DrawLine1_3:
+   \   0000B6   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000B9   E0           MOVX    A,@DPTR
+   \   0000BA   F8           MOV     R0,A
+   \   0000BB   A3           INC     DPTR
+   \   0000BC   E0           MOVX    A,@DPTR
+   \                     ??GL_DrawLine1_4:
+   \   0000BD   F9           MOV     R1,A
+   \   0000BE   C3           CLR     C
+   \   0000BF   EA           MOV     A,R2
+   \   0000C0   98           SUBB    A,R0
+   \   0000C1   EB           MOV     A,R3
+   \   0000C2   99           SUBB    A,R1
+   \   0000C3   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   0000C5   65D0         XRL     A,PSW
+   \   0000C7   33           RLC     A
+   \   0000C8   5043         JNC     ??GL_DrawLine1_5
+    619              _SwapInt(&xdiff,&ydiff);
+   \   0000CA                ; Setup parameters for call to function _SwapInt
+   \   0000CA   7402         MOV     A,#0x2
+   \   0000CC   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000CF   AC82         MOV     R4,DPL
+   \   0000D1   AD83         MOV     R5,DPH
+   \   0000D3   85..82       MOV     DPL,?XSP + 0
+   \   0000D6   85..83       MOV     DPH,?XSP + 1
+   \   0000D9   AA82         MOV     R2,DPL
+   \   0000DB   AB83         MOV     R3,DPH
+   \   0000DD   12....       LCALL   ??_SwapInt?relay
+    620              _SwapInt(&x0,&y0);
+   \   0000E0                ; Setup parameters for call to function _SwapInt
+   \   0000E0   7404         MOV     A,#0x4
+   \   0000E2   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000E5   AC82         MOV     R4,DPL
+   \   0000E7   AD83         MOV     R5,DPH
+   \   0000E9   7406         MOV     A,#0x6
+   \   0000EB   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000EE   AA82         MOV     R2,DPL
+   \   0000F0   AB83         MOV     R3,DPH
+   \   0000F2   12....       LCALL   ??_SwapInt?relay
+    621              _SwapInt(&x1,&y1);
+   \   0000F5                ; Setup parameters for call to function _SwapInt
+   \   0000F5   741D         MOV     A,#0x1d
+   \   0000F7   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000FA   AC82         MOV     R4,DPL
+   \   0000FC   AD83         MOV     R5,DPH
+   \   0000FE   741B         MOV     A,#0x1b
+   \   000100   12....       LCALL   ?XSTACK_DISP0_8
+   \   000103   AA82         MOV     R2,DPL
+   \   000105   AB83         MOV     R3,DPH
+   \   000107   12....       LCALL   ??_SwapInt?relay
+    622              Swapped =1;
+   \   00010A   75..01       MOV     ?V0 + 10,#0x1
+    623            }
+    624          /* make sure line direction is positive */
+    625            if (xdiff!=Abs(xdiff)) {
+   \                     ??GL_DrawLine1_5:
+   \   00010D   12....       LCALL   ?Subroutine9 & 0xFFFF
+   \                     ??CrossCallReturnLabel_10:
+   \   000110   F8           MOV     R0,A
+   \   000111   A3           INC     DPTR
+   \   000112   E0           MOVX    A,@DPTR
+   \   000113   5007         JNC     ??GL_DrawLine1_6
+   \   000115   F9           MOV     R1,A
+   \   000116   C3           CLR     C
+   \   000117   E4           CLR     A
+   \   000118   98           SUBB    A,R0
+   \   000119   F8           MOV     R0,A
+   \   00011A   E4           CLR     A
+   \   00011B   99           SUBB    A,R1
+   \                     ??GL_DrawLine1_6:
+   \   00011C   F9           MOV     R1,A
+   \   00011D   85..82       MOV     DPL,?XSP + 0
+   \   000120   85..83       MOV     DPH,?XSP + 1
+   \   000123   E0           MOVX    A,@DPTR
+   \   000124   68           XRL     A,R0
+   \   000125   7003         JNZ     ??GL_DrawLine1_7
+   \   000127   A3           INC     DPTR
+   \   000128   E0           MOVX    A,@DPTR
+   \   000129   69           XRL     A,R1
+   \                     ??GL_DrawLine1_7:
+   \   00012A   6046         JZ      ??GL_DrawLine1_8
+    626              xdiff = -xdiff;
+   \   00012C   85..82       MOV     DPL,?XSP + 0
+   \   00012F   85..83       MOV     DPH,?XSP + 1
+   \   000132   12....       LCALL   ?Subroutine12 & 0xFFFF
+   \                     ??CrossCallReturnLabel_15:
+   \   000135   12....       LCALL   ?Subroutine25 & 0xFFFF
+    627              ydiff = -ydiff;
+   \                     ??CrossCallReturnLabel_76:
+   \   000138   7402         MOV     A,#0x2
+   \   00013A   12....       LCALL   ?XSTACK_DISP0_8
+   \   00013D   12....       LCALL   ?Subroutine12 & 0xFFFF
+   \                     ??CrossCallReturnLabel_16:
+   \   000140   7402         MOV     A,#0x2
+   \   000142   12....       LCALL   ?XSTACK_DISP0_8
+   \   000145   12....       LCALL   ??Subroutine38_0 & 0xFFFF
+    628              _SwapInt(&x0,&x1);
+   \                     ??CrossCallReturnLabel_74:
+   \   000148                ; Setup parameters for call to function _SwapInt
+   \   000148   741B         MOV     A,#0x1b
+   \   00014A   12....       LCALL   ?XSTACK_DISP0_8
+   \   00014D   AC82         MOV     R4,DPL
+   \   00014F   AD83         MOV     R5,DPH
+   \   000151   7406         MOV     A,#0x6
+   \   000153   12....       LCALL   ?XSTACK_DISP0_8
+   \   000156   AA82         MOV     R2,DPL
+   \   000158   AB83         MOV     R3,DPH
+   \   00015A   12....       LCALL   ??_SwapInt?relay
+    629              _SwapInt(&y0,&y1);
+   \   00015D                ; Setup parameters for call to function _SwapInt
+   \   00015D   741D         MOV     A,#0x1d
+   \   00015F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000162   AC82         MOV     R4,DPL
+   \   000164   AD83         MOV     R5,DPH
+   \   000166   7404         MOV     A,#0x4
+   \   000168   12....       LCALL   ?XSTACK_DISP0_8
+   \   00016B   AA82         MOV     R2,DPL
+   \   00016D   AB83         MOV     R3,DPH
+   \   00016F   12....       LCALL   ??_SwapInt?relay
+    630            }
+    631            xdiffby2 = xdiff/2;
+   \                     ??GL_DrawLine1_8:
+   \   000172   12....       LCALL   ?Subroutine16 & 0xFFFF
+   \                     ??CrossCallReturnLabel_68:
+   \   000175   7A02         MOV     R2,#0x2
+   \   000177   7B00         MOV     R3,#0x0
+   \   000179   12....       LCALL   ?S_DIV_MOD
+   \   00017C   88..         MOV     ?V0 + 8,R0
+   \   00017E   89..         MOV     ?V0 + 9,R1
+    632            if (ydiff<0)
+   \   000180   7402         MOV     A,#0x2
+   \   000182   12....       LCALL   ?XSTACK_DISP0_8
+   \   000185   12....       LCALL   ?Subroutine23 & 0xFFFF
+   \                     ??CrossCallReturnLabel_36:
+   \   000188   500D         JNC     ??GL_DrawLine1_9
+    633              xdiffby2 = -xdiffby2;
+   \   00018A   C3           CLR     C
+   \   00018B   E4           CLR     A
+   \   00018C   95..         SUBB    A,?V0 + 8
+   \   00018E   F8           MOV     R0,A
+   \   00018F   E4           CLR     A
+   \   000190   95..         SUBB    A,?V0 + 9
+   \   000192   F9           MOV     R1,A
+   \   000193   88..         MOV     ?V0 + 8,R0
+   \   000195   89..         MOV     ?V0 + 9,R1
+    634          /* Draw pixel by pixel solid*/
+    635            if (GUI_Context.LineStyle == GUI_LS_SOLID) {
+   \                     ??GL_DrawLine1_9:
+   \   000197   90....       MOV     DPTR,#GUI_Context + 19
+   \   00019A   E0           MOVX    A,@DPTR
+   \   00019B   7E00         MOV     R6,#0x0
+   \   00019D   7F00         MOV     R7,#0x0
+   \   00019F   6003         JZ      $+5
+   \   0001A1   02....       LJMP    ??GL_DrawLine1_10 & 0xFFFF
+    636              for (i=0; i<=xdiff; i++) {
+   \   0001A4   8017         SJMP    ??GL_DrawLine1_11
+    637                I32 l = ((I32)ydiff)*i+xdiffby2;
+    638                int y = (ABS(l)<32767) ? (y0 + ((int)l)/xdiff) : (y0 + l/xdiff);
+    639                if (!Swapped)
+    640                  LCD_HL_DrawPixel(x0+i, y);
+    641                else
+    642                  LCD_HL_DrawPixel(y, x0+i);
+   \                     ??GL_DrawLine1_12:
+   \   0001A6                ; Setup parameters for call to function LCD_DrawPixel
+   \   0001A6   7406         MOV     A,#0x6
+   \   0001A8   12....       LCALL   ?XSTACK_DISP0_8
+   \   0001AB   E0           MOVX    A,@DPTR
+   \   0001AC   2E           ADD     A,R6
+   \   0001AD   FC           MOV     R4,A
+   \   0001AE   A3           INC     DPTR
+   \   0001AF   E0           MOVX    A,@DPTR
+   \   0001B0   3F           ADDC    A,R7
+   \   0001B1   FD           MOV     R5,A
+   \                     ??GL_DrawLine1_13:
+   \   0001B2   12....       LCALL   ??LCD_DrawPixel?relay
+   \   0001B5   EE           MOV     A,R6
+   \   0001B6   2401         ADD     A,#0x1
+   \   0001B8   0E           INC     R6
+   \   0001B9   EF           MOV     A,R7
+   \   0001BA   3400         ADDC    A,#0x0
+   \   0001BC   FF           MOV     R7,A
+   \                     ??GL_DrawLine1_11:
+   \   0001BD   12....       LCALL   ?Subroutine14 & 0xFFFF
+   \                     ??CrossCallReturnLabel_19:
+   \   0001C0   5003         JNC     $+5
+   \   0001C2   02....       LJMP    ??CrossCallReturnLabel_26 & 0xFFFF
+   \   0001C5   7402         MOV     A,#0x2
+   \   0001C7   12....       LCALL   ?XSTACK_DISP0_8
+   \   0001CA   12....       LCALL   ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_0:
+   \   0001CD   12....       LCALL   ?L_MUL
+   \   0001D0   12....       LCALL   ?Subroutine28 & 0xFFFF
+   \                     ??CrossCallReturnLabel_45:
+   \   0001D3   12....       LCALL   ?L_ADD
+   \   0001D6   90....       MOV     DPTR,#__Constant_0
+   \   0001D9   78..         MOV     R0,#?V0 + 4
+   \   0001DB   12....       LCALL   ?SL_GE_X
+   \   0001DE   85....       MOV     ?V0 + 0,?V0 + 4
+   \   0001E1   85....       MOV     ?V0 + 1,?V0 + 5
+   \   0001E4   85....       MOV     ?V0 + 2,?V0 + 6
+   \   0001E7   85....       MOV     ?V0 + 3,?V0 + 7
+   \   0001EA   4005         JC      ??GL_DrawLine1_14
+   \   0001EC   78..         MOV     R0,#?V0 + 0
+   \   0001EE   12....       LCALL   ?L_NEG
+   \                     ??GL_DrawLine1_14:
+   \   0001F1   90....       MOV     DPTR,#__Constant_7fff
+   \   0001F4   78..         MOV     R0,#?V0 + 0
+   \   0001F6   12....       LCALL   ?SL_GE_X
+   \   0001F9   7404         MOV     A,#0x4
+   \   0001FB   401F         JC      ??GL_DrawLine1_15
+   \   0001FD   12....       LCALL   ?XSTACK_DISP0_8
+   \   000200   C082         PUSH    DPL
+   \   000202   C083         PUSH    DPH
+   \   000204   12....       LCALL   ?Subroutine19 & 0xFFFF
+   \                     ??CrossCallReturnLabel_87:
+   \   000207   12....       LCALL   ?S_DIV_MOD
+   \   00020A   88..         MOV     ?V0 + 0,R0
+   \   00020C   89..         MOV     ?V0 + 1,R1
+   \   00020E   D083         POP     DPH
+   \   000210   D082         POP     DPL
+   \   000212   E0           MOVX    A,@DPTR
+   \   000213   25..         ADD     A,?V0 + 0
+   \   000215   FA           MOV     R2,A
+   \   000216   A3           INC     DPTR
+   \   000217   E0           MOVX    A,@DPTR
+   \   000218   35..         ADDC    A,?V0 + 1
+   \   00021A   8014         SJMP    ??CrossCallReturnLabel_34
+   \                     ??GL_DrawLine1_15:
+   \   00021C   12....       LCALL   ?XSTACK_DISP0_8
+   \   00021F   C082         PUSH    DPL
+   \   000221   C083         PUSH    DPH
+   \   000223   12....       LCALL   ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_2:
+   \   000226   12....       LCALL   ?L_DIV_MOD
+   \   000229   D083         POP     DPH
+   \   00022B   D082         POP     DPL
+   \   00022D   12....       LCALL   ?Subroutine22 & 0xFFFF
+   \                     ??CrossCallReturnLabel_34:
+   \   000230   FB           MOV     R3,A
+   \   000231   E5..         MOV     A,?V0 + 10
+   \   000233   A2E0         MOV     C,0xE0 /* A   */.0
+   \   000235   5003         JNC     $+5
+   \   000237   02....       LJMP    ??GL_DrawLine1_12 & 0xFFFF
+   \   00023A                ; Setup parameters for call to function LCD_DrawPixel
+   \   00023A   EA           MOV     A,R2
+   \   00023B   FC           MOV     R4,A
+   \   00023C   EB           MOV     A,R3
+   \   00023D   FD           MOV     R5,A
+   \   00023E   7406         MOV     A,#0x6
+   \   000240   12....       LCALL   ?XSTACK_DISP0_8
+   \   000243   E0           MOVX    A,@DPTR
+   \   000244   2E           ADD     A,R6
+   \   000245   FA           MOV     R2,A
+   \   000246   A3           INC     DPTR
+   \   000247   E0           MOVX    A,@DPTR
+   \   000248   3F           ADDC    A,R7
+   \   000249   FB           MOV     R3,A
+   \   00024A   02....       LJMP    ??GL_DrawLine1_13 & 0xFFFF
+    643              }
+    644          /* Draw pixel by pixel with fill style */
+    645            } else {
+    646              for (i=0; i<=xdiff; i++) {
+    647                long l = ((long)ydiff)*i+xdiffby2;
+    648                int y = (ABS(l)<32767) ? (y0 + ((int)l)/xdiff) : (y0 + l/xdiff);
+    649                if (!_SetLineColor(i)) {
+    650                  if (!Swapped)
+    651                    LCD_HL_DrawPixel(x0+i, y);
+    652                  else
+    653                    LCD_HL_DrawPixel(y, x0+i);
+   \                     ??GL_DrawLine1_16:
+   \   00024D                ; Setup parameters for call to function LCD_DrawPixel
+   \   00024D   7406         MOV     A,#0x6
+   \   00024F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000252   E0           MOVX    A,@DPTR
+   \   000253   2E           ADD     A,R6
+   \   000254   FC           MOV     R4,A
+   \   000255   A3           INC     DPTR
+   \   000256   E0           MOVX    A,@DPTR
+   \   000257   3F           ADDC    A,R7
+   \   000258   FD           MOV     R5,A
+   \   000259   AA..         MOV     R2,?V0 + 0
+   \   00025B   AB..         MOV     R3,?V0 + 1
+   \                     ??GL_DrawLine1_17:
+   \   00025D   12....       LCALL   ??LCD_DrawPixel?relay
+   \                     ??GL_DrawLine1_18:
+   \   000260   EE           MOV     A,R6
+   \   000261   2401         ADD     A,#0x1
+   \   000263   0E           INC     R6
+   \   000264   EF           MOV     A,R7
+   \   000265   3400         ADDC    A,#0x0
+   \   000267   FF           MOV     R7,A
+   \                     ??GL_DrawLine1_10:
+   \   000268   12....       LCALL   ?Subroutine14 & 0xFFFF
+   \                     ??CrossCallReturnLabel_20:
+   \   00026B   5003         JNC     $+5
+   \   00026D   02....       LJMP    ??CrossCallReturnLabel_26 & 0xFFFF
+   \   000270   7402         MOV     A,#0x2
+   \   000272   12....       LCALL   ?XSTACK_DISP0_8
+   \   000275   12....       LCALL   ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_1:
+   \   000278   12....       LCALL   ?L_MUL
+   \   00027B   12....       LCALL   ?Subroutine28 & 0xFFFF
+   \                     ??CrossCallReturnLabel_46:
+   \   00027E   12....       LCALL   ?L_ADD
+   \   000281   90....       MOV     DPTR,#__Constant_0
+   \   000284   78..         MOV     R0,#?V0 + 4
+   \   000286   12....       LCALL   ?SL_GE_X
+   \   000289   85....       MOV     ?V0 + 0,?V0 + 4
+   \   00028C   85....       MOV     ?V0 + 1,?V0 + 5
+   \   00028F   85....       MOV     ?V0 + 2,?V0 + 6
+   \   000292   85....       MOV     ?V0 + 3,?V0 + 7
+   \   000295   4005         JC      ??GL_DrawLine1_19
+   \   000297   78..         MOV     R0,#?V0 + 0
+   \   000299   12....       LCALL   ?L_NEG
+   \                     ??GL_DrawLine1_19:
+   \   00029C   90....       MOV     DPTR,#__Constant_7fff
+   \   00029F   78..         MOV     R0,#?V0 + 0
+   \   0002A1   12....       LCALL   ?SL_GE_X
+   \   0002A4   7404         MOV     A,#0x4
+   \   0002A6   4020         JC      ??GL_DrawLine1_20
+   \   0002A8   12....       LCALL   ?XSTACK_DISP0_8
+   \   0002AB   C082         PUSH    DPL
+   \   0002AD   C083         PUSH    DPH
+   \   0002AF   12....       LCALL   ?Subroutine19 & 0xFFFF
+   \                     ??CrossCallReturnLabel_88:
+   \   0002B2   12....       LCALL   ?S_DIV_MOD
+   \   0002B5   88..         MOV     ?V0 + 0,R0
+   \   0002B7   89..         MOV     ?V0 + 1,R1
+   \   0002B9   D083         POP     DPH
+   \   0002BB   D082         POP     DPL
+   \   0002BD   E0           MOVX    A,@DPTR
+   \   0002BE   25..         ADD     A,?V0 + 0
+   \   0002C0   F5..         MOV     ?V0 + 0,A
+   \   0002C2   A3           INC     DPTR
+   \   0002C3   E0           MOVX    A,@DPTR
+   \   0002C4   35..         ADDC    A,?V0 + 1
+   \   0002C6   801A         SJMP    ??GL_DrawLine1_21
+   \                     ??GL_DrawLine1_20:
+   \   0002C8   12....       LCALL   ?XSTACK_DISP0_8
+   \   0002CB   C082         PUSH    DPL
+   \   0002CD   C083         PUSH    DPH
+   \   0002CF   12....       LCALL   ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_3:
+   \   0002D2   12....       LCALL   ?L_DIV_MOD
+   \   0002D5   D083         POP     DPH
+   \   0002D7   D082         POP     DPL
+   \   0002D9   E0           MOVX    A,@DPTR
+   \   0002DA   25..         ADD     A,?V0 + 4
+   \   0002DC   F5..         MOV     ?V0 + 0,A
+   \   0002DE   A3           INC     DPTR
+   \   0002DF   E0           MOVX    A,@DPTR
+   \   0002E0   35..         ADDC    A,?V0 + 5
+   \                     ??GL_DrawLine1_21:
+   \   0002E2   F5..         MOV     ?V0 + 1,A
+   \   0002E4   90....       MOV     DPTR,#GUI_Context + 19
+   \   0002E7   E0           MOVX    A,@DPTR
+   \   0002E8   14           DEC     A
+   \   0002E9   7003         JNZ     $+5
+   \   0002EB   02....       LJMP    ??GL_DrawLine1_22 & 0xFFFF
+   \   0002EE   14           DEC     A
+   \   0002EF   605B         JZ      ??GL_DrawLine1_23
+   \   0002F1   14           DEC     A
+   \   0002F2   6040         JZ      ??GL_DrawLine1_24
+   \   0002F4   14           DEC     A
+   \   0002F5   706D         JNZ     ??GL_DrawLine1_25
+   \   0002F7   EE           MOV     A,R6
+   \   0002F8   F8           MOV     R0,A
+   \   0002F9   EF           MOV     A,R7
+   \   0002FA   F9           MOV     R1,A
+   \   0002FB   7A18         MOV     R2,#0x18
+   \   0002FD   7B00         MOV     R3,#0x0
+   \   0002FF   12....       LCALL   ?S_DIV_MOD
+   \   000302   12....       LCALL   ?Subroutine27 & 0xFFFF
+   \                     ??CrossCallReturnLabel_82:
+   \   000305   5003         JNC     $+5
+   \   000307   02....       LJMP    ??GL_DrawLine1_18 & 0xFFFF
+   \   00030A   E8           MOV     A,R0
+   \   00030B   24F0         ADD     A,#-0x10
+   \   00030D   FA           MOV     R2,A
+   \   00030E   E9           MOV     A,R1
+   \   00030F   34FF         ADDC    A,#-0x1
+   \   000311   FB           MOV     R3,A
+   \   000312   C3           CLR     C
+   \   000313   EA           MOV     A,R2
+   \   000314   9402         SUBB    A,#0x2
+   \   000316   EB           MOV     A,R3
+   \   000317   9400         SUBB    A,#0x0
+   \   000319   5003         JNC     $+5
+   \   00031B   02....       LJMP    ??GL_DrawLine1_18 & 0xFFFF
+   \   00031E   E8           MOV     A,R0
+   \   00031F   24EC         ADD     A,#-0x14
+   \                     ??GL_DrawLine1_26:
+   \   000321   F8           MOV     R0,A
+   \   000322   E9           MOV     A,R1
+   \   000323   34FF         ADDC    A,#-0x1
+   \   000325   F9           MOV     R1,A
+   \   000326   C3           CLR     C
+   \   000327   E8           MOV     A,R0
+   \   000328   9402         SUBB    A,#0x2
+   \   00032A   E9           MOV     A,R1
+   \   00032B   9400         SUBB    A,#0x0
+   \   00032D   5003         JNC     $+5
+   \   00032F   02....       LJMP    ??GL_DrawLine1_18 & 0xFFFF
+   \   000332   8030         SJMP    ??GL_DrawLine1_25
+   \                     ??GL_DrawLine1_24:
+   \   000334   EE           MOV     A,R6
+   \   000335   F8           MOV     R0,A
+   \   000336   EF           MOV     A,R7
+   \   000337   F9           MOV     R1,A
+   \   000338   7A14         MOV     R2,#0x14
+   \   00033A   7B00         MOV     R3,#0x0
+   \   00033C   12....       LCALL   ?S_DIV_MOD
+   \   00033F   12....       LCALL   ?Subroutine27 & 0xFFFF
+   \                     ??CrossCallReturnLabel_83:
+   \   000342   5003         JNC     $+5
+   \   000344   02....       LJMP    ??GL_DrawLine1_18 & 0xFFFF
+   \   000347   E8           MOV     A,R0
+   \   000348   24F0         ADD     A,#-0x10
+   \   00034A   80D5         SJMP    ??GL_DrawLine1_26
+   \                     ??GL_DrawLine1_23:
+   \   00034C   EE           MOV     A,R6
+   \   00034D   F8           MOV     R0,A
+   \   00034E   EF           MOV     A,R7
+   \   00034F   F9           MOV     R1,A
+   \   000350   7A04         MOV     R2,#0x4
+   \   000352   7B00         MOV     R3,#0x0
+   \   000354   12....       LCALL   ?S_DIV_MOD
+   \   000357   C3           CLR     C
+   \   000358   EA           MOV     A,R2
+   \   000359   9402         SUBB    A,#0x2
+   \   00035B   EB           MOV     A,R3
+   \   00035C   12....       LCALL   ??Subroutine39_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_80:
+   \   00035F   5003         JNC     $+5
+   \   000361   02....       LJMP    ??GL_DrawLine1_18 & 0xFFFF
+   \                     ??GL_DrawLine1_25:
+   \   000364   E5..         MOV     A,?V0 + 10
+   \   000366   A2E0         MOV     C,0xE0 /* A   */.0
+   \   000368   5003         JNC     $+5
+   \   00036A   02....       LJMP    ??GL_DrawLine1_16 & 0xFFFF
+   \   00036D                ; Setup parameters for call to function LCD_DrawPixel
+   \   00036D   AC..         MOV     R4,?V0 + 0
+   \   00036F   AD..         MOV     R5,?V0 + 1
+   \   000371   7406         MOV     A,#0x6
+   \   000373   12....       LCALL   ?XSTACK_DISP0_8
+   \   000376   E0           MOVX    A,@DPTR
+   \   000377   2E           ADD     A,R6
+   \   000378   FA           MOV     R2,A
+   \   000379   A3           INC     DPTR
+   \   00037A   E0           MOVX    A,@DPTR
+   \   00037B   3F           ADDC    A,R7
+   \   00037C   FB           MOV     R3,A
+   \   00037D   02....       LJMP    ??GL_DrawLine1_17 & 0xFFFF
+    654                }
+    655              }
+    656            }
+   \                     ??GL_DrawLine1_22:
+   \   000380   EE           MOV     A,R6
+   \   000381   2406         ADD     A,#0x6
+   \   000383   F8           MOV     R0,A
+   \   000384   EF           MOV     A,R7
+   \   000385   3400         ADDC    A,#0x0
+   \   000387   F9           MOV     R1,A
+   \   000388   7A10         MOV     R2,#0x10
+   \   00038A   7B00         MOV     R3,#0x0
+   \   00038C   12....       LCALL   ?S_DIV_MOD
+   \   00038F   C3           CLR     C
+   \   000390   EA           MOV     A,R2
+   \   000391   940C         SUBB    A,#0xc
+   \   000393   EB           MOV     A,R3
+   \   000394   12....       LCALL   ??Subroutine39_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_81:
+   \   000397   50CB         JNC     ??GL_DrawLine1_25
+   \   000399   02....       LJMP    ??GL_DrawLine1_18 & 0xFFFF
+    657          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine28:
+   \   000000   85....       MOV     ?V0 + 0,?V0 + 8
+   \   000003   E5..         MOV     A,?V0 + 9
+   \   000005   12....       LCALL   ?Subroutine34 & 0xFFFF
+   \                     ??CrossCallReturnLabel_91:
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine23:
+   \   000000   12....       LCALL   ?Subroutine33 & 0xFFFF
+   \                     ??CrossCallReturnLabel_58:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine33:
+   \   000000   C3           CLR     C
+   \   000001   A3           INC     DPTR
+   \   000002   E0           MOVX    A,@DPTR
+   \   000003   9400         SUBB    A,#0x0
+   \   000005   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   000007   65D0         XRL     A,PSW
+   \   000009   33           RLC     A
+   \   00000A   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine21:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   C3           CLR     C
+   \   000002   98           SUBB    A,R0
+   \   000003   F8           MOV     R0,A
+   \   000004   A3           INC     DPTR
+   \   000005   E0           MOVX    A,@DPTR
+   \   000006   99           SUBB    A,R1
+   \   000007   F9           MOV     R1,A
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine18:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   FA           MOV     R2,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   FB           MOV     R3,A
+   \   000005   12....       LCALL   ??GL_DrawPoint?relay
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine14:
+   \   000000   85..82       MOV     DPL,?XSP + 0
+   \   000003   85..83       MOV     DPH,?XSP + 1
+   \   000006   C3           CLR     C
+   \   000007   E0           MOVX    A,@DPTR
+   \   000008   9E           SUBB    A,R6
+   \   000009   A3           INC     DPTR
+   \   00000A   E0           MOVX    A,@DPTR
+   \   00000B   9F           SUBB    A,R7
+   \   00000C   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   00000E   65D0         XRL     A,PSW
+   \   000010   33           RLC     A
+   \   000011   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine12:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F8           MOV     R0,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   F9           MOV     R1,A
+   \   000005   C3           CLR     C
+   \   000006   E4           CLR     A
+   \   000007   98           SUBB    A,R0
+   \   000008   F8           MOV     R0,A
+   \   000009   E4           CLR     A
+   \   00000A   99           SUBB    A,R1
+   \   00000B   F9           MOV     R1,A
+   \   00000C   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine6:
+   \   000000   85..82       MOV     DPL,?XSP + 0
+   \   000003   85..83       MOV     DPH,?XSP + 1
+   \   000006   12....       LCALL   ?Subroutine29 & 0xFFFF
+   \                     ??CrossCallReturnLabel_48:
+   \   000009   12....       LCALL   ??Subroutine44_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_89:
+   \   00000C   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine5:
+   \   000000   12....       LCALL   ?Subroutine30 & 0xFFFF
+   \                     ??CrossCallReturnLabel_52:
+   \   000003   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_59:
+   \   000006   8E..         MOV     ?V0 + 0,R6
+   \   000008   EF           MOV     A,R7
+   \   000009   12....       LCALL   ?Subroutine34 & 0xFFFF
+   \                     ??CrossCallReturnLabel_90:
+   \   00000C   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine34:
+   \   000000   F5..         MOV     ?V0 + 1,A
+   \   000002                REQUIRE ??Subroutine44_0
+   \   000002                ; // Fall through to label ??Subroutine44_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine44_0:
+   \   000000   33           RLC     A
+   \   000001   95E0         SUBB    A,0xE0 /* A   */
+   \   000003   F5..         MOV     ?V0 + 2,A
+   \   000005   F5..         MOV     ?V0 + 3,A
+   \   000007   78..         MOV     R0,#?V0 + 4
+   \   000009   79..         MOV     R1,#?V0 + 0
+   \   00000B   22           RET
+    658          
+    659          /*********************************************************************
+    660          *
+    661          *       Draw point
+    662          *
+    663          **********************************************************************
+    664          */
+    665          /*********************************************************************
+    666          *
+    667          *       GL_DrawPoint
+    668          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    669          void GL_DrawPoint(int x, int y) {
+   \                     GL_DrawPoint:
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+    670            if (GUI_Context.PenSize == 1) {
+   \   000009   90....       MOV     DPTR,#GUI_Context + 17
+   \   00000C   E0           MOVX    A,@DPTR
+   \   00000D   6401         XRL     A,#0x1
+   \   00000F   7005         JNZ     ??GL_DrawPoint_0
+    671              LCD_HL_DrawPixel(x, y);
+   \   000011                ; Setup parameters for call to function LCD_DrawPixel
+   \   000011   12....       LCALL   ??LCD_DrawPixel?relay
+   \   000014   8024         SJMP    ??GL_DrawPoint_1
+    672            } else {
+    673              GL_FillCircle(x, y, (GUI_Context.PenSize - 1) / 2);
+   \                     ??GL_DrawPoint_0:
+   \   000016                ; Setup parameters for call to function GL_FillCircle
+   \   000016   E0           MOVX    A,@DPTR
+   \   000017   24FF         ADD     A,#-0x1
+   \   000019   F8           MOV     R0,A
+   \   00001A   E4           CLR     A
+   \   00001B   34FF         ADDC    A,#-0x1
+   \   00001D   F9           MOV     R1,A
+   \   00001E   7A02         MOV     R2,#0x2
+   \   000020   7B00         MOV     R3,#0x0
+   \   000022   12....       LCALL   ?S_DIV_MOD
+   \   000025   88..         MOV     ?V0 + 0,R0
+   \   000027   89..         MOV     ?V0 + 1,R1
+   \   000029   78..         MOV     R0,#?V0 + 0
+   \   00002B   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00002E   EE           MOV     A,R6
+   \   00002F   FA           MOV     R2,A
+   \   000030   EF           MOV     A,R7
+   \   000031   FB           MOV     R3,A
+   \   000032   12....       LCALL   ??GL_FillCircle?relay
+   \   000035   7402         MOV     A,#0x2
+   \   000037   12....       LCALL   ?DEALLOC_XSTACK8
+    674            }
+    675          }
+   \                     ??GL_DrawPoint_1:
+   \   00003A   7F02         MOV     R7,#0x2
+   \   00003C   02....       LJMP    ?BANKED_LEAVE_XDATA
+    676          
+    677          /*********************************************************************
+    678          *
+    679          *       GUI_DrawPoint
+    680          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    681          void GUI_DrawPoint(int x, int y) {
+   \                     GUI_DrawPoint:
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+    682            halIntState_t state;
+    683            GUI_LOCK(state);
+   \   000005   E5A8         MOV     A,0xa8
+   \   000007   FE           MOV     R6,A
+   \   000008   C2AF         CLR     0xa8.7
+    684            #if (GUI_WINSUPPORT)
+    685              WM_ADDORG(x, y);
+    686              WM_ITERATE_START(NULL); {
+    687            #endif
+    688            GL_DrawPoint(x, y);
+   \   00000A                ; Setup parameters for call to function GL_DrawPoint
+   \   00000A   12....       LCALL   ??GL_DrawPoint?relay
+    689            #if (GUI_WINSUPPORT)
+    690              } WM_ITERATE_END();
+    691            #endif
+    692            GUI_UNLOCK(state);
+   \   00000D   02....       LJMP    ?Subroutine0 & 0xFFFF
+   \   000010                REQUIRE _A_IEN0
+    693          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine9:
+   \   000000   85..82       MOV     DPL,?XSP + 0
+   \   000003   85..83       MOV     DPH,?XSP + 1
+   \   000006   12....       LCALL   ?Subroutine33 & 0xFFFF
+   \                     ??CrossCallReturnLabel_57:
+   \   000009   85..82       MOV     DPL,?XSP + 0
+   \   00000C   85..83       MOV     DPH,?XSP + 1
+   \   00000F   E0           MOVX    A,@DPTR
+   \   000010   22           RET
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_20:
+   \   000000   20000000     DD 32
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_0:
+   \   000000   00000000     DD 0
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_2:
+   \   000000   02000000     DD 2
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_200:
+   \   000000   00020000     DD 512
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_7fff:
+   \   000000   FF7F0000     DD 32767
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??_SwapInt?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    _SwapInt
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI_sin?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI_sin
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI_cos?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI_cos
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??_atan2?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    _atan2
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GL_DrawLine?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GL_DrawLine
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI_DrawLine?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI_DrawLine
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GL_DrawPolygon?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GL_DrawPolygon
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI_DrawPolygon?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI_DrawPolygon
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI_DrawLineRel?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI_DrawLineRel
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GL_DrawLineTo?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GL_DrawLineTo
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI_DrawLineTo?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI_DrawLineTo
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI_MoveRel?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI_MoveRel
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GL_MoveTo?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GL_MoveTo
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI_MoveTo?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI_MoveTo
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI_DrawRect?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI_DrawRect
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GL_DrawLine1?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GL_DrawLine1
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GL_DrawPoint?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GL_DrawPoint
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI_DrawPoint?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI_DrawPoint
+    694          
+    695          /*************************** End of file ****************************/
+
+   Maximum stack usage in bytes:
+
+     Function            ISTACK PSTACK XSTACK
+     --------            ------ ------ ------
+     GL_DrawLine             0      0     66
+       -> GL_DrawLine1       0      0     96
+       -> _atan2             0      0     96
+       -> GUI_cos            0      0     88
+       -> GUI_sin            0      0     88
+       -> GL_FillPolygon     0      0     96
+       -> GL_DrawPoint       0      0     88
+       -> GL_DrawPoint       0      0     88
+     GL_DrawLine1            2      0     75
+       -> GL_DrawPoint       0      0     54
+       -> _SwapInt           0      0     54
+       -> _SwapInt           0      0     54
+       -> _SwapInt           0      0     54
+       -> _SwapInt           0      0     54
+       -> _SwapInt           0      0     54
+       -> LCD_DrawPixel      0      0     54
+       -> LCD_DrawPixel      0      0     54
+       -> LCD_DrawPixel      0      0     54
+       -> LCD_DrawPixel      0      0     54
+     GL_DrawLineTo           0      0     32
+       -> GL_DrawLine        0      0     32
+     GL_DrawPoint            0      0     56
+       -> LCD_DrawPixel      0      0     20
+       -> GL_FillCircle      0      0     24
+     GL_DrawPolygon          0      0     32
+       -> GL_MoveTo          0      0     32
+       -> GL_DrawLineTo      0      0     32
+       -> GL_DrawLineTo      0      0     32
+     GL_MoveTo               2      0     16
+     GUI_DrawLine            0      0     20
+       -> GL_DrawLine        0      0     32
+     GUI_DrawLineRel         0      0     18
+       -> GL_DrawLine        0      0     36
+       -> GUI_MoveRel        0      0     28
+     GUI_DrawLineTo          0      0     16
+       -> GL_DrawLine        0      0     32
+       -> GL_MoveTo          0      0     24
+     GUI_DrawPoint           0      0      9
+       -> GL_DrawPoint       0      0     18
+     GUI_DrawPolygon         0      0     20
+       -> GL_DrawPolygon     0      0     32
+     GUI_DrawRect            0      0     22
+       -> LCD_DrawHLine      0      0     36
+       -> LCD_DrawHLine      0      0     36
+       -> LCD_DrawVLine      0      0     36
+       -> LCD_DrawVLine      0      0     36
+     GUI_MoveRel             2      0     14
+     GUI_MoveTo              0      0      9
+       -> GL_MoveTo          0      0     18
+     GUI_cos                 2      0     44
+       -> GUI_sin            4      0      0
+     GUI_sin                 0      0     60
+     _SwapInt                0      0     36
+     _atan2                  0      0     72
+
+
+   Segment part sizes:
+
+     Function/Label          Bytes
+     --------------          -----
+     _A_IEN0                    1
+     _SwapInt                  40
+     ??Subroutine37_0           6
+     ??Subroutine38_0           6
+     ??Subroutine43_0           5
+     aSin                      34
+     GUI_sin                  223
+     ?Subroutine1               5
+     ?Subroutine30              8
+     ?Subroutine29              8
+     GUI_cos                   14
+     ?Subroutine2               7
+     aTan                      34
+     _atan2                   348
+     ?Subroutine3               5
+     ?Subroutine35              2
+     ??Subroutine36_0           8
+     GL_DrawLine              777
+     ?Subroutine24             13
+     ?Subroutine13             11
+     ??Subroutine39_0           8
+     ?Subroutine20              6
+     ??Subroutine40_0           6
+     ?Subroutine26              6
+     GUI_DrawLine              33
+     ?Subroutine17              6
+     ?Subroutine10              9
+     ?Subroutine4               5
+     ??Subroutine41_0           5
+     ??Subroutine42_0           5
+     ?Subroutine31             10
+     GL_DrawPolygon           167
+     ?Subroutine15             10
+     ?Subroutine11              8
+     ?Subroutine8              12
+     ?Subroutine22              4
+     ?Subroutine32              9
+     GUI_DrawPolygon           33
+     GUI_DrawLineRel           87
+     GL_DrawLineTo             49
+     ?Subroutine7              22
+     GUI_DrawLineTo            47
+     GUI_MoveRel               35
+     GL_MoveTo                 19
+     GUI_MoveTo                13
+     ?Subroutine0               5
+     GUI_DrawRect             146
+     ?Subroutine16              6
+     ?Subroutine25              6
+     ?Subroutine27             13
+     ?Subroutine19             10
+     GL_DrawLine1             924
+     ?Subroutine28              9
+     ?Subroutine23              4
+     ?Subroutine33             11
+     ?Subroutine21              9
+     ?Subroutine18              9
+     ?Subroutine14             18
+     ?Subroutine12             13
+     ?Subroutine6              13
+     ?Subroutine5              13
+     ?Subroutine34              2
+     ??Subroutine44_0          12
+     GL_DrawPoint              63
+     GUI_DrawPoint             16
+     ?Subroutine9              17
+     __Constant_20              4
+     __Constant_0               4
+     __Constant_2               4
+     __Constant_200             4
+     __Constant_7fff            4
+     ??_SwapInt?relay           6
+     ??GUI_sin?relay            6
+     ??GUI_cos?relay            6
+     ??_atan2?relay             6
+     ??GL_DrawLine?relay        6
+     ??GUI_DrawLine?relay       6
+     ??GL_DrawPolygon?relay     6
+     ??GUI_DrawPolygon?relay    6
+     ??GUI_DrawLineRel?relay    6
+     ??GL_DrawLineTo?relay      6
+     ??GUI_DrawLineTo?relay     6
+     ??GUI_MoveRel?relay        6
+     ??GL_MoveTo?relay          6
+     ??GUI_MoveTo?relay         6
+     ??GUI_DrawRect?relay       6
+     ??GL_DrawLine1?relay       6
+     ??GL_DrawPoint?relay       6
+     ??GUI_DrawPoint?relay      6
+
+ 
+ 3 419 bytes in segment BANKED_CODE
+   108 bytes in segment BANK_RELAYS
+     1 byte  in segment SFR_AN
+    88 bytes in segment XDATA_ROM_C
+ 
+ 3 527 bytes of CODE  memory
+    68 bytes of CONST memory (+ 20 bytes shared)
+     0 bytes of DATA  memory (+  1 byte  shared)
+
+Errors: none
+Warnings: none

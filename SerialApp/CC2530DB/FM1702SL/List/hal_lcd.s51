@@ -1,0 +1,840 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V8.10.1.10194/W32 for 8051        14/Jun/2016  16:50:19 /
+// Copyright 2004-2011 IAR Systems AB.                                        /
+//                                                                            /
+//    Core               =  plain                                             /
+//    Code model         =  banked                                            /
+//    Data model         =  large                                             /
+//    Calling convention =  xdata reentrant                                   /
+//    Constant location  =  data_rom                                          /
+//    Dptr setup         =  1,16                                              /
+//    Source file        =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\hal\tar /
+//                          get\CC2530EB\hal_lcd.c                            /
+//    Command line       =  -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂ /
+//                          ç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack /
+//                          \Utilities\SerialApp\CC2530DB\..\..\..\Tools\CC25 /
+//                          30DB\f8wEndev.cfg (-DCPU32MHZ -DROOT=__near_func  /
+//                          -DMAC_CFG_TX_DATA_MAX=3 -DMAC_CFG_TX_MAX=6        /
+//                          -DMAC_CFG_RX_MAX=3) -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹ /
+//                          âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2. /
+//                          5.1a\Projects\zstack\Utilities\SerialApp\CC2530DB /
+//                          \..\..\..\Tools\CC2530DB\f8wConfig.cfg            /
+//                          (-DZIGBEEPRO -DSECURE=0 -DZG_SECURE_DYNAMIC=0     /
+//                          -DREFLECTOR -DDEFAULT_CHANLIST=0x00000800         /
+//                          -DZDAPP_CONFIG_PAN_ID=0x1001                      /
+//                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
+//                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
+//                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
+//                          -DLINK_STATUS_JITTER_MASK=0x007F                  /
+//                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_P /
+//                          OLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7           /
+//                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3   /
+//                          -DNWK_MAX_DATA_RETRIES=2                          /
+//                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9        /
+//                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40          /
+//                          -DNWK_MAX_BINDING_ENTRIES=4                       /
+//                          -DMAX_BINDING_CLUSTER_IDS=4                       /
+//                          "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07, 0x09,     /
+//                          0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08,   /
+//                          0x0A, 0x0C, 0x0D}" -DMAC_MAX_FRAME_SIZE=116       /
+//                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const    /
+//                          __code" -DGENERIC=__generic                       /
+//                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
+//                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
+//                          -DREJOIN_POLL_RATE=440 F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹ /
+//                          âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2. /
+//                          5.1a\Components\hal\target\CC2530EB\hal_lcd.c -D  /
+//                          NWK_AUTO_POLL -D HAL_UART=TRUE -D                 /
+//                          SERIAL_APP_PORT=0 -D xPOWER_SAVING -D NV_INIT -D  /
+//                          FM1702SL -lC F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210 /
+//                          \ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proje /
+//                          cts\zstack\Utilities\SerialApp\CC2530DB\FM1702SL\ /
+//                          List\ -lA F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Zi /
+//                          gBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects /
+//                          \zstack\Utilities\SerialApp\CC2530DB\FM1702SL\Lis /
+//                          t\ --diag_suppress Pe001,Pa010 -o                 /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\FM1702SL\Obj\ -e       /
+//                          --no_code_motion --debug --core=plain             /
+//                          --dptr=16,1 --data_model=large                    /
+//                          --code_model=banked --calling_convention=xdata_re /
+//                          entrant --place_constants=data_rom                /
+//                          --nr_virtual_regs 16 -I                           /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\ -I                    /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\FM1702SL\ -I        /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\Public\ -I          /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\ZMain\TI2530D /
+//                          B\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBee /
+//                          ÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zst /
+//                          ack\Utilities\SerialApp\CC2530DB\..\..\..\..\..\C /
+//                          omponents\hal\include\ -I                         /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\hal\target\CC2530EB\ -I                       /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mac\include\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ /
+//                          ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Utilities\SerialApp\CC2530DB\.. /
+//                          \..\..\..\..\Components\mac\high_level\ -I        /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mac\low_level\srf04\ -I                       /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mac\low_level\srf04\single_chip\ -I           /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mt\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Z /
+//                          igBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Project /
+//                          s\zstack\Utilities\SerialApp\CC2530DB\..\..\..\.. /
+//                          \..\Components\osal\include\ -I                   /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\services\saddr\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹ /
+//                          âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2. /
+//                          5.1a\Projects\zstack\Utilities\SerialApp\CC2530DB /
+//                          \..\..\..\..\..\Components\services\sdata\ -I     /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\stack\af\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁ /
+//                          Ï210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\P /
+//                          rojects\zstack\Utilities\SerialApp\CC2530DB\..\.. /
+//                          \..\..\..\Components\stack\nwk\ -I                /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\stack\sapi\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ× /
+//                          ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a /
+//                          \Projects\zstack\Utilities\SerialApp\CC2530DB\..\ /
+//                          ..\..\..\..\Components\stack\sec\ -I              /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\stack\sys\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×Ê /
+//                          ÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\ /
+//                          Projects\zstack\Utilities\SerialApp\CC2530DB\..\. /
+//                          .\..\..\..\Components\stack\zdo\ -I               /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\zmac\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210 /
+//                          \ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proje /
+//                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ /
+//                          ..\..\Components\zmac\f8w\ -Ohz                   /
+//                          --require_prototypes                              /
+//    List file          =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\FM1702SL\List\hal_lcd. /
+//                          s51                                               /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME hal_lcd
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+
+        END
+// F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\hal\target\CC2530EB\hal_lcd.c
+//    1 /**************************************************************************************************
+//    2   Filename:       hal_lcd.c
+//    3   Revised:        $Date: 2010-06-21 17:31:27 -0700 (Mon, 21 Jun 2010) $
+//    4   Revision:       $Revision: 22794 $
+//    5 
+//    6   Description:    This file contains the interface to the HAL LCD Service.
+//    7 
+//    8 
+//    9   Copyright 2007-2010 Texas Instruments Incorporated. All rights reserved.
+//   10 
+//   11   IMPORTANT: Your use of this Software is limited to those specific rights
+//   12   granted under the terms of a software license agreement between the user
+//   13   who downloaded the software, his/her employer (which must be your employer)
+//   14   and Texas Instruments Incorporated (the "License").  You may not use this
+//   15   Software unless you agree to abide by the terms of the License. The License
+//   16   limits your use, and you acknowledge, that the Software may not be modified,
+//   17   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   18   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   19   frequency transceiver, which is integrated into your product.  Other than for
+//   20   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   21   works of, modify, distribute, perform, display or sell this Software and/or
+//   22   its documentation for any purpose.
+//   23 
+//   24   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   25   PROVIDED “AS IS?WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   26   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//   27   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   28   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   29   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   30   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   31   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   32   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   33   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   34   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   35 
+//   36   Should you have any questions regarding your right to use this Software,
+//   37   contact Texas Instruments Incorporated at www.TI.com.
+//   38 **************************************************************************************************/
+//   39 
+//   40 /**************************************************************************************************
+//   41  *                                           INCLUDES
+//   42  **************************************************************************************************/
+//   43 #include "hal_types.h"
+//   44 #include "hal_lcd.h"
+//   45 #include "OSAL.h"
+//   46 #include "OnBoard.h"
+//   47 #include "hal_assert.h"
+//   48 
+//   49 #if defined (ZTOOL_P1) || defined (ZTOOL_P2)
+//   50   #include "DebugTrace.h"
+//   51 #endif
+//   52 
+//   53 #ifdef LCD_SUPPORTED
+//   54 /**************************************************************************************************
+//   55  *                                          CONSTANTS
+//   56  **************************************************************************************************/
+//   57 /*
+//   58   LCD pins
+//   59   //spi  ÓÉÓÚÍ¨¹ý164×ª½Ó£¬Ö»ÄÜÐ´Êý¾Ý£¬²»ÄÜ¶ÁÈ¡LCD RAMÖÐµÄÊý¾Ý
+//   60   P1.5 - CLK
+//   61   P1.6 - MOSI
+//   62   P1.4 - CS
+//   63   P2.1 - CLR  µÍµçÆ½ÓÐÐ§
+//   64   P0.7 - RS
+//   65   P0.6 - WR
+//   66   P0.5 - RD
+//   67 */
+//   68 #define HAL_LCD_CS_PORT   1  //CS = P1_4
+//   69 #define HAL_LCD_CS_PIN    4
+//   70 
+//   71 /* LCD SPI lines */
+//   72 #define HAL_LCD_MISO_PORT 1
+//   73 #define HAL_LCD_MISO_PIN  7
+//   74 
+//   75 #define HAL_LCD_CLK_PORT  1  //SCK = P1_5
+//   76 #define HAL_LCD_CLK_PIN   5
+//   77 
+//   78 #define HAL_LCD_MOSI_PORT 1  //MOSI = P1_6
+//   79 #define HAL_LCD_MOSI_PIN  6
+//   80 
+//   81 #define HAL_LCD_RS_PORT   0  //RS = P0_7
+//   82 #define HAL_LCD_RS_PIN    7
+//   83 
+//   84 #define HAL_LCD_WR_PORT   0  //WR = P0_6
+//   85 #define HAL_LCD_WR_PIN    6
+//   86 
+//   87 #define HAL_LCD_RD_PORT   0  //RD = P0_5
+//   88 #define HAL_LCD_RD_PIN    5
+//   89 
+//   90 #define HAL_LCD_RST_PORT  1  //RD = P0_5
+//   91 #define HAL_LCD_RST_PIN   3
+//   92 
+//   93 #define LCD_CS            P1_4
+//   94 #define LCD_RS            P0_7
+//   95 #define LCD_WR            P0_6
+//   96 #define LCD_RD            P0_5
+//   97 #define LCD_RST           P1_3
+//   98 
+//   99 /* SPI settings */
+//  100 #define HAL_SPI_CLOCK_POL_LO        0x00
+//  101 #define HAL_SPI_CLOCK_PHA_0         0x00
+//  102 #define HAL_SPI_TRANSFER_MSB_FIRST  0x20
+//  103 
+//  104 /**************************************************************************************************
+//  105  *                                           MACROS
+//  106  **************************************************************************************************/
+//  107 #define HAL_IO_SET(port, pin, val)        HAL_IO_SET_PREP(port, pin, val)
+//  108 #define HAL_IO_SET_PREP(port, pin, val)   st( P##port##_##pin## = val; )
+//  109 
+//  110 #define HAL_CONFIG_IO_OUTPUT(port, pin, val)      HAL_CONFIG_IO_OUTPUT_PREP(port, pin, val)
+//  111 #define HAL_CONFIG_IO_OUTPUT_PREP(port, pin, val) st( P##port##SEL &= ~BV(pin); \ 
+//  112                                                       P##port##_##pin## = val; \ 
+//  113                                                       P##port##DIR |= BV(pin); )
+//  114 
+//  115 #define HAL_CONFIG_IO_PERIPHERAL(port, pin)      HAL_CONFIG_IO_PERIPHERAL_PREP(port, pin)
+//  116 #define HAL_CONFIG_IO_PERIPHERAL_PREP(port, pin) st( P##port##SEL |= BV(pin); )
+//  117 
+//  118 /* clear the received and transmit byte status, write tx data to buffer, wait till transmit done */
+//  119 #define LCD_SPI_TX(x)                   { U1CSR &= ~(BV(2) | BV(1)); U1DBUF = x; while( !(U1CSR & BV(1)) ); }
+//  120 #define LCD_SPI_WAIT_RXRDY()            { while(!(U1CSR & BV(1))); }
+//  121 
+//  122 uint16  PointColor = BLACK;
+//  123 uint16  BackColor  = WHITE;
+//  124 //ASCIIÂë£¬16*16µãÕó ºáÏòÈ¡Ä£ ¸ßÎ»ÔÚÇ° ËÎÌå ¹²95*16=1520¸ö×Ö½Ú£¬¼´Õ¼RAM´óÔ¼1K°ë 
+//  125 const uint8 ascii_16[95][16]={
+//  126                               {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00},/*" ",0*/
+//  127                               {0x00,0x00,0x00,0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x00,0x00,0x18,0x18,0x00,0x00},/*"!",1*/
+//  128                               {0x00,0x12,0x36,0x24,0x48,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00},/*""",2*/
+//  129                               {0x00,0x00,0x00,0x24,0x24,0x24,0xFE,0x48,0x48,0x48,0xFE,0x48,0x48,0x48,0x00,0x00},/*"#",3*/
+//  130                               {0x00,0x00,0x10,0x38,0x54,0x54,0x50,0x30,0x18,0x14,0x14,0x54,0x54,0x38,0x10,0x10},/*"$",4*/
+//  131                               {0x00,0x00,0x00,0x44,0xA4,0xA8,0xA8,0xA8,0x54,0x1A,0x2A,0x2A,0x2A,0x44,0x00,0x00},/*"%",5*/
+//  132                               {0x00,0x00,0x00,0x30,0x48,0x48,0x48,0x50,0x6E,0xA4,0x94,0x88,0x89,0x76,0x00,0x00},/*"&",6*/
+//  133                               {0x00,0x60,0x60,0x20,0xC0,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00},/*"'",7*/
+//  134                               {0x00,0x02,0x04,0x08,0x08,0x10,0x10,0x10,0x10,0x10,0x10,0x08,0x08,0x04,0x02,0x00},/*"(",8*/
+//  135                               {0x00,0x40,0x20,0x10,0x10,0x08,0x08,0x08,0x08,0x08,0x08,0x10,0x10,0x20,0x40,0x00},/*")",9*/
+//  136                               {0x00,0x00,0x00,0x00,0x10,0x10,0xD6,0x38,0x38,0xD6,0x10,0x10,0x00,0x00,0x00,0x00},/*"*",10*/
+//  137                               {0x00,0x00,0x00,0x00,0x10,0x10,0x10,0x10,0xFE,0x10,0x10,0x10,0x10,0x00,0x00,0x00},/*"+",11*/
+//  138                               {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x60,0x60,0x20,0xC0},/*",",12*/
+//  139                               {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x7F,0x00,0x00,0x00,0x00,0x00,0x00,0x00},/*"-",13*/
+//  140                               {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x60,0x60,0x00,0x00},/*".",14*/
+//  141                               {0x00,0x00,0x01,0x02,0x02,0x04,0x04,0x08,0x08,0x10,0x10,0x20,0x20,0x40,0x40,0x00},/*"/",15*/
+//  142                               {0x00,0x00,0x00,0x18,0x24,0x42,0x42,0x42,0x42,0x42,0x42,0x42,0x24,0x18,0x00,0x00},/*"0",16*/
+//  143                               {0x00,0x00,0x00,0x10,0x70,0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x7C,0x00,0x00},/*"1",17*/
+//  144                               {0x00,0x00,0x00,0x3C,0x42,0x42,0x42,0x04,0x04,0x08,0x10,0x20,0x42,0x7E,0x00,0x00},/*"2",18*/
+//  145                               {0x00,0x00,0x00,0x3C,0x42,0x42,0x04,0x18,0x04,0x02,0x02,0x42,0x44,0x38,0x00,0x00},/*"3",19*/
+//  146                               {0x00,0x00,0x00,0x04,0x0C,0x14,0x24,0x24,0x44,0x44,0x7E,0x04,0x04,0x1E,0x00,0x00},/*"4",20*/
+//  147                               {0x00,0x00,0x00,0x7E,0x40,0x40,0x40,0x58,0x64,0x02,0x02,0x42,0x44,0x38,0x00,0x00},/*"5",21*/
+//  148                               {0x00,0x00,0x00,0x1C,0x24,0x40,0x40,0x58,0x64,0x42,0x42,0x42,0x24,0x18,0x00,0x00},/*"6",22*/
+//  149                               {0x00,0x00,0x00,0x7E,0x44,0x44,0x08,0x08,0x10,0x10,0x10,0x10,0x10,0x10,0x00,0x00},/*"7",23*/
+//  150                               {0x00,0x00,0x00,0x3C,0x42,0x42,0x42,0x24,0x18,0x24,0x42,0x42,0x42,0x3C,0x00,0x00},/*"8",24*/
+//  151                               {0x00,0x00,0x00,0x18,0x24,0x42,0x42,0x42,0x26,0x1A,0x02,0x02,0x24,0x38,0x00,0x00},/*"9",25*/
+//  152                               {0x00,0x00,0x00,0x00,0x00,0x00,0x18,0x18,0x00,0x00,0x00,0x00,0x18,0x18,0x00,0x00},/*":",26*/
+//  153                               {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x10,0x00,0x00,0x00,0x00,0x00,0x10,0x10,0x20},/*";",27*/
+//  154                               {0x00,0x00,0x00,0x02,0x04,0x08,0x10,0x20,0x40,0x20,0x10,0x08,0x04,0x02,0x00,0x00},/*"<",28*/
+//  155                               {0x00,0x00,0x00,0x00,0x00,0x00,0xFE,0x00,0x00,0x00,0xFE,0x00,0x00,0x00,0x00,0x00},/*"=",29*/
+//  156                               {0x00,0x00,0x00,0x40,0x20,0x10,0x08,0x04,0x02,0x04,0x08,0x10,0x20,0x40,0x00,0x00},/*">",30*/
+//  157                               {0x00,0x00,0x00,0x3C,0x42,0x42,0x62,0x02,0x04,0x08,0x08,0x00,0x18,0x18,0x00,0x00},/*"?",31*/
+//  158                               {0x00,0x00,0x00,0x38,0x44,0x5A,0xAA,0xAA,0xAA,0xAA,0xB4,0x42,0x44,0x38,0x00,0x00},/*"@",32*/
+//  159                               {0x00,0x00,0x00,0x10,0x10,0x18,0x28,0x28,0x24,0x3C,0x44,0x42,0x42,0xE7,0x00,0x00},/*"A",33*/
+//  160                               {0x00,0x00,0x00,0xF8,0x44,0x44,0x44,0x78,0x44,0x42,0x42,0x42,0x44,0xF8,0x00,0x00},/*"B",34*/
+//  161                               {0x00,0x00,0x00,0x3E,0x42,0x42,0x80,0x80,0x80,0x80,0x80,0x42,0x44,0x38,0x00,0x00},/*"C",35*/
+//  162                               {0x00,0x00,0x00,0xF8,0x44,0x42,0x42,0x42,0x42,0x42,0x42,0x42,0x44,0xF8,0x00,0x00},/*"D",36*/
+//  163                               {0x00,0x00,0x00,0xFC,0x42,0x48,0x48,0x78,0x48,0x48,0x40,0x42,0x42,0xFC,0x00,0x00},/*"E",37*/
+//  164                               {0x00,0x00,0x00,0xFC,0x42,0x48,0x48,0x78,0x48,0x48,0x40,0x40,0x40,0xE0,0x00,0x00},/*"F",38*/
+//  165                               {0x00,0x00,0x00,0x3C,0x44,0x44,0x80,0x80,0x80,0x8E,0x84,0x44,0x44,0x38,0x00,0x00},/*"G",39*/
+//  166                               {0x00,0x00,0x00,0xE7,0x42,0x42,0x42,0x42,0x7E,0x42,0x42,0x42,0x42,0xE7,0x00,0x00},/*"H",40*/
+//  167                               {0x00,0x00,0x00,0x7C,0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x7C,0x00,0x00},/*"I",41*/
+//  168                               {0x00,0x00,0x00,0x3E,0x08,0x08,0x08,0x08,0x08,0x08,0x08,0x08,0x08,0x08,0x88,0xF0},/*"J",42*/
+//  169                               {0x00,0x00,0x00,0xEE,0x44,0x48,0x50,0x70,0x50,0x48,0x48,0x44,0x44,0xEE,0x00,0x00},/*"K",43*/
+//  170                               {0x00,0x00,0x00,0xE0,0x40,0x40,0x40,0x40,0x40,0x40,0x40,0x40,0x42,0xFE,0x00,0x00},/*"L",44*/
+//  171                               {0x00,0x00,0x00,0xEE,0x6C,0x6C,0x6C,0x6C,0x54,0x54,0x54,0x54,0x54,0xD6,0x00,0x00},/*"M",45*/
+//  172                               {0x00,0x00,0x00,0xC7,0x62,0x62,0x52,0x52,0x4A,0x4A,0x4A,0x46,0x46,0xE2,0x00,0x00},/*"N",46*/
+//  173                               {0x00,0x00,0x00,0x38,0x44,0x82,0x82,0x82,0x82,0x82,0x82,0x82,0x44,0x38,0x00,0x00},/*"O",47*/
+//  174                               {0x00,0x00,0x00,0xFC,0x42,0x42,0x42,0x42,0x7C,0x40,0x40,0x40,0x40,0xE0,0x00,0x00},/*"P",48*/
+//  175                               {0x00,0x00,0x00,0x38,0x44,0x82,0x82,0x82,0x82,0x82,0xB2,0xCA,0x4C,0x38,0x06,0x00},/*"Q",49*/
+//  176                               {0x00,0x00,0x00,0xFC,0x42,0x42,0x42,0x7C,0x48,0x48,0x44,0x44,0x42,0xE3,0x00,0x00},/*"R",50*/
+//  177                               {0x00,0x00,0x00,0x3E,0x42,0x42,0x40,0x20,0x18,0x04,0x02,0x42,0x42,0x7C,0x00,0x00},/*"S",51*/
+//  178                               {0x00,0x00,0x00,0xFE,0x92,0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x38,0x00,0x00},/*"T",52*/
+//  179                               {0x00,0x00,0x00,0xE7,0x42,0x42,0x42,0x42,0x42,0x42,0x42,0x42,0x42,0x3C,0x00,0x00},/*"U",53*/
+//  180                               {0x00,0x00,0x00,0xE7,0x42,0x42,0x44,0x24,0x24,0x28,0x28,0x18,0x10,0x10,0x00,0x00},/*"V",54*/
+//  181                               {0x00,0x00,0x00,0xD6,0x92,0x92,0x92,0x92,0xAA,0xAA,0x6C,0x44,0x44,0x44,0x00,0x00},/*"W",55*/
+//  182                               {0x00,0x00,0x00,0xE7,0x42,0x24,0x24,0x18,0x18,0x18,0x24,0x24,0x42,0xE7,0x00,0x00},/*"X",56*/
+//  183                               {0x00,0x00,0x00,0xEE,0x44,0x44,0x28,0x28,0x10,0x10,0x10,0x10,0x10,0x38,0x00,0x00},/*"Y",57*/
+//  184                               {0x00,0x00,0x00,0x7E,0x84,0x04,0x08,0x08,0x10,0x20,0x20,0x42,0x42,0xFC,0x00,0x00},/*"Z",58*/
+//  185                               {0x00,0x1E,0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x1E,0x00},/*"[",59*/
+//  186                               {0x00,0x00,0x40,0x40,0x20,0x20,0x10,0x10,0x10,0x08,0x08,0x04,0x04,0x04,0x02,0x02},/*"\",60*/
+//  187                               {0x00,0x78,0x08,0x08,0x08,0x08,0x08,0x08,0x08,0x08,0x08,0x08,0x08,0x08,0x78,0x00},/*"]",61*/
+//  188                               {0x00,0x1C,0x22,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00},/*"^",62*/
+//  189                               {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xFF},/*"_",63*/
+//  190                               {0x00,0x60,0x10,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00},/*"`",64*/
+//  191                               {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x3C,0x42,0x1E,0x22,0x42,0x42,0x3F,0x00,0x00},/*"a",65*/
+//  192                               {0x00,0x00,0x00,0xC0,0x40,0x40,0x40,0x58,0x64,0x42,0x42,0x42,0x64,0x58,0x00,0x00},/*"b",66*/
+//  193                               {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x1C,0x22,0x40,0x40,0x40,0x22,0x1C,0x00,0x00},/*"c",67*/
+//  194                               {0x00,0x00,0x00,0x06,0x02,0x02,0x02,0x1E,0x22,0x42,0x42,0x42,0x26,0x1B,0x00,0x00},/*"d",68*/
+//  195                               {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x3C,0x42,0x7E,0x40,0x40,0x42,0x3C,0x00,0x00},/*"e",69*/
+//  196                               {0x00,0x00,0x00,0x0F,0x11,0x10,0x10,0x7E,0x10,0x10,0x10,0x10,0x10,0x7C,0x00,0x00},/*"f",70*/
+//  197                               {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x3E,0x44,0x44,0x38,0x40,0x3C,0x42,0x42,0x3C},/*"g",71*/
+//  198                               {0x00,0x00,0x00,0xC0,0x40,0x40,0x40,0x5C,0x62,0x42,0x42,0x42,0x42,0xE7,0x00,0x00},/*"h",72*/
+//  199                               {0x00,0x00,0x00,0x30,0x30,0x00,0x00,0x70,0x10,0x10,0x10,0x10,0x10,0x7C,0x00,0x00},/*"i",73*/
+//  200                               {0x00,0x00,0x00,0x0C,0x0C,0x00,0x00,0x1C,0x04,0x04,0x04,0x04,0x04,0x04,0x44,0x78},/*"j",74*/
+//  201                               {0x00,0x00,0x00,0xC0,0x40,0x40,0x40,0x4E,0x48,0x50,0x68,0x48,0x44,0xEE,0x00,0x00},/*"k",75*/
+//  202                               {0x00,0x00,0x00,0x70,0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x7C,0x00,0x00},/*"l",76*/
+//  203                               {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xFE,0x49,0x49,0x49,0x49,0x49,0xED,0x00,0x00},/*"m",77*/
+//  204                               {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xDC,0x62,0x42,0x42,0x42,0x42,0xE7,0x00,0x00},/*"n",78*/
+//  205                               {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x3C,0x42,0x42,0x42,0x42,0x42,0x3C,0x00,0x00},/*"o",79*/
+//  206                               {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xD8,0x64,0x42,0x42,0x42,0x44,0x78,0x40,0xE0},/*"p",80*/
+//  207                               {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x1E,0x22,0x42,0x42,0x42,0x22,0x1E,0x02,0x07},/*"q",81*/
+//  208                               {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xEE,0x32,0x20,0x20,0x20,0x20,0xF8,0x00,0x00},/*"r",82*/
+//  209                               {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x3E,0x42,0x40,0x3C,0x02,0x42,0x7C,0x00,0x00},/*"s",83*/
+//  210                               {0x00,0x00,0x00,0x00,0x00,0x10,0x10,0x7C,0x10,0x10,0x10,0x10,0x10,0x0C,0x00,0x00},/*"t",84*/
+//  211                               {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xC6,0x42,0x42,0x42,0x42,0x46,0x3B,0x00,0x00},/*"u",85*/
+//  212                               {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xE7,0x42,0x24,0x24,0x28,0x10,0x10,0x00,0x00},/*"v",86*/
+//  213                               {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xD7,0x92,0x92,0xAA,0xAA,0x44,0x44,0x00,0x00},/*"w",87*/
+//  214                               {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x6E,0x24,0x18,0x18,0x18,0x24,0x76,0x00,0x00},/*"x",88*/
+//  215                               {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xE7,0x42,0x24,0x24,0x28,0x18,0x10,0x10,0xE0},/*"y",89*/
+//  216                               {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x7E,0x44,0x08,0x10,0x10,0x22,0x7E,0x00,0x00},/*"z",90*/
+//  217                               {0x00,0x03,0x04,0x04,0x04,0x04,0x04,0x08,0x04,0x04,0x04,0x04,0x04,0x04,0x03,0x00},/*"{",91*/
+//  218                               {0x08,0x08,0x08,0x08,0x08,0x08,0x08,0x08,0x08,0x08,0x08,0x08,0x08,0x08,0x08,0x08},/*"|",92*/
+//  219                               {0x00,0x60,0x10,0x10,0x10,0x10,0x10,0x08,0x10,0x10,0x10,0x10,0x10,0x10,0x60,0x00},/*"}",93*/
+//  220                               {0x30,0x4C,0x43,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00},/*"~",94*/
+//  221 };
+//  222 
+//  223 
+//  224 #if (HAL_LCD == TRUE)
+//  225 
+//  226 static void halLcd_ConfigIO(void);
+//  227 static void halLcd_ConfigSPI(void);
+//  228 static void SPI_SendData(uint8 x);
+//  229 static uint32 mypow(uint8 m,uint8 n);
+//  230 void LCD_WR_DATA(uint16 val); //Ö¸¶¨Êý¾Ý
+//  231 void LCD_WR_REG(uint16 reg);  //Ö¸¶¨¼Ä´æÆ÷
+//  232 void LCD_WR_REG_DATA(uint16 REG, uint16 VALUE);
+//  233 static void LCD_ShowChar(uint16 x,uint16 y,uint16 num);
+//  234 
+//  235 void HalLcdInit(void);
+//  236 void LCD_Clear(uint32 color);
+//  237 void LCD_DisplayOn(void);
+//  238 void LCD_DisplayOff(void);
+//  239 void LCD_XYRAM(uint16 xstart ,uint16 ystart ,uint16 xend ,uint16 yend);
+//  240 void LCD_SetC(uint16 x, uint16 y);
+//  241 void LCD_DrawPoint(uint16 x,uint16 y);
+//  242 void LCD_DrawCircle(uint8 x0, uint16 y0, uint8 r);
+//  243 void LCD_DrawLine(uint16 x1, uint16 y1, uint16 x2, uint16 y2);
+//  244 void LCD_DrawRectage(uint16 xstart,uint16 ystart,uint16 xend,uint16 yend,uint16 color);
+//  245 void LCD_Fill(uint16 xstart ,uint16 ystart ,uint16 xend ,uint16 yend ,uint16 color);
+//  246 void LCD_ShowNum(uint8 x,uint16 y,uint32 num,uint8 len);
+//  247 void LCD_ShowString(uint16 x,uint16 y,uint8 *p);
+//  248 
+//  249 #endif 
+//  250 
+//  251 //ÅäÖÃIO¿Ú
+//  252 static void halLcd_ConfigIO(void)
+//  253 {
+//  254   HAL_CONFIG_IO_OUTPUT(HAL_LCD_CS_PORT,   HAL_LCD_CS_PIN,  1);
+//  255   HAL_CONFIG_IO_OUTPUT(HAL_LCD_RS_PORT,   HAL_LCD_RS_PIN,  1);
+//  256   HAL_CONFIG_IO_OUTPUT(HAL_LCD_WR_PORT,   HAL_LCD_WR_PIN,  1);
+//  257   HAL_CONFIG_IO_OUTPUT(HAL_LCD_RD_PORT,   HAL_LCD_RD_PIN,  1);
+//  258   HAL_CONFIG_IO_OUTPUT(HAL_LCD_RST_PORT,  HAL_LCD_RST_PIN, 1);
+//  259 }
+//  260 //ÅäÖÃSPI¿Ú
+//  261 static void halLcd_ConfigSPI(void)
+//  262 {
+//  263   /* UART/SPI Peripheral configuration */
+//  264    uint8 baud_exponent;
+//  265    uint8 baud_mantissa;
+//  266 
+//  267   /* Set SPI on UART 1 alternative 2 */
+//  268   PERCFG |= 0x02;
+//  269 
+//  270   /* Configure clk, master out and master in lines */
+//  271   HAL_CONFIG_IO_PERIPHERAL(HAL_LCD_CLK_PORT,  HAL_LCD_CLK_PIN);
+//  272   HAL_CONFIG_IO_PERIPHERAL(HAL_LCD_MOSI_PORT, HAL_LCD_MOSI_PIN);
+//  273   HAL_CONFIG_IO_PERIPHERAL(HAL_LCD_MISO_PORT, HAL_LCD_MISO_PIN);
+//  274   
+//  275   baud_exponent = 19; //1M
+//  276   baud_mantissa = 100;
+//  277 
+//  278   /* Configure SPI */
+//  279   U1UCR  = 0x80;      /* Flush and goto IDLE state. 8-N-1. */
+//  280   U1CSR  = 0x00;      /* SPI mode, master. */
+//  281   U1GCR  = HAL_SPI_TRANSFER_MSB_FIRST | HAL_SPI_CLOCK_PHA_0 | HAL_SPI_CLOCK_POL_LO | baud_exponent;
+//  282   U1BAUD = baud_mantissa;
+//  283 }
+//  284 
+//  285 static void SPI_SendData(uint8 x)
+//  286 {
+//  287   LCD_SPI_TX(x);
+//  288 }
+//  289 //³õÊ¼»¯Lcd
+//  290 void HalLcdInit(void)
+//  291 {
+//  292   halLcd_ConfigIO();
+//  293   halLcd_ConfigSPI();
+//  294   LCD_RST = 0;
+//  295   MicroWait(600); 
+//  296   LCD_RST = 1;
+//  297   MicroWait(60000); 
+//  298   LCD_WR_REG_DATA(0x0001, 0x0100); // set SS and SM bit
+//  299   LCD_WR_REG_DATA(0x0002, 0x0200); // set 1 line inversion
+//  300   LCD_WR_REG_DATA(0x0003, 0x1030); // set GRAM write direction and BGR=1.
+//  301   LCD_WR_REG_DATA(0x0004, 0x0000); // Resize register
+//  302   LCD_WR_REG_DATA(0x0008, 0x0207); // set the back porch and front porch
+//  303   LCD_WR_REG_DATA(0x0009, 0x0000); // set non-display area refresh cycle ISC[3:0]
+//  304   LCD_WR_REG_DATA(0x000A, 0x0000); // FMARK function
+//  305   LCD_WR_REG_DATA(0x000C, 0x0000); // RGB interface setting
+//  306   LCD_WR_REG_DATA(0x000D, 0x0000); // Frame marker Position
+//  307   LCD_WR_REG_DATA(0x000F, 0x0000); // RGB interface polarity
+//  308 	//*************Power On sequence ****************//
+//  309   LCD_WR_REG_DATA(0x0010, 0x0000); // SAP, BT[3:0], AP, DSTB, SLP, STB
+//  310   LCD_WR_REG_DATA(0x0011, 0x0007); // DC1[2:0], DC0[2:0], VC[2:0]
+//  311   LCD_WR_REG_DATA(0x0012, 0x0000); // VREG1OUT voltage
+//  312   LCD_WR_REG_DATA(0x0013, 0x0000); // VDV[4:0] for VCOM amplitude
+//  313   LCD_WR_REG_DATA(0x0007, 0x0001);
+//  314   MicroWait(200);
+//  315   LCD_WR_REG_DATA(0x0010, 0x1690); // SAP, BT[3:0], AP, DSTB, SLP, STB
+//  316   LCD_WR_REG_DATA(0x0011, 0x0227); // Set DC1[2:0], DC0[2:0], VC[2:0]
+//  317   MicroWait(50);
+//  318   LCD_WR_REG_DATA(0x0012, 0x000D); // 0012
+//  319   MicroWait(50);
+//  320   LCD_WR_REG_DATA(0x0013, 0x1200); // VDV[4:0] for VCOM amplitude
+//  321   LCD_WR_REG_DATA(0x0029, 0x000A); // 04  VCM[5:0] for VCOMH
+//  322   LCD_WR_REG_DATA(0x002B, 0x000D); // Set Frame Rate
+//  323   MicroWait(50);
+//  324   LCD_WR_REG_DATA(0x0020, 0x0000); // GRAM horizontal Address
+//  325   LCD_WR_REG_DATA(0x0021, 0x0000); // GRAM Vertical Address
+//  326 	// ----------- Adjust the Gamma Curve ----------//
+//  327   LCD_WR_REG_DATA(0x0030, 0x0000);
+//  328   LCD_WR_REG_DATA(0x0031, 0x0404);
+//  329   LCD_WR_REG_DATA(0x0032, 0x0003);
+//  330   LCD_WR_REG_DATA(0x0035, 0x0405);
+//  331   LCD_WR_REG_DATA(0x0036, 0x0808);
+//  332   LCD_WR_REG_DATA(0x0037, 0x0407);
+//  333   LCD_WR_REG_DATA(0x0038, 0x0303);
+//  334   LCD_WR_REG_DATA(0x0039, 0x0707);
+//  335   LCD_WR_REG_DATA(0x003C, 0x0504);
+//  336   LCD_WR_REG_DATA(0x003D, 0x0808);
+//  337 	//------------------ Set GRAM area ---------------//
+//  338   LCD_WR_REG_DATA(0x0050, 0x0000); // Horizontal GRAM Start Address
+//  339   LCD_WR_REG_DATA(0x0051, 0x00EF); // Horizontal GRAM End Address
+//  340   LCD_WR_REG_DATA(0x0052, 0x0000); // Vertical GRAM Start Address
+//  341   LCD_WR_REG_DATA(0x0053, 0x013F); // Vertical GRAM Start Address
+//  342   LCD_WR_REG_DATA(0x0060, 0xA700); // Gate Scan Line
+//  343   LCD_WR_REG_DATA(0x0061, 0x0001); // NDL,VLE, REV
+//  344 	
+//  345   LCD_WR_REG_DATA(0x006A, 0x0000); // set scrolling line
+//  346 	//-------------- Partial Display Control ---------//
+//  347   LCD_WR_REG_DATA(0x0080, 0x0000);
+//  348   LCD_WR_REG_DATA(0x0081, 0x0000);
+//  349   LCD_WR_REG_DATA(0x0082, 0x0000);
+//  350   LCD_WR_REG_DATA(0x0083, 0x0000);
+//  351   LCD_WR_REG_DATA(0x0084, 0x0000);
+//  352   LCD_WR_REG_DATA(0x0085, 0x0000);
+//  353 	//-------------- Panel Control -------------------//
+//  354   LCD_WR_REG_DATA(0x0090, 0x0010);
+//  355   LCD_WR_REG_DATA(0x0092, 0x0000);
+//  356   LCD_WR_REG_DATA(0x0007, 0x0133); // 262K color and display ON
+//  357   //MicroWait(200);
+//  358   //LCD_Clear(WHITE); //ÂÌÉ«
+//  359 }
+//  360 
+//  361 /***************************************************/
+//  362 /* º¯Êý¹¦ÄÜ£»¸øILI9325µÄ¼Ä´æÆ÷Ð´Êý¾Ý               */
+//  363 /* Èë¿Ú²ÎÊý£»val£º16Î»Êý¾Ý                         */
+//  364 /* ËµÃ÷£º    Ð´16Î»Êý¾Ý£¬Ñ§Ï°°åÉÏµÄLCD²ÉÓÃ8Î»Á¬½Ó£¬*/
+//  365 /*           ËùÒÔ£¬16Î»Êý¾Ý·ÖÁ½´ÎÐ´½ø¼Ä´æÆ÷£¬ÏÈÐ´¸ß*/
+//  366 /*           Î»£¬ÔÙÐ´µÍÎ»¡£                        */
+//  367 /* ×¢Òâ£ºÊ¹ÓÃÊ±ÐèÒªÏÈÊ¹ÓÃLCD_WR_REG(reg)Ñ¡ÔñÒª°ÑÊý */
+//  368 /*       ¾ÝÐ´µ½ÄÄ¸ö¼Ä´æÆ÷ÀïÃæ¡£                    */
+//  369 /***************************************************/
+//  370 void LCD_WR_DATA(uint16 val)
+//  371 {  
+//  372   LCD_RS = 1;  //RS=1;
+//  373   P1_4 = 0;	//CS=0;
+//  374   SPI_SendData(val>>8);						
+//  375   LCD_WR = 0;	//WR=0;
+//  376   LCD_WR = 1;   //WR=1;
+//  377   SPI_SendData(val);					
+//  378   LCD_WR = 0;	//WR=0;
+//  379   LCD_WR = 1;   //WR=1;
+//  380   LCD_CS = 1;	//CS=1;	
+//  381 }
+//  382 
+//  383 /****************************************************/
+//  384 /* º¯Êý¹¦ÄÜ£ºÈ·¶¨ÍùÄÄ¸ö¼Ä´æÆ÷Ð´Êý                   */
+//  385 /* Èë¿Ú²ÎÊý£»reg£ºÑ¡ÔñµÄ¼Ä´æÆ÷                      */
+//  386 /* ËµÃ÷£º    ¼Ä´æÆ÷ºÅÊÇ16Î»Êý£¬8Î»Á¬½Ó·½Ê½ÐèÒªÐ´Á½´Î*/
+//  387 /****************************************************/
+//  388 void LCD_WR_REG(uint16 reg)		
+//  389 {	
+//  390   LCD_RS = 0;	//RS=0;
+//  391   LCD_CS = 0;	//CS=0;
+//  392   SPI_SendData(reg>>8);
+//  393   LCD_WR = 0;	//WR=0;
+//  394   LCD_WR = 1;   //WR=1;
+//  395   SPI_SendData(reg);	
+//  396   LCD_WR = 0;	//WR=0;
+//  397   LCD_WR = 1;   //WR=1;
+//  398   LCD_RS = 1;	//RS=1;		
+//  399 }
+//  400 
+//  401 /******************************************************/
+//  402 /* º¯Êý¹¦ÄÜ£»ÏÈÑ¡Ôñ¼Ä´æÆ÷ºÅ£¬ÔÙÐ´Êý¾Ýµ½ÀïÃæ           */
+//  403 /* Èë¿Ú²ÎÊý£»REG£º¼Ä´æÆ÷ºÅ  VALUE£ºÊý¾ÝÖµ             */
+//  404 /* ËµÃ÷£º    ¸Ãº¯ÊýÊÇÇ°Á½¸öº¯ÊýµÄºÏ³É£¬Ò²¾ÍÊÇÉÏÃæÁ½¸ö */
+//  405 /*           º¯ÊýÒ»°ãµÄÓÃ·¨¾ÍÊÇÕâÑù×éºÏ¡£             */
+//  406 /******************************************************/
+//  407 void LCD_WR_REG_DATA(uint16 REG, uint16 VALUE)
+//  408 {
+//  409    LCD_WR_REG(REG);
+//  410    LCD_WR_DATA(VALUE);   
+//  411 }
+//  412 //ÇåÆÁÄ»º¯Êý
+//  413 void LCD_Clear(uint32 color)
+//  414 {
+//  415   uint32 temp;
+//  416   LCD_WR_REG_DATA(0x0020,0);//ÉèÖÃX×ø±êÎ»ÖÃ
+//  417   LCD_WR_REG_DATA(0x0021,0);//ÉèÖÃY×ø±êÎ»ÖÃ
+//  418   LCD_WR_REG(0x0022);				//Ö¸ÏòRAM¼Ä´æÆ÷£¬×¼±¸Ð´Êý¾Ýµ½RAM
+//  419   for(temp=0;temp<76800;temp++)
+//  420   {
+//  421     LCD_WR_DATA(color);    
+//  422   }
+//  423 }
+//  424 /**********************************************/
+//  425 /* º¯Êý¹¦ÄÜ£»¿ªÆôÏÔÊ¾                         */
+//  426 /* Ëµ    Ã÷£ºÒ»°ãÓÃÓÚ¹Ø±ÕÏÔÊ¾ºóµÄ¿ªÆô         */
+//  427 /**********************************************/
+//  428 void LCD_DisplayOn(void)
+//  429 {
+//  430  	LCD_WR_REG_DATA(0x0007, 0x0133); // ¿ªÆôÏÔÊ¾
+//  431 }
+//  432 /**********************************************/
+//  433 /* º¯Êý¹¦ÄÜ£»¹Ø±ÕÏÔÊ¾                         */
+//  434 /* Ëµ    Ã÷£º²¢²»ÊÇÊ¹TFTºÚÆÁ£¬¶øÊÇÊ¹µÃTFTÉÏµÄ */
+//  435 /*           ÄÚÈÝ±£³Ö²»±ä£¬Ò»°ãÓÃÓÚTFTµÄÊý¾ÝÏß*/
+//  436 /*           ºÍÆäËüÄ£¿éÁ¬½Ó£¬²Ù×÷ÆäËüÄ£¿éµÄÊ± */
+//  437 /*           ºò²»Ï£ÍûÓ°ÏìTFTµÄÏÔÊ¾¡£          */
+//  438 /**********************************************/
+//  439 void LCD_DisplayOff(void)
+//  440 {
+//  441 	LCD_WR_REG_DATA(0x0007, 0x0); // ¹Ø±ÕÏÔÊ¾
+//  442 }
+//  443 /***************************************************/
+//  444 /* º¯Êý¹¦ÄÜ£»ÉèÖÃÏÔ´æÇøÓò                          */
+//  445 /* Ëµ    Ã÷£ºÉèÖÃ½«ÒªÏÔÊ¾µÄÏÔ´æXYÆðÊ¼ºÍ½áÊø×ø±ê    */
+//  446 /* ×¢    Òâ£ºÓÃÍêÒÔºóÒª»Ö¸´Æðµã(0,0)ºÍÖÕµã(239,319)*/
+//  447 /***************************************************/
+//  448 void LCD_XYRAM(uint16 xstart ,uint16 ystart ,uint16 xend ,uint16 yend)
+//  449 {
+//  450 	LCD_WR_REG_DATA(0x0050, xstart); // ÉèÖÃºá×ø±êGRAMÆðÊ¼µØÖ·
+//  451 	LCD_WR_REG_DATA(0x0051, xend); // ÉèÖÃºá×ø±êGRAM½áÊøµØÖ·
+//  452 	LCD_WR_REG_DATA(0x0052, ystart); // ÉèÖÃ×Ý×ø±êGRAMÆðÊ¼µØÖ·
+//  453 	LCD_WR_REG_DATA(0x0053, yend); // ÉèÖÃ×Ý×ø±êGRAM½áÊøµØÖ·
+//  454 }
+//  455 
+//  456 /*******************************************************/
+//  457 /* º¯Êý¹¦ÄÜ£ºÉèÖÃTFTÆÁÆðÊ¼×ø±ê                         */
+//  458 /*******************************************************/
+//  459 void LCD_SetC(uint16 x, uint16 y)
+//  460 {
+//  461 	LCD_WR_REG_DATA(0x0020,x);  //ÉèÖÃX×ø±êÎ»ÖÃ
+//  462 	LCD_WR_REG_DATA(0x0021,y);  //ÉèÖÃY×ø±êÎ»ÖÃ
+//  463 }
+//  464 /******************************************/
+//  465 /* º¯Êý¹¦ÄÜ£º»­Ò»¸öÏñËØµÄµã               */
+//  466 /* Èë¿Ú²ÎÊý£ºx,y   µãµÄ×ø±ê               */
+//  467 /******************************************/
+//  468 void LCD_DrawPoint(uint16 x,uint16 y)
+//  469 {
+//  470   LCD_WR_REG_DATA(0x0020,x);//ÉèÖÃX×ø±êÎ»ÖÃ
+//  471   LCD_WR_REG_DATA(0x0021,y);//ÉèÖÃY×ø±êÎ»ÖÃ
+//  472   LCD_WR_REG(0x0022);       //¿ªÊ¼Ð´ÈëGRAM
+//  473   LCD_WR_DATA(PointColor); 
+//  474 }
+//  475 /**********************************************/
+//  476 /* º¯Êý¹¦ÄÜ£»»­Ö±Ïß                           */
+//  477 /**********************************************/
+//  478 void LCD_DrawLine(uint16 x1, uint16 y1, uint16 x2, uint16 y2)
+//  479 {
+//  480 	uint16 t; 
+//  481 	int xerr=0,yerr=0,delta_x,delta_y,distance; 
+//  482 	int incx,incy,uRow,uCol; 
+//  483 
+//  484 	delta_x=x2-x1; //¼ÆËã×ø±êÔöÁ¿ 
+//  485 	delta_y=y2-y1; 
+//  486 	uRow=x1; 
+//  487 	uCol=y1; 
+//  488 	if(delta_x>0)incx=1; //ÉèÖÃµ¥²½·½Ïò 
+//  489 	else if(delta_x==0)incx=0;//´¹Ö±Ïß 
+//  490 	else {incx=-1;delta_x=-delta_x;} 
+//  491 	if(delta_y>0)incy=1; 
+//  492 	else if(delta_y==0)incy=0;//Ë®Æ½Ïß 
+//  493 	else{incy=-1;delta_y=-delta_y;} 
+//  494 	if( delta_x>delta_y)distance=delta_x; //Ñ¡È¡»ù±¾ÔöÁ¿×ø±êÖá 
+//  495 	else distance=delta_y; 
+//  496 	for(t=0;t<=distance+1;t++ )//»­ÏßÊä³ö 
+//  497 	{  
+//  498 		LCD_DrawPoint(uRow,uCol);//»­µã 
+//  499 		xerr+=delta_x ; 
+//  500 		yerr+=delta_y ; 
+//  501 		if(xerr>distance) 
+//  502 		{ 
+//  503 			xerr-=distance; 
+//  504 			uRow+=incx; 
+//  505 		} 
+//  506 		if(yerr>distance) 
+//  507 		{ 
+//  508 			yerr-=distance; 
+//  509 			uCol+=incy; 
+//  510 		} 
+//  511 	}  
+//  512 }
+//  513 /**********************************************/
+//  514 /* º¯Êý¹¦ÄÜ£»»­¾ØÐÎ                           */
+//  515 /**********************************************/
+//  516 void LCD_DrawRectage(uint16 xstart,uint16 ystart,uint16 xend,uint16 yend,uint16 color)
+//  517 {
+//  518 	PointColor=color;
+//  519 	LCD_DrawLine(xstart, ystart, xend, ystart);
+//  520 	LCD_DrawLine(xstart, yend, xend, yend);
+//  521 	LCD_DrawLine(xstart, ystart, xstart, yend);
+//  522 	LCD_DrawLine(xend, ystart, xend, yend);
+//  523 }
+//  524 /**********************************************/
+//  525 /* º¯Êý¹¦ÄÜ£»¾ØÐÎÌî³ä                         */
+//  526 /**********************************************/
+//  527 void LCD_Fill(uint16 xstart ,uint16 ystart ,uint16 xend ,uint16 yend ,uint16 color)
+//  528 {                    
+//  529     uint32 max;
+//  530 	LCD_XYRAM(xstart ,ystart ,xend ,yend); // ÉèÖÃGRAM×ø±ê
+//  531 	LCD_WR_REG_DATA(0x0020,xstart);//ÉèÖÃX×ø±êÎ»ÖÃ
+//  532     LCD_WR_REG_DATA(0x0021,ystart);//ÉèÖÃY×ø±êÎ»ÖÃ
+//  533     LCD_WR_REG(0x0022);				//Ö¸ÏòRAM¼Ä´æÆ÷£¬×¼±¸Ð´Êý¾Ýµ½RAM
+//  534 	max=(uint32)((xend-xstart+1)*(yend-ystart+1));    
+//  535 	while(max--)
+//  536 	{
+//  537 		LCD_WR_DATA(color);
+//  538 	}
+//  539 	LCD_XYRAM(0x0000 ,0x0000 ,0x00EF ,0X013F); // »Ö¸´GRAMÕûÆÁÏÔÊ¾
+//  540 }
+//  541 /*******************************************/
+//  542 /* º¯Êý¹¦ÄÜ£º»­Ô²                          */
+//  543 /* Èë¿Ú²ÎÊý£ºx0,y0  Ô²ÐÄ×ø±ê               */
+//  544 /*           r      °ë¾¶(µ¥Î»£ºÏñËØ)       */
+//  545 /*******************************************/
+//  546 void LCD_DrawCircle(uint8 x0, uint16 y0, uint8 r)
+//  547 {
+//  548 	int a,b;
+//  549 	int di;
+//  550 	a=0;b=r;	  
+//  551 	di=3-(r<<1);             //ÅÐ¶ÏÏÂ¸öµãÎ»ÖÃµÄ±êÖ¾
+//  552 	while(a<=b)
+//  553 	{
+//  554 		LCD_DrawPoint(x0-b,y0-a);             //3           
+//  555 		LCD_DrawPoint(x0+b,y0-a);             //0           
+//  556 		LCD_DrawPoint(x0-a,y0+b);             //1       
+//  557 		LCD_DrawPoint(x0-b,y0-a);             //7           
+//  558 		LCD_DrawPoint(x0-a,y0-b);             //2             
+//  559 		LCD_DrawPoint(x0+b,y0+a);             //4               
+//  560 		LCD_DrawPoint(x0+a,y0-b);             //5
+//  561 		LCD_DrawPoint(x0+a,y0+b);             //6 
+//  562 		LCD_DrawPoint(x0-b,y0+a);             
+//  563 		a++;
+//  564 		//Ê¹ÓÃBresenhamËã·¨»­Ô²     
+//  565 		if(di<0)di +=4*a+6;	  
+//  566 		else
+//  567 		{
+//  568 			di+=10+4*(a-b);   
+//  569 			b--;
+//  570 		} 
+//  571 		LCD_DrawPoint(x0+a,y0+b);
+//  572 	}
+//  573 } 
+//  574 /**********************************************/
+//  575 /* º¯Êý¹¦ÄÜ£»ÇómµÄn´Î·½                       */
+//  576 /**********************************************/
+//  577 uint32 mypow(uint8 m,uint8 n)
+//  578 {
+//  579 	uint32 result=1;	 
+//  580 	while(n--)result*=m;    
+//  581 	return result;
+//  582 }			 
+//  583 /**********************************************/
+//  584 /* º¯Êý¹¦ÄÜ£ºÏÔÊ¾Êý×Ö                         */
+//  585 /* Èë¿Ú²ÎÊý£ºx,y :Æðµã×ø±ê	 	              */
+//  586 /*           len :Êý×ÖµÄÎ»Êý				  */
+//  587 /*           num:ÊýÖµ(0~4294967295);	   	  */
+//  588 /**********************************************/
+//  589 void LCD_ShowNum(uint8 x,uint16 y,uint32 num,uint8 len)
+//  590 {         	
+//  591 	uint8 t,temp;
+//  592 	uint8 enshow=0;		 // ´Ë±äÁ¿ÓÃÀ´È¥µô×î¸ßÎ»µÄ0	
+//  593 				   
+//  594 	for(t=0;t<len;t++)
+//  595 	{
+//  596 		temp=(num/mypow(10,len-t-1))%10;
+//  597 		if(enshow==0&&t<(len-1))
+//  598 		{
+//  599 			if(temp==0)
+//  600 			{
+//  601 				LCD_ShowChar(x+8*t,y,' ');
+//  602 				continue;
+//  603 			}else enshow=1; 
+//  604 		 	 
+//  605 		}
+//  606 	 	LCD_ShowChar(x+8*t,y,temp+'0'); 
+//  607 	}
+//  608 } 
+//  609 /**********************************************/
+//  610 /* º¯Êý¹¦ÄÜ£ºÏÔÊ¾8*16µãÕóÓ¢ÎÄ×Ö·û             */
+//  611 /* Èë¿Ú²ÎÊý£ºx,y :Æðµã×ø±ê	 	              */
+//  612 /*           num:×ÖÄ¸»ò·ûºÅ         	   	  */
+//  613 /* ×¢    Òâ£ºx,yµÄÈ¡ÖµÒªÔÚ240µ½320·¶Î§ÄÚ      */
+//  614 /**********************************************/
+//  615 void LCD_ShowChar(uint16 x,uint16 y,uint16 num)
+//  616 {
+//  617     uint8 temp;
+//  618     uint8 pos,t;
+//  619 	      
+//  620     LCD_WR_REG_DATA(0x0020,x);//ÉèÖÃX×ø±êÎ»ÖÃ
+//  621     LCD_WR_REG_DATA(0x0021,y);//ÉèÖÃY×ø±êÎ»ÖÃ
+//  622  	/*¿ª±ÙÏÔ´æÇøÓò*/
+//  623     LCD_XYRAM(x,y,x+7,y+15); // ÉèÖÃGRAM×ø±ê
+//  624     LCD_WR_REG(0x0022);	  	 //Ö¸ÏòRAM¼Ä´æÆ÷£¬×¼±¸Ð´Êý¾Ýµ½RAM
+//  625  	
+//  626 	num=num-' ';//µÃµ½Æ«ÒÆºóµÄÖµ
+//  627 	for(pos=0;pos<16;pos++)
+//  628 	{
+//  629 	    temp=ascii_16[num][pos];
+//  630 	    for(t=0;t<8;t++)
+//  631 	    {                 
+//  632 	        if(temp&0x80)LCD_WR_DATA(PointColor);
+//  633 	        else LCD_WR_DATA(BackColor);    
+//  634 	        temp<<=1; 
+//  635 	    }
+//  636 	}
+//  637 	/* »Ö¸´ÏÔ´æÏÔÊ¾ÇøÓò240*320 */
+//  638 	LCD_XYRAM(0x0000 ,0x0000 ,0x00EF ,0X013F); // »Ö¸´GRAMÕûÆÁÏÔÊ¾
+//  639 }
+//  640 /*********************************************/
+//  641 /* º¯Êý¹¦ÄÜ£ºÏÔÊ¾×Ö·û´®£¨ÖÐÎÄºÍÓ¢ÎÄ£©        */
+//  642 /* Èë¿Ú²ÎÊý£ºx,y: ×ø±ê                       */
+//  643 /*           *p:×Ö·û´®                       */
+//  644 /*********************************************/
+//  645 void LCD_ShowString(uint16 x,uint16 y,uint8 *p)
+//  646 {         
+//  647     while(*p!='\0')	// Èç¹ûÃ»ÓÐ½áÊø
+//  648     {       
+//  649 	if((*p=='\n')||(x>224))   // »»¶ÎºÍ»»ÐÐ
+//  650 	{
+//  651 		y=y+19;   //×ÖÌå¸ß16 ÐÐ¼ä¾à3
+//  652 		x=2;      //2ÊÇ±ß¾à
+//  653 	}
+//  654 	LCD_ShowChar(x,y,*p);
+//  655 	x+=8;
+//  656 	p++;
+//  657     }  
+//  658 }
+//  659 
+//  660 #endif
+//  661 
+// 
+// 
+// 0 bytes of memory
+//
+//Errors: none
+//Warnings: none

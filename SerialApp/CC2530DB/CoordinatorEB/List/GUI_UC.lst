@@ -1,0 +1,695 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.1.10194/W32 for 8051         14/Jun/2016  16:18:51 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\Cor #
+#                          e\GUI_UC.c                                         #
+#    Command line       =  -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\..\..\..\Tools\CC2530D #
+#                          B\f8wCoord.cfg (-DCPU32MHZ -DROOT=__near_func      #
+#                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                   #
+#                          -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8         #
+#                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)    #
+#                          -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\..\..\..\Tools\CC2530D #
+#                          B\f8wConfig.cfg (-DZIGBEEPRO -DSECURE=0            #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0x1001                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹â #
+#                          ÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5. #
+#                          1a\Components\uCGUI\Core\GUI_UC.c -D               #
+#                          HAL_UART=TRUE -D SERIAL_APP_PORT=0 -D COOR -D      #
+#                          LCD_SUPPORTED -D NV_INIT -lC                       #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\List\ -lA   #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\List\       #
+#                          --diag_suppress Pe001,Pa010 -o                     #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\Obj\ -e     #
+#                          --no_code_motion --debug --core=plain --dptr=16,1  #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\ -I                    #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\Public\ -I             #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \uCGUI\Core\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ2 #
+#                          10\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ #
+#                          ..\..\Components\uCGUI\MultiLayer\ -I              #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \uCGUI\Config\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁ #
+#                          Ï210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Pr #
+#                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\Coor #
+#                          dinator\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Z #
+#                          igBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects #
+#                          \zstack\Utilities\SerialApp\CC2530DB\..\..\..\ZMai #
+#                          n\TI2530DB\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ21 #
+#                          0\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proje #
+#                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\. #
+#                          .\..\Components\hal\include\ -I                    #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \hal\target\CC2530EB\ -I                           #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\include\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ #
+#                          210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Pro #
+#                          jects\zstack\Utilities\SerialApp\CC2530DB\..\..\.. #
+#                          \..\..\Components\mac\high_level\ -I               #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\low_level\srf04\ -I                           #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\low_level\srf04\single_chip\ -I               #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mt\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBe #
+#                          eÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zst #
+#                          ack\Utilities\SerialApp\CC2530DB\..\..\..\..\..\Co #
+#                          mponents\osal\include\ -I                          #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \services\saddr\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ× #
+#                          ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\ #
+#                          Projects\zstack\Utilities\SerialApp\CC2530DB\..\.. #
+#                          \..\..\..\Components\services\sdata\ -I            #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\af\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210 #
+#                          \ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projec #
+#                          ts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\.. #
+#                          \..\Components\stack\nwk\ -I                       #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\sapi\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ2 #
+#                          10\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ #
+#                          ..\..\Components\stack\sec\ -I                     #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\sys\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ21 #
+#                          0\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proje #
+#                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\. #
+#                          .\..\Components\stack\zdo\ -I                      #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \zmac\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Zig #
+#                          BeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\z #
+#                          stack\Utilities\SerialApp\CC2530DB\..\..\..\..\..\ #
+#                          Components\zmac\f8w\ -Ohz --require_prototypes     #
+#    List file          =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\List\GUI_UC #
+#                          .lst                                               #
+#    Object file        =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\Obj\GUI_UC. #
+#                          r51                                                #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\Core\GUI_UC.c
+      1          /*
+      2          *********************************************************************************************************
+      3          *                                                uC/GUI
+      4          *                        Universal graphic software for embedded applications
+      5          *
+      6          *                       (c) Copyright 2002, Micrium Inc., Weston, FL
+      7          *                       (c) Copyright 2002, SEGGER Microcontroller Systeme GmbH
+      8          *
+      9          *              µC/GUI is protected by international copyright laws. Knowledge of the
+     10          *              source code may not be used to write a similar product. This file may
+     11          *              only be used in accordance with a license and should not be redistributed
+     12          *              in any way. We appreciate your understanding and fairness.
+     13          *
+     14          ----------------------------------------------------------------------
+     15          File        : GUI_UC_EncodeUTF8.c
+     16          Purpose     : Encoding routines
+     17          ---------------------------END-OF-HEADER------------------------------
+     18          */
+     19          
+     20          #include "GUI_Protected.h"
+
+   \                                 In  segment SFR_AN, at 0xa8
+   \   union <unnamed> volatile __sfr _A_IEN0
+   \                     _A_IEN0:
+   \   000000                DS 1
+     21          
+     22          /*********************************************************************
+     23          *
+     24          *       Public code
+     25          *
+     26          **********************************************************************
+     27          */
+     28          /*********************************************************************
+     29          *
+     30          *       GUI_UC_GetCharSize
+     31          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     32          int GUI_UC_GetCharSize(const char GUI_UNI_PTR * s) {
+   \                     GUI_UC_GetCharSize:
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+     33            int r;
+     34            halIntState_t state;
+     35            GUI_LOCK(state);
+   \   000005   12....       LCALL   ?Subroutine4 & 0xFFFF
+     36            r =  GUI_Context.pUC_API->pfGetCharSize(s);
+   \                     ??CrossCallReturnLabel_2:
+   \   000008                REQUIRE ?Subroutine0
+   \   000008                REQUIRE _A_IEN0
+   \   000008                ; // Fall through to label ?Subroutine0
+     37            GUI_UNLOCK(state);
+     38            return r;
+     39          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   A3           INC     DPTR
+   \   000001   A3           INC     DPTR
+   \   000002                REQUIRE ??Subroutine8_0
+   \   000002                ; // Fall through to label ??Subroutine8_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine8_0:
+   \   000000   12....       LCALL   ??Subroutine10_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_6:
+   \   000003   12....       LCALL   ?CALL_IND
+   \   000006   EE           MOV     A,R6
+   \   000007   A2E7         MOV     C,0xE0 /* A   */.7
+   \   000009   92AF         MOV     0xa8.7,C
+   \   00000B   7F02         MOV     R7,#0x2
+   \   00000D   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine4:
+   \   000000   E5A8         MOV     A,0xa8
+   \   000002   FE           MOV     R6,A
+   \   000003   C2AF         CLR     0xa8.7
+   \   000005                ; Setup parameters for indirect call
+   \   000005                ; Setup parameters for indirect call
+   \   000005                REQUIRE ??Subroutine9_0
+   \   000005                ; // Fall through to label ??Subroutine9_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine9_0:
+   \   000000   90....       MOV     DPTR,#GUI_Context + 23
+   \   000003                REQUIRE ??Subroutine10_0
+   \   000003                ; // Fall through to label ??Subroutine10_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine10_0:
+   \   000000   12....       LCALL   ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_13:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine6:
+   \   000000   12....       LCALL   ?Subroutine7 & 0xFFFF
+   \                     ??CrossCallReturnLabel_16:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine7:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F8           MOV     R0,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   F583         MOV     DPH,A
+   \   000006   8882         MOV     DPL,R0
+   \   000008   22           RET
+     40          
+     41          /*********************************************************************
+     42          *
+     43          *       GUI_UC_GetCharCode
+     44          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     45          U16 GUI_UC_GetCharCode(const char GUI_UNI_PTR * s) {
+   \                     GUI_UC_GetCharCode:
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+     46            U16 r;
+     47            halIntState_t state;
+     48            GUI_LOCK(state);
+   \   000005   12....       LCALL   ?Subroutine4 & 0xFFFF
+     49            r =  GUI_Context.pUC_API->pfGetCharCode(s);
+   \                     ??CrossCallReturnLabel_3:
+   \   000008   80..         SJMP    ??Subroutine8_0
+   \   00000A                REQUIRE _A_IEN0
+     50            GUI_UNLOCK(state);
+     51            return r;
+     52          }
+     53          
+     54          /*********************************************************************
+     55          *
+     56          *       GUI_UC_Encode
+     57          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     58          int GUI_UC_Encode(char* s, U16 Char) {
+   \                     GUI_UC_Encode:
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+     59            #if GUI_COMPILER_SUPPORTS_FP
+     60              int r;
+     61              halIntState_t state;
+     62              GUI_LOCK(state);
+   \   000005   E5A8         MOV     A,0xa8
+   \   000007   FE           MOV     R6,A
+   \   000008   C2AF         CLR     0xa8.7
+     63              r = GUI_Context.pUC_API->pfEncode(s, Char);
+   \   00000A                ; Setup parameters for indirect call
+   \   00000A   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_0:
+   \   00000D   80..         SJMP    ?Subroutine0
+   \   00000F                REQUIRE _A_IEN0
+     64              GUI_UNLOCK(state);
+     65              return r;
+     66            #else
+     67              GUI_USE_PARA(s);
+     68              GUI_USE_PARA(Char);
+     69              return 0;
+     70            #endif
+     71          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   12....       LCALL   ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_11:
+   \   000003   A3           INC     DPTR
+   \   000004   A3           INC     DPTR
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine5:
+   \   000000   90....       MOV     DPTR,#GUI_Context + 23
+   \   000003   12....       LCALL   ?Subroutine7 & 0xFFFF
+   \                     ??CrossCallReturnLabel_15:
+   \   000006   A3           INC     DPTR
+   \   000007   A3           INC     DPTR
+   \   000008   22           RET
+     72          
+     73          /*********************************************************************
+     74          *
+     75          *       GUI_UC__CalcSizeOfChar
+     76          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     77          int GUI_UC__CalcSizeOfChar(U16 Char) {
+   \                     GUI_UC__CalcSizeOfChar:
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     78            return GUI_Context.pUC_API->pfCalcSizeOfChar(Char);
+   \   000004                ; Setup parameters for indirect call
+   \   000004   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_1:
+   \   000007   12....       LCALL   ??Subroutine10_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_4:
+   \   00000A   12....       LCALL   ?CALL_IND
+   \   00000D   D083         POP     DPH
+   \   00000F   D082         POP     DPL
+   \   000011   02....       LJMP    ?BRET
+     79          }
+     80          
+     81          /*********************************************************************
+     82          *
+     83          *       GUI_UC__GetCharCodeInc
+     84          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     85          U16 GUI_UC__GetCharCodeInc(const char GUI_UNI_PTR ** ps) {
+   \                     GUI_UC__GetCharCodeInc:
+   \   000000   74F2         MOV     A,#-0xe
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 14
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+     86            const char GUI_UNI_PTR * s;
+     87            U16 r;
+     88            s   = *ps;
+   \   000009   8E82         MOV     DPL,R6
+   \   00000B   8F83         MOV     DPH,R7
+   \   00000D   E0           MOVX    A,@DPTR
+   \   00000E   F5..         MOV     ?V0 + 2,A
+   \   000010   A3           INC     DPTR
+   \   000011   E0           MOVX    A,@DPTR
+   \   000012   F5..         MOV     ?V0 + 3,A
+     89            r   = GUI_UC__GetCharCode(s);
+   \   000014                ; Setup parameters for indirect call
+   \   000014   AA..         MOV     R2,?V0 + 2
+   \   000016   FB           MOV     R3,A
+   \   000017   12....       LCALL   ??Subroutine9_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_7:
+   \   00001A   12....       LCALL   ??Subroutine10_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_5:
+   \   00001D   12....       LCALL   ?CALL_IND
+   \   000020   8A..         MOV     ?V0 + 0,R2
+   \   000022   8B..         MOV     ?V0 + 1,R3
+     90            s  += GUI_UC__GetCharSize(s);
+     91            *ps = s;
+   \   000024                ; Setup parameters for indirect call
+   \   000024   AA..         MOV     R2,?V0 + 2
+   \   000026   AB..         MOV     R3,?V0 + 3
+   \   000028   12....       LCALL   ??Subroutine11_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_8:
+   \   00002B   12....       LCALL   ?CALL_IND
+   \   00002E   8A..         MOV     ?V0 + 4,R2
+   \   000030   8B..         MOV     ?V0 + 5,R3
+   \   000032   E5..         MOV     A,?V0 + 2
+   \   000034   25..         ADD     A,?V0 + 4
+   \   000036   F8           MOV     R0,A
+   \   000037   E5..         MOV     A,?V0 + 3
+   \   000039   35..         ADDC    A,?V0 + 5
+   \   00003B   F9           MOV     R1,A
+   \   00003C   8E82         MOV     DPL,R6
+   \   00003E   8F83         MOV     DPH,R7
+   \   000040   E8           MOV     A,R0
+   \   000041   F0           MOVX    @DPTR,A
+   \   000042   A3           INC     DPTR
+   \   000043   E9           MOV     A,R1
+   \   000044   F0           MOVX    @DPTR,A
+     92            return r;
+   \   000045   AA..         MOV     R2,?V0 + 0
+   \   000047   AB..         MOV     R3,?V0 + 1
+   \   000049                REQUIRE ?Subroutine1
+   \   000049                ; // Fall through to label ?Subroutine1
+     93          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   7F06         MOV     R7,#0x6
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine11_0:
+   \   000000   12....       LCALL   ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_12:
+   \   000003   12....       LCALL   ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_14:
+   \   000006   22           RET
+     94          
+     95          /*********************************************************************
+     96          *
+     97          *       GUI_UC__NumChars2NumBytes
+     98          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     99          int GUI_UC__NumChars2NumBytes(const char GUI_UNI_PTR * s, int NumChars) {
+   \                     GUI_UC__NumChars2NumBytes:
+   \   000000   74F2         MOV     A,#-0xe
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 14
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+   \   000009   8C..         MOV     ?V0 + 0,R4
+   \   00000B   8D..         MOV     ?V0 + 1,R5
+    100            int CharSize, NumBytes = 0;
+   \   00000D   75..00       MOV     ?V0 + 2,#0x0
+   \   000010   75..00       MOV     ?V0 + 3,#0x0
+   \   000013   8021         SJMP    ??GUI_UC__NumChars2NumBytes_0
+    101            while (NumChars--) {
+    102              CharSize = GUI_UC__GetCharSize(s);
+   \                     ??GUI_UC__NumChars2NumBytes_1:
+   \   000015                ; Setup parameters for indirect call
+   \   000015   EE           MOV     A,R6
+   \   000016   FA           MOV     R2,A
+   \   000017   EF           MOV     A,R7
+   \   000018   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_9:
+   \   00001B   12....       LCALL   ?CALL_IND
+   \   00001E   8A..         MOV     ?V0 + 4,R2
+   \   000020   8B..         MOV     ?V0 + 5,R3
+   \   000022   A8..         MOV     R0,?V0 + 4
+   \   000024   A9..         MOV     R1,?V0 + 5
+    103              s += CharSize;    
+   \   000026   EE           MOV     A,R6
+   \   000027   28           ADD     A,R0
+   \   000028   FE           MOV     R6,A
+   \   000029   EF           MOV     A,R7
+   \   00002A   39           ADDC    A,R1
+   \   00002B   FF           MOV     R7,A
+    104              NumBytes += CharSize;
+   \   00002C   E5..         MOV     A,?V0 + 2
+   \   00002E   28           ADD     A,R0
+   \   00002F   F5..         MOV     ?V0 + 2,A
+   \   000031   E5..         MOV     A,?V0 + 3
+   \   000033   39           ADDC    A,R1
+   \   000034   F5..         MOV     ?V0 + 3,A
+    105            }
+   \                     ??GUI_UC__NumChars2NumBytes_0:
+   \   000036   A8..         MOV     R0,?V0 + 0
+   \   000038   A9..         MOV     R1,?V0 + 1
+   \   00003A   E8           MOV     A,R0
+   \   00003B   24FF         ADD     A,#-0x1
+   \   00003D   F5..         MOV     ?V0 + 0,A
+   \   00003F   E9           MOV     A,R1
+   \   000040   34FF         ADDC    A,#-0x1
+   \   000042   F5..         MOV     ?V0 + 1,A
+   \   000044   E8           MOV     A,R0
+   \   000045   49           ORL     A,R1
+   \   000046   70CD         JNZ     ??GUI_UC__NumChars2NumBytes_1
+    106            return NumBytes;
+   \   000048   AA..         MOV     R2,?V0 + 2
+   \   00004A   AB..         MOV     R3,?V0 + 3
+   \   00004C   80..         SJMP    ?Subroutine1
+    107          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   FB           MOV     R3,A
+   \   000001                REQUIRE ??Subroutine11_0
+   \   000001                ; // Fall through to label ??Subroutine11_0
+    108          
+    109          /*********************************************************************
+    110          *
+    111          *       GUI_UC__NumBytes2NumChars
+    112          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    113          int GUI_UC__NumBytes2NumChars(const char GUI_UNI_PTR * s, int NumBytes) {
+   \                     GUI_UC__NumBytes2NumChars:
+   \   000000   74F0         MOV     A,#-0x10
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 0
+   \   000005   8A..         MOV     ?V0 + 4,R2
+   \   000007   8B..         MOV     ?V0 + 5,R3
+   \   000009   8C..         MOV     ?V0 + 2,R4
+   \   00000B   8D..         MOV     ?V0 + 3,R5
+    114            int CharSize, Chars = 0, Bytes = 0;
+   \   00000D   7E00         MOV     R6,#0x0
+   \   00000F   7F00         MOV     R7,#0x0
+   \   000011   8E..         MOV     ?V0 + 0,R6
+   \   000013   8E..         MOV     ?V0 + 1,R6
+   \   000015   8027         SJMP    ??GUI_UC__NumBytes2NumChars_0
+    115            while (NumBytes > Bytes) {
+    116              CharSize = GUI_UC__GetCharSize(s + Bytes);
+    117              Bytes += CharSize;
+   \                     ??GUI_UC__NumBytes2NumChars_1:
+   \   000017                ; Setup parameters for indirect call
+   \   000017   E5..         MOV     A,?V0 + 4
+   \   000019   25..         ADD     A,?V0 + 0
+   \   00001B   FA           MOV     R2,A
+   \   00001C   E5..         MOV     A,?V0 + 5
+   \   00001E   35..         ADDC    A,?V0 + 1
+   \   000020   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_10:
+   \   000023   12....       LCALL   ?CALL_IND
+   \   000026   8A..         MOV     ?V0 + 6,R2
+   \   000028   8B..         MOV     ?V0 + 7,R3
+   \   00002A   E5..         MOV     A,?V0 + 0
+   \   00002C   25..         ADD     A,?V0 + 6
+   \   00002E   F5..         MOV     ?V0 + 0,A
+   \   000030   E5..         MOV     A,?V0 + 1
+   \   000032   35..         ADDC    A,?V0 + 7
+   \   000034   F5..         MOV     ?V0 + 1,A
+    118              Chars++;
+   \   000036   EE           MOV     A,R6
+   \   000037   2401         ADD     A,#0x1
+   \   000039   0E           INC     R6
+   \   00003A   EF           MOV     A,R7
+   \   00003B   3400         ADDC    A,#0x0
+   \   00003D   FF           MOV     R7,A
+    119            }
+   \                     ??GUI_UC__NumBytes2NumChars_0:
+   \   00003E   C3           CLR     C
+   \   00003F   E5..         MOV     A,?V0 + 0
+   \   000041   95..         SUBB    A,?V0 + 2
+   \   000043   E5..         MOV     A,?V0 + 1
+   \   000045   95..         SUBB    A,?V0 + 3
+   \   000047   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   000049   65D0         XRL     A,PSW
+   \   00004B   33           RLC     A
+   \   00004C   40C9         JC      ??GUI_UC__NumBytes2NumChars_1
+    120            return Chars;
+   \   00004E   EE           MOV     A,R6
+   \   00004F   FA           MOV     R2,A
+   \   000050   EF           MOV     A,R7
+   \   000051   FB           MOV     R3,A
+   \   000052   7F08         MOV     R7,#0x8
+   \   000054   02....       LJMP    ?BANKED_LEAVE_XDATA
+    121          }
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI_UC_GetCharSize?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI_UC_GetCharSize
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI_UC_GetCharCode?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI_UC_GetCharCode
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI_UC_Encode?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI_UC_Encode
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI_UC__CalcSizeOfChar?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI_UC__CalcSizeOfChar
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI_UC__GetCharCodeInc?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI_UC__GetCharCodeInc
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI_UC__NumChars2NumBytes?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI_UC__NumChars2NumBytes
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI_UC__NumBytes2NumChars?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI_UC__NumBytes2NumChars
+    122          
+    123          /*************************** End of file ****************************/
+
+   Maximum stack usage in bytes:
+
+     Function                  ISTACK PSTACK XSTACK
+     --------                  ------ ------ ------
+     GUI_UC_Encode                 0      0     10
+     GUI_UC_GetCharCode            0      0     10
+     GUI_UC_GetCharSize            0      0     10
+     GUI_UC__CalcSizeOfChar        2      0      0
+     GUI_UC__GetCharCodeInc        0      0     14
+     GUI_UC__NumBytes2NumChars     0      0     16
+     GUI_UC__NumChars2NumBytes     0      0     14
+
+
+   Segment part sizes:
+
+     Function/Label                    Bytes
+     --------------                    -----
+     _A_IEN0                              1
+     GUI_UC_GetCharSize                   8
+     ?Subroutine0                         2
+     ??Subroutine8_0                     16
+     ?Subroutine4                         5
+     ??Subroutine9_0                      3
+     ??Subroutine10_0                     4
+     ?Subroutine6                         4
+     ?Subroutine7                         9
+     GUI_UC_GetCharCode                  10
+     GUI_UC_Encode                       15
+     ?Subroutine3                         6
+     ?Subroutine5                         9
+     GUI_UC__CalcSizeOfChar              20
+     GUI_UC__GetCharCodeInc              73
+     ?Subroutine1                         5
+     ??Subroutine11_0                     7
+     GUI_UC__NumChars2NumBytes           78
+     ?Subroutine2                         1
+     GUI_UC__NumBytes2NumChars           87
+     ??GUI_UC_GetCharSize?relay           6
+     ??GUI_UC_GetCharCode?relay           6
+     ??GUI_UC_Encode?relay                6
+     ??GUI_UC__CalcSizeOfChar?relay       6
+     ??GUI_UC__GetCharCodeInc?relay       6
+     ??GUI_UC__NumChars2NumBytes?relay    6
+     ??GUI_UC__NumBytes2NumChars?relay    6
+
+ 
+ 362 bytes in segment BANKED_CODE
+  42 bytes in segment BANK_RELAYS
+   1 byte  in segment SFR_AN
+ 
+ 404 bytes of CODE memory
+   0 bytes of DATA memory (+ 1 byte shared)
+
+Errors: none
+Warnings: none

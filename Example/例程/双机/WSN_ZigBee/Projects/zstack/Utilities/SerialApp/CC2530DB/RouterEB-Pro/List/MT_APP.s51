@@ -1,0 +1,639 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V8.10.1.10194/W32 for 8051        10/Jul/2018  15:41:15 /
+// Copyright 2004-2011 IAR Systems AB.                                        /
+//                                                                            /
+//    Core               =  plain                                             /
+//    Code model         =  banked                                            /
+//    Data model         =  large                                             /
+//    Calling convention =  xdata reentrant                                   /
+//    Constant location  =  data_rom                                          /
+//    Dptr setup         =  1,16                                              /
+//    Source file        =  E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý³Ì\Ë«»ú\WSN_ZigBee\Co /
+//                          mponents\mt\MT_APP.c                              /
+//    Command line       =  -f E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý³Ì\Ë«»ú\WSN_ZigBee /
+//                          \Projects\zstack\Utilities\SerialApp\CC2530DB\..\ /
+//                          ..\..\Tools\CC2530DB\f8wRouter.cfg (-DCPU32MHZ    /
+//                          -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TR /
+//                          UE -DRTR_NWK -DBLINK_LEDS) -f                     /
+//                          E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý³Ì\Ë«»ú\WSN_ZigBee\Pr /
+//                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\..\ /
+//                          ..\Tools\CC2530DB\f8wConfig.cfg (-DSECURE=0       /
+//                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                 /
+//                          -DDEFAULT_CHANLIST=0x00000800                     /
+//                          -DZDAPP_CONFIG_PAN_ID=0xFFF1                      /
+//                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
+//                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
+//                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
+//                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_P /
+//                          OLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7           /
+//                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3   /
+//                          -DNWK_MAX_DATA_RETRIES=2                          /
+//                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9        /
+//                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40          /
+//                          -DNWK_MAX_BINDING_ENTRIES=4                       /
+//                          -DMAX_BINDING_CLUSTER_IDS=4                       /
+//                          "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07, 0x09,     /
+//                          0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08,   /
+//                          0x0A, 0x0C, 0x0D}" -DMAC_MAX_FRAME_SIZE=116       /
+//                          "-DCONST=const __code" -DGENERIC=__generic        /
+//                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
+//                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
+//                          -DREJOIN_POLL_RATE=440 E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\ /
+//                          Àý³Ì\Ë«»ú\WSN_ZigBee\Components\mt\MT_APP.c -D    /
+//                          ZIGBEEPRO -D HAL_UART=TRUE -D SERIAL_APP_PORT=0   /
+//                          -D LCD_SUPPORTED -lC E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý /
+//                          ³Ì\Ë«»ú\WSN_ZigBee\Projects\zstack\Utilities\Seri /
+//                          alApp\CC2530DB\RouterEB-Pro\List\ -lA             /
+//                          E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý³Ì\Ë«»ú\WSN_ZigBee\Pr /
+//                          ojects\zstack\Utilities\SerialApp\CC2530DB\Router /
+//                          EB-Pro\List\ --diag_suppress Pe001,Pa010 -o       /
+//                          E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý³Ì\Ë«»ú\WSN_ZigBee\Pr /
+//                          ojects\zstack\Utilities\SerialApp\CC2530DB\Router /
+//                          EB-Pro\Obj\ -e --debug --core=plain --dptr=16,1   /
+//                          --data_model=large --code_model=banked            /
+//                          --calling_convention=xdata_reentrant              /
+//                          --place_constants=data_rom --nr_virtual_regs 8    /
+//                          -I E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý³Ì\Ë«»ú\WSN_ZigBee /
+//                          \Projects\zstack\Utilities\SerialApp\CC2530DB\    /
+//                          -I E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý³Ì\Ë«»ú\WSN_ZigBee /
+//                          \Projects\zstack\Utilities\SerialApp\CC2530DB\..\ /
+//                          SOURCE\ -I E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý³Ì\Ë«»ú\WS /
+//                          N_ZigBee\Projects\zstack\Utilities\SerialApp\CC25 /
+//                          30DB\..\..\..\ZMAIN\TI2530DB\ -I                  /
+//                          E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý³Ì\Ë«»ú\WSN_ZigBee\Pr /
+//                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\..\ /
+//                          ..\..\..\COMPONENTS\MT\ -I                        /
+//                          E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý³Ì\Ë«»ú\WSN_ZigBee\Pr /
+//                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\..\ /
+//                          ..\..\..\COMPONENTS\HAL\INCLUDE\ -I               /
+//                          E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý³Ì\Ë«»ú\WSN_ZigBee\Pr /
+//                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\..\ /
+//                          ..\..\..\COMPONENTS\HAL\TARGET\CC2530EB\ -I       /
+//                          E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý³Ì\Ë«»ú\WSN_ZigBee\Pr /
+//                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\..\ /
+//                          ..\..\..\COMPONENTS\OSAL\MCU\CCSOC\ -I            /
+//                          E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý³Ì\Ë«»ú\WSN_ZigBee\Pr /
+//                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\..\ /
+//                          ..\..\..\COMPONENTS\OSAL\INCLUDE\ -I              /
+//                          E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý³Ì\Ë«»ú\WSN_ZigBee\Pr /
+//                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\..\ /
+//                          ..\..\..\COMPONENTS\STACK\AF\ -I                  /
+//                          E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý³Ì\Ë«»ú\WSN_ZigBee\Pr /
+//                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\..\ /
+//                          ..\..\..\COMPONENTS\STACK\NWK\ -I                 /
+//                          E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý³Ì\Ë«»ú\WSN_ZigBee\Pr /
+//                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\..\ /
+//                          ..\..\..\COMPONENTS\STACK\SEC\ -I                 /
+//                          E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý³Ì\Ë«»ú\WSN_ZigBee\Pr /
+//                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\..\ /
+//                          ..\..\..\COMPONENTS\STACK\SAPI\ -I                /
+//                          E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý³Ì\Ë«»ú\WSN_ZigBee\Pr /
+//                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\..\ /
+//                          ..\..\..\COMPONENTS\STACK\SYS\ -I                 /
+//                          E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý³Ì\Ë«»ú\WSN_ZigBee\Pr /
+//                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\..\ /
+//                          ..\..\..\COMPONENTS\STACK\ZDO\ -I                 /
+//                          E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý³Ì\Ë«»ú\WSN_ZigBee\Pr /
+//                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\..\ /
+//                          ..\..\..\COMPONENTS\ZMAC\F8W\ -I                  /
+//                          E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý³Ì\Ë«»ú\WSN_ZigBee\Pr /
+//                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\..\ /
+//                          ..\..\..\COMPONENTS\ZMAC\ -I                      /
+//                          E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý³Ì\Ë«»ú\WSN_ZigBee\Pr /
+//                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\..\ /
+//                          ..\..\..\COMPONENTS\SERVICES\SADDR\ -I            /
+//                          E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý³Ì\Ë«»ú\WSN_ZigBee\Pr /
+//                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\..\ /
+//                          ..\..\..\COMPONENTS\SERVICES\SDATA\ -I            /
+//                          E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý³Ì\Ë«»ú\WSN_ZigBee\Pr /
+//                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\..\ /
+//                          ..\..\..\COMPONENTS\MAC\INCLUDE\ -I               /
+//                          E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý³Ì\Ë«»ú\WSN_ZigBee\Pr /
+//                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\..\ /
+//                          ..\..\..\COMPONENTS\MAC\HIGH_LEVEL\ -I            /
+//                          E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý³Ì\Ë«»ú\WSN_ZigBee\Pr /
+//                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\..\ /
+//                          ..\..\..\COMPONENTS\MAC\LOW_LEVEL\srf04\ -I       /
+//                          E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý³Ì\Ë«»ú\WSN_ZigBee\Pr /
+//                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\..\ /
+//                          ..\..\..\COMPONENTS\MAC\LOW_LEVEL\srf04\SINGLE_CH /
+//                          IP\ -Ohz --require_prototypes                     /
+//    List file          =  E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý³Ì\Ë«»ú\WSN_ZigBee\Pr /
+//                          ojects\zstack\Utilities\SerialApp\CC2530DB\Router /
+//                          EB-Pro\List\MT_APP.s51                            /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME MT_APP
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+
+        END
+// E:\123\´óÈý\Éú²úÊµÏ°\Àý³Ì\Àý³Ì\Ë«»ú\WSN_ZigBee\Components\mt\MT_APP.c
+//    1 /***************************************************************************************************
+//    2   Filename:       MT.c
+//    3   Revised:        $Date: 2008-06-17 11:48:11 -0700 (Tue, 17 Jun 2008) $
+//    4   Revision:       $Revision: 17273 $
+//    5 
+//    6   Description:    MonitorTest
+//    7 
+//    8   Copyright 2007 Texas Instruments Incorporated. All rights reserved.
+//    9 
+//   10   IMPORTANT: Your use of this Software is limited to those specific rights
+//   11   granted under the terms of a software license agreement between the user
+//   12   who downloaded the software, his/her employer (which must be your employer)
+//   13   and Texas Instruments Incorporated (the "License").  You may not use this
+//   14   Software unless you agree to abide by the terms of the License. The License
+//   15   limits your use, and you acknowledge, that the Software may not be modified,
+//   16   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   17   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   18   frequency transceiver, which is integrated into your product.  Other than for
+//   19   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   20   works of, modify, distribute, perform, display or sell this Software and/or
+//   21   its documentation for any purpose.
+//   22 
+//   23   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   24   PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   25   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//   26   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   27   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   28   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   29   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   30   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   31   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   32   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   33   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   34 
+//   35   Should you have any questions regarding your right to use this Software,
+//   36   contact Texas Instruments Incorporated at www.TI.com.
+//   37 
+//   38  ***************************************************************************************************/
+//   39 
+//   40 /***************************************************************************************************
+//   41  * INCLUDES
+//   42  ***************************************************************************************************/
+//   43 #include "ZComDef.h"
+//   44 #include "MT.h"        /* This is here because all the SPI_CMD_XXX are defined in this header */
+//   45 #include "MT_APP.h"
+//   46 #include "MT_AF.h"     /* This is here because this MT_APP makes some routine call to AF */
+//   47 
+//   48 #if defined( APP_TP )
+//   49  #include "TestProfile.h"
+//   50 #endif
+//   51 #if defined( APP_TP2 )
+//   52  #include "TestProfile2.h"
+//   53  #include "nwk_util.h"
+//   54 #endif
+//   55 
+//   56 /***************************************************************************************************
+//   57  * LOCAL FUNCTIONS
+//   58  ***************************************************************************************************/
+//   59 #if defined (MT_APP_FUNC)
+//   60 void MT_AppMsg(uint8 *pBuf);
+//   61 void MT_AppUserCmd(byte *pData);
+//   62 #endif
+//   63 
+//   64 #if defined (MT_APP_FUNC)
+//   65 /***************************************************************************************************
+//   66  * @fn      MT_AppCommandProcessing
+//   67  *
+//   68  * @brief  Process all the APP commands that are issued by test tool
+//   69  *
+//   70  * @param   pBuf - pointer to the received buffer
+//   71  *
+//   72  * @return  status
+//   73  ***************************************************************************************************/
+//   74 uint8 MT_AppCommandProcessing(uint8 *pBuf)
+//   75 {
+//   76   uint8 status = MT_RPC_SUCCESS;
+//   77 
+//   78   switch (pBuf[MT_RPC_POS_CMD1])
+//   79   {
+//   80     case MT_APP_MSG:
+//   81       MT_AppMsg(pBuf);
+//   82       break;
+//   83 
+//   84     case MT_APP_USER_TEST:
+//   85       MT_AppUserCmd(pBuf);
+//   86       break;
+//   87 
+//   88     default:
+//   89       status = MT_RPC_ERR_COMMAND_ID;
+//   90       break;
+//   91   }
+//   92 
+//   93   return status;
+//   94 }
+//   95 
+//   96 /***************************************************************************************************
+//   97  * @fn      MT_AppMsg
+//   98  *
+//   99  * @brief   Process APP_MSG command
+//  100  *
+//  101  * @param   pBuf - pointer to the received buffer
+//  102  *
+//  103  * @return  void
+//  104  ***************************************************************************************************/
+//  105 void MT_AppMsg(uint8 *pBuf)
+//  106 {
+//  107   uint8 retValue = ZFailure;
+//  108   uint8 endpoint;
+//  109   endPointDesc_t *epDesc;
+//  110   mtSysAppMsg_t *msg;
+//  111   uint8 cmdId, dataLen;
+//  112 
+//  113   /* parse header */
+//  114   dataLen = pBuf[MT_RPC_POS_LEN];
+//  115   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  116   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  117 
+//  118   /* Get the endpoint and skip past it.*/
+//  119   endpoint = *pBuf++;
+//  120   dataLen--;
+//  121 
+//  122   /* Look up the endpoint */
+//  123   epDesc = afFindEndPointDesc( endpoint );
+//  124 
+//  125   if (epDesc)
+//  126   {
+//  127     /* Build and send the message to the APP */
+//  128     msg = (mtSysAppMsg_t *)osal_msg_allocate(sizeof(mtSysAppMsg_t) + (dataLen));
+//  129     if ( msg )
+//  130     {
+//  131       /* Build and send message up the app */
+//  132       msg->hdr.event = MT_SYS_APP_MSG;
+//  133       msg->endpoint = endpoint;
+//  134       msg->appDataLen = dataLen;
+//  135       msg->appData = (uint8*)(msg+1);
+//  136       osal_memcpy( msg->appData, pBuf, dataLen);
+//  137       osal_msg_send( *(epDesc->task_id), (uint8 *)msg );
+//  138 
+//  139       /* Info for response */
+//  140       retValue = ZSuccess;
+//  141     }
+//  142   }
+//  143 
+//  144   /* Build and send back the response */
+//  145   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_APP), cmdId, 1, &retValue);
+//  146 }
+//  147 
+//  148 /***************************************************************************************************
+//  149  * @fn      MT_AppMsg
+//  150  *
+//  151  * @brief   Process APP_MSG command
+//  152  *
+//  153  * @param   pBuf - pointer to the received buffer
+//  154  *
+//  155  * @return  void
+//  156  ***************************************************************************************************/
+//  157 void MT_AppUserCmd(uint8 *pBuf) 						
+//  158 {
+//  159 
+//  160   uint8 retValue, cmdId;
+//  161 
+//  162 #if defined (APP_TGEN) || defined (NWK_TEST) || defined (APP_TP) || defined (APP_TP2) || defined (OSAL_TOTAL_MEM) || defined (APP_DEBUG)
+//  163   uint16 app_cmd;
+//  164   byte srcEp;
+//  165   uint16 param1;
+//  166   uint16 param2;
+//  167 #endif
+//  168 
+//  169   /* parse header */
+//  170   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  171   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  172 
+//  173   retValue = INVALID_TASK;     //should be changed later
+//  174 
+//  175 #if defined (APP_TGEN) || defined (NWK_TEST) || defined (APP_TP) || defined (APP_TP2) || defined (OSAL_TOTAL_MEM) || defined (APP_DEBUG)
+//  176 
+//  177   srcEp = *pBuf++;
+//  178 
+//  179   app_cmd = BUILD_UINT16( pBuf[0] , pBuf[1] );
+//  180   pBuf = pBuf + sizeof( uint16 );
+//  181 
+//  182   param1 = BUILD_UINT16( pBuf[0] , pBuf[1] );
+//  183   pBuf = pBuf + sizeof( uint16 );
+//  184 
+//  185   param2 = BUILD_UINT16( pBuf[0] , pBuf[1] );
+//  186 
+//  187   switch ( app_cmd )
+//  188   {
+//  189 
+//  190 #if defined (APP_TGEN)
+//  191     case TGEN_START:
+//  192       TrafficGenApp_SendCmdMSG( param1, param2, TRAFFICGENAPP_CMD_START );
+//  193       retValue = ZSUCCESS;
+//  194       break;
+//  195 
+//  196     case TGEN_STOP:
+//  197       TrafficGenApp_SendCmdMSG( param1, param2, TRAFFICGENAPP_CMD_STOP );
+//  198       retValue = ZSUCCESS;
+//  199       break;
+//  200 
+//  201     case TGEN_COUNT:
+//  202       retValue = TrafficGenApp_CountPkt( param1, param2 );
+//  203       return;	
+//  204       break;				
+//  205 #endif
+//  206 
+//  207 #if defined (NWK_TEST)
+//  208     case HW_TEST:
+//  209       HwApp_Start( HI_UINT16(param1), LO_UINT16(param1), HI_UINT16(param2),
+//  210                     1000, LO_UINT16(param2), 3, 0 );
+//  211       break;
+//  212 
+//  213     case HW_DISPLAY_RESULT:
+//  214       HwApp_TestInfo();
+//  215       break;
+//  216 
+//  217     case HW_SEND_STATUS:
+//  218       HwApp_SendStats();
+//  219       break;
+//  220 #endif
+//  221 
+//  222 #if defined( APP_TP ) || defined ( APP_TP2 )
+//  223   #if defined( APP_TP )
+//  224     case TP_SEND_NODATA:
+//  225       retValue = TestProfileApp_SendNoData( srcEp, (byte)param1 );
+//  226       break;
+//  227   #endif // APP_TP
+//  228 			
+//  229     case TP_SEND_BUFFERTEST:
+//  230       retValue = TestProfileApp_SendBufferReq( srcEp, (byte)param1 );
+//  231       break;
+//  232 			
+//  233   #if defined( APP_TP )
+//  234     case TP_SEND_UINT8:
+//  235       retValue = TestProfileApp_SendUint8( srcEp, (byte)param1 );
+//  236       break;
+//  237 
+//  238     case TP_SEND_INT8:
+//  239       retValue = TestProfileApp_SendInt8( srcEp, (byte)param1 );
+//  240       break;
+//  241 
+//  242     case TP_SEND_UINT16:
+//  243       retValue = TestProfileApp_SendUint16( srcEp, (byte)param1 );
+//  244       break;
+//  245 
+//  246     case TP_SEND_INT16:
+//  247       retValue = TestProfileApp_SendInt16( srcEp, (byte)param1 );
+//  248       break;
+//  249 
+//  250     case TP_SEND_SEMIPREC:
+//  251       retValue = TestProfileApp_SendSemiPrec( srcEp, (byte)param1 );
+//  252       break;
+//  253 
+//  254     case TP_SEND_FREEFORM:
+//  255       retValue = TestProfileApp_SendFreeFormReq( srcEp, (byte)param1 );
+//  256       break;
+//  257 			
+//  258   #else // APP_TP
+//  259     case TP_SEND_FREEFORM:
+//  260       retValue = TestProfileApp_SendFreeFormReq(srcEp, (byte)param1, (byte)param2);
+//  261       break;
+//  262   #endif
+//  263 			
+//  264   #if defined( APP_TP )
+//  265     case TP_SEND_ABS_TIME:
+//  266       retValue = TestProfileApp_SendAbsTime( srcEp, (byte)param1 );
+//  267       break;
+//  268 
+//  269     case TP_SEND_REL_TIME:
+//  270       retValue = TestProfileApp_SendRelativeTime( srcEp, (byte)param1 );
+//  271       break;
+//  272 
+//  273     case TP_SEND_CHAR_STRING:
+//  274       retValue = TestProfileApp_SendCharString( srcEp, (byte)param1 );
+//  275       break;
+//  276 
+//  277     case TP_SEND_OCTET_STRING:
+//  278       retValue = TestProfileApp_SendOctetString( srcEp, (byte)param1 );
+//  279       break;		
+//  280   #endif // APP_TP
+//  281 				
+//  282     case TP_SET_DSTADDRESS:			
+//  283       retValue = TestProfileApp_SetDestAddress(HI_UINT16(param1), LO_UINT16(param1), param2);
+//  284       break;	
+//  285 
+//  286   #if defined( APP_TP2 )
+//  287     case TP_SEND_BUFFER_GROUP:
+//  288       retValue = TestProfileApp_SendBufferGroup( srcEp, (byte)param1 );
+//  289       break;
+//  290   #endif // APP_TP
+//  291 
+//  292     case TP_SEND_BUFFER:
+//  293       retValue = TestProfileApp_SendBuffer( srcEp, (byte)param1 );
+//  294       break;
+//  295 				
+//  296   #if defined( APP_TP )
+//  297     case TP_SEND_MULT_KVP_8BIT:
+//  298       TestProfileApp_SendMultiKVP_8bit( srcEp, (byte)param1 );
+//  299       retValue = ZSuccess;
+//  300       break;
+//  301 
+//  302     case TP_SEND_MULT_KVP_16BIT:
+//  303       TestProfileApp_SendMultiKVP_16bit( srcEp, (byte)param1 );
+//  304       retValue = ZSuccess;
+//  305       break;
+//  306 
+//  307     case TP_SEND_MULT_KVP_TIME:
+//  308       TestProfileApp_SendMultiKVP_Time( srcEp, (byte)param1 );
+//  309       retValue = ZSuccess;
+//  310       break;
+//  311 
+//  312     case TP_SEND_MULT_KVP_STRING:
+//  313       TestProfileApp_SendMultiKVP_String( srcEp, (byte)param1 );
+//  314       retValue = ZSuccess;
+//  315       break;
+//  316 
+//  317     case TP_SEND_MULTI_KVP_STR_TIME:
+//  318       retValue = ZSuccess;
+//  319       TestProfileApp_SendMultiKVP_String_Time( srcEp, (byte)param1 );
+//  320       break;
+//  321   #endif // APP_TP
+//  322 				
+//  323     case TP_SEND_COUNTED_PKTS:
+//  324       TestProfileApp_SendCountedPktsReq(HI_UINT16(param1), LO_UINT16(param1), param2);
+//  325       retValue = ZSuccess;
+//  326       break;
+//  327 
+//  328     case TP_SEND_RESET_COUNTER:
+//  329       TestProfileApp_CountedPakts_ResetCounterReq( (byte)param1 );
+//  330       retValue = ZSuccess;
+//  331       break;
+//  332 
+//  333     case TP_SEND_GET_COUNTER:
+//  334       TestProfileApp_CountedPakts_GetCounterReq( srcEp, (byte)param1 );
+//  335       retValue = ZSuccess;
+//  336       break;
+//  337 				
+//  338     case TP_SET_PERMIT_JOIN:
+//  339       if ( ZG_BUILD_RTR_TYPE && ZG_DEVICE_RTR_TYPE )
+//  340       {
+//  341         NLME_PermitJoiningRequest( (byte)param1 );
+//  342         retValue = ZSuccess;
+//  343       }
+//  344       else
+//  345       {
+//  346         retValue = ZFailure;
+//  347       }
+//  348       break;
+//  349 
+//  350   #if defined ( APP_TP2 )
+//  351     case TP_ADD_GROUP:
+//  352       retValue = TestProfileApp_SetGroup( srcEp, param1 );
+//  353       break;
+//  354 
+//  355     case TP_REMOVE_GROUP:
+//  356       retValue = TestProfileApp_RemoveGroup( srcEp, param1 );
+//  357       break;
+//  358 
+//  359     case TP_SEND_UPDATE_KEY:
+//  360       retValue = TestProfileApp_UpdateKey( srcEp, (uint8)param1, param2 );
+//  361       break;
+//  362 
+//  363     case TP_SEND_SWITCH_KEY:
+//  364       retValue = TestProfileApp_SwitchKey(  srcEp, (uint8)param1, param2 );
+//  365       break;
+//  366 			
+//  367     case TP_SEND_BUFFERTEST_GROUP:
+//  368       retValue = TestProfileApp_SendBufferGroupReq( srcEp, (byte)param1, (byte)param2 );
+//  369       break;
+//  370 
+//  371     case TP_SEND_ROUTE_DISC_REQ:
+//  372       retValue = TestProfileApp_SendRouteDiscReq( srcEp, param1,
+//  373                                   HI_UINT16( param2 ), LO_UINT16( param2 ) );
+//  374       break;
+//  375 
+//  376     case TP_SEND_ROUTE_DISCOVERY:
+//  377       if ( ZG_BUILD_RTR_TYPE && ZG_DEVICE_RTR_TYPE )
+//  378       {
+//  379         retValue = TestProfileApp_SendRouteDiscovery( param1,
+//  380                                     HI_UINT16( param2 ), LO_UINT16( param2 ) );
+//  381       }
+//  382       break;
+//  383 
+//  384     case TP_SEND_NEW_ADDR:
+//  385       retValue = TestProfileApp_ChangeShortAddr( param1, LO_UINT16(param2) );
+//  386       break;
+//  387 
+//  388     case TP_SEND_NWK_UPDATE:
+//  389       /* Send out a Network Update command. */
+//  390       retValue = NLME_SendNetworkUpdate( NWK_BROADCAST_SHORTADDR, NWKUPDATE_PANID_UPDATE,
+//  391                                         _NIB.extendedPANID, _NIB.nwkUpdateId+1, param1 );
+//  392       break;
+//  393 
+//  394  #if (ZG_BUILD_JOINING_TYPE)
+//  395     case TP_AK_SETUP_PARTNER:
+//  396       retValue = TestProfileApp_AppKeySetupPartner( srcEp, param1, param2 );
+//  397       break;
+//  398 
+//  399     case TP_AK_REQ_KEY:
+//  400       retValue = TestProfileApp_AppKeyRequest( srcEp, param1, param2 );
+//  401       break;
+//  402 
+//  403     case TP_AK_PARTNER_NWKADDR:
+//  404       retValue = TestProfileApp_SetPartnerNwkAddr( srcEp, param1, param2 );
+//  405       break;
+//  406 
+//  407     case TP_AK_PARTNER_EXTADDR7654:
+//  408        retValue = TestProfileApp_SetPartnerExtAddr7654( srcEp, param1, param2 );
+//  409       break;
+//  410 
+//  411     case TP_AK_PARTNER_EXTADDR3210:
+//  412       retValue = TestProfileApp_SetPartnerExtAddr3210( srcEp, param1, param2 );
+//  413       break;
+//  414 
+//  415     case TP_AK_PARTNER_SET:
+//  416       retValue = TestProfileApp_SetPartner( srcEp, param1, param2 );
+//  417       break;
+//  418 #endif /* ZG_BUILD_JOINING_TYPE */
+//  419 
+//  420 #if (ZG_BUILD_COORDINATOR_TYPE)
+//  421     case TP_AK_TYPE_SET:
+//  422       retValue = TestProfileApp_AppKeyTypeSet( srcEp, param1, param2 );
+//  423       break;
+//  424 #endif /* ZG_BUILD_COORDINATOR_TYPE */
+//  425 
+//  426 #if defined ( ZIGBEE_FRAGMENTATION )
+//  427     case TP_FRAG_SKIP_BLOCK:
+//  428       retValue = TestProfileApp_FragSkipBlock( (uint8)param1 );
+//  429       break;
+//  430 #endif
+//  431 
+//  432     case TP_APS_REMOVE:
+//  433       retValue = TestProfileApp_APSRemove( param1, param2 );
+//  434       break;
+//  435 #endif // APP_TP2
+//  436 
+//  437 #endif  // APP_TP || APP_TP2
+//  438 
+//  439 #if defined ( OSAL_TOTAL_MEM )
+//  440     case OSAL_MEM_STACK_HIGH_WATER:
+//  441     case OSAL_MEM_HEAP_HIGH_WATER:
+//  442       if ( app_cmd == OSAL_MEM_STACK_HIGH_WATER)
+//  443       {
+//  444         param1 = osal_stack_used();
+//  445       }
+//  446       else
+//  447       {
+//  448         param1 = osal_heap_high_water();
+//  449       }
+//  450 
+//  451       pData[0] = LO_UINT16( param1 );
+//  452       pData[1] = HI_UINT16( param1 );
+//  453 
+//  454       MT_BuildAndSendZToolResponse((MT_RPC_CMD_SRSP | MT_RPC_SYS_APP), cmdId, 2, pData);
+//  455       return;
+//  456 #endif
+//  457 
+//  458 #if defined ( APP_DEBUG )
+//  459     case DEBUG_GET:
+//  460       DebugApp_SendQuery( param1 );
+//  461       retValue = ZSUCCESS;
+//  462       break;
+//  463 #endif
+//  464 
+//  465 #if defined ( APP_TP2 )
+//  466     case TP_SEND_BCAST_RSP:
+//  467       retValue = TestProfileApp_SendBcastRsp( srcEp, (byte)param1 );
+//  468       break;
+//  469 #endif
+//  470 			
+//  471     default:
+//  472       break;
+//  473   }
+//  474 #endif // (APP_TGEN) || (NWK_TEST) || (APP_TP) || (APP_TP2) || (OSAL_TOTAL_MEM) || (APP_DEBUG)
+//  475 
+//  476   /* Build and send back the response */
+//  477   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_APP), cmdId, 1, &retValue);
+//  478 }
+//  479 
+//  480 #endif /* MT_APP_FUNC */
+//  481 
+//  482 /***************************************************************************************************
+//  483  ***************************************************************************************************/
+// 
+// 
+// 0 bytes of memory
+//
+//Errors: none
+//Warnings: none

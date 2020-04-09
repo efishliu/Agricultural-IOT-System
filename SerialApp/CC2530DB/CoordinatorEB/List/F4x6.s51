@@ -1,0 +1,1671 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V8.10.1.10194/W32 for 8051        14/Jun/2016  16:18:45 /
+// Copyright 2004-2011 IAR Systems AB.                                        /
+//                                                                            /
+//    Core               =  plain                                             /
+//    Code model         =  banked                                            /
+//    Data model         =  large                                             /
+//    Calling convention =  xdata reentrant                                   /
+//    Constant location  =  data_rom                                          /
+//    Dptr setup         =  1,16                                              /
+//    Source file        =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\F /
+//                          ont\F4x6.c                                        /
+//    Command line       =  -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂ /
+//                          ç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack /
+//                          \Utilities\SerialApp\CC2530DB\..\..\..\Tools\CC25 /
+//                          30DB\f8wCoord.cfg (-DCPU32MHZ -DROOT=__near_func  /
+//                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                  /
+//                          -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8        /
+//                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)   /
+//                          -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂ /
+//                          ç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack /
+//                          \Utilities\SerialApp\CC2530DB\..\..\..\Tools\CC25 /
+//                          30DB\f8wConfig.cfg (-DZIGBEEPRO -DSECURE=0        /
+//                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                 /
+//                          -DDEFAULT_CHANLIST=0x00000800                     /
+//                          -DZDAPP_CONFIG_PAN_ID=0x1001                      /
+//                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
+//                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
+//                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
+//                          -DLINK_STATUS_JITTER_MASK=0x007F                  /
+//                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_P /
+//                          OLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7           /
+//                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3   /
+//                          -DNWK_MAX_DATA_RETRIES=2                          /
+//                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9        /
+//                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40          /
+//                          -DNWK_MAX_BINDING_ENTRIES=4                       /
+//                          -DMAX_BINDING_CLUSTER_IDS=4                       /
+//                          "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07, 0x09,     /
+//                          0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08,   /
+//                          0x0A, 0x0C, 0x0D}" -DMAC_MAX_FRAME_SIZE=116       /
+//                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const    /
+//                          __code" -DGENERIC=__generic                       /
+//                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
+//                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
+//                          -DREJOIN_POLL_RATE=440 F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹ /
+//                          âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2. /
+//                          5.1a\Components\uCGUI\Font\F4x6.c -D              /
+//                          HAL_UART=TRUE -D SERIAL_APP_PORT=0 -D COOR -D     /
+//                          LCD_SUPPORTED -D NV_INIT -lC                      /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\CoordinatorEB\List\    /
+//                          -lA F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍø /
+//                          Âç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstac /
+//                          k\Utilities\SerialApp\CC2530DB\CoordinatorEB\List /
+//                          \ --diag_suppress Pe001,Pa010 -o                  /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\CoordinatorEB\Obj\ -e  /
+//                          --no_code_motion --debug --core=plain             /
+//                          --dptr=16,1 --data_model=large                    /
+//                          --code_model=banked --calling_convention=xdata_re /
+//                          entrant --place_constants=data_rom                /
+//                          --nr_virtual_regs 16 -I                           /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\ -I                    /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\Public\ -I          /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\uCGUI\Core\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ× /
+//                          ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a /
+//                          \Projects\zstack\Utilities\SerialApp\CC2530DB\..\ /
+//                          ..\..\..\..\Components\uCGUI\MultiLayer\ -I       /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\uCGUI\Config\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅ /
+//                          Ì×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5. /
+//                          1a\Projects\zstack\Utilities\SerialApp\CC2530DB\. /
+//                          .\Coordinator\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×Ê /
+//                          ÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\ /
+//                          Projects\zstack\Utilities\SerialApp\CC2530DB\..\. /
+//                          .\..\ZMain\TI2530DB\ -I                           /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\hal\include\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ /
+//                          ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Utilities\SerialApp\CC2530DB\.. /
+//                          \..\..\..\..\Components\hal\target\CC2530EB\ -I   /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mac\include\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ /
+//                          ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Utilities\SerialApp\CC2530DB\.. /
+//                          \..\..\..\..\Components\mac\high_level\ -I        /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mac\low_level\srf04\ -I                       /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mac\low_level\srf04\single_chip\ -I           /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mt\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Z /
+//                          igBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Project /
+//                          s\zstack\Utilities\SerialApp\CC2530DB\..\..\..\.. /
+//                          \..\Components\osal\include\ -I                   /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\services\saddr\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹ /
+//                          âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2. /
+//                          5.1a\Projects\zstack\Utilities\SerialApp\CC2530DB /
+//                          \..\..\..\..\..\Components\services\sdata\ -I     /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\stack\af\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁ /
+//                          Ï210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\P /
+//                          rojects\zstack\Utilities\SerialApp\CC2530DB\..\.. /
+//                          \..\..\..\Components\stack\nwk\ -I                /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\stack\sapi\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ× /
+//                          ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a /
+//                          \Projects\zstack\Utilities\SerialApp\CC2530DB\..\ /
+//                          ..\..\..\..\Components\stack\sec\ -I              /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\stack\sys\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×Ê /
+//                          ÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\ /
+//                          Projects\zstack\Utilities\SerialApp\CC2530DB\..\. /
+//                          .\..\..\..\Components\stack\zdo\ -I               /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\zmac\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210 /
+//                          \ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proje /
+//                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ /
+//                          ..\..\Components\zmac\f8w\ -Ohz                   /
+//                          --require_prototypes                              /
+//    List file          =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\CoordinatorEB\List\F4x /
+//                          6.s51                                             /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME F4x6
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN __INIT_XDATA_I
+
+        PUBLIC FontMono4x6
+        PUBLIC GUI_Font4x6
+        PUBLIC GUI_Font4x6_2
+        PUBLIC acFont4x6
+`?<Name GUIMONO_DispChar 0>` SYMBOL "GUIMONO_DispChar"
+??GUIMONO_DispChar?relay SYMBOL "?relay", `?<Name GUIMONO_DispChar 0>`
+`?<Name GUIMONO_GetCharDistX 2>` SYMBOL "GUIMONO_GetCharDistX"
+??GUIMONO_GetCharDistX?relay SYMBOL "?relay", `?<Name GUIMONO_GetCharDistX 2>`
+`?<Name GUIMONO_GetFontInfo 4>` SYMBOL "GUIMONO_GetFontInfo"
+??GUIMONO_GetFontInfo?relay SYMBOL "?relay", `?<Name GUIMONO_GetFontInfo 4>`
+`?<Name GUIMONO_IsInFont 6>` SYMBOL "GUIMONO_IsInFont"
+??GUIMONO_IsInFont?relay SYMBOL "?relay", `?<Name GUIMONO_IsInFont 6>`
+
+        EXTERN ??GUIMONO_DispChar?relay
+        FUNCTION ??GUIMONO_DispChar?relay,00H
+        EXTERN ??GUIMONO_GetCharDistX?relay
+        FUNCTION ??GUIMONO_GetCharDistX?relay,00H
+        EXTERN ??GUIMONO_GetFontInfo?relay
+        FUNCTION ??GUIMONO_GetFontInfo?relay,00H
+        EXTERN ??GUIMONO_IsInFont?relay
+        FUNCTION ??GUIMONO_IsInFont?relay,00H
+
+// F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\Font\F4x6.c
+//    1 /*
+//    2 *********************************************************************************************************
+//    3 *                                                uC/GUI
+//    4 *                        Universal graphic software for embedded applications
+//    5 *
+//    6 *                       (c) Copyright 2002, Micrium Inc., Weston, FL
+//    7 *                       (c) Copyright 2002, SEGGER Microcontroller Systeme GmbH
+//    8 *
+//    9 *              µC/GUI is protected by international copyright laws. Knowledge of the
+//   10 *              source code may not be used to write a similar product. This file may
+//   11 *              only be used in accordance with a license and should not be redistributed
+//   12 *              in any way. We appreciate your understanding and fairness.
+//   13 *
+//   14 ----------------------------------------------------------------------
+//   15 File        : F4x6.C
+//   16 Purpose     : Implementation of 4x6 pixel font
+//   17 Height      : 6
+//   18 ---------------------------END-OF-HEADER------------------------------
+//   19 */
+//   20 
+//   21 
+//   22 #include "GUI_FontIntern.h"
+//   23 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//   24 GUI_CONST_STORAGE unsigned char acFont4x6[95][6] = {
+acFont4x6:
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 64
+        DB 64
+        DB 64
+        DB 0
+        DB 64
+        DB 0
+        DB 160
+        DB 160
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 160
+        DB 224
+        DB 160
+        DB 224
+        DB 160
+        DB 0
+        DB 96
+        DB 192
+        DB 64
+        DB 96
+        DB 192
+        DB 0
+        DB 128
+        DB 32
+        DB 64
+        DB 128
+        DB 32
+        DB 0
+        DB 64
+        DB 160
+        DB 64
+        DB 176
+        DB 80
+        DB 0
+        DB 64
+        DB 64
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 32
+        DB 64
+        DB 64
+        DB 64
+        DB 32
+        DB 0
+        DB 64
+        DB 32
+        DB 32
+        DB 32
+        DB 64
+        DB 0
+        DB 160
+        DB 64
+        DB 224
+        DB 64
+        DB 160
+        DB 0
+        DB 0
+        DB 64
+        DB 224
+        DB 64
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 64
+        DB 128
+        DB 0
+        DB 0
+        DB 0
+        DB 224
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 64
+        DB 0
+        DB 0
+        DB 32
+        DB 64
+        DB 128
+        DB 0
+        DB 0
+        DB 64
+        DB 160
+        DB 160
+        DB 160
+        DB 64
+        DB 0
+        DB 64
+        DB 192
+        DB 64
+        DB 64
+        DB 224
+        DB 0
+        DB 64
+        DB 160
+        DB 32
+        DB 64
+        DB 224
+        DB 0
+        DB 192
+        DB 32
+        DB 64
+        DB 32
+        DB 192
+        DB 0
+        DB 32
+        DB 96
+        DB 160
+        DB 224
+        DB 32
+        DB 0
+        DB 224
+        DB 128
+        DB 192
+        DB 32
+        DB 192
+        DB 0
+        DB 96
+        DB 128
+        DB 224
+        DB 160
+        DB 224
+        DB 0
+        DB 224
+        DB 32
+        DB 64
+        DB 128
+        DB 128
+        DB 0
+        DB 64
+        DB 160
+        DB 64
+        DB 160
+        DB 64
+        DB 0
+        DB 224
+        DB 160
+        DB 224
+        DB 32
+        DB 192
+        DB 0
+        DB 0
+        DB 0
+        DB 64
+        DB 0
+        DB 64
+        DB 0
+        DB 0
+        DB 0
+        DB 64
+        DB 0
+        DB 64
+        DB 128
+        DB 32
+        DB 64
+        DB 128
+        DB 64
+        DB 32
+        DB 0
+        DB 0
+        DB 224
+        DB 0
+        DB 224
+        DB 0
+        DB 0
+        DB 128
+        DB 64
+        DB 32
+        DB 64
+        DB 128
+        DB 0
+        DB 192
+        DB 32
+        DB 64
+        DB 0
+        DB 64
+        DB 0
+        DB 64
+        DB 160
+        DB 32
+        DB 224
+        DB 224
+        DB 0
+        DB 64
+        DB 160
+        DB 224
+        DB 160
+        DB 160
+        DB 0
+        DB 192
+        DB 160
+        DB 192
+        DB 160
+        DB 192
+        DB 0
+        DB 64
+        DB 160
+        DB 128
+        DB 160
+        DB 64
+        DB 0
+        DB 192
+        DB 160
+        DB 160
+        DB 160
+        DB 192
+        DB 0
+        DB 224
+        DB 128
+        DB 192
+        DB 128
+        DB 224
+        DB 0
+        DB 224
+        DB 128
+        DB 192
+        DB 128
+        DB 128
+        DB 0
+        DB 96
+        DB 128
+        DB 224
+        DB 160
+        DB 96
+        DB 0
+        DB 160
+        DB 160
+        DB 224
+        DB 160
+        DB 160
+        DB 0
+        DB 224
+        DB 64
+        DB 64
+        DB 64
+        DB 224
+        DB 0
+        DB 224
+        DB 32
+        DB 32
+        DB 160
+        DB 64
+        DB 0
+        DB 160
+        DB 192
+        DB 128
+        DB 192
+        DB 160
+        DB 0
+        DB 128
+        DB 128
+        DB 128
+        DB 128
+        DB 224
+        DB 0
+        DB 160
+        DB 224
+        DB 160
+        DB 160
+        DB 160
+        DB 0
+        DB 160
+        DB 224
+        DB 224
+        DB 224
+        DB 160
+        DB 0
+        DB 224
+        DB 160
+        DB 160
+        DB 160
+        DB 224
+        DB 0
+        DB 224
+        DB 160
+        DB 224
+        DB 128
+        DB 128
+        DB 0
+        DB 224
+        DB 160
+        DB 160
+        DB 160
+        DB 224
+        DB 32
+        DB 192
+        DB 160
+        DB 192
+        DB 160
+        DB 160
+        DB 0
+        DB 96
+        DB 128
+        DB 64
+        DB 32
+        DB 192
+        DB 0
+        DB 224
+        DB 64
+        DB 64
+        DB 64
+        DB 64
+        DB 0
+        DB 160
+        DB 160
+        DB 160
+        DB 160
+        DB 224
+        DB 0
+        DB 160
+        DB 160
+        DB 160
+        DB 160
+        DB 64
+        DB 0
+        DB 160
+        DB 160
+        DB 160
+        DB 224
+        DB 160
+        DB 0
+        DB 160
+        DB 160
+        DB 64
+        DB 160
+        DB 160
+        DB 0
+        DB 160
+        DB 160
+        DB 160
+        DB 64
+        DB 64
+        DB 0
+        DB 224
+        DB 32
+        DB 64
+        DB 128
+        DB 224
+        DB 0
+        DB 224
+        DB 128
+        DB 128
+        DB 128
+        DB 224
+        DB 0
+        DB 128
+        DB 128
+        DB 64
+        DB 32
+        DB 32
+        DB 0
+        DB 224
+        DB 32
+        DB 32
+        DB 32
+        DB 224
+        DB 0
+        DB 64
+        DB 160
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 224
+        DB 128
+        DB 64
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 96
+        DB 160
+        DB 96
+        DB 0
+        DB 128
+        DB 128
+        DB 192
+        DB 160
+        DB 192
+        DB 0
+        DB 0
+        DB 0
+        DB 96
+        DB 128
+        DB 96
+        DB 0
+        DB 32
+        DB 32
+        DB 96
+        DB 160
+        DB 96
+        DB 0
+        DB 64
+        DB 160
+        DB 224
+        DB 128
+        DB 96
+        DB 0
+        DB 96
+        DB 128
+        DB 192
+        DB 128
+        DB 128
+        DB 0
+        DB 0
+        DB 96
+        DB 160
+        DB 96
+        DB 32
+        DB 192
+        DB 128
+        DB 128
+        DB 192
+        DB 160
+        DB 160
+        DB 0
+        DB 64
+        DB 0
+        DB 192
+        DB 64
+        DB 224
+        DB 0
+        DB 32
+        DB 0
+        DB 32
+        DB 32
+        DB 160
+        DB 64
+        DB 128
+        DB 128
+        DB 160
+        DB 192
+        DB 160
+        DB 0
+        DB 192
+        DB 64
+        DB 64
+        DB 64
+        DB 224
+        DB 0
+        DB 0
+        DB 160
+        DB 224
+        DB 160
+        DB 160
+        DB 0
+        DB 0
+        DB 0
+        DB 224
+        DB 160
+        DB 160
+        DB 0
+        DB 0
+        DB 0
+        DB 224
+        DB 160
+        DB 224
+        DB 0
+        DB 0
+        DB 0
+        DB 192
+        DB 160
+        DB 192
+        DB 128
+        DB 0
+        DB 0
+        DB 224
+        DB 160
+        DB 224
+        DB 32
+        DB 0
+        DB 0
+        DB 160
+        DB 192
+        DB 128
+        DB 0
+        DB 96
+        DB 128
+        DB 64
+        DB 32
+        DB 192
+        DB 0
+        DB 64
+        DB 224
+        DB 64
+        DB 64
+        DB 32
+        DB 0
+        DB 0
+        DB 0
+        DB 160
+        DB 160
+        DB 224
+        DB 0
+        DB 0
+        DB 0
+        DB 160
+        DB 160
+        DB 64
+        DB 0
+        DB 0
+        DB 0
+        DB 160
+        DB 224
+        DB 160
+        DB 0
+        DB 0
+        DB 0
+        DB 160
+        DB 64
+        DB 160
+        DB 0
+        DB 0
+        DB 0
+        DB 160
+        DB 224
+        DB 32
+        DB 192
+        DB 0
+        DB 224
+        DB 64
+        DB 128
+        DB 224
+        DB 0
+        DB 128
+        DB 64
+        DB 96
+        DB 64
+        DB 128
+        DB 0
+        DB 64
+        DB 64
+        DB 64
+        DB 64
+        DB 64
+        DB 0
+        DB 32
+        DB 64
+        DB 192
+        DB 64
+        DB 32
+        DB 0
+        DB 80
+        DB 160
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+//   25 
+//   26   {
+//   27    ________,
+//   28    ________,
+//   29    ________,
+//   30    ________,
+//   31    ________,
+//   32    ________}
+//   33 
+//   34  ,{
+//   35    _X______,
+//   36    _X______,
+//   37    _X______,
+//   38    ________,
+//   39    _X______,
+//   40    ________}
+//   41 
+//   42  ,{
+//   43    X_X_____,
+//   44    X_X_____,
+//   45    ________,
+//   46    ________,
+//   47    ________,
+//   48    ________}
+//   49 
+//   50  ,{
+//   51    X_X_____,
+//   52    XXX_____,
+//   53    X_X_____,
+//   54    XXX_____,
+//   55    X_X_____,
+//   56    ________}
+//   57 
+//   58  ,{
+//   59    _XX_____,
+//   60    XX______,
+//   61    _X______,
+//   62    _XX_____,
+//   63    XX______,
+//   64    ________}
+//   65 
+//   66  ,{
+//   67    X_______,
+//   68    __X_____,
+//   69    _X______,
+//   70    X_______,
+//   71    __X_____,
+//   72    ________}
+//   73 
+//   74  ,{
+//   75    _X______,
+//   76    X_X_____,
+//   77    _X______,
+//   78    X_XX____,
+//   79    _X_X____,
+//   80    ________}
+//   81 
+//   82  ,{
+//   83    _X______,
+//   84    _X______,
+//   85    ________,
+//   86    ________,
+//   87    ________,
+//   88    ________}
+//   89 
+//   90  ,{
+//   91    __X_____,
+//   92    _X______,
+//   93    _X______,
+//   94    _X______,
+//   95    __X_____,
+//   96    ________}
+//   97 
+//   98  ,{
+//   99    _X______,
+//  100    __X_____,
+//  101    __X_____,
+//  102    __X_____,
+//  103    _X______,
+//  104    ________}
+//  105 
+//  106  ,{
+//  107    X_X_____,
+//  108    _X______,
+//  109    XXX_____,
+//  110    _X______,
+//  111    X_X_____,
+//  112    ________}
+//  113 
+//  114  ,{
+//  115    ________,
+//  116    _X______,
+//  117    XXX_____,
+//  118    _X______,
+//  119    ________,
+//  120    ________}
+//  121 
+//  122  ,{
+//  123    ________,
+//  124    ________,
+//  125    ________,
+//  126    _X______,
+//  127    X_______,
+//  128    ________}
+//  129 
+//  130  ,{
+//  131    ________,
+//  132    ________,
+//  133    XXX_____,
+//  134    ________,
+//  135    ________,
+//  136    ________}
+//  137 
+//  138  ,{
+//  139    ________,
+//  140    ________,
+//  141    ________,
+//  142    ________,
+//  143    _X______,
+//  144    ________}
+//  145 
+//  146  ,{
+//  147    ________,
+//  148    __X_____,
+//  149    _X______,
+//  150    X_______,
+//  151    ________,
+//  152    ________}
+//  153 
+//  154  ,{
+//  155    _X______,
+//  156    X_X_____,
+//  157    X_X_____,
+//  158    X_X_____,
+//  159    _X______,
+//  160    ________}
+//  161 
+//  162  ,{
+//  163    _X______,
+//  164    XX______,
+//  165    _X______,
+//  166    _X______,
+//  167    XXX_____,
+//  168    ________}
+//  169 
+//  170  ,{
+//  171    _X______,
+//  172    X_X_____,
+//  173    __X_____,
+//  174    _X______,
+//  175    XXX_____,
+//  176    ________}
+//  177 
+//  178  ,{
+//  179    XX______,
+//  180    __X_____,
+//  181    _X______,
+//  182    __X_____,
+//  183    XX______,
+//  184    ________}
+//  185 
+//  186  ,{
+//  187    __X_____,
+//  188    _XX_____,
+//  189    X_X_____,
+//  190    XXX_____,
+//  191    __X_____,
+//  192    ________}
+//  193 
+//  194  ,{
+//  195    XXX_____,
+//  196    X_______,
+//  197    XX______,
+//  198    __X_____,
+//  199    XX______,
+//  200    ________}
+//  201 
+//  202  ,{
+//  203    _XX_____,
+//  204    X_______,
+//  205    XXX_____,
+//  206    X_X_____,
+//  207    XXX_____,
+//  208    ________}
+//  209 
+//  210  ,{
+//  211    XXX_____,
+//  212    __X_____,
+//  213    _X______,
+//  214    X_______,
+//  215    X_______,
+//  216    ________}
+//  217 
+//  218  ,{
+//  219    _X______,
+//  220    X_X_____,
+//  221    _X______,
+//  222    X_X_____,
+//  223    _X______,
+//  224    ________}
+//  225 
+//  226  ,{
+//  227    XXX_____,
+//  228    X_X_____,
+//  229    XXX_____,
+//  230    __X_____,
+//  231    XX______,
+//  232    ________}
+//  233 
+//  234  ,{
+//  235    ________,
+//  236    ________,
+//  237    _X______,
+//  238    ________,
+//  239    _X______,
+//  240    ________}
+//  241 
+//  242  ,{
+//  243    ________,
+//  244    ________,
+//  245    _X______,
+//  246    ________,
+//  247    _X______,
+//  248    X_______}
+//  249 
+//  250  ,{
+//  251    __X_____,
+//  252    _X______,
+//  253    X_______,
+//  254    _X______,
+//  255    __X_____,
+//  256    ________}
+//  257 
+//  258  ,{
+//  259    ________,
+//  260    XXX_____,
+//  261    ________,
+//  262    XXX_____,
+//  263    ________,
+//  264    ________}
+//  265 
+//  266  ,{
+//  267    X_______,
+//  268    _X______,
+//  269    __X_____,
+//  270    _X______,
+//  271    X_______,
+//  272    ________}
+//  273 
+//  274  ,{
+//  275    XX______,
+//  276    __X_____,
+//  277    _X______,
+//  278    ________,
+//  279    _X______,
+//  280    ________}
+//  281 
+//  282  ,{
+//  283    _X______,
+//  284    X_X_____,
+//  285    __X_____,
+//  286    XXX_____,
+//  287    XXX_____,
+//  288    ________}
+//  289 
+//  290  ,{
+//  291    _X______,
+//  292    X_X_____,
+//  293    XXX_____,
+//  294    X_X_____,
+//  295    X_X_____,
+//  296    ________}
+//  297 
+//  298  ,{
+//  299    XX______,
+//  300    X_X_____,
+//  301    XX______,
+//  302    X_X_____,
+//  303    XX______,
+//  304    ________}
+//  305 
+//  306  ,{
+//  307    _X______,
+//  308    X_X_____,
+//  309    X_______,
+//  310    X_X_____,
+//  311    _X______,
+//  312    ________}
+//  313 
+//  314  ,{
+//  315    XX______,
+//  316    X_X_____,
+//  317    X_X_____,
+//  318    X_X_____,
+//  319    XX______,
+//  320    ________}
+//  321 
+//  322  ,{
+//  323    XXX_____,
+//  324    X_______,
+//  325    XX______,
+//  326    X_______,
+//  327    XXX_____,
+//  328    ________}
+//  329 
+//  330  ,{
+//  331    XXX_____,
+//  332    X_______,
+//  333    XX______,
+//  334    X_______,
+//  335    X_______,
+//  336    ________}
+//  337 
+//  338  ,{
+//  339    _XX_____,
+//  340    X_______,
+//  341    XXX_____,
+//  342    X_X_____,
+//  343    _XX_____,
+//  344    ________}
+//  345 
+//  346  ,{
+//  347    X_X_____,
+//  348    X_X_____,
+//  349    XXX_____,
+//  350    X_X_____,
+//  351    X_X_____,
+//  352    ________}
+//  353 
+//  354  ,{
+//  355    XXX_____,
+//  356    _X______,
+//  357    _X______,
+//  358    _X______,
+//  359    XXX_____,
+//  360    ________}
+//  361 
+//  362  ,{
+//  363    XXX_____,
+//  364    __X_____,
+//  365    __X_____,
+//  366    X_X_____,
+//  367    _X______,
+//  368    ________}
+//  369 
+//  370  ,{
+//  371    X_X_____,
+//  372    XX______,
+//  373    X_______,
+//  374    XX______,
+//  375    X_X_____,
+//  376    ________}
+//  377 
+//  378  ,{
+//  379    X_______,
+//  380    X_______,
+//  381    X_______,
+//  382    X_______,
+//  383    XXX_____,
+//  384    ________}
+//  385 
+//  386  ,{
+//  387    X_X_____,
+//  388    XXX_____,
+//  389    X_X_____,
+//  390    X_X_____,
+//  391    X_X_____,
+//  392    ________}
+//  393 
+//  394  ,{
+//  395    X_X_____,
+//  396    XXX_____,
+//  397    XXX_____,
+//  398    XXX_____,
+//  399    X_X_____,
+//  400    ________}
+//  401 
+//  402  ,{
+//  403    XXX_____,
+//  404    X_X_____,
+//  405    X_X_____,
+//  406    X_X_____,
+//  407    XXX_____,
+//  408    ________}
+//  409 
+//  410  ,{
+//  411    XXX_____,
+//  412    X_X_____,
+//  413    XXX_____,
+//  414    X_______,
+//  415    X_______,
+//  416    ________}
+//  417 
+//  418  ,{
+//  419    XXX_____,
+//  420    X_X_____,
+//  421    X_X_____,
+//  422    X_X_____,
+//  423    XXX_____,
+//  424    __X_____}
+//  425 
+//  426  ,{
+//  427    XX______,
+//  428    X_X_____,
+//  429    XX______,
+//  430    X_X_____,
+//  431    X_X_____,
+//  432    ________}
+//  433 
+//  434  ,{
+//  435    _XX_____,
+//  436    X_______,
+//  437    _X______,
+//  438    __X_____,
+//  439    XX______,
+//  440    ________}
+//  441 
+//  442  ,{
+//  443    XXX_____,
+//  444    _X______,
+//  445    _X______,
+//  446    _X______,
+//  447    _X______,
+//  448    ________}
+//  449 
+//  450  ,{
+//  451    X_X_____,
+//  452    X_X_____,
+//  453    X_X_____,
+//  454    X_X_____,
+//  455    XXX_____,
+//  456    ________}
+//  457 
+//  458  ,{
+//  459    X_X_____,
+//  460    X_X_____,
+//  461    X_X_____,
+//  462    X_X_____,
+//  463    _X______,
+//  464    ________}
+//  465 
+//  466  ,{
+//  467    X_X_____,
+//  468    X_X_____,
+//  469    X_X_____,
+//  470    XXX_____,
+//  471    X_X_____,
+//  472    ________}
+//  473 
+//  474  ,{
+//  475    X_X_____,
+//  476    X_X_____,
+//  477    _X______,
+//  478    X_X_____,
+//  479    X_X_____,
+//  480    ________}
+//  481 
+//  482  ,{
+//  483    X_X_____,
+//  484    X_X_____,
+//  485    X_X_____,
+//  486    _X______,
+//  487    _X______,
+//  488    ________}
+//  489 
+//  490  ,{
+//  491    XXX_____,
+//  492    __X_____,
+//  493    _X______,
+//  494    X_______,
+//  495    XXX_____,
+//  496    ________}
+//  497 
+//  498  ,{
+//  499    XXX_____,
+//  500    X_______,
+//  501    X_______,
+//  502    X_______,
+//  503    XXX_____,
+//  504    ________}
+//  505 
+//  506 
+//  507  ,{
+//  508    X_______,
+//  509    X_______,
+//  510    _X______,
+//  511    __X_____,
+//  512    __X_____,
+//  513    ________}
+//  514 
+//  515 
+//  516  ,{
+//  517    XXX_____,
+//  518    __X_____,
+//  519    __X_____,
+//  520    __X_____,
+//  521    XXX_____,
+//  522    ________}
+//  523 
+//  524 
+//  525  ,{
+//  526    _X______,
+//  527    X_X_____,
+//  528    ________,
+//  529    ________,
+//  530    ________,
+//  531    ________}
+//  532 
+//  533 
+//  534  ,{
+//  535    ________,
+//  536    ________,
+//  537    ________,
+//  538    ________,
+//  539    ________,
+//  540    XXX_____}
+//  541 
+//  542 
+//  543  ,{
+//  544    X_______,
+//  545    _X______,
+//  546    ________,
+//  547    ________,
+//  548    ________,
+//  549    ________}
+//  550 
+//  551 
+//  552  ,{
+//  553    ________,
+//  554    ________,
+//  555    _XX_____,
+//  556    X_X_____,
+//  557    _XX_____,
+//  558    ________}
+//  559 
+//  560  ,{
+//  561    X_______,
+//  562    X_______,
+//  563    XX______,
+//  564    X_X_____,
+//  565    XX______,
+//  566    ________}
+//  567 
+//  568  ,{
+//  569    ________,
+//  570    ________,
+//  571    _XX_____,
+//  572    X_______,
+//  573    _XX_____,
+//  574    ________}
+//  575 
+//  576  ,{
+//  577    __X_____,
+//  578    __X_____,
+//  579    _XX_____,
+//  580    X_X_____,
+//  581    _XX_____,
+//  582    ________}
+//  583 
+//  584  ,{
+//  585    _X______,
+//  586    X_X_____,
+//  587    XXX_____,
+//  588    X_______,
+//  589    _XX_____,
+//  590    ________}
+//  591 
+//  592  ,{
+//  593    _XX_____,
+//  594    X_______,
+//  595    XX______,
+//  596    X_______,
+//  597    X_______,
+//  598    ________}
+//  599 
+//  600  ,{
+//  601    ________,
+//  602    _XX_____,
+//  603    X_X_____,
+//  604    _XX_____,
+//  605    __X_____,
+//  606    XX______}
+//  607 
+//  608  ,{
+//  609    X_______,
+//  610    X_______,
+//  611    XX______,
+//  612    X_X_____,
+//  613    X_X_____,
+//  614    ________}
+//  615 
+//  616  ,{
+//  617    _X______,
+//  618    ________,
+//  619    XX______,
+//  620    _X______,
+//  621    XXX_____,
+//  622    ________}
+//  623 
+//  624  ,{
+//  625    __X_____,
+//  626    ________,
+//  627    __X_____,
+//  628    __X_____,
+//  629    X_X_____,
+//  630    _X______}
+//  631 
+//  632  ,{
+//  633    X_______,
+//  634    X_______,
+//  635    X_X_____,
+//  636    XX______,
+//  637    X_X_____,
+//  638    ________}
+//  639 
+//  640  ,{
+//  641    XX______,
+//  642    _X______,
+//  643    _X______,
+//  644    _X______,
+//  645    XXX_____,
+//  646    ________}
+//  647 
+//  648  ,{
+//  649    ________,
+//  650    X_X_____,
+//  651    XXX_____,
+//  652    X_X_____,
+//  653    X_X_____,
+//  654    ________}
+//  655 
+//  656  ,{
+//  657    ________,
+//  658    ________,
+//  659    XXX_____,
+//  660    X_X_____,
+//  661    X_X_____,
+//  662    ________}
+//  663 
+//  664  ,{
+//  665    ________,
+//  666    ________,
+//  667    XXX_____,
+//  668    X_X_____,
+//  669    XXX_____,
+//  670    ________}
+//  671 
+//  672  ,{
+//  673    ________,
+//  674    ________,
+//  675    XX______,
+//  676    X_X_____,
+//  677    XX______,
+//  678    X_______}
+//  679 
+//  680  ,{
+//  681    ________,
+//  682    ________,
+//  683    XXX_____,
+//  684    X_X_____,
+//  685    XXX_____,
+//  686    __X_____}
+//  687 
+//  688  ,{
+//  689    ________,
+//  690    ________,
+//  691    X_X_____,
+//  692    XX______,
+//  693    X_______,
+//  694    ________}
+//  695 
+//  696  ,{
+//  697    _XX_____,
+//  698    X_______,
+//  699    _X______,
+//  700    __X_____,
+//  701    XX______,
+//  702    ________}
+//  703 
+//  704  ,{
+//  705    _X______,
+//  706    XXX_____,
+//  707    _X______,
+//  708    _X______,
+//  709    __X_____,
+//  710    ________}
+//  711 
+//  712  ,{
+//  713    ________,
+//  714    ________,
+//  715    X_X_____,
+//  716    X_X_____,
+//  717    XXX_____,
+//  718    ________}
+//  719 
+//  720  ,{
+//  721    ________,
+//  722    ________,
+//  723    X_X_____,
+//  724    X_X_____,
+//  725    _X______,
+//  726    ________}
+//  727 
+//  728  ,{
+//  729    ________,
+//  730    ________,
+//  731    X_X_____,
+//  732    XXX_____,
+//  733    X_X_____,
+//  734    ________}
+//  735 
+//  736  ,{
+//  737    ________,
+//  738    ________,
+//  739    X_X_____,
+//  740    _X______,
+//  741    X_X_____,
+//  742    ________}
+//  743 
+//  744  ,{
+//  745    ________,
+//  746    ________,
+//  747    X_X_____,
+//  748    XXX_____,
+//  749    __X_____,
+//  750    XX______}
+//  751 
+//  752  ,{
+//  753    ________,
+//  754    XXX_____,
+//  755    _X______,
+//  756    X_______,
+//  757    XXX_____,
+//  758    ________}
+//  759 
+//  760  ,{
+//  761    X_______,
+//  762    _X______,
+//  763    _XX_____,
+//  764    _X______,
+//  765    X_______,
+//  766    ________}
+//  767 
+//  768  ,{
+//  769    _X______,
+//  770    _X______,
+//  771    _X______,
+//  772    _X______,
+//  773    _X______,
+//  774    ________}
+//  775 
+//  776  ,{
+//  777    __X_____,
+//  778    _X______,
+//  779    XX______,
+//  780    _X______,
+//  781    __X_____,
+//  782    ________}
+//  783 
+//  784  ,{
+//  785    _X_X____,
+//  786    X_X_____,
+//  787    ________,
+//  788    ________,
+//  789    ________,
+//  790    ________}
+//  791 
+//  792 };
+//  793 
+//  794 
+//  795 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  796 GUI_CONST_STORAGE GUI_FONT_MONO FontMono4x6 = {
+FontMono4x6:
+        DATA16
+        DW acFont4x6
+        DW 0H
+        DW 0H
+        DW 32
+        DW 126
+        DATA8
+        DB 4
+        DB 4
+        DB 1
+//  797  acFont4x6[0],
+//  798  (const U8 *)0,
+//  799  (const GUI_FONT_TRANSINFO *)0,     /* ASCII only, no translation table */
+//  800  32, 126, 4, 4, 1
+//  801 };
+//  802 
+//  803 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  804 GUI_CONST_STORAGE GUI_FONT GUI_Font4x6 = {
+GUI_Font4x6:
+        DATA16
+        DW ??GUIMONO_DispChar?relay
+        DW ??GUIMONO_GetCharDistX?relay
+        DW ??GUIMONO_GetFontInfo?relay
+        DW ??GUIMONO_IsInFont?relay
+        DW 0H
+        DATA8
+        DB 6
+        DB 6
+        DB 1
+        DB 1
+        DATA16
+        DW FontMono4x6
+        DATA8
+        DB 5
+        DB 3
+        DB 5
+//  805   GUI_FONTTYPE_MONO,
+//  806   6, 6, 1, 1
+//  807   ,{&FontMono4x6}
+//  808   , 5, 3, 5
+//  809 };
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  810  GUI_FONT GUI_Font4x6_2 = {
+GUI_Font4x6_2:
+        DATA8
+        DS 19
+        REQUIRE `?<Initializer for GUI_Font4x6_2>`
+        REQUIRE __INIT_XDATA_I
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for GUI_Font4x6_2>`:
+        DATA16
+        DW ??GUIMONO_DispChar?relay
+        DW ??GUIMONO_GetCharDistX?relay
+        DW ??GUIMONO_GetFontInfo?relay
+        DW ??GUIMONO_IsInFont?relay
+        DW 0H
+        DATA8
+        DB 6
+        DB 12
+        DB 2
+        DB 2
+        DATA16
+        DW FontMono4x6
+        DATA8
+        DB 5
+        DB 3
+        DB 5
+
+        END
+//  811   GUI_FONTTYPE_MONO,
+//  812   6, 6*2, 2, 2
+//  813   ,{&FontMono4x6}
+//  814   , 5, 3, 5
+//  815 };
+// 
+//  19 bytes in segment XDATA_I
+//  19 bytes in segment XDATA_ID
+// 602 bytes in segment XDATA_ROM_C
+// 
+//  19 bytes of CODE  memory
+// 602 bytes of CONST memory
+//  19 bytes of XDATA memory
+//
+//Errors: none
+//Warnings: none

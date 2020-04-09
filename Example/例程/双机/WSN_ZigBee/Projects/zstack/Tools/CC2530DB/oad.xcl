@@ -1,0 +1,272 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+//  File:  Modeled upon lnk51ew_cc2530b_PG2_0.xcl
+//
+//  Description:
+//    This is a extended command line file for XLINK tool to be used when
+//    applications are written for OAD on the TI CC2530.
+//
+//    Works with CC2530 PG2.0
+//
+//  Important:
+//    Data cannot be located at address zero, this address is reserved for the null pointer.
+//
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// Variables (used by lnk_base.xcl)
+// ================================
+//
+// Segment limits
+// --------------
+//
+//
+//    IDATA
+//
+-D_IDATA_END=0xFF              // Last address of Idata memory
+//
+//
+//    PDATA
+//
+-D_PDATA_START=0x1E00          // First address for PDATA memory.
+-D_PDATA_END=0x1EFF            // Last address for PDATA memory.
+//
+//
+//
+//    IXDATA
+//
+-D_IXDATA_START=0x0100
+-D_IXDATA_END=0x1DFF
+//
+//
+//    XDATA
+//
+// The internal XDATA is used as XDATA.
+-D_XDATA_START=_IXDATA_START
+-D_XDATA_END=_IXDATA_END
+//
+//
+//    CODE
+//
+-D_CODE_START=0x0800
+-D_CODE_END=0x7FFF             // Last address for ROOT bank.
+//
+-D_FIRST_BANK_ADDR=0x10000
+//
+//
+//
+// Special SFRs
+// ------------
+//
+//    Register bank setup
+//
+-D?REGISTER_BANK=0             // Default register bank (0,1,2,3).
+-D_REGISTER_BANK_START=0       // Start address for default register bank (00,08,10,18).
+//
+//
+//    PDATA page setup
+//
+-D?PBANK_NUMBER=1E             // High byte of 16-bit address to the PDATA area.
+-D?PBANK=93                    // Most significant byte in MOVX A,@R0. (0x93 is sfr MPAGE).
+//
+//
+//    Virtual register setup
+//    ----------------------
+//
+-D_BREG_START=0x00             // The bit address where the BREG segments starts.
+                               // Must be placed on: _BREG_START%8=0 where _BREG_START <= 0x78.
+-D?VB=0x20                     // ?VB is used when referencing BREG as whole byte.
+                               // Must be placed on: ?VB=0x20+_BREG_START/8.
+//
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// IDATA memory
+//
+
+// Setup "bit" segments (only for '__no_init bool' variables).
+-Z(BIT)BREG=_BREG_START
+-Z(BIT)BIT_N=0-7F
+
+-Z(DATA)REGISTERS+8=_REGISTER_BANK_START
+-Z(DATA)BDATA_Z,BDATA_N,BDATA_I=20-2F
+-Z(DATA)VREG+_NR_OF_VIRTUAL_REGISTERS=08-7F
+-Z(DATA)PSP,XSP=08-7F
+-Z(DATA)DOVERLAY=08-7F
+-Z(DATA)DATA_I,DATA_Z,DATA_N=08-7F
+
+-U(IDATA)0-7F=(DATA)0-7F
+-Z(IDATA)IDATA_I,IDATA_Z,IDATA_N=08-_IDATA_END
+-Z(IDATA)ISTACK+_IDATA_STACK_SIZE#08-_IDATA_END
+-Z(IDATA)IOVERLAY=08-FF
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// ROM memory
+//
+//
+// The following segments *must* be placed in the root bank. The order of 
+// placement also matters for these segments, which is why we use the -Z
+// placement directive.
+//
+-Z(CODE)INTVEC=_CODE_START
+
+-Z(CODE)CHECKSUM=0x0888-0x0889
+-Z(CODE)CRC_SHDW=0x088A-0x088B
+-Z(CODE)PREAMBLE=0x088C-0x0897
+
+-Z(CODE)BIT_ID,BDATA_ID,DATA_ID,IDATA_ID,IXDATA_ID,PDATA_ID,XDATA_ID=_CODE_START-_CODE_END
+-Z(CODE)RAM_CODE_FLASH=_RAM_CODE_FLASH_START-_RAM_CODE_FLASH_END
+//
+//
+// The following segments *must* be placed in the root bank, but the order
+// of placement within the root bank is not important, which is why we use the
+// -P directive here.
+//
+-P(CODE)CSTART,BANK_RELAYS,RCODE,DIFUNCT,NEAR_CODE=_CODE_START-_CODE_END
+//
+// Setup for constants located in code memory:
+//
+-P(CODE)CODE_C=_CODE_START-_CODE_END
+//
+// Define segments for const data in flash.
+// First the segment with addresses as used by the program (flash mapped as XDATA)
+-P(CONST)XDATA_ROM_C=0x8000-0xFFFF
+//
+// Then the segment with addresses as put in the hex file (flash bank 1)
+-P(CODE)XDATA_ROM_C_FLASH=0x18000-0x1FFFF
+//
+// Finally link these segments (XDATA_ROM_C_FLASH is the initializer segment for XDATA_ROM_C,
+// we map the flash in the XDATA address range instead of copying the data to RAM)
+-QXDATA_ROM_C=XDATA_ROM_C_FLASH
+
+// Uncomment when implementing OAD NV by dividing internal flash in half.
+//-P(CODE)BANKED_CODE=0x0800-0x7FFF,0x18000-0x1FFFF,0x28000-0x2FFFF,0x38000-0x3E7FF
+// Uncomment when implementing OAD NV by external E2PROM AND external flash is 256 KB or bigger.
+// (e.g. when using SmartRF05 Rev. 1.7 or later.)
+-P(CODE)BANKED_CODE=0x0800-0x7FFF,0x18000-0x1FFFF,0x28000-0x2FFFF,0x38000-0x3FFFF,0x48000-0x4FFFF,\
+0x58000-0x5FFFF,0x68000-0x6FFFF,0x78000-0x7C7FF
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// XDATA memory
+//
+
+
+//
+// Stacks located in XDATA
+//
+-Z(XDATA)PSTACK+_PDATA_STACK_SIZE=_PDATA_START-_PDATA_END
+-Z(XDATA)XSTACK+_XDATA_STACK_SIZE=_XDATA_START-_XDATA_END
+
+
+
+//
+// XDATA - data memory
+//
+-Z(XDATA)IXDATA_N,IXDATA_Z,IXDATA_I=_IXDATA_START-_IXDATA_END
+-Z(XDATA)XDATA_N,XDATA_Z,XDATA_I=_XDATA_START-_XDATA_END
+
+-cx51
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// Texas Instruments device specific
+// =================================
+//
+//
+// Layout of CODE banks
+// -------------------
+//
+//-D_BANK0_START=0x08000
+//-D_BANK0_END=0x0FFFF
+//
+//-D_BANK1_START=0x18000
+//-D_BANK1_END=0x1FFFF
+//
+//-D_BANK2_START=0x28000
+//-D_BANK2_END=0x2FFFF
+//
+//-D_BANK3_START=0x38000
+//-D_BANK3_END=0x3FFFF
+//
+//-D_BANK4_START=0x48000
+//-D_BANK4_END=0x4FFFF
+//
+//-D_BANK5_START=0x58000
+//-D_BANK5_END=0x5FFFF
+//
+//-D_BANK6_START=0x68000
+//-D_BANK6_END=0x6FFFF
+//
+//-D_BANK7_START=0x78000
+-D_BANK7_END=0x7FFFF
+//
+//
+// Include these two lines when generating a .hex file for banked code model:
+//-M(CODE)[(_CODEBANK_START+_FIRST_BANK_ADDR)-(_CODEBANK_END+_FIRST_BANK_ADDR)]*\
+//_NR_OF_BANKS+_FIRST_BANK_ADDR=0x8000
+//-ww69=i
+//
+//
+//
+// Any code that will be run from RAM by setting XMAP of MEMCTL must have the same bank-relative
+// address as the address in RAM to which the CODE will be copied to run.
+// Thus, any part of the first 8k of any bank can be dedicated to code that will run from RAM as
+// long as the corresponding relative address range is reserved in RAM by RAM_CODE_XDATA.
+//
+-D_RAM_CODE_XDATA_START=0x01DDD
+-D_RAM_CODE_XDATA_END=(_RAM_CODE_XDATA_START+0x22)
+-Z(XDATA)RAM_CODE_XDATA=_RAM_CODE_XDATA_START-_RAM_CODE_XDATA_END
+//
+-D_RAM_CODE_FLASH_START=0x39DDD
+-D_RAM_CODE_FLASH_END=(_RAM_CODE_FLASH_START+0x22)
+//
+//
+//
+// Internal flash used for NV address space: reserving 6 pages.
+//
+-D_ZIGNV_ADDRESS_SPACE_START=(_BANK7_END+1-0x3800)
+-D_ZIGNV_ADDRESS_SPACE_END=(_ZIGNV_ADDRESS_SPACE_START+0x2FFF)
+-Z(CODE)ZIGNV_ADDRESS_SPACE=_ZIGNV_ADDRESS_SPACE_START-_ZIGNV_ADDRESS_SPACE_END
+//
+//
+//
+// IEEE address space (EUI-64) put at last 8 bytes of last page before the flash lock bits.
+//
+-D_IEEE_ADDRESS_SPACE_START=(_BANK7_END+1-0x18)
+-D_IEEE_ADDRESS_SPACE_END=(_IEEE_ADDRESS_SPACE_START+7)
+-Z(CODE)IEEE_ADDRESS_SPACE=_IEEE_ADDRESS_SPACE_START-_IEEE_ADDRESS_SPACE_END
+//
+//
+//
+-D_SLEEP_CODE_SPACE_START=(_IEEE_ADDRESS_SPACE_START-8)
+-D_SLEEP_CODE_SPACE_END=(_SLEEP_CODE_SPACE_START+7)
+-Z(CODE)SLEEP_CODE=_SLEEP_CODE_SPACE_START-_SLEEP_CODE_SPACE_END
+////////////////////////////////////////////////////////////////////////////////
+//
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//
+// Skip boot code, CRC/shadow & NV pages when calculating the CRC.
+//
+// Uncomment when implementing OAD NV by dividing internal flash in half.
+//-J2,crc16,=800-887,88C-3E7FF
+// Uncomment when implementing OAD NV by external E2PROM AND external flash is 256 KB or bigger.
+// (e.g. when using SmartRF05 Rev. 1.7 or later.)
+-J2,crc16,=800-887,88C-7C7FF
+//
+// Fill code gaps with 0xFFFF so that the CRC can be verified programatically.
+-HFFFF
+//
+//
+//
+////////////////////////////////////////////////////////////////////////////////

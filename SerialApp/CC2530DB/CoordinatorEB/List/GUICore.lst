@@ -1,0 +1,600 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.1.10194/W32 for 8051         14/Jun/2016  16:18:40 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\Cor #
+#                          e\GUICore.c                                        #
+#    Command line       =  -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\..\..\..\Tools\CC2530D #
+#                          B\f8wCoord.cfg (-DCPU32MHZ -DROOT=__near_func      #
+#                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                   #
+#                          -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8         #
+#                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)    #
+#                          -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\..\..\..\Tools\CC2530D #
+#                          B\f8wConfig.cfg (-DZIGBEEPRO -DSECURE=0            #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0x1001                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹â #
+#                          ÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5. #
+#                          1a\Components\uCGUI\Core\GUICore.c -D              #
+#                          HAL_UART=TRUE -D SERIAL_APP_PORT=0 -D COOR -D      #
+#                          LCD_SUPPORTED -D NV_INIT -lC                       #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\List\ -lA   #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\List\       #
+#                          --diag_suppress Pe001,Pa010 -o                     #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\Obj\ -e     #
+#                          --no_code_motion --debug --core=plain --dptr=16,1  #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\ -I                    #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\Public\ -I             #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \uCGUI\Core\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ2 #
+#                          10\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ #
+#                          ..\..\Components\uCGUI\MultiLayer\ -I              #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \uCGUI\Config\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁ #
+#                          Ï210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Pr #
+#                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\Coor #
+#                          dinator\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Z #
+#                          igBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects #
+#                          \zstack\Utilities\SerialApp\CC2530DB\..\..\..\ZMai #
+#                          n\TI2530DB\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ21 #
+#                          0\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proje #
+#                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\. #
+#                          .\..\Components\hal\include\ -I                    #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \hal\target\CC2530EB\ -I                           #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\include\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ #
+#                          210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Pro #
+#                          jects\zstack\Utilities\SerialApp\CC2530DB\..\..\.. #
+#                          \..\..\Components\mac\high_level\ -I               #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\low_level\srf04\ -I                           #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\low_level\srf04\single_chip\ -I               #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mt\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBe #
+#                          eÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zst #
+#                          ack\Utilities\SerialApp\CC2530DB\..\..\..\..\..\Co #
+#                          mponents\osal\include\ -I                          #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \services\saddr\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ× #
+#                          ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\ #
+#                          Projects\zstack\Utilities\SerialApp\CC2530DB\..\.. #
+#                          \..\..\..\Components\services\sdata\ -I            #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\af\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210 #
+#                          \ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projec #
+#                          ts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\.. #
+#                          \..\Components\stack\nwk\ -I                       #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\sapi\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ2 #
+#                          10\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ #
+#                          ..\..\Components\stack\sec\ -I                     #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\sys\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ21 #
+#                          0\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proje #
+#                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\. #
+#                          .\..\Components\stack\zdo\ -I                      #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \zmac\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Zig #
+#                          BeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\z #
+#                          stack\Utilities\SerialApp\CC2530DB\..\..\..\..\..\ #
+#                          Components\zmac\f8w\ -Ohz --require_prototypes     #
+#    List file          =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\List\GUICor #
+#                          e.lst                                              #
+#    Object file        =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\Obj\GUICore #
+#                          .r51                                               #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\Core\GUICore.c
+      1          /*
+      2          *********************************************************************************************************
+      3          *                                                uC/GUI
+      4          *                        Universal graphic software for embedded applications
+      5          *
+      6          *                       (c) Copyright 2002, Micrium Inc., Weston, FL
+      7          *                       (c) Copyright 2002, SEGGER Microcontroller Systeme GmbH
+      8          *
+      9          *              µC/GUI is protected by international copyright laws. Knowledge of the
+     10          *              source code may not be used to write a similar product. This file may
+     11          *              only be used in accordance with a license and should not be redistributed
+     12          *              in any way. We appreciate your understanding and fairness.
+     13          *
+     14          ----------------------------------------------------------------------
+     15          File        : GUICore.C
+     16          Purpose     : Core routines
+     17          ---------------------------END-OF-HEADER------------------------------
+     18          */
+     19          
+     20          #include <stddef.h>           /* needed for definition of NULL */
+     21          
+     22          #define  GL_CORE_C
+     23          
+     24          #include "GUI_Private.h"
+
+   \                                 In  segment SFR_AN, at 0xa8
+   \   union <unnamed> volatile __sfr _A_IEN0
+   \                     _A_IEN0:
+   \   000000                DS 1
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \   GUI_CONTEXT GUI_Context
+   \                     GUI_Context:
+   \   000000                DS 47
+   \   00002F                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \   char GUI_DecChar
+   \                     GUI_DecChar:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \   int (void) *__xdata GUI_pfTimerExec
+   \                     GUI_pfTimerExec:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \   int (void) *__xdata WM_pfHandlePID
+   \                     WM_pfHandlePID:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \   void (*__xdata GUI_pfDispCharStyle)(unsigned short)
+   \                     GUI_pfDispCharStyle:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \   tLCD_APIList const *__xdata GUI_pLCD_APIList
+   \                     GUI_pLCD_APIList:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+     25          #include "GUIDebug.h"
+     26          
+     27          #if GUI_WINSUPPORT
+     28            #include "WM_GUI.h"
+     29            #include "WM.h"
+     30          #endif
+     31          
+     32          /*********************************************************************
+     33          *
+     34          *       Static data
+     35          *
+     36          **********************************************************************
+     37          */
+     38          #if GUI_SUPPORT_AA
+     39          static const tLCD_HL_APIList _HL_APIList = {
+     40            LCD_DrawHLine,
+     41            LCD_DrawPixel
+     42          };
+     43          #endif
+     44          
+     45          /*********************************************************************
+     46          *
+     47          *       Static code
+     48          *
+     49          **********************************************************************
+     50          */
+     51          /*********************************************************************
+     52          *
+     53          *       _InitContext
+     54          *
+     55          * Purpose
+     56          *   Initializes the given context.
+     57          *
+     58          * Special considerations
+     59          *   Make sure that no GUI functions are called, because locking is
+     60          *   not allowed here (GUITASK_INIT not yet called).
+     61          */
+     62          static void _InitContext(GUI_CONTEXT* pContext) {
+     63            /* memset(..,0,..) is not required, as this function is called only at startup of the GUI when data is 0 */
+     64            #if GUI_SUPPORT_DEVICES
+     65              pContext->pDeviceAPI   = LCD_aAPI[0]; /* &LCD_L0_APIList; */
+     66            #endif
+     67            pContext->pClipRect_HL = &GUI_Context.ClipRect;
+     68            LCD_L0_GetRect(&pContext->ClipRect);
+     69            #if GUI_SUPPORT_AA
+     70              pContext->pLCD_HL      = &_HL_APIList;
+     71            #endif
+     72            pContext->pAFont       = GUI_DEFAULT_FONT;
+     73            pContext->pClipRect_HL = &GUI_Context.ClipRect;
+     74            pContext->PenSize      = 1;
+     75            /* Variables in WM module */
+     76            #if GUI_WINSUPPORT
+     77              pContext->hAWin    = WM_GetDesktopWindow();
+     78            #endif
+     79            /* Variables in GUI_AA module */
+     80            #if GUI_SUPPORT_AA
+     81              pContext->AA_Factor = 3;
+     82            #endif
+     83            pContext->Color   = GUI_INVALID_COLOR;
+     84            pContext->BkColor = GUI_INVALID_COLOR;
+     85            LCD_SetBkColor(GUI_DEFAULT_BKCOLOR);
+     86            LCD_SetColor(GUI_DEFAULT_COLOR);
+     87            pContext->pUC_API = &GUI__API_TableNone;
+     88          }
+     89          
+     90          /*********************************************************************
+     91          *
+     92          *       Public code
+     93          *
+     94          **********************************************************************
+     95          */
+     96          /*********************************************************************
+     97          *
+     98          *       GUI_ClearRect
+     99          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    100          void GUI_ClearRect(int x0, int y0, int x1, int y1) {
+   \                     GUI_ClearRect:
+   \   000000   74EC         MOV     A,#-0x14
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 20
+   \   000005                ; Auto size: 0
+   \   000005   8A..         MOV     ?V0 + 0,R2
+   \   000007   8B..         MOV     ?V0 + 1,R3
+   \   000009   EC           MOV     A,R4
+   \   00000A   FE           MOV     R6,A
+   \   00000B   ED           MOV     A,R5
+   \   00000C   FF           MOV     R7,A
+   \   00000D   7414         MOV     A,#0x14
+   \   00000F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000012   E0           MOVX    A,@DPTR
+   \   000013   F5..         MOV     ?V0 + 4,A
+   \   000015   A3           INC     DPTR
+   \   000016   E0           MOVX    A,@DPTR
+   \   000017   F5..         MOV     ?V0 + 5,A
+   \   000019   7416         MOV     A,#0x16
+   \   00001B   12....       LCALL   ?XSTACK_DISP0_8
+   \   00001E   E0           MOVX    A,@DPTR
+   \   00001F   F5..         MOV     ?V0 + 6,A
+   \   000021   A3           INC     DPTR
+   \   000022   E0           MOVX    A,@DPTR
+   \   000023   F5..         MOV     ?V0 + 7,A
+    101            GUI_DRAWMODE PrevDraw;
+    102            #if GUI_WINSUPPORT
+    103              GUI_RECT r;
+    104            #endif
+    105            halIntState_t state;
+    106            GUI_LOCK(state);
+   \   000025   E5A8         MOV     A,0xa8
+   \   000027   F5..         MOV     ?V0 + 8,A
+   \   000029   C2AF         CLR     0xa8.7
+    107            PrevDraw = LCD_SetDrawMode(GUI_DRAWMODE_REV);
+   \   00002B                ; Setup parameters for call to function LCD_SetDrawMode
+   \   00002B   7A04         MOV     R2,#0x4
+   \   00002D   7B00         MOV     R3,#0x0
+   \   00002F   12....       LCALL   ??LCD_SetDrawMode?relay
+   \   000032   8A..         MOV     ?V0 + 2,R2
+   \   000034   8B..         MOV     ?V0 + 3,R3
+    108            #if GUI_WINSUPPORT
+    109              WM_ADDORG(x0,y0);
+    110              WM_ADDORG(x1,y1);
+    111              r.x0 = x0;
+    112              r.x1 = x1;
+    113              r.y0 = y0;
+    114              r.y1 = y1;
+    115              WM_ITERATE_START(&r) {
+    116            #endif
+    117            LCD_FillRect(x0,y0,x1,y1);
+   \   000036                ; Setup parameters for call to function LCD_FillRect
+   \   000036   78..         MOV     R0,#?V0 + 6
+   \   000038   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00003B   78..         MOV     R0,#?V0 + 4
+   \   00003D   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000040   EE           MOV     A,R6
+   \   000041   FC           MOV     R4,A
+   \   000042   EF           MOV     A,R7
+   \   000043   FD           MOV     R5,A
+   \   000044   AA..         MOV     R2,?V0 + 0
+   \   000046   AB..         MOV     R3,?V0 + 1
+   \   000048   12....       LCALL   ??LCD_FillRect?relay
+   \   00004B   7404         MOV     A,#0x4
+   \   00004D   12....       LCALL   ?DEALLOC_XSTACK8
+    118            #if GUI_WINSUPPORT
+    119              } WM_ITERATE_END();
+    120            #endif
+    121            LCD_SetDrawMode(PrevDraw);
+   \   000050                ; Setup parameters for call to function LCD_SetDrawMode
+   \   000050   AA..         MOV     R2,?V0 + 2
+   \   000052   AB..         MOV     R3,?V0 + 3
+   \   000054   12....       LCALL   ??LCD_SetDrawMode?relay
+    122            GUI_UNLOCK(state);
+   \   000057   E5..         MOV     A,?V0 + 8
+   \   000059   A2E7         MOV     C,0xE0 /* A   */.7
+   \   00005B   92AF         MOV     0xa8.7,C
+    123          }
+   \   00005D   7F0C         MOV     R7,#0xc
+   \   00005F   02....       LJMP    ?BANKED_LEAVE_XDATA
+   \   000062                REQUIRE _A_IEN0
+    124          
+    125          /*********************************************************************
+    126          *
+    127          *       GUI_Clear
+    128          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    129          void GUI_Clear(void) {
+   \                     GUI_Clear:
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+    130            GUI_GotoXY(0,0);     /* Reset text cursor to upper left */
+   \   000005                ; Setup parameters for call to function GUI_GotoXY
+   \   000005   7C00         MOV     R4,#0x0
+   \   000007   7D00         MOV     R5,#0x0
+   \   000009   7A00         MOV     R2,#0x0
+   \   00000B   7B00         MOV     R3,#0x0
+   \   00000D   12....       LCALL   ??GUI_GotoXY?relay
+    131            GUI_ClearRect(GUI_XMIN, GUI_YMIN, GUI_XMAX, GUI_YMAX);
+   \   000010                ; Setup parameters for call to function GUI_ClearRect
+   \   000010   75..FF       MOV     ?V0 + 0,#-0x1
+   \   000013   75..0F       MOV     ?V0 + 1,#0xf
+   \   000016   78..         MOV     R0,#?V0 + 0
+   \   000018   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00001B   78..         MOV     R0,#?V0 + 0
+   \   00001D   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000020   7C01         MOV     R4,#0x1
+   \   000022   7DF0         MOV     R5,#-0x10
+   \   000024   7A01         MOV     R2,#0x1
+   \   000026   7BF0         MOV     R3,#-0x10
+   \   000028   12....       LCALL   ??GUI_ClearRect?relay
+   \   00002B   7404         MOV     A,#0x4
+   \   00002D   12....       LCALL   ?DEALLOC_XSTACK8
+    132          }
+   \   000030   7F02         MOV     R7,#0x2
+   \   000032   02....       LJMP    ?BANKED_LEAVE_XDATA
+    133          
+    134          /*********************************************************************
+    135          *
+    136          *       GUI_Init
+    137          *
+    138          * Purpose:
+    139          *   Init of GUI internal data structures & variables
+    140          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    141          int GUI_Init(void) {
+   \                     GUI_Init:
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    142            int r;
+    143            //GUI_DEBUG_LOG("\nGUI_Init()");
+    144            /* Init system wide globals first */
+    145            GUI_DecChar = '.';
+   \   000004   90....       MOV     DPTR,#GUI_DecChar
+   \   000007   742E         MOV     A,#0x2e
+   \   000009   F0           MOVX    @DPTR,A
+    146            GUI_X_Init();
+   \   00000A                ; Setup parameters for call to function GUI_X_Init
+   \   00000A   12....       LCALL   ??GUI_X_Init?relay
+    147            /* Init context */
+    148            _InitContext(&GUI_Context);
+   \   00000D   90....       MOV     DPTR,#GUI_Context + 15
+   \   000010   74..         MOV     A,#(GUI_Context + 4) & 0xff
+   \   000012   F0           MOVX    @DPTR,A
+   \   000013   A3           INC     DPTR
+   \   000014   74..         MOV     A,#((GUI_Context + 4) >> 8) & 0xff
+   \   000016   F0           MOVX    @DPTR,A
+   \   000017                ; Setup parameters for call to function LCD_L0_GetRect
+   \   000017   7A..         MOV     R2,#(GUI_Context + 4) & 0xff
+   \   000019   FB           MOV     R3,A
+   \   00001A   12....       LCALL   ??LCD_L0_GetRect?relay
+   \   00001D   90....       MOV     DPTR,#GUI_Context + 21
+   \   000020   74..         MOV     A,#GUI_Font8x16 & 0xff
+   \   000022   F0           MOVX    @DPTR,A
+   \   000023   A3           INC     DPTR
+   \   000024   74..         MOV     A,#(GUI_Font8x16 >> 8) & 0xff
+   \   000026   F0           MOVX    @DPTR,A
+   \   000027   90....       MOV     DPTR,#GUI_Context + 15
+   \   00002A   74..         MOV     A,#(GUI_Context + 4) & 0xff
+   \   00002C   F0           MOVX    @DPTR,A
+   \   00002D   A3           INC     DPTR
+   \   00002E   74..         MOV     A,#((GUI_Context + 4) >> 8) & 0xff
+   \   000030   F0           MOVX    @DPTR,A
+   \   000031   A3           INC     DPTR
+   \   000032   7401         MOV     A,#0x1
+   \   000034   F0           MOVX    @DPTR,A
+   \   000035   90....       MOV     DPTR,#__Constant_fffffff
+   \   000038   12....       LCALL   ?XLOAD_R2345
+   \   00003B   90....       MOV     DPTR,#GUI_Context + 39
+   \   00003E   12....       LCALL   ?XSTORE_R2345
+   \   000041   90....       MOV     DPTR,#__Constant_fffffff
+   \   000044   12....       LCALL   ?XLOAD_R2345
+   \   000047   90....       MOV     DPTR,#GUI_Context + 43
+   \   00004A   12....       LCALL   ?XSTORE_R2345
+   \   00004D                ; Setup parameters for call to function LCD_SetBkColor
+   \   00004D   90....       MOV     DPTR,#__Constant_0
+   \   000050   12....       LCALL   ?XLOAD_R2345
+   \   000053   12....       LCALL   ??LCD_SetBkColor?relay
+   \   000056                ; Setup parameters for call to function LCD_SetColor
+   \   000056   90....       MOV     DPTR,#__Constant_ffffff
+   \   000059   12....       LCALL   ?XLOAD_R2345
+   \   00005C   12....       LCALL   ??LCD_SetColor?relay
+   \   00005F   90....       MOV     DPTR,#GUI_Context + 23
+   \   000062   74..         MOV     A,#GUI__API_TableNone & 0xff
+   \   000064   F0           MOVX    @DPTR,A
+   \   000065   A3           INC     DPTR
+   \   000066   74..         MOV     A,#(GUI__API_TableNone >> 8) & 0xff
+   \   000068   F0           MOVX    @DPTR,A
+    149            GUITASK_INIT();
+    150            r = LCD_Init();
+    151            #if GUI_WINSUPPORT
+    152              WM_Init();
+    153            #endif
+    154            GUITASK_COPY_CONTEXT();
+    155            return r;
+   \   000069                ; Setup parameters for call to function LCD_Init
+   \   000069   12....       LCALL   ??LCD_Init?relay
+   \   00006C   D083         POP     DPH
+   \   00006E   D082         POP     DPL
+   \   000070   02....       LJMP    ?BRET
+    156          }
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_fffffff:
+   \   000000   FFFFFF0F     DD 268435455
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_0:
+   \   000000   00000000     DD 0
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_ffffff:
+   \   000000   FFFFFF00     DD 16777215
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI_ClearRect?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI_ClearRect
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI_Clear?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI_Clear
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI_Init?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI_Init
+    157          
+    158          /*************************** End of file ****************************/
+
+   Maximum stack usage in bytes:
+
+     Function             ISTACK PSTACK XSTACK
+     --------             ------ ------ ------
+     GUI_Clear                0      0     14
+       -> GUI_GotoXY          0      0     20
+       -> GUI_ClearRect       0      0     28
+     GUI_ClearRect            0      0     38
+       -> LCD_SetDrawMode     0      0     40
+       -> LCD_FillRect        0      0     48
+       -> LCD_SetDrawMode     0      0     40
+     GUI_Init                 2      0      0
+       -> GUI_X_Init          4      0      0
+       -> LCD_L0_GetRect      4      0      0
+       -> LCD_SetBkColor      4      0      0
+       -> LCD_SetColor        4      0      0
+       -> LCD_Init            4      0      0
+
+
+   Segment part sizes:
+
+     Function/Label        Bytes
+     --------------        -----
+     _A_IEN0                  1
+     GUI_Context             47
+     GUI_DecChar              1
+     GUI_pfTimerExec          2
+     WM_pfHandlePID           2
+     GUI_pfDispCharStyle      2
+     GUI_pLCD_APIList         2
+     GUI_ClearRect           98
+     GUI_Clear               53
+     GUI_Init               115
+     __Constant_fffffff       4
+     __Constant_0             4
+     __Constant_ffffff        4
+     ??GUI_ClearRect?relay    6
+     ??GUI_Clear?relay        6
+     ??GUI_Init?relay         6
+
+ 
+ 266 bytes in segment BANKED_CODE
+  18 bytes in segment BANK_RELAYS
+   1 byte  in segment SFR_AN
+  12 bytes in segment XDATA_ROM_C
+  56 bytes in segment XDATA_Z
+ 
+ 284 bytes of CODE  memory
+   0 bytes of CONST memory (+ 12 bytes shared)
+   0 bytes of DATA  memory (+  1 byte  shared)
+  56 bytes of XDATA memory
+
+Errors: none
+Warnings: none

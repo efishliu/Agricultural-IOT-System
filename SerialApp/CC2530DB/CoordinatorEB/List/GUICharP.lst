@@ -1,0 +1,875 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.1.10194/W32 for 8051         14/Jun/2016  16:18:48 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\Cor #
+#                          e\GUICharP.c                                       #
+#    Command line       =  -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\..\..\..\Tools\CC2530D #
+#                          B\f8wCoord.cfg (-DCPU32MHZ -DROOT=__near_func      #
+#                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                   #
+#                          -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8         #
+#                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)    #
+#                          -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\..\..\..\Tools\CC2530D #
+#                          B\f8wConfig.cfg (-DZIGBEEPRO -DSECURE=0            #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0x1001                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹â #
+#                          ÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5. #
+#                          1a\Components\uCGUI\Core\GUICharP.c -D             #
+#                          HAL_UART=TRUE -D SERIAL_APP_PORT=0 -D COOR -D      #
+#                          LCD_SUPPORTED -D NV_INIT -lC                       #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\List\ -lA   #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\List\       #
+#                          --diag_suppress Pe001,Pa010 -o                     #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\Obj\ -e     #
+#                          --no_code_motion --debug --core=plain --dptr=16,1  #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\ -I                    #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\Public\ -I             #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \uCGUI\Core\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ2 #
+#                          10\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ #
+#                          ..\..\Components\uCGUI\MultiLayer\ -I              #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \uCGUI\Config\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁ #
+#                          Ï210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Pr #
+#                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\Coor #
+#                          dinator\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Z #
+#                          igBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects #
+#                          \zstack\Utilities\SerialApp\CC2530DB\..\..\..\ZMai #
+#                          n\TI2530DB\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ21 #
+#                          0\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proje #
+#                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\. #
+#                          .\..\Components\hal\include\ -I                    #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \hal\target\CC2530EB\ -I                           #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\include\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ #
+#                          210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Pro #
+#                          jects\zstack\Utilities\SerialApp\CC2530DB\..\..\.. #
+#                          \..\..\Components\mac\high_level\ -I               #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\low_level\srf04\ -I                           #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\low_level\srf04\single_chip\ -I               #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mt\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBe #
+#                          eÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zst #
+#                          ack\Utilities\SerialApp\CC2530DB\..\..\..\..\..\Co #
+#                          mponents\osal\include\ -I                          #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \services\saddr\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ× #
+#                          ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\ #
+#                          Projects\zstack\Utilities\SerialApp\CC2530DB\..\.. #
+#                          \..\..\..\Components\services\sdata\ -I            #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\af\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210 #
+#                          \ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projec #
+#                          ts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\.. #
+#                          \..\Components\stack\nwk\ -I                       #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\sapi\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ2 #
+#                          10\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ #
+#                          ..\..\Components\stack\sec\ -I                     #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\sys\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ21 #
+#                          0\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proje #
+#                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\. #
+#                          .\..\Components\stack\zdo\ -I                      #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \zmac\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Zig #
+#                          BeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\z #
+#                          stack\Utilities\SerialApp\CC2530DB\..\..\..\..\..\ #
+#                          Components\zmac\f8w\ -Ohz --require_prototypes     #
+#    List file          =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\List\GUICha #
+#                          rP.lst                                             #
+#    Object file        =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\Obj\GUIChar #
+#                          P.r51                                              #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\Core\GUICharP.c
+      1          /*
+      2          *********************************************************************************************************
+      3          *                                                uC/GUI
+      4          *                        Universal graphic software for embedded applications
+      5          *
+      6          *                       (c) Copyright 2002, Micrium Inc., Weston, FL
+      7          *                       (c) Copyright 2002, SEGGER Microcontroller Systeme GmbH
+      8          *
+      9          *              µC/GUI is protected by international copyright laws. Knowledge of the
+     10          *              source code may not be used to write a similar product. This file may
+     11          *              only be used in accordance with a license and should not be redistributed
+     12          *              in any way. We appreciate your understanding and fairness.
+     13          *
+     14          ----------------------------------------------------------------------
+     15          File        : GUICharP.C
+     16          Purpose     : Implementation of Proportional fonts
+     17          ---------------------------END-OF-HEADER------------------------------
+     18          */
+     19          
+     20          #include <stddef.h>           /* needed for definition of NULL */
+     21          #include "GUI_Private.h"
+     22           
+     23          /*********************************************************************
+     24          *
+     25          *       Static code
+     26          *
+     27          **********************************************************************
+     28          */
+     29          /*********************************************************************
+     30          *
+     31          *       GUIPROP_FindChar
+     32          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     33          static const GUI_FONT_PROP GUI_UNI_PTR * GUIPROP_FindChar(const GUI_FONT_PROP GUI_UNI_PTR* pProp, U16P c) {
+   \                     GUIPROP_FindChar:
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+   \   000004   800D         SJMP    ??CrossCallReturnLabel_10
+     34            for (; pProp; pProp = pProp->pNext) {
+   \                     ??GUIPROP_FindChar_0:
+   \   000006   8A82         MOV     DPL,R2
+   \   000008   8B83         MOV     DPH,R3
+   \   00000A   A3           INC     DPTR
+   \   00000B   A3           INC     DPTR
+   \   00000C   A3           INC     DPTR
+   \   00000D   A3           INC     DPTR
+   \   00000E   A3           INC     DPTR
+   \   00000F   A3           INC     DPTR
+   \   000010   12....       LCALL   ??Subroutine8_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_10:
+   \   000013   EA           MOV     A,R2
+   \   000014   4B           ORL     A,R3
+   \   000015   601E         JZ      ??GUIPROP_FindChar_1
+     35              if ((c>=pProp->First) && (c<=pProp->Last))
+   \   000017   8A82         MOV     DPL,R2
+   \   000019   8B83         MOV     DPH,R3
+   \   00001B   E0           MOVX    A,@DPTR
+   \   00001C   F8           MOV     R0,A
+   \   00001D   A3           INC     DPTR
+   \   00001E   E0           MOVX    A,@DPTR
+   \   00001F   F9           MOV     R1,A
+   \   000020   C3           CLR     C
+   \   000021   EC           MOV     A,R4
+   \   000022   98           SUBB    A,R0
+   \   000023   ED           MOV     A,R5
+   \   000024   99           SUBB    A,R1
+   \   000025   40DF         JC      ??GUIPROP_FindChar_0
+   \   000027   8A82         MOV     DPL,R2
+   \   000029   8B83         MOV     DPH,R3
+   \   00002B   A3           INC     DPTR
+   \   00002C   A3           INC     DPTR
+   \   00002D   C3           CLR     C
+   \   00002E   E0           MOVX    A,@DPTR
+   \   00002F   9C           SUBB    A,R4
+   \   000030   A3           INC     DPTR
+   \   000031   E0           MOVX    A,@DPTR
+   \   000032   9D           SUBB    A,R5
+   \   000033   40D1         JC      ??GUIPROP_FindChar_0
+     36                break;
+     37            }
+     38            return pProp;
+   \                     ??GUIPROP_FindChar_1:
+   \   000035                REQUIRE ?Subroutine0
+   \   000035                ; // Fall through to label ?Subroutine0
+     39          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   D083         POP     DPH
+   \   000002   D082         POP     DPL
+   \   000004   02....       LJMP    ?BRET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine8_0:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   FA           MOV     R2,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   FB           MOV     R3,A
+   \   000005   22           RET
+     40          
+     41          /*********************************************************************
+     42          *
+     43          *       Public code
+     44          *
+     45          **********************************************************************
+     46          */
+     47          /*********************************************************************
+     48          *
+     49          *       GUIPROP_DispChar
+     50          *
+     51          * Purpose:
+     52          *   This is the routine that displays a character. It is used by all
+     53          *   other routines which display characters as a subroutine.
+     54          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     55          void GUIPROP_DispChar(U16P c) {
+   \                     GUIPROP_DispChar:
+   \   000000   74EE         MOV     A,#-0x12
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 18
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+     56            int BytesPerLine;
+     57            GUI_DRAWMODE DrawMode = GUI_Context.TextMode;
+   \   000009   90....       MOV     DPTR,#GUI_Context + 35
+   \   00000C   E0           MOVX    A,@DPTR
+   \   00000D   F5..         MOV     ?V0 + 4,A
+   \   00000F   A3           INC     DPTR
+   \   000010   E0           MOVX    A,@DPTR
+   \   000011   F5..         MOV     ?V0 + 5,A
+     58            const GUI_FONT_PROP GUI_UNI_PTR * pProp = GUIPROP_FindChar(GUI_Context.pAFont->p.pProp, c);
+   \   000013                ; Setup parameters for call to function GUIPROP_FindChar
+   \   000013   12....       LCALL   ?Subroutine3 & 0xFFFF
+     59            if (pProp) {
+   \                     ??CrossCallReturnLabel_2:
+   \   000016   7003         JNZ     $+5
+   \   000018   02....       LJMP    ??GUIPROP_DispChar_0 & 0xFFFF
+     60              GUI_DRAWMODE OldDrawMode;
+     61              const GUI_CHARINFO GUI_UNI_PTR * pCharInfo = pProp->paCharInfo+(c-pProp->First);
+   \   00001B   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_0:
+   \   00001E   FE           MOV     R6,A
+   \   00001F   A3           INC     DPTR
+   \   000020   E0           MOVX    A,@DPTR
+   \   000021   39           ADDC    A,R1
+   \   000022   FF           MOV     R7,A
+     62              BytesPerLine = pCharInfo->BytesPerLine;
+   \   000023   8E82         MOV     DPL,R6
+   \   000025   8F83         MOV     DPH,R7
+   \   000027   A3           INC     DPTR
+   \   000028   A3           INC     DPTR
+   \   000029   E0           MOVX    A,@DPTR
+   \   00002A   F5..         MOV     ?V0 + 0,A
+   \   00002C   75..00       MOV     ?V0 + 1,#0x0
+     63              OldDrawMode  = LCD_SetDrawMode(DrawMode);
+   \   00002F                ; Setup parameters for call to function LCD_SetDrawMode
+   \   00002F   AA..         MOV     R2,?V0 + 4
+   \   000031   AB..         MOV     R3,?V0 + 5
+   \   000033   12....       LCALL   ??LCD_SetDrawMode?relay
+   \   000036   8A..         MOV     ?V0 + 8,R2
+   \   000038   8B..         MOV     ?V0 + 9,R3
+     64              LCD_DrawBitmap( GUI_Context.DispPosX, GUI_Context.DispPosY,
+     65                                 pCharInfo->XSize,
+     66          											 GUI_Context.pAFont->YSize,
+     67                                 GUI_Context.pAFont->XMag,
+     68          											 GUI_Context.pAFont->YMag,
+     69                                 1,     /* Bits per Pixel */
+     70                                 BytesPerLine,
+     71                                 pCharInfo->pData,
+     72                                 &LCD_BKCOLORINDEX
+     73                                 );
+   \   00003A   90....       MOV     DPTR,#GUI_Context + 21
+   \   00003D   12....       LCALL   ??Subroutine8_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_11:
+   \   000040                ; Setup parameters for call to function LCD_DrawBitmap
+   \   000040   75....       MOV     ?V0 + 2,#GUI_Context & 0xff
+   \   000043   75....       MOV     ?V0 + 3,#(GUI_Context >> 8) & 0xff
+   \   000046   78..         MOV     R0,#?V0 + 2
+   \   000048   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00004B   8E82         MOV     DPL,R6
+   \   00004D   8F83         MOV     DPH,R7
+   \   00004F   A3           INC     DPTR
+   \   000050   A3           INC     DPTR
+   \   000051   A3           INC     DPTR
+   \   000052   12....       LCALL   ?PUSH_XSTACK8_X_TWO
+   \   000055   78..         MOV     R0,#?V0 + 0
+   \   000057   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00005A   75..01       MOV     ?V0 + 0,#0x1
+   \   00005D   78..         MOV     R0,#?V0 + 0
+   \   00005F   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000062   EA           MOV     A,R2
+   \   000063   240D         ADD     A,#0xd
+   \   000065   12....       LCALL   ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_8:
+   \   000068   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00006B   EA           MOV     A,R2
+   \   00006C   240C         ADD     A,#0xc
+   \   00006E   12....       LCALL   ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_9:
+   \   000071   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000074   8A82         MOV     DPL,R2
+   \   000076   8B83         MOV     DPH,R3
+   \   000078   A3           INC     DPTR
+   \   000079   A3           INC     DPTR
+   \   00007A   A3           INC     DPTR
+   \   00007B   A3           INC     DPTR
+   \   00007C   A3           INC     DPTR
+   \   00007D   A3           INC     DPTR
+   \   00007E   A3           INC     DPTR
+   \   00007F   A3           INC     DPTR
+   \   000080   A3           INC     DPTR
+   \   000081   A3           INC     DPTR
+   \   000082   12....       LCALL   ??Subroutine7_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_6:
+   \   000085   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000088   8E82         MOV     DPL,R6
+   \   00008A   8F83         MOV     DPH,R7
+   \   00008C   12....       LCALL   ??Subroutine7_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_7:
+   \   00008F   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000092   90....       MOV     DPTR,#GUI_Context + 29
+   \   000095   E0           MOVX    A,@DPTR
+   \   000096   FC           MOV     R4,A
+   \   000097   A3           INC     DPTR
+   \   000098   E0           MOVX    A,@DPTR
+   \   000099   FD           MOV     R5,A
+   \   00009A   12....       LCALL   ?Subroutine4 & 0xFFFF
+   \                     ??CrossCallReturnLabel_13:
+   \   00009D   12....       LCALL   ??LCD_DrawBitmap?relay
+   \   0000A0   7410         MOV     A,#0x10
+   \   0000A2   12....       LCALL   ?DEALLOC_XSTACK8
+     74              /* Fill empty pixel lines */
+     75              if (GUI_Context.pAFont->YDist > GUI_Context.pAFont->YSize) {
+   \   0000A5   90....       MOV     DPTR,#GUI_Context + 21
+   \   0000A8   E0           MOVX    A,@DPTR
+   \   0000A9   F8           MOV     R0,A
+   \   0000AA   A3           INC     DPTR
+   \   0000AB   E0           MOVX    A,@DPTR
+   \   0000AC   F9           MOV     R1,A
+   \   0000AD   E8           MOV     A,R0
+   \   0000AE   240B         ADD     A,#0xb
+   \   0000B0   F582         MOV     DPL,A
+   \   0000B2   E9           MOV     A,R1
+   \   0000B3   3400         ADDC    A,#0x0
+   \   0000B5   F583         MOV     DPH,A
+   \   0000B7   E0           MOVX    A,@DPTR
+   \   0000B8   FA           MOV     R2,A
+   \   0000B9   8882         MOV     DPL,R0
+   \   0000BB   8983         MOV     DPH,R1
+   \   0000BD   A3           INC     DPTR
+   \   0000BE   A3           INC     DPTR
+   \   0000BF   A3           INC     DPTR
+   \   0000C0   A3           INC     DPTR
+   \   0000C1   A3           INC     DPTR
+   \   0000C2   A3           INC     DPTR
+   \   0000C3   A3           INC     DPTR
+   \   0000C4   A3           INC     DPTR
+   \   0000C5   A3           INC     DPTR
+   \   0000C6   A3           INC     DPTR
+   \   0000C7   E0           MOVX    A,@DPTR
+   \   0000C8   C3           CLR     C
+   \   0000C9   9A           SUBB    A,R2
+   \   0000CA   4003         JC      $+5
+   \   0000CC   02....       LJMP    ??GUIPROP_DispChar_1 & 0xFFFF
+     76                int YMag = GUI_Context.pAFont->YMag;
+   \   0000CF   E8           MOV     A,R0
+   \   0000D0   240D         ADD     A,#0xd
+   \   0000D2   F582         MOV     DPL,A
+   \   0000D4   E9           MOV     A,R1
+   \   0000D5   3400         ADDC    A,#0x0
+   \   0000D7   F583         MOV     DPH,A
+   \   0000D9   E0           MOVX    A,@DPTR
+   \   0000DA   F5..         MOV     ?V0 + 2,A
+     77                int YDist = GUI_Context.pAFont->YDist * YMag;
+   \   0000DC   8AF0         MOV     B,R2
+   \   0000DE   A4           MUL     AB
+   \   0000DF   F5..         MOV     ?V0 + 0,A
+   \   0000E1   E5F0         MOV     A,B
+   \   0000E3   F5..         MOV     ?V0 + 1,A
+     78                int YSize = GUI_Context.pAFont->YSize * YMag;
+   \   0000E5   8882         MOV     DPL,R0
+   \   0000E7   8983         MOV     DPH,R1
+   \   0000E9   A3           INC     DPTR
+   \   0000EA   A3           INC     DPTR
+   \   0000EB   A3           INC     DPTR
+   \   0000EC   A3           INC     DPTR
+   \   0000ED   A3           INC     DPTR
+   \   0000EE   A3           INC     DPTR
+   \   0000EF   A3           INC     DPTR
+   \   0000F0   A3           INC     DPTR
+   \   0000F1   A3           INC     DPTR
+   \   0000F2   A3           INC     DPTR
+   \   0000F3   E0           MOVX    A,@DPTR
+   \   0000F4   F5..         MOV     ?V0 + 6,A
+   \   0000F6   E5..         MOV     A,?V0 + 2
+   \   0000F8   85..F0       MOV     B,?V0 + 6
+   \   0000FB   A4           MUL     AB
+   \   0000FC   F5..         MOV     ?V0 + 2,A
+   \   0000FE   E5F0         MOV     A,B
+   \   000100   F5..         MOV     ?V0 + 3,A
+     79                if (DrawMode != LCD_DRAWMODE_TRANS) {
+   \   000102   7402         MOV     A,#0x2
+   \   000104   65..         XRL     A,?V0 + 4
+   \   000106   7002         JNZ     ??GUIPROP_DispChar_2
+   \   000108   E5..         MOV     A,?V0 + 5
+   \                     ??GUIPROP_DispChar_2:
+   \   00010A   6058         JZ      ??GUIPROP_DispChar_1
+     80                  LCD_COLOR OldColor = GUI_GetColor();
+   \   00010C                ; Setup parameters for call to function GUI_GetColor
+   \   00010C   12....       LCALL   ??GUI_GetColor?relay
+   \   00010F   8A..         MOV     ?V0 + 4,R2
+   \   000111   8B..         MOV     ?V0 + 5,R3
+   \   000113   8C..         MOV     ?V0 + 6,R4
+   \   000115   8D..         MOV     ?V0 + 7,R5
+     81                  GUI_SetColor(GUI_GetBkColor());
+   \   000117                ; Setup parameters for call to function GUI_SetColor
+   \   000117                ; Setup parameters for call to function GUI_GetBkColor
+   \   000117   12....       LCALL   ??GUI_GetBkColor?relay
+   \   00011A   12....       LCALL   ??GUI_SetColor?relay
+     82                  LCD_FillRect(GUI_Context.DispPosX, 
+     83                               GUI_Context.DispPosY + YSize, 
+     84                               GUI_Context.DispPosX + pCharInfo->XSize, 
+     85                               GUI_Context.DispPosY + YDist);
+   \   00011D   12....       LCALL   ?Subroutine4 & 0xFFFF
+   \                     ??CrossCallReturnLabel_14:
+   \   000120   A3           INC     DPTR
+   \   000121   E0           MOVX    A,@DPTR
+   \   000122   FC           MOV     R4,A
+   \   000123   A3           INC     DPTR
+   \   000124   E0           MOVX    A,@DPTR
+   \   000125   FD           MOV     R5,A
+   \   000126                ; Setup parameters for call to function LCD_FillRect
+   \   000126   EC           MOV     A,R4
+   \   000127   25..         ADD     A,?V0 + 0
+   \   000129   F5..         MOV     ?V0 + 0,A
+   \   00012B   ED           MOV     A,R5
+   \   00012C   35..         ADDC    A,?V0 + 1
+   \   00012E   F5..         MOV     ?V0 + 1,A
+   \   000130   78..         MOV     R0,#?V0 + 0
+   \   000132   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000135   8E82         MOV     DPL,R6
+   \   000137   8F83         MOV     DPH,R7
+   \   000139   E0           MOVX    A,@DPTR
+   \   00013A   F8           MOV     R0,A
+   \   00013B   EA           MOV     A,R2
+   \   00013C   28           ADD     A,R0
+   \   00013D   F5..         MOV     ?V0 + 0,A
+   \   00013F   EB           MOV     A,R3
+   \   000140   3400         ADDC    A,#0x0
+   \   000142   F5..         MOV     ?V0 + 1,A
+   \   000144   78..         MOV     R0,#?V0 + 0
+   \   000146   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000149   EC           MOV     A,R4
+   \   00014A   25..         ADD     A,?V0 + 2
+   \   00014C   FC           MOV     R4,A
+   \   00014D   ED           MOV     A,R5
+   \   00014E   35..         ADDC    A,?V0 + 3
+   \   000150   FD           MOV     R5,A
+   \   000151   12....       LCALL   ??LCD_FillRect?relay
+   \   000154   7404         MOV     A,#0x4
+   \   000156   12....       LCALL   ?DEALLOC_XSTACK8
+     86                  GUI_SetColor(OldColor);
+   \   000159                ; Setup parameters for call to function GUI_SetColor
+   \   000159   AA..         MOV     R2,?V0 + 4
+   \   00015B   AB..         MOV     R3,?V0 + 5
+   \   00015D   AC..         MOV     R4,?V0 + 6
+   \   00015F   AD..         MOV     R5,?V0 + 7
+   \   000161   12....       LCALL   ??GUI_SetColor?relay
+     87                }
+     88              }
+     89              LCD_SetDrawMode(OldDrawMode); /* Restore draw mode */
+   \                     ??GUIPROP_DispChar_1:
+   \   000164                ; Setup parameters for call to function LCD_SetDrawMode
+   \   000164   AA..         MOV     R2,?V0 + 8
+   \   000166   AB..         MOV     R3,?V0 + 9
+   \   000168   12....       LCALL   ??LCD_SetDrawMode?relay
+     90              GUI_Context.DispPosX += pCharInfo->XDist * GUI_Context.pAFont->XMag;
+   \   00016B   8E82         MOV     DPL,R6
+   \   00016D   8F83         MOV     DPH,R7
+   \   00016F   A3           INC     DPTR
+   \   000170   E0           MOVX    A,@DPTR
+   \   000171   F8           MOV     R0,A
+   \   000172   90....       MOV     DPTR,#GUI_Context + 21
+   \   000175   E0           MOVX    A,@DPTR
+   \   000176   240C         ADD     A,#0xc
+   \   000178   FA           MOV     R2,A
+   \   000179   A3           INC     DPTR
+   \   00017A   E0           MOVX    A,@DPTR
+   \   00017B   3400         ADDC    A,#0x0
+   \   00017D   FB           MOV     R3,A
+   \   00017E   8A82         MOV     DPL,R2
+   \   000180   8B83         MOV     DPH,R3
+   \   000182   E0           MOVX    A,@DPTR
+   \   000183   F5..         MOV     ?V0 + 0,A
+   \   000185   E8           MOV     A,R0
+   \   000186   85..F0       MOV     B,?V0 + 0
+   \   000189   A4           MUL     AB
+   \   00018A   F8           MOV     R0,A
+   \   00018B   A9F0         MOV     R1,B
+   \   00018D   90....       MOV     DPTR,#GUI_Context + 27
+   \   000190   E0           MOVX    A,@DPTR
+   \   000191   28           ADD     A,R0
+   \   000192   F0           MOVX    @DPTR,A
+   \   000193   A3           INC     DPTR
+   \   000194   E0           MOVX    A,@DPTR
+   \   000195   39           ADDC    A,R1
+   \   000196   F0           MOVX    @DPTR,A
+     91            }
+     92          }
+   \                     ??GUIPROP_DispChar_0:
+   \   000197   7F0A         MOV     R7,#0xa
+   \   000199   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine5:
+   \   000000   F582         MOV     DPL,A
+   \   000002   EB           MOV     A,R3
+   \   000003   3400         ADDC    A,#0x0
+   \   000005   F583         MOV     DPH,A
+   \   000007                REQUIRE ??Subroutine7_0
+   \   000007                ; // Fall through to label ??Subroutine7_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine7_0:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F5..         MOV     ?V0 + 0,A
+   \   000003   78..         MOV     R0,#?V0 + 0
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine4:
+   \   000000   90....       MOV     DPTR,#GUI_Context + 27
+   \   000003                REQUIRE ??Subroutine8_0
+   \   000003                ; // Fall through to label ??Subroutine8_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   EE           MOV     A,R6
+   \   000001   FC           MOV     R4,A
+   \   000002   EF           MOV     A,R7
+   \   000003   FD           MOV     R5,A
+   \   000004   90....       MOV     DPTR,#GUI_Context + 21
+   \   000007   E0           MOVX    A,@DPTR
+   \   000008   240E         ADD     A,#0xe
+   \   00000A   12....       LCALL   ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_5:
+   \   00000D   FA           MOV     R2,A
+   \   00000E   A3           INC     DPTR
+   \   00000F   E0           MOVX    A,@DPTR
+   \   000010   FB           MOV     R3,A
+   \   000011   12....       LCALL   ??GUIPROP_FindChar?relay
+   \   000014   EA           MOV     A,R2
+   \   000015   4B           ORL     A,R3
+   \   000016   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine6:
+   \   000000   F8           MOV     R0,A
+   \   000001   A3           INC     DPTR
+   \   000002   E0           MOVX    A,@DPTR
+   \   000003   3400         ADDC    A,#0x0
+   \   000005   F9           MOV     R1,A
+   \   000006   8882         MOV     DPL,R0
+   \   000008   8983         MOV     DPH,R1
+   \   00000A   E0           MOVX    A,@DPTR
+   \   00000B   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   8A82         MOV     DPL,R2
+   \   000002   8B83         MOV     DPH,R3
+   \   000004   E0           MOVX    A,@DPTR
+   \   000005   F8           MOV     R0,A
+   \   000006   A3           INC     DPTR
+   \   000007   E0           MOVX    A,@DPTR
+   \   000008   F9           MOV     R1,A
+   \   000009   EE           MOV     A,R6
+   \   00000A   C3           CLR     C
+   \   00000B   98           SUBB    A,R0
+   \   00000C   F8           MOV     R0,A
+   \   00000D   EF           MOV     A,R7
+   \   00000E   99           SUBB    A,R1
+   \   00000F   F9           MOV     R1,A
+   \   000010   E8           MOV     A,R0
+   \   000011   75F005       MOV     B,#0x5
+   \   000014   A4           MUL     AB
+   \   000015   F8           MOV     R0,A
+   \   000016   ACF0         MOV     R4,B
+   \   000018   75F005       MOV     B,#0x5
+   \   00001B   E9           MOV     A,R1
+   \   00001C   A4           MUL     AB
+   \   00001D   2C           ADD     A,R4
+   \   00001E   F9           MOV     R1,A
+   \   00001F   8A82         MOV     DPL,R2
+   \   000021   8B83         MOV     DPH,R3
+   \   000023   A3           INC     DPTR
+   \   000024   A3           INC     DPTR
+   \   000025   A3           INC     DPTR
+   \   000026   A3           INC     DPTR
+   \   000027   E0           MOVX    A,@DPTR
+   \   000028   28           ADD     A,R0
+   \   000029   22           RET
+     93          
+     94          /*********************************************************************
+     95          *
+     96          *       GUIPROP_GetCharDistX
+     97          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     98          int GUIPROP_GetCharDistX(U16P c) {
+   \                     GUIPROP_GetCharDistX:
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+     99            const GUI_FONT_PROP GUI_UNI_PTR * pProp = GUIPROP_FindChar(GUI_Context.pAFont->p.pProp, c);
+   \   000009                ; Setup parameters for call to function GUIPROP_FindChar
+   \   000009   12....       LCALL   ?Subroutine3 & 0xFFFF
+    100            return (pProp) ? (pProp->paCharInfo+(c-pProp->First))->XSize * GUI_Context.pAFont->XMag : 0;
+   \                     ??CrossCallReturnLabel_3:
+   \   00000C   6022         JZ      ??GUIPROP_GetCharDistX_0
+   \   00000E   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_1:
+   \   000011   FA           MOV     R2,A
+   \   000012   A3           INC     DPTR
+   \   000013   E0           MOVX    A,@DPTR
+   \   000014   39           ADDC    A,R1
+   \   000015   8A82         MOV     DPL,R2
+   \   000017   F583         MOV     DPH,A
+   \   000019   E0           MOVX    A,@DPTR
+   \   00001A   FA           MOV     R2,A
+   \   00001B   90....       MOV     DPTR,#GUI_Context + 21
+   \   00001E   E0           MOVX    A,@DPTR
+   \   00001F   240C         ADD     A,#0xc
+   \   000021   12....       LCALL   ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_4:
+   \   000024   F5..         MOV     ?V0 + 0,A
+   \   000026   EA           MOV     A,R2
+   \   000027   85..F0       MOV     B,?V0 + 0
+   \   00002A   A4           MUL     AB
+   \   00002B   FA           MOV     R2,A
+   \   00002C   ABF0         MOV     R3,B
+   \   00002E   8004         SJMP    ??GUIPROP_GetCharDistX_1
+   \                     ??GUIPROP_GetCharDistX_0:
+   \   000030   7A00         MOV     R2,#0x0
+   \   000032   7B00         MOV     R3,#0x0
+   \                     ??GUIPROP_GetCharDistX_1:
+   \   000034                REQUIRE ?Subroutine1
+   \   000034                ; // Fall through to label ?Subroutine1
+    101          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   7F02         MOV     R7,#0x2
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+    102          
+    103          /*********************************************************************
+    104          *
+    105          *       GUIPROP_GetFontInfo
+    106          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    107          void GUIPROP_GetFontInfo(const GUI_FONT GUI_UNI_PTR * pFont, GUI_FONTINFO* pfi) {
+   \                     GUIPROP_GetFontInfo:
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    108            GUI_USE_PARA(pFont);
+    109            pfi->Flags = GUI_FONTINFO_FLAG_PROP;
+   \   000004   8C82         MOV     DPL,R4
+   \   000006   8D83         MOV     DPH,R5
+   \   000008   7401         MOV     A,#0x1
+   \   00000A   F0           MOVX    @DPTR,A
+   \   00000B   A3           INC     DPTR
+   \   00000C   E4           CLR     A
+   \   00000D   F0           MOVX    @DPTR,A
+    110          }
+   \   00000E   02....       LJMP    ?Subroutine0 & 0xFFFF
+    111          
+    112          /*********************************************************************
+    113          *
+    114          *       GUIPROP_IsInFont
+    115          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    116          char GUIPROP_IsInFont(const GUI_FONT GUI_UNI_PTR * pFont, U16 c) {
+   \                     GUIPROP_IsInFont:
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+    117            const GUI_FONT_PROP GUI_UNI_PTR * pProp = GUIPROP_FindChar(pFont->p.pProp, c);
+    118            return (pProp==NULL) ? 0 : 1;
+   \   000005                ; Setup parameters for call to function GUIPROP_FindChar
+   \   000005   EA           MOV     A,R2
+   \   000006   240E         ADD     A,#0xe
+   \   000008   F582         MOV     DPL,A
+   \   00000A   EB           MOV     A,R3
+   \   00000B   3400         ADDC    A,#0x0
+   \   00000D   F583         MOV     DPH,A
+   \   00000F   12....       LCALL   ??Subroutine8_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_12:
+   \   000012   12....       LCALL   ??GUIPROP_FindChar?relay
+   \   000015   8B..         MOV     ?V0 + 1,R3
+   \   000017   EA           MOV     A,R2
+   \   000018   45..         ORL     A,?V0 + 1
+   \   00001A   7004         JNZ     ??GUIPROP_IsInFont_0
+   \   00001C   7900         MOV     R1,#0x0
+   \   00001E   8002         SJMP    ??GUIPROP_IsInFont_1
+   \                     ??GUIPROP_IsInFont_0:
+   \   000020   7901         MOV     R1,#0x1
+   \                     ??GUIPROP_IsInFont_1:
+   \   000022   02....       LJMP    ?Subroutine1 & 0xFFFF
+    119          }
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUIPROP_FindChar?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUIPROP_FindChar
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUIPROP_DispChar?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUIPROP_DispChar
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUIPROP_GetCharDistX?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUIPROP_GetCharDistX
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUIPROP_GetFontInfo?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUIPROP_GetFontInfo
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUIPROP_IsInFont?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUIPROP_IsInFont
+    120          
+    121          /*************************** End of file ****************************/
+
+   Maximum stack usage in bytes:
+
+     Function              ISTACK PSTACK XSTACK
+     --------              ------ ------ ------
+     GUIPROP_DispChar          0      0     34
+       -> GUIPROP_FindChar     0      0     36
+       -> LCD_SetDrawMode      0      0     36
+       -> LCD_DrawBitmap       0      0     68
+       -> GUI_GetColor         0      0     36
+       -> GUI_GetBkColor       0      0     36
+       -> GUI_SetColor         0      0     36
+       -> LCD_FillRect         0      0     44
+       -> GUI_SetColor         0      0     36
+       -> LCD_SetDrawMode      0      0     36
+     GUIPROP_FindChar          2      0     18
+     GUIPROP_GetCharDistX      0      0     10
+       -> GUIPROP_FindChar     0      0     20
+     GUIPROP_GetFontInfo       2      0      0
+     GUIPROP_IsInFont          0      0     10
+       -> GUIPROP_FindChar     0      0     20
+
+
+   Segment part sizes:
+
+     Function/Label               Bytes
+     --------------               -----
+     GUIPROP_FindChar               53
+     ?Subroutine0                    7
+     ??Subroutine8_0                 6
+     GUIPROP_DispChar              412
+     ?Subroutine5                    7
+     ??Subroutine7_0                 6
+     ?Subroutine4                    3
+     ?Subroutine3                   23
+     ?Subroutine6                   12
+     ?Subroutine2                   42
+     GUIPROP_GetCharDistX           52
+     ?Subroutine1                    5
+     GUIPROP_GetFontInfo            17
+     GUIPROP_IsInFont               37
+     ??GUIPROP_FindChar?relay        6
+     ??GUIPROP_DispChar?relay        6
+     ??GUIPROP_GetCharDistX?relay    6
+     ??GUIPROP_GetFontInfo?relay     6
+     ??GUIPROP_IsInFont?relay        6
+
+ 
+ 682 bytes in segment BANKED_CODE
+  30 bytes in segment BANK_RELAYS
+ 
+ 712 bytes of CODE memory
+
+Errors: none
+Warnings: none

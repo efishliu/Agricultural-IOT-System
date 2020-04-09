@@ -1,0 +1,544 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.1.10194/W32 for 8051         05/Aug/2016  15:46:47 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\osal\comm #
+#                          on\OSAL_PwrMgr.c                                   #
+#    Command line       =  -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\..\..\..\Tools\CC2530D #
+#                          B\f8wEndev.cfg (-DCPU32MHZ -DROOT=__near_func      #
+#                          -DMAC_CFG_TX_DATA_MAX=3 -DMAC_CFG_TX_MAX=6         #
+#                          -DMAC_CFG_RX_MAX=3) -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹â #
+#                          ÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5. #
+#                          1a\Projects\zstack\Utilities\SerialApp\CC2530DB\.. #
+#                          \..\..\Tools\CC2530DB\f8wConfig.cfg (-DZIGBEEPRO   #
+#                          -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR       #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0x1001                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹â #
+#                          ÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5. #
+#                          1a\Components\osal\common\OSAL_PwrMgr.c -D         #
+#                          NWK_AUTO_POLL -D HAL_UART=TRUE -D                  #
+#                          SERIAL_APP_PORT=0 -D POWER_SAVING -D NV_INIT -D    #
+#                          ACCELE -lC F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Zi #
+#                          gBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\ #
+#                          zstack\Utilities\SerialApp\CC2530DB\Accele\List\   #
+#                          -lA F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂ #
+#                          ç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\ #
+#                          Utilities\SerialApp\CC2530DB\Accele\List\          #
+#                          --diag_suppress Pe001,Pa010 -o                     #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\Accele\Obj\ -e            #
+#                          --no_code_motion --debug --core=plain --dptr=16,1  #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\ -I                    #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\Accele\ -I             #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\Public\ -I             #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\ZMain\TI2530DB\  #
+#                          -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\hal\include\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ× #
+#                          ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\ #
+#                          Projects\zstack\Utilities\SerialApp\CC2530DB\..\.. #
+#                          \..\..\..\Components\hal\target\CC2530EB\ -I       #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\include\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ #
+#                          210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Pro #
+#                          jects\zstack\Utilities\SerialApp\CC2530DB\..\..\.. #
+#                          \..\..\Components\mac\high_level\ -I               #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\low_level\srf04\ -I                           #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\low_level\srf04\single_chip\ -I               #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mt\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBe #
+#                          eÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zst #
+#                          ack\Utilities\SerialApp\CC2530DB\..\..\..\..\..\Co #
+#                          mponents\osal\include\ -I                          #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \services\saddr\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ× #
+#                          ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\ #
+#                          Projects\zstack\Utilities\SerialApp\CC2530DB\..\.. #
+#                          \..\..\..\Components\services\sdata\ -I            #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\af\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210 #
+#                          \ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projec #
+#                          ts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\.. #
+#                          \..\Components\stack\nwk\ -I                       #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\sapi\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ2 #
+#                          10\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ #
+#                          ..\..\Components\stack\sec\ -I                     #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\sys\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ21 #
+#                          0\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proje #
+#                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\. #
+#                          .\..\Components\stack\zdo\ -I                      #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \zmac\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Zig #
+#                          BeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\z #
+#                          stack\Utilities\SerialApp\CC2530DB\..\..\..\..\..\ #
+#                          Components\zmac\f8w\ -Ohz --require_prototypes     #
+#    List file          =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\Accele\List\OSAL_PwrMgr.l #
+#                          st                                                 #
+#    Object file        =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\Accele\Obj\OSAL_PwrMgr.r5 #
+#                          1                                                  #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\osal\common\OSAL_PwrMgr.c
+      1          /**************************************************************************************************
+      2            Filename:       OSAL_pwrmgr.c
+      3            Revised:        $Date: 2008-10-07 14:47:15 -0700 (Tue, 07 Oct 2008) $
+      4            Revision:       $Revision: 18212 $
+      5          
+      6            Description:    This file contains the OSAL Power Management API.
+      7          
+      8          
+      9            Copyright 2004-2007 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, 
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE, 
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com. 
+     38          **************************************************************************************************/
+     39          
+     40          /*********************************************************************
+     41           * INCLUDES
+     42           */
+     43          
+     44          #include "comdef.h"
+     45          #include "OnBoard.h"
+
+   \                                 In  segment SFR_AN, at 0xa8
+   \   union <unnamed> volatile __sfr _A_IEN0
+   \                     _A_IEN0:
+   \   000000                DS 1
+     46          #include "OSAL.h"
+     47          #include "OSAL_Tasks.h"
+     48          #include "OSAL_Timers.h"
+     49          #include "OSAL_PwrMgr.h"
+     50          
+     51          /*********************************************************************
+     52           * MACROS
+     53           */
+     54          
+     55          /*********************************************************************
+     56           * CONSTANTS
+     57           */
+     58          
+     59          /*********************************************************************
+     60           * TYPEDEFS
+     61           */
+     62          
+     63          /*********************************************************************
+     64           * GLOBAL VARIABLES
+     65           */
+     66          
+     67          /* This global variable stores the power management attributes.
+     68           */
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     69          pwrmgr_attribute_t pwrmgr_attribute;
+   \                     pwrmgr_attribute:
+   \   000000                DS 7
+   \   000007                REQUIRE __INIT_XDATA_Z
+     70          
+     71          /*********************************************************************
+     72           * EXTERNAL VARIABLES
+     73           */
+     74          
+     75          /*********************************************************************
+     76           * EXTERNAL FUNCTIONS
+     77           */
+     78          
+     79          /*********************************************************************
+     80           * LOCAL VARIABLES
+     81           */
+     82          
+     83          /*********************************************************************
+     84           * LOCAL FUNCTION PROTOTYPES
+     85           */
+     86          
+     87          /*********************************************************************
+     88           * FUNCTIONS
+     89           *********************************************************************/
+     90          
+     91          /*********************************************************************
+     92           * @fn      osal_pwrmgr_init
+     93           *
+     94           * @brief   Initialize the power management system.
+     95           *
+     96           * @param   none.
+     97           *
+     98           * @return  none.
+     99           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    100          void osal_pwrmgr_init( void )
+   \                     osal_pwrmgr_init:
+    101          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    102            pwrmgr_attribute.pwrmgr_device = PWRMGR_ALWAYS_ON; // Default to no power conservation.
+   \   000004   90....       MOV     DPTR,#pwrmgr_attribute + 6
+   \   000007   E4           CLR     A
+   \   000008   F0           MOVX    @DPTR,A
+    103            pwrmgr_attribute.pwrmgr_task_state = 0;            // Cleared.  All set to conserve
+   \   000009   90....       MOV     DPTR,#pwrmgr_attribute
+   \   00000C   F0           MOVX    @DPTR,A
+   \   00000D   A3           INC     DPTR
+   \   00000E                REQUIRE ?Subroutine0
+   \   00000E                ; // Fall through to label ?Subroutine0
+    104          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   F0           MOVX    @DPTR,A
+   \   000001   D083         POP     DPH
+   \   000003   D082         POP     DPL
+   \   000005   02....       LJMP    ?BRET
+    105          
+    106          /*********************************************************************
+    107           * @fn      osal_pwrmgr_device
+    108           *
+    109           * @brief   Sets the device power characteristic.
+    110           *
+    111           * @param   pwrmgr_device - type of power devices. With PWRMGR_ALWAYS_ON
+    112           *          selection, there is no power savings and the device is most
+    113           *          likely on mains power. The PWRMGR_BATTERY selection allows the
+    114           *          HAL sleep manager to enter sleep.
+    115           *
+    116           * @return  none
+    117           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    118          void osal_pwrmgr_device( uint8 pwrmgr_device )
+   \                     osal_pwrmgr_device:
+    119          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    120            pwrmgr_attribute.pwrmgr_device = pwrmgr_device;
+   \   000004   E9           MOV     A,R1
+   \   000005   90....       MOV     DPTR,#pwrmgr_attribute + 6
+   \   000008   80..         SJMP    ?Subroutine0
+    121          }
+    122          
+    123          /*********************************************************************
+    124           * @fn      osal_pwrmgr_task_state
+    125           *
+    126           * @brief   This function is called by each task to state whether or
+    127           *          not this task wants to conserve power.
+    128           *
+    129           * @param   task_id - calling task ID.
+    130           *          state - whether the calling task wants to
+    131           *          conserve power or not.
+    132           *
+    133           * @return  SUCCESS if task complete
+    134           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    135          uint8 osal_pwrmgr_task_state( uint8 task_id, uint8 state )
+   \                     osal_pwrmgr_task_state:
+    136          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+   \   000006   FB           MOV     R3,A
+    137            if ( task_id >= tasksCnt )
+   \   000007   90....       MOV     DPTR,#tasksCnt
+   \   00000A   E0           MOVX    A,@DPTR
+   \   00000B   F8           MOV     R0,A
+   \   00000C   EB           MOV     A,R3
+   \   00000D   C3           CLR     C
+   \   00000E   98           SUBB    A,R0
+   \   00000F   4004         JC      ??osal_pwrmgr_task_state_0
+    138              return ( INVALID_TASK );
+   \   000011   7903         MOV     R1,#0x3
+   \   000013   8036         SJMP    ??osal_pwrmgr_task_state_1
+    139          
+    140            if ( state == PWRMGR_CONSERVE )
+   \                     ??osal_pwrmgr_task_state_0:
+   \   000015   EA           MOV     A,R2
+   \   000016   75..01       MOV     ?V0 + 0,#0x1
+   \   000019   75..00       MOV     ?V0 + 1,#0x0
+   \   00001C   7019         JNZ     ??osal_pwrmgr_task_state_2
+    141            {
+    142              // Clear the task state flag
+    143              pwrmgr_attribute.pwrmgr_task_state &= ~(1 << task_id );
+   \   00001E   EB           MOV     A,R3
+   \   00001F   78..         MOV     R0,#?V0 + 0
+   \   000021   12....       LCALL   ?S_SHL
+   \   000024   E5..         MOV     A,?V0 + 0
+   \   000026   F4           CPL     A
+   \   000027   F8           MOV     R0,A
+   \   000028   E5..         MOV     A,?V0 + 1
+   \   00002A   F4           CPL     A
+   \   00002B   F9           MOV     R1,A
+   \   00002C   90....       MOV     DPTR,#pwrmgr_attribute
+   \   00002F   E0           MOVX    A,@DPTR
+   \   000030   58           ANL     A,R0
+   \   000031   F0           MOVX    @DPTR,A
+   \   000032   A3           INC     DPTR
+   \   000033   E0           MOVX    A,@DPTR
+   \   000034   59           ANL     A,R1
+   \   000035   8011         SJMP    ??osal_pwrmgr_task_state_3
+    144            }
+    145            else
+    146            {
+    147              // Set the task state flag
+    148              pwrmgr_attribute.pwrmgr_task_state |= (1 << task_id);
+   \                     ??osal_pwrmgr_task_state_2:
+   \   000037   EB           MOV     A,R3
+   \   000038   78..         MOV     R0,#?V0 + 0
+   \   00003A   12....       LCALL   ?S_SHL
+   \   00003D   90....       MOV     DPTR,#pwrmgr_attribute
+   \   000040   E0           MOVX    A,@DPTR
+   \   000041   45..         ORL     A,?V0 + 0
+   \   000043   F0           MOVX    @DPTR,A
+   \   000044   A3           INC     DPTR
+   \   000045   E0           MOVX    A,@DPTR
+   \   000046   45..         ORL     A,?V0 + 1
+   \                     ??osal_pwrmgr_task_state_3:
+   \   000048   F0           MOVX    @DPTR,A
+    149            }
+    150          
+    151            return ( SUCCESS );
+   \   000049   7900         MOV     R1,#0x0
+   \                     ??osal_pwrmgr_task_state_1:
+   \   00004B                REQUIRE ?Subroutine1
+   \   00004B                ; // Fall through to label ?Subroutine1
+    152          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   7F02         MOV     R7,#0x2
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+    153          
+    154          #if defined( POWER_SAVING )
+    155          /*********************************************************************
+    156           * @fn      osal_pwrmgr_powerconserve
+    157           *
+    158           * @brief   This function is called from the main OSAL loop when there are
+    159           *          no events scheduled and shouldn't be called from anywhere else.
+    160           *
+    161           * @param   none.
+    162           *
+    163           * @return  none.
+    164           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    165          void osal_pwrmgr_powerconserve( void )
+   \                     osal_pwrmgr_powerconserve:
+    166          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+    167            uint16        next;
+    168            halIntState_t intState;
+    169          
+    170            // Should we even look into power conservation
+    171            if ( pwrmgr_attribute.pwrmgr_device != PWRMGR_ALWAYS_ON )
+   \   000005   90....       MOV     DPTR,#pwrmgr_attribute + 6
+   \   000008   E0           MOVX    A,@DPTR
+   \   000009   601C         JZ      ??osal_pwrmgr_powerconserve_0
+    172            {
+    173              // Are all tasks in agreement to conserve
+    174              if ( pwrmgr_attribute.pwrmgr_task_state == 0 )
+   \   00000B   90....       MOV     DPTR,#pwrmgr_attribute
+   \   00000E   E0           MOVX    A,@DPTR
+   \   00000F   F8           MOV     R0,A
+   \   000010   A3           INC     DPTR
+   \   000011   E0           MOVX    A,@DPTR
+   \   000012   F9           MOV     R1,A
+   \   000013   E8           MOV     A,R0
+   \   000014   49           ORL     A,R1
+   \   000015   7010         JNZ     ??osal_pwrmgr_powerconserve_0
+    175              {
+    176                // Hold off interrupts.
+    177                HAL_ENTER_CRITICAL_SECTION( intState );
+   \   000017   E5A8         MOV     A,0xa8
+   \   000019   FE           MOV     R6,A
+   \   00001A   C2AF         CLR     0xa8.7
+    178          
+    179                // Get next time-out
+    180                next = osal_next_timeout();
+   \   00001C                ; Setup parameters for call to function osal_next_timeout
+   \   00001C   12....       LCALL   ??osal_next_timeout?relay
+    181          
+    182                // Re-enable interrupts.
+    183                HAL_EXIT_CRITICAL_SECTION( intState );
+   \   00001F   EE           MOV     A,R6
+   \   000020   A2E7         MOV     C,0xE0 /* A   */.7
+   \   000022   92AF         MOV     0xa8.7,C
+    184          
+    185                // Put the processor into sleep mode
+    186                OSAL_SET_CPU_INTO_SLEEP( next );
+   \   000024                ; Setup parameters for call to function halSleep
+   \   000024   12....       LCALL   ??halSleep?relay
+    187              }
+    188            }
+    189          }
+   \                     ??osal_pwrmgr_powerconserve_0:
+   \   000027   80..         SJMP    ?Subroutine1
+   \   000029                REQUIRE _A_IEN0
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??osal_pwrmgr_init?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    osal_pwrmgr_init
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??osal_pwrmgr_device?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    osal_pwrmgr_device
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??osal_pwrmgr_task_state?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    osal_pwrmgr_task_state
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??osal_pwrmgr_powerconserve?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    osal_pwrmgr_powerconserve
+    190          #endif /* POWER_SAVING */
+    191          
+    192          /*********************************************************************
+    193          *********************************************************************/
+
+   Maximum stack usage in bytes:
+
+     Function                  ISTACK PSTACK XSTACK
+     --------                  ------ ------ ------
+     osal_pwrmgr_device            2      0      0
+     osal_pwrmgr_init              2      0      0
+     osal_pwrmgr_powerconserve     0      0     10
+       -> osal_next_timeout        0      0     20
+       -> halSleep                 0      0     20
+     osal_pwrmgr_task_state        0      0     10
+
+
+   Segment part sizes:
+
+     Function/Label                    Bytes
+     --------------                    -----
+     _A_IEN0                              1
+     pwrmgr_attribute                     7
+     osal_pwrmgr_init                    14
+     ?Subroutine0                         8
+     osal_pwrmgr_device                  10
+     osal_pwrmgr_task_state              75
+     ?Subroutine1                         5
+     osal_pwrmgr_powerconserve           41
+     ??osal_pwrmgr_init?relay             6
+     ??osal_pwrmgr_device?relay           6
+     ??osal_pwrmgr_task_state?relay       6
+     ??osal_pwrmgr_powerconserve?relay    6
+
+ 
+ 153 bytes in segment BANKED_CODE
+  24 bytes in segment BANK_RELAYS
+   1 byte  in segment SFR_AN
+   7 bytes in segment XDATA_Z
+ 
+ 177 bytes of CODE  memory
+   0 bytes of DATA  memory (+ 1 byte shared)
+   7 bytes of XDATA memory
+
+Errors: none
+Warnings: none

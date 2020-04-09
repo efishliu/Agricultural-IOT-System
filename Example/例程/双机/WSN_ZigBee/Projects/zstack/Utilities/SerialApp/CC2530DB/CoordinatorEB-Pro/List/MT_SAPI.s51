@@ -1,0 +1,790 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V8.10.3.10338/W32 for 8051        07/Jun/2017  10:59:06 /
+// Copyright 2004-2011 IAR Systems AB.                                        /
+//                                                                            /
+//    Core               =  plain                                             /
+//    Code model         =  banked                                            /
+//    Data model         =  large                                             /
+//    Calling convention =  xdata reentrant                                   /
+//    Constant location  =  data_rom                                          /
+//    Dptr setup         =  1,16                                              /
+//    Source file        =  F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ              /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Components\mt\MT_SAPI.c       /
+//    Command line       =  -f "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ          /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\..\..\..\Tools\CC2530DB\f8wCoord. /
+//                          cfg" (-DCPU32MHZ -DROOT=__near_func               /
+//                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                  /
+//                          -DZDO_COORDINATOR -DRTR_NWK -DBLINK_LEDS) -f      /
+//                          "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ             /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig /
+//                          .cfg" (-DSECURE=0 -DZG_SECURE_DYNAMIC=0           /
+//                          -DREFLECTOR -DDEFAULT_CHANLIST=0x00000800         /
+//                          -DZDAPP_CONFIG_PAN_ID=0xFFF1                      /
+//                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
+//                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
+//                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
+//                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_P /
+//                          OLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7           /
+//                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3   /
+//                          -DNWK_MAX_DATA_RETRIES=2                          /
+//                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9        /
+//                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40          /
+//                          -DNWK_MAX_BINDING_ENTRIES=4                       /
+//                          -DMAX_BINDING_CLUSTER_IDS=4                       /
+//                          "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07, 0x09,     /
+//                          0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08,   /
+//                          0x0A, 0x0C, 0x0D}" -DMAC_MAX_FRAME_SIZE=116       /
+//                          "-DCONST=const __code" -DGENERIC=__generic        /
+//                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
+//                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
+//                          -DREJOIN_POLL_RATE=440 "F:\zigbee\zigbee\ZIGBEE_E /
+//                          B2530\µÚ6ÕÂ Êµ¼ùÏîÄ¿\WSN_ZigBee\Components\mt\MT_ /
+//                          SAPI.c" -D ZIGBEEPRO -D HAL_UART=TRUE -D          /
+//                          SERIAL_APP_PORT=0 -D LCD_SUPPORTED -D NV_RESTORE  /
+//                          -lC "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ         /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\CoordinatorEB-Pro\List\" -lA      /
+//                          "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ             /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\CoordinatorEB-Pro\List\"          /
+//                          --diag_suppress Pe001,Pa010 -o                    /
+//                          "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ             /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\CoordinatorEB-Pro\Obj\" -e        /
+//                          --debug --core=plain --dptr=16,1                  /
+//                          --data_model=large --code_model=banked            /
+//                          --calling_convention=xdata_reentrant              /
+//                          --place_constants=data_rom --nr_virtual_regs 8    /
+//                          -I "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ          /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\" -I "F:\zigbee\zigbee\ZIGBEE_EB2 /
+//                          530\µÚ6ÕÂ Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Uti /
+//                          lities\SerialApp\CC2530DB\..\SOURCE\" -I          /
+//                          "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ             /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\..\..\..\ZMAIN\TI2530DB\" -I      /
+//                          "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ             /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\..\..\..\..\..\COMPONENTS\MT\"    /
+//                          -I "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ          /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\..\..\..\..\..\COMPONENTS\HAL\INC /
+//                          LUDE\" -I "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ   /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\..\..\..\..\..\COMPONENTS\HAL\TAR /
+//                          GET\CC2530EB\" -I "F:\zigbee\zigbee\ZIGBEE_EB2530 /
+//                          \µÚ6ÕÂ Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilit /
+//                          ies\SerialApp\CC2530DB\..\..\..\..\..\COMPONENTS\ /
+//                          OSAL\MCU\CCSOC\" -I "F:\zigbee\zigbee\ZIGBEE_EB25 /
+//                          30\µÚ6ÕÂ Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Util /
+//                          ities\SerialApp\CC2530DB\..\..\..\..\..\COMPONENT /
+//                          S\OSAL\INCLUDE\" -I "F:\zigbee\zigbee\ZIGBEE_EB25 /
+//                          30\µÚ6ÕÂ Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Util /
+//                          ities\SerialApp\CC2530DB\..\..\..\..\..\COMPONENT /
+//                          S\STACK\AF\" -I "F:\zigbee\zigbee\ZIGBEE_EB2530\µ /
+//                          Ú6ÕÂ Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilitie /
+//                          s\SerialApp\CC2530DB\..\..\..\..\..\COMPONENTS\ST /
+//                          ACK\NWK\" -I "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6Õ /
+//                          Â Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\S /
+//                          erialApp\CC2530DB\..\..\..\..\..\COMPONENTS\STACK /
+//                          \SEC\" -I "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ   /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\S /
+//                          API\" -I "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ    /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\S /
+//                          YS\" -I "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ     /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\Z /
+//                          DO\" -I "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ     /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\..\..\..\..\..\COMPONENTS\ZMAC\F8 /
+//                          W\" -I "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ      /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\..\..\..\..\..\COMPONENTS\ZMAC\"  /
+//                          -I "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ          /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\..\..\..\..\..\COMPONENTS\SERVICE /
+//                          S\SADDR\" -I "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6Õ /
+//                          Â Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\S /
+//                          erialApp\CC2530DB\..\..\..\..\..\COMPONENTS\SERVI /
+//                          CES\SDATA\" -I "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ /
+//                          6ÕÂ Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities /
+//                          \SerialApp\CC2530DB\..\..\..\..\..\COMPONENTS\MAC /
+//                          \INCLUDE\" -I "F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6 /
+//                          ÕÂ Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\ /
+//                          SerialApp\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\ /
+//                          HIGH_LEVEL\" -I "F:\zigbee\zigbee\ZIGBEE_EB2530\µ /
+//                          Ú6ÕÂ Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilitie /
+//                          s\SerialApp\CC2530DB\..\..\..\..\..\COMPONENTS\MA /
+//                          C\LOW_LEVEL\srf04\" -I "F:\zigbee\zigbee\ZIGBEE_E /
+//                          B2530\µÚ6ÕÂ Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\U /
+//                          tilities\SerialApp\CC2530DB\..\..\..\..\..\COMPON /
+//                          ENTS\MAC\LOW_LEVEL\srf04\SINGLE_CHIP\" -Ohz       /
+//                          --require_prototypes                              /
+//    List file          =  F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ              /
+//                          Êµ¼ùÏîÄ¿\WSN_ZigBee\Projects\zstack\Utilities\Ser /
+//                          ialApp\CC2530DB\CoordinatorEB-Pro\List\MT_SAPI.s5 /
+//                          1                                                 /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME MT_SAPI
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+
+        END
+// F:\zigbee\zigbee\ZIGBEE_EB2530\µÚ6ÕÂ Êµ¼ùÏîÄ¿\WSN_ZigBee\Components\mt\MT_SAPI.c
+//    1 /**************************************************************************************************
+//    2   Filename:       MT_SAPI.c
+//    3   Revised:        $Date: 2008-03-04 17:33:23 -0800 (Tue, 04 Mar 2008) $
+//    4   Revision:       $Revision: 16539 $
+//    5 
+//    6 
+//    7   Description:    MonitorTest functions for the Simple API.
+//    8 
+//    9 
+//   10   Copyright 2007 Texas Instruments Incorporated. All rights reserved.
+//   11 
+//   12   IMPORTANT: Your use of this Software is limited to those specific rights
+//   13   granted under the terms of a software license agreement between the user
+//   14   who downloaded the software, his/her employer (which must be your employer)
+//   15   and Texas Instruments Incorporated (the "License").  You may not use this
+//   16   Software unless you agree to abide by the terms of the License. The License
+//   17   limits your use, and you acknowledge, that the Software may not be modified,
+//   18   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   19   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   20   frequency transceiver, which is integrated into your product.  Other than for
+//   21   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   22   works of, modify, distribute, perform, display or sell this Software and/or
+//   23   its documentation for any purpose.
+//   24 
+//   25   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   26   PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   27   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//   28   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   29   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   30   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   31   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   32   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   33   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   34   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   35   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   36 
+//   37   Should you have any questions regarding your right to use this Software,
+//   38   contact Texas Instruments Incorporated at www.TI.com.
+//   39 
+//   40 **************************************************************************************************/
+//   41 
+//   42 /***************************************************************************************************
+//   43  * INCLUDES
+//   44  ***************************************************************************************************/
+//   45 #include "ZComDef.h"
+//   46 #include "OSAL.h"
+//   47 #include "OSAL_Nv.h"
+//   48 #include "OnBoard.h"
+//   49 #include "MT.h"
+//   50 #include "MT_SAPI.h"
+//   51 #include "MT_UART.h"
+//   52 
+//   53 /***************************************************************************************************
+//   54  * GLOBAL VARIABLES
+//   55  ***************************************************************************************************/
+//   56 
+//   57 #if defined ( MT_SAPI_CB_FUNC )
+//   58 uint16 _sapiCallbackSub;
+//   59 #endif
+//   60 
+//   61 
+//   62 /***************************************************************************************************
+//   63  * LOCAL FUNCTIONS
+//   64  ***************************************************************************************************/
+//   65 void MT_SapiSystemReset(uint8 *pBuf);
+//   66 void MT_SapiStart(uint8* pBuf);
+//   67 void MT_SapiBindDevice(uint8 *pBuf);
+//   68 void MT_SapiAllowBind(uint8 *pBuf);
+//   69 void MT_SapiSendData(uint8 *pBuf);
+//   70 void MT_SapiReadCfg(uint8 *pBuf);
+//   71 void MT_SapiWriteCfg(uint8 *pBuf);
+//   72 void MT_SapiGetDevInfo(uint8 *pBuf);
+//   73 void MT_SapiFindDev(uint8 *pBuf);
+//   74 void MT_SapiPermitJoin(uint8 *pBuf);
+//   75 void MT_SapiAppRegister(uint8 *pBuf);
+//   76 
+//   77 #if defined ( MT_SAPI_FUNC )
+//   78 /***************************************************************************************************
+//   79  * @fn      MT_sapiCommandProcessing
+//   80  *
+//   81  * @brief
+//   82  *
+//   83  *   Process all the SAPI commands that are issued by test tool
+//   84  *
+//   85  * @param   pBuf - pointer to received buffer
+//   86  *
+//   87  * @return  none
+//   88  ***************************************************************************************************/
+//   89 uint8 MT_SapiCommandProcessing(uint8 *pBuf)
+//   90 {
+//   91   uint8 status = MT_RPC_SUCCESS;
+//   92 
+//   93   switch (pBuf[MT_RPC_POS_CMD1])
+//   94   {
+//   95     case MT_SAPI_START_REQ:
+//   96       MT_SapiStart(pBuf);
+//   97       break;
+//   98 
+//   99     case MT_SAPI_BIND_DEVICE_REQ:
+//  100       MT_SapiBindDevice(pBuf);
+//  101       break;
+//  102 
+//  103     case MT_SAPI_ALLOW_BIND_REQ:
+//  104       MT_SapiAllowBind(pBuf);
+//  105       break;
+//  106 
+//  107     case MT_SAPI_SEND_DATA_REQ:
+//  108       MT_SapiSendData(pBuf);
+//  109       break;
+//  110 
+//  111     case MT_SAPI_READ_CFG_REQ:
+//  112       MT_SapiReadCfg(pBuf);
+//  113       break;
+//  114 
+//  115     case MT_SAPI_WRITE_CFG_REQ:
+//  116       MT_SapiWriteCfg(pBuf);
+//  117       break;
+//  118 
+//  119     case MT_SAPI_GET_DEV_INFO_REQ:
+//  120       MT_SapiGetDevInfo(pBuf);
+//  121       break;
+//  122 
+//  123     case MT_SAPI_FIND_DEV_REQ:
+//  124       MT_SapiFindDev(pBuf);
+//  125       break;
+//  126 
+//  127     case MT_SAPI_PMT_JOIN_REQ:
+//  128       MT_SapiPermitJoin(pBuf);
+//  129       break;
+//  130 
+//  131     case MT_SAPI_SYS_RESET:
+//  132       MT_SapiSystemReset(pBuf);
+//  133       break;
+//  134 
+//  135     case MT_SAPI_APP_REGISTER_REQ:
+//  136       MT_SapiAppRegister(pBuf);
+//  137       break;
+//  138 
+//  139     default:
+//  140       status = MT_RPC_ERR_COMMAND_ID;
+//  141       break;
+//  142   }
+//  143 
+//  144   return status;
+//  145 }
+//  146 
+//  147 /***************************************************************************************************
+//  148  * @fn          MT_SapiSystemReset
+//  149  *
+//  150  * @brief       Process SAPI System Reset
+//  151  *
+//  152  * @param       pBuf - pointer to received buffer
+//  153  *
+//  154  * @return      none
+//  155  ***************************************************************************************************/
+//  156 void MT_SapiSystemReset(uint8 *pBuf)
+//  157 {
+//  158   zb_SystemReset();
+//  159 }
+//  160 
+//  161 /***************************************************************************************************
+//  162  * @fn          MT_SapiStart
+//  163  *
+//  164  * @brief       Process SAPI Start
+//  165  *
+//  166  * @param
+//  167  *
+//  168  * @return      none
+//  169  ***************************************************************************************************/
+//  170 void MT_SapiStart(uint8 *pBuf)
+//  171 {
+//  172   zb_StartRequest();
+//  173 
+//  174   /* Build and send back the response */
+//  175   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SAPI), MT_SAPI_START_REQ, 0, NULL);
+//  176 }
+//  177 /***************************************************************************************************
+//  178  * @fn          MT_SapiAppRegister
+//  179  *
+//  180  * @brief       Process SAPI App Register
+//  181  *
+//  182  * @param
+//  183  *
+//  184  * @return      none
+//  185  ***************************************************************************************************/
+//  186 void MT_SapiAppRegister(uint8 *pBuf)
+//  187 {
+//  188   uint8 ret = ZApsIllegalRequest;
+//  189 
+//  190   /* check if sapi is alredy registered with an endpoint */
+//  191   if ( (sapi_epDesc.endPoint == 0) && (*pBuf != 0) )
+//  192   {
+//  193     ret = MT_BuildEndpointDesc( pBuf+MT_RPC_FRAME_HDR_SZ, &sapi_epDesc );
+//  194     if ( ret == ZSuccess )
+//  195     {
+//  196       ret = afRegister( &sapi_epDesc );
+//  197       // Turn off match descriptor response by default
+//  198       afSetMatch(sapi_epDesc.simpleDesc->EndPoint, FALSE);
+//  199     }
+//  200 
+//  201     if ( ret != ZSuccess )
+//  202     {
+//  203       sapi_epDesc.endPoint = 0;
+//  204     }
+//  205   }
+//  206 
+//  207   /* Build and send back the response */
+//  208   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SAPI),
+//  209                                                         MT_SAPI_APP_REGISTER_REQ, 1, &ret);
+//  210 }
+//  211 /***************************************************************************************************
+//  212  * @fn          MT_SapiBindDevice
+//  213  *
+//  214  * @brief       Process SAPI Bind Device Command
+//  215  *
+//  216  * @param       pBuf - pointer to received buffer
+//  217  *
+//  218  * @return      none
+//  219  ***************************************************************************************************/
+//  220 void MT_SapiBindDevice(uint8 *pBuf)
+//  221 {
+//  222   uint8 i, cmdId;
+//  223 
+//  224   /* parse header */
+//  225   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  226   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  227 
+//  228   for ( i = 0; i < Z_EXTADDR_LEN ; i++ )
+//  229   {
+//  230     if ( pBuf[3+i] != 0x00 )
+//  231     {
+//  232       /* Not a null destination address */
+//  233       break;
+//  234     }
+//  235   }
+//  236 
+//  237   if ( i == Z_EXTADDR_LEN )
+//  238   {
+//  239     zb_BindDevice(pBuf[0], BUILD_UINT16(pBuf[1], pBuf[2]), (uint8 *)NULL);
+//  240   }
+//  241   else
+//  242   {
+//  243     zb_BindDevice(pBuf[0], BUILD_UINT16(pBuf[1], pBuf[2]), &pBuf[3]);
+//  244   }
+//  245 
+//  246   /* Build and send back the response */
+//  247   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SAPI), cmdId, 0, NULL);
+//  248 }
+//  249 
+//  250 /***************************************************************************************************
+//  251  * @fn          MT_SapiAllowBind
+//  252  *
+//  253  * @brief       Process SAPI Allow Bind
+//  254  *
+//  255  * @param
+//  256  *
+//  257  * @return      none
+//  258  ***************************************************************************************************/
+//  259 void MT_SapiAllowBind(uint8 *pBuf)
+//  260 {
+//  261   uint8 cmdId;
+//  262 
+//  263   /* parse header */
+//  264   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  265   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  266 
+//  267   zb_AllowBind(pBuf[0]);
+//  268 
+//  269   /* Build and send back the response */
+//  270   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SAPI), cmdId, 0, NULL);
+//  271 }
+//  272 
+//  273 /***************************************************************************************************
+//  274  * @fn          MT_SapiSendData
+//  275  *
+//  276  * @brief       Process SAPI Send Data Command
+//  277  *
+//  278  * @param       pBuf - pointer to received buffer
+//  279  *
+//  280  * @return      none
+//  281  ***************************************************************************************************/
+//  282 void MT_SapiSendData(uint8 *pBuf)
+//  283 {
+//  284   uint8 cmdId;
+//  285   uint16 destination, command;
+//  286   uint8 len, handle, txOption, radius;
+//  287 
+//  288   /* parse header */
+//  289   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  290   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  291 
+//  292   /* Destination */
+//  293   destination = BUILD_UINT16(pBuf[0], pBuf[1]);
+//  294   /* Command */
+//  295   command = BUILD_UINT16(pBuf[2], pBuf[3]);
+//  296   /* Handle */
+//  297   handle = pBuf[4];
+//  298   /* txOption */
+//  299   txOption = pBuf[5];
+//  300   /* Radius */
+//  301   radius = pBuf[6];
+//  302   /* Length */
+//  303   len = pBuf[7];
+//  304 
+//  305   zb_SendDataRequest(destination, command, len, &pBuf[8], handle, txOption, radius);
+//  306 
+//  307   /* Build and send back the response */
+//  308   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SAPI), cmdId, 0, NULL);
+//  309 
+//  310 }
+//  311 
+//  312 /***************************************************************************************************
+//  313  * @fn          MT_SapiReadCfg
+//  314  *
+//  315  * @brief       Process SAPI Read Config Commands
+//  316  *
+//  317  * @param       pBuf - pointer to received buffer
+//  318  *
+//  319  * @return      none
+//  320  ***************************************************************************************************/
+//  321 void MT_SapiReadCfg(uint8 *pBuf)
+//  322 {
+//  323   uint8 i, retStatus, cmdId;
+//  324   uint8 *pRetBuf;
+//  325 
+//  326   /* parse header */
+//  327   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  328   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  329 
+//  330   i = (uint8)osal_nv_item_len(pBuf[0]);
+//  331 
+//  332   pRetBuf = osal_mem_alloc(i+3);
+//  333 
+//  334   if (pBuf)
+//  335   {
+//  336     /* Config ID */
+//  337     pRetBuf[1] = pBuf[0];
+//  338 
+//  339     /* Len */
+//  340     pRetBuf[2] = i;
+//  341 
+//  342     if (i && ((i != ZCD_NV_NIB) && (i != ZCD_NV_DEVICE_LIST) &&
+//  343         (i != ZCD_NV_ADDRMGR) && (i != ZCD_NV_NWKKEY)))
+//  344     {
+//  345       if ((zb_ReadConfiguration(pBuf[0], i, pRetBuf+3)) == ZSUCCESS)
+//  346         retStatus = ZSuccess;
+//  347       else
+//  348         retStatus = ZFailure;
+//  349     }
+//  350     else
+//  351     {
+//  352       retStatus = ZInvalidParameter;
+//  353     }
+//  354 
+//  355     /* status */
+//  356     pRetBuf[0] = retStatus;
+//  357 
+//  358     /* Build and send back the response */
+//  359     MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SAPI), cmdId, i+3, pRetBuf );
+//  360 
+//  361     osal_mem_free(pRetBuf);
+//  362   }
+//  363 
+//  364 }
+//  365 
+//  366 /***************************************************************************************************
+//  367  * @fn          MT_SpiWriteCfg
+//  368  *
+//  369  * @brief       Process Write Configuration Command
+//  370  *
+//  371  * @param       pBuf - pointer to received buffer
+//  372  *
+//  373  * @return      none
+//  374  ***************************************************************************************************/
+//  375 void MT_SapiWriteCfg(uint8 *pBuf)
+//  376 {
+//  377   uint8 retValue, cmdId;
+//  378 
+//  379   /* parse header */
+//  380   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  381   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  382 
+//  383   if ((pBuf[0] != ZCD_NV_NIB) && (pBuf[0] != ZCD_NV_DEVICE_LIST) &&
+//  384       (pBuf[0] != ZCD_NV_ADDRMGR) && (pBuf[0] != ZCD_NV_NWKKEY))
+//  385   {
+//  386     if ((zb_WriteConfiguration(pBuf[0], pBuf[1], &pBuf[2])) == ZSUCCESS)
+//  387       retValue = ZSuccess;
+//  388     else
+//  389       retValue = ZFailure;
+//  390   }
+//  391   else
+//  392   {
+//  393     retValue = ZInvalidParameter;
+//  394   }
+//  395 
+//  396   /* Build and send back the response */
+//  397   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SAPI), cmdId, 1, &retValue );
+//  398 }
+//  399 
+//  400 /***************************************************************************************************
+//  401  * @fn          MT_SapiGetDevInfo
+//  402  *
+//  403  * @brief       Process Get Device Info command
+//  404  *
+//  405  * @param       pBuf - pointer to received buffer
+//  406  *
+//  407  * @return      none
+//  408  ***************************************************************************************************/
+//  409 void MT_SapiGetDevInfo(uint8 *pBuf)
+//  410 {
+//  411   uint8 *pRetBuf;
+//  412   uint8 cmdId;
+//  413 
+//  414   /* parse header */
+//  415   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  416   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  417 
+//  418   pRetBuf = osal_mem_alloc(Z_EXTADDR_LEN+1);
+//  419   if (pRetBuf)
+//  420   {
+//  421     zb_GetDeviceInfo(pBuf[0], pRetBuf+1);
+//  422     pRetBuf[0] = pBuf[0];
+//  423 
+//  424     /* Build and send back the response */
+//  425     MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SAPI), cmdId, Z_EXTADDR_LEN+1, pRetBuf );
+//  426 
+//  427     osal_mem_free(pRetBuf);
+//  428   }
+//  429 }
+//  430 
+//  431 /***************************************************************************************************
+//  432  * @fn          MT_SapiFindDev
+//  433  *
+//  434  * @brief       Process Find Device Command
+//  435  *
+//  436  * @param       pBuf - pointer to received buffer
+//  437  *
+//  438  * @return      none
+//  439  ***************************************************************************************************/
+//  440 void MT_SapiFindDev(uint8 *pBuf)
+//  441 {
+//  442   uint8 cmdId;
+//  443 
+//  444   /* parse header */
+//  445   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  446   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  447 
+//  448   /* Currently only supports IEEE search */
+//  449   zb_FindDeviceRequest(ZB_IEEE_SEARCH, pBuf);
+//  450 
+//  451   /* Build and send back the response */
+//  452   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SAPI), cmdId, 0, NULL );
+//  453 }
+//  454 
+//  455 /***************************************************************************************************
+//  456  * @fn          MT_SapiPermitJoin
+//  457  *
+//  458  * @brief       Process Permit Join Command
+//  459  *
+//  460  * @param       pBuf - pointer to received buffer
+//  461  *
+//  462  * @return      none
+//  463  ***************************************************************************************************/
+//  464 void MT_SapiPermitJoin(uint8 *pBuf)
+//  465 {
+//  466   uint8 retValue, cmdId;
+//  467 
+//  468   /* parse header */
+//  469   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  470  pBuf += MT_RPC_FRAME_HDR_SZ;
+//  471 
+//  472   retValue = (zb_PermitJoiningRequest(BUILD_UINT16(pBuf[0], pBuf[1]), pBuf[2]));
+//  473 
+//  474   /* Build and send back the response */
+//  475   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SAPI), cmdId, 1, &retValue );
+//  476 
+//  477 }
+//  478 #endif  /* MT_SAPI_FUNC */
+//  479 
+//  480 #if defined ( MT_SAPI_CB_FUNC )
+//  481 
+//  482 /***************************************************************************************************
+//  483  * @fn          zb_MTCallbackStartConfirm
+//  484  *
+//  485  * @brief       Process the callback subscription for zb_StartConfirm
+//  486  *
+//  487  * @param       Status - status
+//  488  *
+//  489  * @return      none
+//  490  ***************************************************************************************************/
+//  491 void zb_MTCallbackStartConfirm( uint8 status )
+//  492 {
+//  493   /* Build and send back the response */
+//  494   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_SAPI), MT_SAPI_START_CNF, 1, &status);
+//  495 }
+//  496 
+//  497 /***************************************************************************************************
+//  498  * @fn          zb_MTCallbackSendDataConfirm
+//  499  *
+//  500  * @brief       Process the callback subscription for zb_SendDataConfirm
+//  501  *
+//  502  * @param
+//  503  *
+//  504  * @return      none
+//  505  ***************************************************************************************************/
+//  506 void zb_MTCallbackSendDataConfirm(uint8 handle, uint8 status)
+//  507 {
+//  508   uint8 retArray[2];
+//  509 
+//  510   retArray[0] = handle;
+//  511   retArray[1] = status;
+//  512 
+//  513   /* Build and send back the response */
+//  514   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_SAPI), MT_SAPI_SEND_DATA_CNF, 2, retArray);
+//  515 
+//  516 }
+//  517 
+//  518 /***************************************************************************************************
+//  519  * @fn          zb_MTCallbackBindConfirm
+//  520  *
+//  521  * @brief       Process the callback subscription for zb_BindConfirm
+//  522  *
+//  523  * @param
+//  524  *
+//  525  * @return      none
+//  526  ***************************************************************************************************/
+//  527 void zb_MTCallbackBindConfirm( uint16 commandId, uint8 status )
+//  528 {
+//  529   uint8 retArray[3];
+//  530 
+//  531   retArray[0] = LO_UINT16(commandId);
+//  532   retArray[1] = HI_UINT16(commandId);
+//  533   retArray[2] = status;
+//  534 
+//  535   /* Build and send back the response */
+//  536   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_SAPI), MT_SAPI_BIND_CNF, 3, retArray);
+//  537 
+//  538 }
+//  539 /***************************************************************************************************
+//  540  * @fn          zb_MTCallbackAllowBindConfirm
+//  541  *
+//  542  * @brief       Indicates when another device attempted to bind to this device
+//  543  *
+//  544  * @param
+//  545  *
+//  546  * @return      none
+//  547  ***************************************************************************************************/
+//  548 void zb_MTCallbackAllowBindConfirm( uint16 source )
+//  549 {
+//  550   uint8 retArray[2];
+//  551 
+//  552   retArray[0] = LO_UINT16(source);
+//  553   retArray[1] = HI_UINT16(source);
+//  554 
+//  555   /* Build and send back the response */
+//  556   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_SAPI), MT_SAPI_ALLOW_BIND_CNF, 3, retArray);
+//  557 
+//  558 }
+//  559 /***************************************************************************************************
+//  560  * @fn          zb_MTCallbackFindDeviceConfirm
+//  561  *
+//  562  * @brief       Process the callback subscription for zb_FindDeviceConfirm
+//  563  *
+//  564  * @param
+//  565  *
+//  566  * @return      none
+//  567  ***************************************************************************************************/
+//  568 void zb_MTCallbackFindDeviceConfirm( uint8 searchType, uint8 *searchKey, uint8 *result )
+//  569 {
+//  570   uint8 retArray[SPI_CB_SAPI_FIND_DEV_CNF_LEN];
+//  571   uint16 addr = *((uint16*)searchKey);
+//  572 
+//  573   // Currently only supports IEEE Addr Search
+//  574   retArray[0] = ZB_IEEE_SEARCH;
+//  575   retArray[1] = LO_UINT16(addr);
+//  576   retArray[2] = HI_UINT16(addr);
+//  577   osal_memcpy(&retArray[3], result, Z_EXTADDR_LEN);
+//  578 
+//  579   /* Build and send back the response */
+//  580   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_SAPI), MT_SAPI_FIND_DEV_CNF, 11, retArray);
+//  581 
+//  582 }
+//  583 
+//  584 /***************************************************************************************************
+//  585  * @fn          zb_MTCallbackReceiveDataIndication
+//  586  *
+//  587  * @brief       Process the callback subscription for zb_ReceiveDataIndication
+//  588  *
+//  589  * @param
+//  590  *
+//  591  * @return      none
+//  592  ***************************************************************************************************/
+//  593 void zb_MTCallbackReceiveDataIndication( uint16 source, uint16 command, uint16 len, uint8 *pData  )
+//  594 {
+//  595   uint8 *memPtr;
+//  596   int8 i;
+//  597   uint8 msgLen = 6 + len;
+//  598 
+//  599   memPtr = osal_mem_alloc(msgLen);
+//  600 
+//  601   if (memPtr)
+//  602   {
+//  603     memPtr[0] = LO_UINT16(source);
+//  604     memPtr[1] = HI_UINT16(source);
+//  605     memPtr[2] = LO_UINT16(command);
+//  606     memPtr[3] = HI_UINT16(command);
+//  607     memPtr[4] = LO_UINT16(len);
+//  608     memPtr[5] = HI_UINT16(len);
+//  609 
+//  610     for (i=0; i<len; i++)
+//  611     {
+//  612       memPtr[6+i] = pData[i];
+//  613     }
+//  614 
+//  615     /* Build and send back the response */
+//  616     MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_SAPI), MT_SAPI_RCV_DATA_IND, msgLen, memPtr);
+//  617 
+//  618     osal_mem_free( memPtr );
+//  619   }
+//  620 }
+//  621 
+//  622 #endif  /* MT_SAPI_CB_FUNC */
+//  623 
+//  624 
+//  625 
+//  626 /***************************************************************************************************
+//  627  ***************************************************************************************************/
+// 
+// 
+// 0 bytes of memory
+//
+//Errors: none
+//Warnings: none

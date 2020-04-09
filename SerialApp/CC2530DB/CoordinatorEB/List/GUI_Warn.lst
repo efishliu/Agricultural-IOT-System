@@ -1,0 +1,879 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.1.10194/W32 for 8051         14/Jun/2016  16:18:07 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\Cor #
+#                          e\GUI_Warn.c                                       #
+#    Command line       =  -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\..\..\..\Tools\CC2530D #
+#                          B\f8wCoord.cfg (-DCPU32MHZ -DROOT=__near_func      #
+#                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                   #
+#                          -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8         #
+#                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)    #
+#                          -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\..\..\..\Tools\CC2530D #
+#                          B\f8wConfig.cfg (-DZIGBEEPRO -DSECURE=0            #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0x1001                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹â #
+#                          ÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5. #
+#                          1a\Components\uCGUI\Core\GUI_Warn.c -D             #
+#                          HAL_UART=TRUE -D SERIAL_APP_PORT=0 -D COOR -D      #
+#                          LCD_SUPPORTED -D NV_INIT -lC                       #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\List\ -lA   #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\List\       #
+#                          --diag_suppress Pe001,Pa010 -o                     #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\Obj\ -e     #
+#                          --no_code_motion --debug --core=plain --dptr=16,1  #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\ -I                    #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\Public\ -I             #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \uCGUI\Core\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ2 #
+#                          10\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ #
+#                          ..\..\Components\uCGUI\MultiLayer\ -I              #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \uCGUI\Config\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁ #
+#                          Ï210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Pr #
+#                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\Coor #
+#                          dinator\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Z #
+#                          igBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects #
+#                          \zstack\Utilities\SerialApp\CC2530DB\..\..\..\ZMai #
+#                          n\TI2530DB\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ21 #
+#                          0\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proje #
+#                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\. #
+#                          .\..\Components\hal\include\ -I                    #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \hal\target\CC2530EB\ -I                           #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\include\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ #
+#                          210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Pro #
+#                          jects\zstack\Utilities\SerialApp\CC2530DB\..\..\.. #
+#                          \..\..\Components\mac\high_level\ -I               #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\low_level\srf04\ -I                           #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\low_level\srf04\single_chip\ -I               #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mt\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBe #
+#                          eÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zst #
+#                          ack\Utilities\SerialApp\CC2530DB\..\..\..\..\..\Co #
+#                          mponents\osal\include\ -I                          #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \services\saddr\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ× #
+#                          ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\ #
+#                          Projects\zstack\Utilities\SerialApp\CC2530DB\..\.. #
+#                          \..\..\..\Components\services\sdata\ -I            #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\af\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210 #
+#                          \ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projec #
+#                          ts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\.. #
+#                          \..\Components\stack\nwk\ -I                       #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\sapi\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ2 #
+#                          10\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ #
+#                          ..\..\Components\stack\sec\ -I                     #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\sys\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ21 #
+#                          0\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proje #
+#                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\. #
+#                          .\..\Components\stack\zdo\ -I                      #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \zmac\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Zig #
+#                          BeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\z #
+#                          stack\Utilities\SerialApp\CC2530DB\..\..\..\..\..\ #
+#                          Components\zmac\f8w\ -Ohz --require_prototypes     #
+#    List file          =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\List\GUI_Wa #
+#                          rn.lst                                             #
+#    Object file        =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\Obj\GUI_War #
+#                          n.r51                                              #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\Core\GUI_Warn.c
+      1          /*
+      2          *********************************************************************************************************
+      3          *                                                uC/GUI
+      4          *                        Universal graphic software for embedded applications
+      5          *
+      6          *                       (c) Copyright 2002, Micrium Inc., Weston, FL
+      7          *                       (c) Copyright 2002, SEGGER Microcontroller Systeme GmbH
+      8          *
+      9          *              µC/GUI is protected by international copyright laws. Knowledge of the
+     10          *              source code may not be used to write a similar product. This file may
+     11          *              only be used in accordance with a license and should not be redistributed
+     12          *              in any way. We appreciate your understanding and fairness.
+     13          *
+     14          ----------------------------------------------------------------------
+     15          File        : GUI_Warn.C
+     16          Purpose     : Logging (used only at higher debug levels)
+     17          ---------------------------END-OF-HEADER------------------------------
+     18          */
+     19          
+     20          #include <stdio.h>
+     21          #include <string.h>
+     22          #include "GUI_Protected.h"
+     23          #include "GUI_X.h"
+     24          
+     25          /*********************************************************************
+     26          *
+     27          *       Defines
+     28          *
+     29          **********************************************************************
+     30          */
+     31          
+     32          #define MAXLEN 50
+     33          
+     34          /*********************************************************************
+     35          *
+     36          *       Static code
+     37          *
+     38          **********************************************************************
+     39          */
+     40          /*********************************************************************
+     41          *
+     42          *       _CopyString
+     43          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     44          static void _CopyString(char*d, const char*s, int MaxLen) {
+   \                     _CopyString:
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   7409         MOV     A,#0x9
+   \   000007   12....       LCALL   ?XSTACK_DISP0_8
+   \   00000A   E0           MOVX    A,@DPTR
+   \   00000B   F8           MOV     R0,A
+   \   00000C   A3           INC     DPTR
+   \   00000D   E0           MOVX    A,@DPTR
+   \   00000E   801E         SJMP    ??_CopyString_0
+     45            while ((MaxLen > 0) && *s) {
+     46              *d++ = *s++;
+   \                     ??_CopyString_1:
+   \   000010   8A82         MOV     DPL,R2
+   \   000012   8B83         MOV     DPH,R3
+   \   000014   F0           MOVX    @DPTR,A
+   \   000015   8C82         MOV     DPL,R4
+   \   000017   8D83         MOV     DPH,R5
+   \   000019   A3           INC     DPTR
+   \   00001A   AC82         MOV     R4,DPL
+   \   00001C   AD83         MOV     R5,DPH
+   \   00001E   8A82         MOV     DPL,R2
+   \   000020   8B83         MOV     DPH,R3
+   \   000022   A3           INC     DPTR
+   \   000023   AA82         MOV     R2,DPL
+   \   000025   AB83         MOV     R3,DPH
+     47              MaxLen--;
+   \   000027   E8           MOV     A,R0
+   \   000028   24FF         ADD     A,#-0x1
+   \   00002A   18           DEC     R0
+   \   00002B   E9           MOV     A,R1
+   \   00002C   34FF         ADDC    A,#-0x1
+   \                     ??_CopyString_0:
+   \   00002E   F9           MOV     R1,A
+     48            }
+   \   00002F   C3           CLR     C
+   \   000030   E8           MOV     A,R0
+   \   000031   9401         SUBB    A,#0x1
+   \   000033   E9           MOV     A,R1
+   \   000034   9400         SUBB    A,#0x0
+   \   000036   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   000038   65D0         XRL     A,PSW
+   \   00003A   33           RLC     A
+   \   00003B   4007         JC      ??_CopyString_2
+   \   00003D   8C82         MOV     DPL,R4
+   \   00003F   8D83         MOV     DPH,R5
+   \   000041   E0           MOVX    A,@DPTR
+   \   000042   70CC         JNZ     ??_CopyString_1
+     49            *d = 0;
+   \                     ??_CopyString_2:
+   \   000044   8A82         MOV     DPL,R2
+   \   000046   8B83         MOV     DPH,R3
+   \   000048   E4           CLR     A
+   \   000049   F0           MOVX    @DPTR,A
+     50          }
+   \   00004A   7F01         MOV     R7,#0x1
+   \   00004C   02....       LJMP    ?BANKED_LEAVE_XDATA
+     51          
+     52          /*********************************************************************
+     53          *
+     54          *       Public code
+     55          *
+     56          *  Note: These routines are needed only in higher debug levels.
+     57          *
+     58          **********************************************************************
+     59          */
+     60          /*********************************************************************
+     61          *
+     62          *       GUI_Warn
+     63          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     64          void GUI_Warn(const char *s) {
+   \                     GUI_Warn:
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     65            GUI_X_Warn(s);
+   \   000004                ; Setup parameters for call to function GUI_X_Warn
+   \   000004   12....       LCALL   ??GUI_X_Warn?relay
+     66          }
+   \   000007   D083         POP     DPH
+   \   000009   D082         POP     DPL
+   \   00000B   02....       LJMP    ?BRET
+     67          
+     68          /*********************************************************************
+     69          *
+     70          *       GUI_Warn1
+     71          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     72          void GUI_Warn1(const char *s, int p0) {
+   \                     GUI_Warn1:
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 62
+   \   000005   74C2         MOV     A,#-0x3e
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   EC           MOV     A,R4
+   \   00000B   FE           MOV     R6,A
+   \   00000C   ED           MOV     A,R5
+   \   00000D   FF           MOV     R7,A
+     73            char ac[MAXLEN + 10];
+     74            char* sOut = ac;
+   \   00000E   7402         MOV     A,#0x2
+   \   000010   12....       LCALL   ?XSTACK_DISP0_8
+   \   000013   A882         MOV     R0,DPL
+   \   000015   A983         MOV     R1,DPH
+   \   000017   85..82       MOV     DPL,?XSP + 0
+   \   00001A   85..83       MOV     DPH,?XSP + 1
+   \   00001D   E8           MOV     A,R0
+   \   00001E   F0           MOVX    @DPTR,A
+   \   00001F   A3           INC     DPTR
+   \   000020   E9           MOV     A,R1
+   \   000021   F0           MOVX    @DPTR,A
+     75            _CopyString(ac, s, MAXLEN);
+   \   000022                ; Setup parameters for call to function _CopyString
+   \   000022   75..32       MOV     ?V0 + 0,#0x32
+   \   000025   75..00       MOV     ?V0 + 1,#0x0
+   \   000028   78..         MOV     R0,#?V0 + 0
+   \   00002A   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00002D   EA           MOV     A,R2
+   \   00002E   FC           MOV     R4,A
+   \   00002F   EB           MOV     A,R3
+   \   000030   FD           MOV     R5,A
+   \   000031   7404         MOV     A,#0x4
+   \   000033   12....       LCALL   ?XSTACK_DISP0_8
+   \   000036   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_8:
+   \   000039   12....       LCALL   ?DEALLOC_XSTACK8
+     76            sOut += strlen(sOut);
+   \   00003C                ; Setup parameters for call to function strlen
+   \   00003C   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_4:
+   \   00003F   8A..         MOV     ?V0 + 0,R2
+   \   000041   8B..         MOV     ?V0 + 1,R3
+   \   000043   A8..         MOV     R0,?V0 + 0
+   \   000045   A9..         MOV     R1,?V0 + 1
+   \   000047   12....       LCALL   ?Subroutine0 & 0xFFFF
+     77            GUI__AddSpaceHex(p0, 8, &sOut);
+   \                     ??CrossCallReturnLabel_0:
+   \   00004A   8582..       MOV     ?V0 + 0,DPL
+   \   00004D   8583..       MOV     ?V0 + 1,DPH
+   \   000050   78..         MOV     R0,#?V0 + 0
+   \   000052   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000055   12....       LCALL   ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_12:
+   \   000058   12....       LCALL   ?DEALLOC_XSTACK8
+     78            GUI_Warn(ac);
+   \   00005B                ; Setup parameters for call to function GUI_X_Warn
+   \   00005B   7402         MOV     A,#0x2
+   \   00005D   12....       LCALL   ?XSTACK_DISP0_8
+   \   000060   AA82         MOV     R2,DPL
+   \   000062   AB83         MOV     R3,DPH
+   \   000064   12....       LCALL   ??GUI_X_Warn?relay
+     79          }
+   \   000067   743E         MOV     A,#0x3e
+   \   000069   12....       LCALL   ?DEALLOC_XSTACK8
+   \   00006C   7F02         MOV     R7,#0x2
+   \   00006E   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   AA82         MOV     R2,DPL
+   \   000002   AB83         MOV     R3,DPH
+   \   000004   12....       LCALL   ??_CopyString?relay
+   \   000007   7402         MOV     A,#0x2
+   \   000009   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   85..82       MOV     DPL,?XSP + 0
+   \   000003   85..83       MOV     DPH,?XSP + 1
+   \   000006   E0           MOVX    A,@DPTR
+   \   000007   FA           MOV     R2,A
+   \   000008   A3           INC     DPTR
+   \   000009   E0           MOVX    A,@DPTR
+   \   00000A   FB           MOV     R3,A
+   \   00000B   12....       LCALL   ??strlen?relay
+   \   00000E   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   85..82       MOV     DPL,?XSP + 0
+   \   000003   85..83       MOV     DPH,?XSP + 1
+   \   000006   E0           MOVX    A,@DPTR
+   \   000007   28           ADD     A,R0
+   \   000008   F8           MOV     R0,A
+   \   000009   A3           INC     DPTR
+   \   00000A   E0           MOVX    A,@DPTR
+   \   00000B   39           ADDC    A,R1
+   \   00000C   F9           MOV     R1,A
+   \   00000D   85..82       MOV     DPL,?XSP + 0
+   \   000010   85..83       MOV     DPH,?XSP + 1
+   \   000013   E8           MOV     A,R0
+   \   000014   F0           MOVX    @DPTR,A
+   \   000015   A3           INC     DPTR
+   \   000016   E9           MOV     A,R1
+   \   000017   F0           MOVX    @DPTR,A
+   \   000018                ; Setup parameters for call to function GUI__AddSpaceHex
+   \   000018                ; Setup parameters for call to function GUI__AddSpaceHex
+   \   000018                ; Setup parameters for call to function GUI__AddSpaceHex
+   \   000018                ; Setup parameters for call to function GUI__AddSpaceHex
+   \   000018   85..82       MOV     DPL,?XSP + 0
+   \   00001B   85..83       MOV     DPH,?XSP + 1
+   \   00001E   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   7908         MOV     R1,#0x8
+   \   000002   EE           MOV     A,R6
+   \   000003   FA           MOV     R2,A
+   \   000004   EF           MOV     A,R7
+   \   000005                REQUIRE ??Subroutine4_0
+   \   000005                ; // Fall through to label ??Subroutine4_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine4_0:
+   \   000000   FB           MOV     R3,A
+   \   000001   33           RLC     A
+   \   000002   95E0         SUBB    A,0xE0 /* A   */
+   \   000004   FC           MOV     R4,A
+   \   000005   FD           MOV     R5,A
+   \   000006   12....       LCALL   ??GUI__AddSpaceHex?relay
+   \   000009   7402         MOV     A,#0x2
+   \   00000B   22           RET
+     80          
+     81          /*********************************************************************
+     82          *
+     83          *       GUI_Warn2
+     84          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     85          void GUI_Warn2(const char *s, int p0, int p1) {
+   \                     GUI_Warn2:
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 72
+   \   000005   74B8         MOV     A,#-0x48
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   8C..         MOV     ?V0 + 0,R4
+   \   00000C   8D..         MOV     ?V0 + 1,R5
+   \   00000E   7454         MOV     A,#0x54
+   \   000010   12....       LCALL   ?XSTACK_DISP0_8
+   \   000013   E0           MOVX    A,@DPTR
+   \   000014   FE           MOV     R6,A
+   \   000015   A3           INC     DPTR
+   \   000016   E0           MOVX    A,@DPTR
+   \   000017   FF           MOV     R7,A
+     86            char ac[MAXLEN + 20];
+     87            char* sOut = ac;
+   \   000018   7402         MOV     A,#0x2
+   \   00001A   12....       LCALL   ?XSTACK_DISP0_8
+   \   00001D   A882         MOV     R0,DPL
+   \   00001F   A983         MOV     R1,DPH
+   \   000021   85..82       MOV     DPL,?XSP + 0
+   \   000024   85..83       MOV     DPH,?XSP + 1
+   \   000027   E8           MOV     A,R0
+   \   000028   F0           MOVX    @DPTR,A
+   \   000029   A3           INC     DPTR
+   \   00002A   E9           MOV     A,R1
+   \   00002B   F0           MOVX    @DPTR,A
+     88            _CopyString(ac, s, MAXLEN);
+   \   00002C                ; Setup parameters for call to function _CopyString
+   \   00002C   75..32       MOV     ?V0 + 2,#0x32
+   \   00002F   75..00       MOV     ?V0 + 3,#0x0
+   \   000032   78..         MOV     R0,#?V0 + 2
+   \   000034   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000037   EA           MOV     A,R2
+   \   000038   FC           MOV     R4,A
+   \   000039   EB           MOV     A,R3
+   \   00003A   FD           MOV     R5,A
+   \   00003B   7404         MOV     A,#0x4
+   \   00003D   12....       LCALL   ?XSTACK_DISP0_8
+   \   000040   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_9:
+   \   000043   12....       LCALL   ?DEALLOC_XSTACK8
+     89            sOut += strlen(sOut);
+   \   000046                ; Setup parameters for call to function strlen
+   \   000046   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_5:
+   \   000049   8A..         MOV     ?V0 + 2,R2
+   \   00004B   8B..         MOV     ?V0 + 3,R3
+   \   00004D   A8..         MOV     R0,?V0 + 2
+   \   00004F   A9..         MOV     R1,?V0 + 3
+   \   000051   12....       LCALL   ?Subroutine0 & 0xFFFF
+     90            GUI__AddSpaceHex(p0, 8, &sOut);
+   \                     ??CrossCallReturnLabel_1:
+   \   000054   8582..       MOV     ?V0 + 2,DPL
+   \   000057   8583..       MOV     ?V0 + 3,DPH
+   \   00005A   78..         MOV     R0,#?V0 + 2
+   \   00005C   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00005F   7908         MOV     R1,#0x8
+   \   000061   AA..         MOV     R2,?V0 + 0
+   \   000063   E5..         MOV     A,?V0 + 1
+   \   000065   12....       LCALL   ??Subroutine4_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_16:
+   \   000068   12....       LCALL   ?DEALLOC_XSTACK8
+     91            GUI__AddSpaceHex(p1, 8, &sOut);
+   \   00006B                ; Setup parameters for call to function GUI__AddSpaceHex
+   \   00006B   85..82       MOV     DPL,?XSP + 0
+   \   00006E   85..83       MOV     DPH,?XSP + 1
+   \   000071   8582..       MOV     ?V0 + 0,DPL
+   \   000074   8583..       MOV     ?V0 + 1,DPH
+   \   000077   78..         MOV     R0,#?V0 + 0
+   \   000079   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00007C   12....       LCALL   ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_13:
+   \   00007F   12....       LCALL   ?DEALLOC_XSTACK8
+     92            GUI_Warn(ac);
+   \   000082                ; Setup parameters for call to function GUI_X_Warn
+   \   000082   7402         MOV     A,#0x2
+   \   000084   12....       LCALL   ?XSTACK_DISP0_8
+   \   000087   AA82         MOV     R2,DPL
+   \   000089   AB83         MOV     R3,DPH
+   \   00008B   12....       LCALL   ??GUI_X_Warn?relay
+     93          }
+   \   00008E   7448         MOV     A,#0x48
+   \   000090   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000093   7F04         MOV     R7,#0x4
+   \   000095   02....       LJMP    ?BANKED_LEAVE_XDATA
+     94          
+     95          /*********************************************************************
+     96          *
+     97          *       GUI_Warn3
+     98          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     99          void GUI_Warn3(const char *s, int p0, int p1, int p2) {
+   \                     GUI_Warn3:
+   \   000000   74F2         MOV     A,#-0xe
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 14
+   \   000005                ; Auto size: 82
+   \   000005   74AE         MOV     A,#-0x52
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   8C..         MOV     ?V0 + 0,R4
+   \   00000C   8D..         MOV     ?V0 + 1,R5
+   \   00000E   7460         MOV     A,#0x60
+   \   000010   12....       LCALL   ?XSTACK_DISP0_8
+   \   000013   E0           MOVX    A,@DPTR
+   \   000014   F5..         MOV     ?V0 + 2,A
+   \   000016   A3           INC     DPTR
+   \   000017   E0           MOVX    A,@DPTR
+   \   000018   F5..         MOV     ?V0 + 3,A
+   \   00001A   7462         MOV     A,#0x62
+   \   00001C   12....       LCALL   ?XSTACK_DISP0_8
+   \   00001F   E0           MOVX    A,@DPTR
+   \   000020   FE           MOV     R6,A
+   \   000021   A3           INC     DPTR
+   \   000022   E0           MOVX    A,@DPTR
+   \   000023   FF           MOV     R7,A
+    100            char ac[MAXLEN + 30];
+    101            char* sOut = ac;
+   \   000024   7402         MOV     A,#0x2
+   \   000026   12....       LCALL   ?XSTACK_DISP0_8
+   \   000029   A882         MOV     R0,DPL
+   \   00002B   A983         MOV     R1,DPH
+   \   00002D   85..82       MOV     DPL,?XSP + 0
+   \   000030   85..83       MOV     DPH,?XSP + 1
+   \   000033   E8           MOV     A,R0
+   \   000034   F0           MOVX    @DPTR,A
+   \   000035   A3           INC     DPTR
+   \   000036   E9           MOV     A,R1
+   \   000037   F0           MOVX    @DPTR,A
+    102            _CopyString(ac, s, MAXLEN);
+   \   000038                ; Setup parameters for call to function _CopyString
+   \   000038   75..32       MOV     ?V0 + 4,#0x32
+   \   00003B   75..00       MOV     ?V0 + 5,#0x0
+   \   00003E   78..         MOV     R0,#?V0 + 4
+   \   000040   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000043   EA           MOV     A,R2
+   \   000044   FC           MOV     R4,A
+   \   000045   EB           MOV     A,R3
+   \   000046   FD           MOV     R5,A
+   \   000047   7404         MOV     A,#0x4
+   \   000049   12....       LCALL   ?XSTACK_DISP0_8
+   \   00004C   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_10:
+   \   00004F   12....       LCALL   ?DEALLOC_XSTACK8
+    103            sOut += strlen(sOut);
+   \   000052                ; Setup parameters for call to function strlen
+   \   000052   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_6:
+   \   000055   8A..         MOV     ?V0 + 4,R2
+   \   000057   8B..         MOV     ?V0 + 5,R3
+   \   000059   A8..         MOV     R0,?V0 + 4
+   \   00005B   A9..         MOV     R1,?V0 + 5
+   \   00005D   12....       LCALL   ?Subroutine0 & 0xFFFF
+    104            GUI__AddSpaceHex(p0, 8, &sOut);
+   \                     ??CrossCallReturnLabel_2:
+   \   000060   8582..       MOV     ?V0 + 4,DPL
+   \   000063   8583..       MOV     ?V0 + 5,DPH
+   \   000066   78..         MOV     R0,#?V0 + 4
+   \   000068   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00006B   7908         MOV     R1,#0x8
+   \   00006D   AA..         MOV     R2,?V0 + 0
+   \   00006F   E5..         MOV     A,?V0 + 1
+   \   000071   12....       LCALL   ??Subroutine4_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_17:
+   \   000074   12....       LCALL   ?DEALLOC_XSTACK8
+    105            GUI__AddSpaceHex(p1, 8, &sOut);
+   \   000077                ; Setup parameters for call to function GUI__AddSpaceHex
+   \   000077   85..82       MOV     DPL,?XSP + 0
+   \   00007A   85..83       MOV     DPH,?XSP + 1
+   \   00007D   8582..       MOV     ?V0 + 0,DPL
+   \   000080   8583..       MOV     ?V0 + 1,DPH
+   \   000083   78..         MOV     R0,#?V0 + 0
+   \   000085   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000088   7908         MOV     R1,#0x8
+   \   00008A   AA..         MOV     R2,?V0 + 2
+   \   00008C   E5..         MOV     A,?V0 + 3
+   \   00008E   12....       LCALL   ??Subroutine4_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_18:
+   \   000091   12....       LCALL   ?DEALLOC_XSTACK8
+    106            GUI__AddSpaceHex(p2, 8, &sOut);
+   \   000094                ; Setup parameters for call to function GUI__AddSpaceHex
+   \   000094   78..         MOV     R0,#?V0 + 0
+   \   000096   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000099   12....       LCALL   ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_14:
+   \   00009C   12....       LCALL   ?DEALLOC_XSTACK8
+    107            GUI_Warn(ac);
+   \   00009F                ; Setup parameters for call to function GUI_X_Warn
+   \   00009F   7402         MOV     A,#0x2
+   \   0000A1   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000A4   AA82         MOV     R2,DPL
+   \   0000A6   AB83         MOV     R3,DPH
+   \   0000A8   12....       LCALL   ??GUI_X_Warn?relay
+    108          }
+   \   0000AB   7452         MOV     A,#0x52
+   \   0000AD   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0000B0   7F06         MOV     R7,#0x6
+   \   0000B2   02....       LJMP    ?BANKED_LEAVE_XDATA
+    109          
+    110          /*********************************************************************
+    111          *
+    112          *       GUI_Warn4
+    113          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    114          void GUI_Warn4(const char *s, int p0, int p1, int p2, int p3) {
+   \                     GUI_Warn4:
+   \   000000   74F0         MOV     A,#-0x10
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 92
+   \   000005   74A4         MOV     A,#-0x5c
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   8C..         MOV     ?V0 + 0,R4
+   \   00000C   8D..         MOV     ?V0 + 1,R5
+   \   00000E   746C         MOV     A,#0x6c
+   \   000010   12....       LCALL   ?XSTACK_DISP0_8
+   \   000013   E0           MOVX    A,@DPTR
+   \   000014   FE           MOV     R6,A
+   \   000015   A3           INC     DPTR
+   \   000016   E0           MOVX    A,@DPTR
+   \   000017   FF           MOV     R7,A
+   \   000018   746E         MOV     A,#0x6e
+   \   00001A   12....       LCALL   ?XSTACK_DISP0_8
+   \   00001D   E0           MOVX    A,@DPTR
+   \   00001E   F5..         MOV     ?V0 + 4,A
+   \   000020   A3           INC     DPTR
+   \   000021   E0           MOVX    A,@DPTR
+   \   000022   F5..         MOV     ?V0 + 5,A
+   \   000024   7470         MOV     A,#0x70
+   \   000026   12....       LCALL   ?XSTACK_DISP0_8
+   \   000029   E0           MOVX    A,@DPTR
+   \   00002A   F5..         MOV     ?V0 + 2,A
+   \   00002C   A3           INC     DPTR
+   \   00002D   E0           MOVX    A,@DPTR
+   \   00002E   F5..         MOV     ?V0 + 3,A
+    115            char ac[MAXLEN + 40];
+    116            char* sOut = ac;
+   \   000030   7402         MOV     A,#0x2
+   \   000032   12....       LCALL   ?XSTACK_DISP0_8
+   \   000035   A882         MOV     R0,DPL
+   \   000037   A983         MOV     R1,DPH
+   \   000039   85..82       MOV     DPL,?XSP + 0
+   \   00003C   85..83       MOV     DPH,?XSP + 1
+   \   00003F   E8           MOV     A,R0
+   \   000040   F0           MOVX    @DPTR,A
+   \   000041   A3           INC     DPTR
+   \   000042   E9           MOV     A,R1
+   \   000043   F0           MOVX    @DPTR,A
+    117            _CopyString(ac, s, MAXLEN);
+   \   000044                ; Setup parameters for call to function _CopyString
+   \   000044   75..32       MOV     ?V0 + 6,#0x32
+   \   000047   75..00       MOV     ?V0 + 7,#0x0
+   \   00004A   78..         MOV     R0,#?V0 + 6
+   \   00004C   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00004F   EA           MOV     A,R2
+   \   000050   FC           MOV     R4,A
+   \   000051   EB           MOV     A,R3
+   \   000052   FD           MOV     R5,A
+   \   000053   7404         MOV     A,#0x4
+   \   000055   12....       LCALL   ?XSTACK_DISP0_8
+   \   000058   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_11:
+   \   00005B   12....       LCALL   ?DEALLOC_XSTACK8
+    118            sOut += strlen(sOut);
+   \   00005E                ; Setup parameters for call to function strlen
+   \   00005E   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_7:
+   \   000061   8A..         MOV     ?V0 + 6,R2
+   \   000063   8B..         MOV     ?V0 + 7,R3
+   \   000065   A8..         MOV     R0,?V0 + 6
+   \   000067   A9..         MOV     R1,?V0 + 7
+   \   000069   12....       LCALL   ?Subroutine0 & 0xFFFF
+    119            GUI__AddSpaceHex(p0, 8, &sOut);
+   \                     ??CrossCallReturnLabel_3:
+   \   00006C   8582..       MOV     ?V0 + 6,DPL
+   \   00006F   8583..       MOV     ?V0 + 7,DPH
+   \   000072   78..         MOV     R0,#?V0 + 6
+   \   000074   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000077   7908         MOV     R1,#0x8
+   \   000079   AA..         MOV     R2,?V0 + 0
+   \   00007B   E5..         MOV     A,?V0 + 1
+   \   00007D   12....       LCALL   ??Subroutine4_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_19:
+   \   000080   12....       LCALL   ?DEALLOC_XSTACK8
+    120            GUI__AddSpaceHex(p1, 8, &sOut);
+   \   000083                ; Setup parameters for call to function GUI__AddSpaceHex
+   \   000083   85..82       MOV     DPL,?XSP + 0
+   \   000086   85..83       MOV     DPH,?XSP + 1
+   \   000089   8582..       MOV     ?V0 + 0,DPL
+   \   00008C   8583..       MOV     ?V0 + 1,DPH
+   \   00008F   78..         MOV     R0,#?V0 + 0
+   \   000091   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000094   12....       LCALL   ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_15:
+   \   000097   12....       LCALL   ?DEALLOC_XSTACK8
+    121            GUI__AddSpaceHex(p2, 8, &sOut);
+   \   00009A                ; Setup parameters for call to function GUI__AddSpaceHex
+   \   00009A   78..         MOV     R0,#?V0 + 0
+   \   00009C   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00009F   7908         MOV     R1,#0x8
+   \   0000A1   AA..         MOV     R2,?V0 + 4
+   \   0000A3   E5..         MOV     A,?V0 + 5
+   \   0000A5   12....       LCALL   ??Subroutine4_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_20:
+   \   0000A8   12....       LCALL   ?DEALLOC_XSTACK8
+    122            GUI__AddSpaceHex(p3, 8, &sOut);
+   \   0000AB                ; Setup parameters for call to function GUI__AddSpaceHex
+   \   0000AB   78..         MOV     R0,#?V0 + 0
+   \   0000AD   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000B0   7908         MOV     R1,#0x8
+   \   0000B2   AA..         MOV     R2,?V0 + 2
+   \   0000B4   E5..         MOV     A,?V0 + 3
+   \   0000B6   12....       LCALL   ??Subroutine4_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_21:
+   \   0000B9   12....       LCALL   ?DEALLOC_XSTACK8
+    123            GUI_Warn(ac);
+   \   0000BC                ; Setup parameters for call to function GUI_X_Warn
+   \   0000BC   7402         MOV     A,#0x2
+   \   0000BE   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000C1   AA82         MOV     R2,DPL
+   \   0000C3   AB83         MOV     R3,DPH
+   \   0000C5   12....       LCALL   ??GUI_X_Warn?relay
+    124          }
+   \   0000C8   745C         MOV     A,#0x5c
+   \   0000CA   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0000CD   7F08         MOV     R7,#0x8
+   \   0000CF   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??_CopyString?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    _CopyString
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI_Warn?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI_Warn
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI_Warn1?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI_Warn1
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI_Warn2?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI_Warn2
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI_Warn3?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI_Warn3
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI_Warn4?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI_Warn4
+    125          
+    126          /*************************** End of file ****************************/
+
+   Maximum stack usage in bytes:
+
+     Function              ISTACK PSTACK XSTACK
+     --------              ------ ------ ------
+     GUI_Warn                  2      0      0
+       -> GUI_X_Warn           4      0      0
+     GUI_Warn1                 0      0     74
+       -> _CopyString          0      0    148
+       -> strlen               0      0    144
+       -> GUI__AddSpaceHex     0      0    148
+       -> GUI_X_Warn           0      0    144
+     GUI_Warn2                 0      0     88
+       -> _CopyString          0      0    172
+       -> strlen               0      0    168
+       -> GUI__AddSpaceHex     0      0    172
+       -> GUI__AddSpaceHex     0      0    172
+       -> GUI_X_Warn           0      0    168
+     GUI_Warn3                 0      0    102
+       -> _CopyString          0      0    196
+       -> strlen               0      0    192
+       -> GUI__AddSpaceHex     0      0    196
+       -> GUI__AddSpaceHex     0      0    196
+       -> GUI__AddSpaceHex     0      0    196
+       -> GUI_X_Warn           0      0    192
+     GUI_Warn4                 0      0    116
+       -> _CopyString          0      0    220
+       -> strlen               0      0    216
+       -> GUI__AddSpaceHex     0      0    220
+       -> GUI__AddSpaceHex     0      0    220
+       -> GUI__AddSpaceHex     0      0    220
+       -> GUI__AddSpaceHex     0      0    220
+       -> GUI_X_Warn           0      0    216
+     _CopyString               1      0    119
+
+
+   Segment part sizes:
+
+     Function/Label      Bytes
+     --------------      -----
+     _CopyString           79
+     GUI_Warn              14
+     GUI_Warn1            113
+     ?Subroutine3          10
+     ?Subroutine2          15
+     ?Subroutine0          31
+     ?Subroutine1           5
+     ??Subroutine4_0       12
+     GUI_Warn2            152
+     GUI_Warn3            181
+     GUI_Warn4            210
+     ??_CopyString?relay    6
+     ??GUI_Warn?relay       6
+     ??GUI_Warn1?relay      6
+     ??GUI_Warn2?relay      6
+     ??GUI_Warn3?relay      6
+     ??GUI_Warn4?relay      6
+
+ 
+ 822 bytes in segment BANKED_CODE
+  36 bytes in segment BANK_RELAYS
+ 
+ 858 bytes of CODE memory
+
+Errors: none
+Warnings: none

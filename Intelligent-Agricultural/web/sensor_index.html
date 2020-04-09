@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="Xenon Boostrap Admin Panel" />
+	<meta name="author" content="" />
+	
+	<title>物联网感知课程设计</title>
+
+	<link rel="stylesheet" href="http://fonts.useso.com/css?family=Arimo:400,700,400italic">
+	<link rel="stylesheet" href="assets/css/fonts/linecons/css/linecons.css">
+	<link rel="stylesheet" href="assets/css/fonts/fontawesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/css/bootstrap.css">
+	<link rel="stylesheet" href="assets/css/xenon-core.css">
+	<link rel="stylesheet" href="assets/css/xenon-forms.css">
+	<link rel="stylesheet" href="assets/css/xenon-components.css">
+	<link rel="stylesheet" href="assets/css/xenon-skins.css">
+	<link rel="stylesheet" href="assets/css/custom.css">
+
+	<script src="assets/js/jquery-1.11.1.min.js"></script>
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	
+	
+</head>
+<body class="page-body">
+
+	<div class="page-container"><!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
+			
+		<!-- Add "fixed" class to make the sidebar fixed always to the browser viewport. -->
+		<!-- Adding class "toggle-others" will keep only one menu item open at a time. -->
+		<!-- Adding class "collapsed" collapse sidebar root elements and show only icons. -->
+		
+	
+		<div class="main-content">
+					
+			<!-- User Info, Notifications and Menu Bar -->
+			
+			
+			<script type="text/javascript">
+				jQuery(document).ready(function($)
+				{	
+					// Notifications
+					setTimeout(function()
+					{			
+						var opts = {
+							"closeButton": true,
+							"debug": false,
+							"positionClass": "toast-top-right toast-default",
+							"toastClass": "black",
+							"onclick": null,
+							"showDuration": "100",
+							"hideDuration": "1000",
+							"timeOut": "5000",
+							"extendedTimeOut": "1000",
+							"showEasing": "swing",
+							"hideEasing": "linear",
+							"showMethod": "fadeIn",
+							"hideMethod": "fadeOut"
+						};
+				
+						toastr.info("", "欢迎来到物联网感知课程设计web界面", opts);
+					}, 3000);
+					
+					// Charts
+					var xenonPalette = ['#68b828','#7c38bc','#0e62c7','#fcd036','#4fcdfc','#00b19d','#ff6264','#f7aa47'];
+					
+					// Pageviews Visitors Chart
+					var i = 0,
+						line_chart_data_source = [
+						{ id: ++i, part1: 19},
+						{ id: ++i, part1: 20.5},
+						{ id: ++i, part1: 19.8 },
+						{ id: ++i, part1: 19.25 },
+						{ id: ++i, part1: 20.64},
+						{ id: ++i, part1: 20.4},
+						{ id: ++i, part1: 19.11},
+						{ id: ++i, part1: 19.2},
+						{ id: ++i, part1: 19.68},
+						{ id: ++i, part1: 20.1},
+						{ id: ++i, part1: 19.1},
+						{ id: ++i, part1: 19.28},
+						{ id: ++i, part1: 19.3},
+
+
+					];
+					line_chart_data_source2 = [
+
+						{ id: ++i, part1: 20},
+						{ id: ++i, part1: 21.5},
+						{ id: ++i, part1: 20.8 },
+						{ id: ++i, part1: 20.25 },
+						{ id: ++i, part1: 19.64},
+						{ id: ++i, part1: 18.4},
+						{ id: ++i, part1: 19.11},
+						{ id: ++i, part1: 20.2},
+						{ id: ++i, part1: 19.68},
+						{ id: ++i, part1: 20.1},
+						{ id: ++i, part1: 19.1},
+						{ id: ++i, part1: 21.28},
+						{ id: ++i, part1: 19.3},
+
+					];
+					line_chart_data_source3 = [
+					{ id: ++i, part1: 23.4},
+					{ id: ++i, part1: 19.68},
+					{ id: ++i, part1: 21.2},
+					{ id: ++i, part1: 19.82},
+					{ id: ++i, part1: 21.17},
+					{ id: ++i, part1: 23.43},
+					{ id: ++i, part1: 23.5},
+					{ id: ++i, part1: 19.92},
+					{ id: ++i, part1: 19.68},
+					{ id: ++i, part1: 20.1},
+					{ id: ++i, part1: 19.1},
+					{ id: ++i, part1: 19.28},
+					{ id: ++i, part1: 23.45},
+
+					];
+					
+					$("#pageviews-visitors-chart").dxChart({
+						dataSource: line_chart_data_source,
+						commonSeriesSettings: {
+							argumentField: "id",
+							point: { visible: true, size: 5, hoverStyle: {size: 7, border: 0, color: 'inherit'} },
+							line: {width: 1, hoverStyle: {width: 1}}
+						},
+						series: [
+							{ valueField: "part1", name: "温度曲线", color: "#68b828" },
+							
+						],
+						legend: {
+							position: 'inside',
+							paddingLeftRight: 5
+						},
+						commonAxisSettings: {
+							label: {
+								visible: false
+							},
+							grid: {
+								visible: true,
+								color: '#f9f9f9'
+							}
+						},
+						valueAxis: {
+							max: 25
+						},
+						argumentAxis: {
+					        valueMarginsEnabled: false
+					    },
+					});
+					$("#pageviews-visitors-chart2").dxChart({
+						dataSource: line_chart_data_source2,
+						commonSeriesSettings: {
+							argumentField: "id",
+							point: { visible: true, size: 5, hoverStyle: {size: 7, border: 0, color: 'inherit'} },
+							line: {width: 1, hoverStyle: {width: 1}}
+						},
+						series: [
+							{ valueField: "part1", name: "湿度曲线", color: "#68b828" },
+							
+						],
+						legend: {
+							position: 'inside',
+							paddingLeftRight: 5
+						},
+						commonAxisSettings: {
+							label: {
+								visible: false
+							},
+							grid: {
+								visible: true,
+								color: '#f9f9f9'
+							}
+						},
+						valueAxis: {
+							max: 25
+						},
+						argumentAxis: {
+					        valueMarginsEnabled: false
+					    },
+					});					
+					$("#pageviews-visitors-chart3").dxChart({
+						dataSource: line_chart_data_source3,
+						commonSeriesSettings: {
+							argumentField: "id",
+							point: { visible: true, size: 5, hoverStyle: {size: 7, border: 0, color: 'inherit'} },
+							line: {width: 1, hoverStyle: {width: 1}}
+						},
+						series: [
+							{ valueField: "part1", name: "光照强度曲线", color: "#68b836" },
+							
+						],
+						legend: {
+							position: 'inside',
+							paddingLeftRight: 5
+						},
+						commonAxisSettings: {
+							label: {
+								visible: false
+							},
+							grid: {
+								visible: true,
+								color: '#f9f9f9'
+							}
+						},
+						valueAxis: {
+							max: 25
+						},
+						argumentAxis: {
+					        valueMarginsEnabled: false
+					    },
+					});					
+					
+
+					
+					var firstMonth = {
+						dataSource: getFirstMonthViews(),
+						argumentField: 'month',
+						valueField: '2014',
+						type: 'area',
+						showMinMax: true,
+						lineColor: '#68b828',
+						minColor: '#68b828',
+						maxColor: '#7c38bc',
+						showFirstLast: false,
+					},
+					secondMonth = {
+						dataSource: getSecondMonthViews(),
+						argumentField: 'month',
+						valueField: '2014',
+						type: 'splinearea',
+						lineColor: '#68b828',
+						minColor: '#68b828',
+						maxColor: '#7c38bc',
+						pointSize: 6,
+						showMinMax: true,
+						showFirstLast: false
+					},
+					thirdMonth = {
+						dataSource: getThirdMonthViews(),
+						argumentField: 'month',
+						valueField: '2014',
+						type: 'splinearea',
+						lineColor: '#68b828',
+						minColor: '#68b828',
+						maxColor: '#7c38bc',
+						pointSize: 6,
+						showMinMax: true,
+						showFirstLast: false
+					};
+					
+					function getFirstMonthViews() {
+						return [{ month: 1, 2014: 7341 },
+						{ month: 2, 2014: 7016 },
+						{ month: 3, 2014: 7202 },
+						{ month: 4, 2014: 7851 },
+						{ month: 5, 2014: 7481 },
+						{ month: 6, 2014: 6532 },
+						{ month: 7, 2014: 6498 },
+						{ month: 8, 2014: 7191 },
+						{ month: 9, 2014: 7596 },
+						{ month: 10, 2014: 8057 },
+						{ month: 11, 2014: 8373 },
+						{ month: 12, 2014: 8636 }];
+					};
+					
+					function getSecondMonthViews() {
+						return [{ month: 1, 2014: 189742 },
+						{ month: 2, 2014: 181623 },
+						{ month: 3, 2014: 205351 },
+						{ month: 4, 2014: 245625 },
+						{ month: 5, 2014: 261319 },
+						{ month: 6, 2014: 192786 },
+						{ month: 7, 2014: 194752 },
+						{ month: 8, 2014: 207017 },
+						{ month: 9, 2014: 212665 },
+						{ month: 10, 2014: 233580 },
+						{ month: 11, 2014: 231503 },
+						{ month: 12, 2014: 232824 }];
+					};
+					
+					function getThirdMonthViews() {
+						return [{ month: 1, 2014: 398},
+						{ month: 2, 2014: 422},
+						{ month: 3, 2014: 431},
+						{ month: 4, 2014: 481},
+						{ month: 5, 2014: 551},
+						{ month: 6, 2014: 449},
+						{ month: 7, 2014: 442},
+						{ month: 8, 2014: 482},
+						{ month: 9, 2014: 517},
+						{ month: 10, 2014: 566},
+						{ month: 11, 2014: 630},
+						{ month: 12, 2014: 737}];
+					};
+					
+					
+					$('.first-month').dxSparkline(firstMonth);
+					$('.second-month').dxSparkline(secondMonth);
+					$('.third-month').dxSparkline(thirdMonth);
+					
+					
+					// Realtime Network Stats
+					var i = 0,
+						rns_values = [130,150],
+						rns2_values = [39,50],
+						realtime_network_stats = [];
+					
+					for(i=0; i<=100; i++)
+					{
+						realtime_network_stats.push({ id: i, x1: between(rns_values[0], rns_values[1]), x2: between(rns2_values[0], rns2_values[1])});
+					}
+					
+					$("#realtime-network-stats").dxChart({
+						dataSource: realtime_network_stats,
+						commonSeriesSettings: {
+							type: "area",
+							argumentField: "id"
+						},
+						series: [
+							{ valueField: "x1", name: "Packets Sent", color: '#7c38bc', opacity: .4 },
+							{ valueField: "x2", name: "Packets Received", color: '#000', opacity: .5},
+						],
+						legend: {
+							verticalAlignment: "bottom",
+							horizontalAlignment: "center"
+						},
+						commonAxisSettings: {
+							label: {
+								visible: false
+							},
+							grid: {
+								visible: true,
+								color: '#f5f5f5'
+							}
+						},
+						legend: {
+							visible: false
+						},
+						argumentAxis: {
+					        valueMarginsEnabled: false
+					    },
+						valueAxis: {
+							max: 500
+						},
+						animation: {
+							enabled: false
+						}
+					}).data('iCount', i);
+					
+					$('#network-realtime-gauge').dxCircularGauge({
+						scale: {
+							startValue: 0,
+							endValue: 200,
+							majorTick: {
+								tickInterval: 50
+							}
+						},
+						rangeContainer: {
+							palette: 'pastel',
+							width: 3,
+							ranges: [
+								{ startValue: 0, endValue: 50, color: "#7c38bc" },
+								{ startValue: 50, endValue: 100, color: "#7c38bc" },
+								{ startValue: 100, endValue: 150, color: "#7c38bc" },
+								{ startValue: 150, endValue: 200, color: "#7c38bc" },
+							],
+						},
+						value: 140,
+						valueIndicator: {
+							offset: 10,
+							color: '#7c38bc',
+							type: 'triangleNeedle',
+							spindleSize: 12
+						}
+					});
+					
+					setInterval(function(){  networkRealtimeChartTick(rns_values, rns2_values); }, 1000);
+					setInterval(function(){ networkRealtimeGaugeTick(); }, 2000);
+					setInterval(function(){ networkRealtimeMBupdate(); }, 3000);
+					
+					
+					
+					// CPU Usage Gauge
+					$("#cpu-usage-gauge").dxCircularGauge({
+						scale: {
+							startValue: 0,
+							endValue: 100,
+							majorTick: {
+								tickInterval: 25
+							}
+						},
+						rangeContainer: {
+							palette: 'pastel',
+							width: 3,
+							ranges: [
+								{ startValue: 0, endValue: 25, color: "#68b828" },
+								{ startValue: 25, endValue: 50, color: "#68b828" },
+								{ startValue: 50, endValue: 75, color: "#68b828" },
+								{ startValue: 75, endValue: 100, color: "#d5080f" },
+							],
+						},
+						value: between(30, 90),
+						valueIndicator: {
+							offset: 10,
+							color: '#68b828',
+							type: 'rectangleNeedle',
+							spindleSize: 12
+						}
+					});
+					
+					
+					// Resize charts
+					$(window).on('xenon.resize', function()
+					{
+						$("#pageviews-visitors-chart").data("dxChart").render();
+						$("#pageviews-visitors-chart2").data("dxChart").render();
+						$("#pageviews-visitors-chart3").data("dxChart").render();
+						
+						$('.first-month').data("dxSparkline").render();
+						$('.second-month').data("dxSparkline").render();
+						$('.third-month').data("dxSparkline").render();
+					});
+					
+				});
+				
+				function networkRealtimeChartTick(min_max, min_max2)
+				{
+					var $ = jQuery,
+						i = 0;
+					
+					var chart_data = $('#realtime-network-stats').dxChart('instance').option('dataSource');
+					
+					var count = $('#realtime-network-stats').data('iCount');
+					
+					$('#realtime-network-stats').data('iCount', count + 1);
+					
+					chart_data.shift();
+					chart_data.push({id: count + 1, x1: between(min_max[0],min_max[1]), x2: between(min_max2[0],min_max2[1])});
+					
+					$('#realtime-network-stats').dxChart('instance').option('dataSource', chart_data);
+				}
+				
+				function networkRealtimeGaugeTick()
+				{
+					var nr_gauge = jQuery('#network-realtime-gauge').dxCircularGauge('instance');
+					
+					nr_gauge.value( between(50,200) );
+				}
+				
+				function networkRealtimeMBupdate()
+				{
+					var $el = jQuery("#network-mbs-packets"),
+						options = {
+							useEasing : true, 
+							useGrouping : true, 
+							separator : ',', 
+							decimal : '.', 
+							prefix : '' ,
+							suffix : 'mb/s' 
+						},
+						cntr = new countUp($el[0], parseFloat($el.text().replace('mb/s')), parseFloat(between(10,25) + 1/between(15,30)), 2, 1.5, options);
+						
+					cntr.start();
+				}
+				
+				function between(randNumMin, randNumMax)
+				{
+					var randInt = Math.floor((Math.random() * ((randNumMax + 1) - randNumMin)) + randNumMin);
+					
+					return randInt;
+				}
+			</script>
+			
+			<div class="row">
+				<div class="col-sm-3">
+					
+					<div class="xe-widget xe-counter" data-count=".num" data-from="15" data-to="19.13" data-suffix="℃" data-duration="2">
+						<div class="xe-icon">
+							<i class="linecons-cloud"></i>
+						</div>
+						<div class="xe-label">
+							<span>温度</span>
+							<strong class="num">0.0℃</strong>
+						</div>
+					</div>
+					
+					<div class="xe-widget xe-counter xe-counter-purple" data-count=".num" data-from="42" data-to="43.45" data-suffix="%" data-duration="3" data-easing="false">
+						<div class="xe-icon">
+							<i class="linecons-user"></i>
+						</div>
+						<div class="xe-label">
+								<span>湿度</span>
+							<strong class="num">43.45</strong>
+						</div>
+					</div>
+					
+					<div class="xe-widget xe-counter xe-counter-info" data-count=".num" data-from="300" data-to="365" data-suffix="xl" data-duration="4" data-easing="true">
+						<div class="xe-icon">
+							<i class="linecons-camera"></i>
+						</div>
+						<div class="xe-label">
+							<span>光照强度</span>
+							<strong class="num">356</strong>	
+						</div>
+					</div>
+					
+				</div>
+				<div class="col-sm-6">
+					
+					<div class="chart-item-bg">
+						<div class="chart-label">
+								<span class="text-medium text-muted">当前温度</span>
+							<div class="h3 text-secondary text-bold" data-count="this" data-from="0.00" data-to="19.13" data-suffix="℃" data-duration="1">0.00%</div>
+							
+						</div>
+						<div id="pageviews-visitors-chart" style="height: 298px;"></div>
+					</div>
+					
+				</div>
+				<div class="col-sm-3">
+					
+					<div class="chart-item-bg">
+						<div class="chart-label chart-label-small">
+							<span>空调状态</span>
+							<h3 ><font color="#FF0000">OFF</font> </h3>
+						</div>
+						<div id="server-uptime-chart" style="height: 134px;"></div>
+					</div>
+					
+					<div class="chart-item-bg">
+							<div class="chart-label chart-label-small">
+								<span>加湿器状态</span>
+								<h3><font color="#FF0000">ON</font></h3>
+							</div>
+							<div id="server-uptime-chart" style="height: 134px;"></div>
+						</div>
+					
+				</div>
+			</div>
+			
+			<div class="col-sm-6">
+					
+					<div class="chart-item-bg">
+						<div class="chart-label">
+								<span class="text-medium text-muted">当前湿度</span>
+							<div class="h3 text-secondary text-bold" data-count="this" data-from="0.00" data-to="43.25" data-suffix="%" data-duration="1">0.00%</div>
+							
+						</div>
+						<div id="pageviews-visitors-chart2" style="height: 298px;"></div>
+					</div>
+					
+				</div>
+			<div class="col-sm-6">
+					
+						<div class="chart-item-bg">
+							<div class="chart-label">
+									<span class="text-medium text-muted">当前光照强度</span>
+								<div class="h3 text-secondary text-bold" data-count="this" data-from="0.00" data-to="365" data-suffix='xl' data-duration="1">0.00%</div>
+								
+							</div>
+							<div id="pageviews-visitors-chart3" style="height: 298px;"></div>
+						</div>
+						
+					</div>
+			
+			<!-- Main Footer -->
+			<!-- Choose between footer styles: "footer-type-1" or "footer-type-2" -->
+			<!-- Add class "sticky" to  always stick the footer to the end of page (if page contents is small) -->
+			<!-- Or class "fixed" to  always fix the footer to the end of page -->
+			<footer class="main-footer sticky footer-type-1">
+				
+				<div class="footer-inner">
+				
+					<!-- Add your copyright text here -->
+					<div class="footer-text">
+						&copy; 2018-物联网感知课程设计 by
+						
+						<a href="www.lgzxhy.top" target="_blank" class='mysite' ><strong>liugang</strong> </a> 
+					</div>
+					
+					
+					<!-- Go to Top Link, just add rel="go-top" to any link to add this functionality -->
+					<div class="go-up">
+					
+						<a href="#" rel="go-top">
+							<i class="fa-angle-up"></i>
+						</a>
+						
+					</div>
+					
+				</div>
+				
+			</footer>
+		</div>
+		
+			
+		
+		
+		
+	</div>
+	
+	
+	<div class="page-loading-overlay">
+		<div class="loader-2"></div>
+	</div>
+	
+
+
+
+	<!-- Bottom Scripts -->
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/TweenMax.min.js"></script>
+	<script src="assets/js/resizeable.js"></script>
+	<script src="assets/js/joinable.js"></script>
+	<script src="assets/js/xenon-api.js"></script>
+	<script src="assets/js/xenon-toggles.js"></script>
+
+
+	<!-- Imported scripts on this page -->
+	<script src="assets/js/xenon-widgets.js"></script>
+	<script src="assets/js/devexpress-web-14.1/js/globalize.min.js"></script>
+	<script src="assets/js/devexpress-web-14.1/js/dx.chartjs.js"></script>
+	<script src="assets/js/toastr/toastr.min.js"></script>
+
+
+	<!-- JavaScripts initializations and stuff -->
+	<script src="assets/js/xenon-custom.js"></script>
+
+</body>
+</html>

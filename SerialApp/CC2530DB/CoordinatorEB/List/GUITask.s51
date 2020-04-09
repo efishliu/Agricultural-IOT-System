@@ -1,0 +1,609 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V8.10.1.10194/W32 for 8051        14/Jun/2016  16:18:14 /
+// Copyright 2004-2011 IAR Systems AB.                                        /
+//                                                                            /
+//    Core               =  plain                                             /
+//    Code model         =  banked                                            /
+//    Data model         =  large                                             /
+//    Calling convention =  xdata reentrant                                   /
+//    Constant location  =  data_rom                                          /
+//    Dptr setup         =  1,16                                              /
+//    Source file        =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\C /
+//                          ore\GUITask.c                                     /
+//    Command line       =  -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂ /
+//                          ç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack /
+//                          \Utilities\SerialApp\CC2530DB\..\..\..\Tools\CC25 /
+//                          30DB\f8wCoord.cfg (-DCPU32MHZ -DROOT=__near_func  /
+//                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                  /
+//                          -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8        /
+//                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)   /
+//                          -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂ /
+//                          ç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack /
+//                          \Utilities\SerialApp\CC2530DB\..\..\..\Tools\CC25 /
+//                          30DB\f8wConfig.cfg (-DZIGBEEPRO -DSECURE=0        /
+//                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                 /
+//                          -DDEFAULT_CHANLIST=0x00000800                     /
+//                          -DZDAPP_CONFIG_PAN_ID=0x1001                      /
+//                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
+//                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
+//                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
+//                          -DLINK_STATUS_JITTER_MASK=0x007F                  /
+//                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_P /
+//                          OLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7           /
+//                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3   /
+//                          -DNWK_MAX_DATA_RETRIES=2                          /
+//                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9        /
+//                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40          /
+//                          -DNWK_MAX_BINDING_ENTRIES=4                       /
+//                          -DMAX_BINDING_CLUSTER_IDS=4                       /
+//                          "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07, 0x09,     /
+//                          0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08,   /
+//                          0x0A, 0x0C, 0x0D}" -DMAC_MAX_FRAME_SIZE=116       /
+//                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const    /
+//                          __code" -DGENERIC=__generic                       /
+//                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
+//                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
+//                          -DREJOIN_POLL_RATE=440 F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹ /
+//                          âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2. /
+//                          5.1a\Components\uCGUI\Core\GUITask.c -D           /
+//                          HAL_UART=TRUE -D SERIAL_APP_PORT=0 -D COOR -D     /
+//                          LCD_SUPPORTED -D NV_INIT -lC                      /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\CoordinatorEB\List\    /
+//                          -lA F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍø /
+//                          Âç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstac /
+//                          k\Utilities\SerialApp\CC2530DB\CoordinatorEB\List /
+//                          \ --diag_suppress Pe001,Pa010 -o                  /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\CoordinatorEB\Obj\ -e  /
+//                          --no_code_motion --debug --core=plain             /
+//                          --dptr=16,1 --data_model=large                    /
+//                          --code_model=banked --calling_convention=xdata_re /
+//                          entrant --place_constants=data_rom                /
+//                          --nr_virtual_regs 16 -I                           /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\ -I                    /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\Public\ -I          /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\uCGUI\Core\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ× /
+//                          ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a /
+//                          \Projects\zstack\Utilities\SerialApp\CC2530DB\..\ /
+//                          ..\..\..\..\Components\uCGUI\MultiLayer\ -I       /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\uCGUI\Config\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅ /
+//                          Ì×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5. /
+//                          1a\Projects\zstack\Utilities\SerialApp\CC2530DB\. /
+//                          .\Coordinator\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×Ê /
+//                          ÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\ /
+//                          Projects\zstack\Utilities\SerialApp\CC2530DB\..\. /
+//                          .\..\ZMain\TI2530DB\ -I                           /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\hal\include\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ /
+//                          ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Utilities\SerialApp\CC2530DB\.. /
+//                          \..\..\..\..\Components\hal\target\CC2530EB\ -I   /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mac\include\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ /
+//                          ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Utilities\SerialApp\CC2530DB\.. /
+//                          \..\..\..\..\Components\mac\high_level\ -I        /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mac\low_level\srf04\ -I                       /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mac\low_level\srf04\single_chip\ -I           /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mt\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Z /
+//                          igBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Project /
+//                          s\zstack\Utilities\SerialApp\CC2530DB\..\..\..\.. /
+//                          \..\Components\osal\include\ -I                   /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\services\saddr\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹ /
+//                          âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2. /
+//                          5.1a\Projects\zstack\Utilities\SerialApp\CC2530DB /
+//                          \..\..\..\..\..\Components\services\sdata\ -I     /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\stack\af\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁ /
+//                          Ï210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\P /
+//                          rojects\zstack\Utilities\SerialApp\CC2530DB\..\.. /
+//                          \..\..\..\Components\stack\nwk\ -I                /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\stack\sapi\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ× /
+//                          ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a /
+//                          \Projects\zstack\Utilities\SerialApp\CC2530DB\..\ /
+//                          ..\..\..\..\Components\stack\sec\ -I              /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\stack\sys\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×Ê /
+//                          ÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\ /
+//                          Projects\zstack\Utilities\SerialApp\CC2530DB\..\. /
+//                          .\..\..\..\Components\stack\zdo\ -I               /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\zmac\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210 /
+//                          \ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proje /
+//                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ /
+//                          ..\..\Components\zmac\f8w\ -Ohz                   /
+//                          --require_prototypes                              /
+//    List file          =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\CoordinatorEB\List\GUI /
+//                          Task.s51                                          /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME GUITask
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+
+        PUBLIC ??GUITASK_Init?relay
+        FUNCTION ??GUITASK_Init?relay,0203H
+        PUBLIC ??GUITASK_StoreDefaultContext?relay
+        FUNCTION ??GUITASK_StoreDefaultContext?relay,0203H
+        PUBLIC ??GUI_Lock?relay
+        FUNCTION ??GUI_Lock?relay,0203H
+        PUBLIC ??GUI_Unlock?relay
+        FUNCTION ??GUI_Unlock?relay,0203H
+        PUBLIC GUITASK_Init
+        FUNCTION GUITASK_Init,0203H
+        ARGFRAME XSTACK, 0, STACK
+        PUBLIC GUITASK_StoreDefaultContext
+        FUNCTION GUITASK_StoreDefaultContext,0203H
+        ARGFRAME XSTACK, 0, STACK
+        PUBLIC GUI_Lock
+        FUNCTION GUI_Lock,0203H
+        ARGFRAME XSTACK, 0, STACK
+        PUBLIC GUI_Unlock
+        FUNCTION GUI_Unlock,0203H
+        ARGFRAME XSTACK, 0, STACK
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA_SP SP IDATA
+        CFI StackFrame CFA_PSP16 PSP16 XDATA
+        CFI StackFrame CFA_XSP16 XSP16 XDATA
+        CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+        CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+        CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+        CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+        CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+        CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+        CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+        CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+        CFI Resource V8:8, V9:8, V10:8, V11:8, V12:8, V13:8, V14:8, V15:8, SP:8
+        CFI Resource PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+        CFI VirtualResource ?RET:24
+        CFI Resource ?BRET_EXT:8
+        CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+        CFI ResourceParts PSP16 PSPH, PSPL
+        CFI ResourceParts XSP16 XSPH, XSPL
+        CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign -1
+        CFI ReturnAddress ?RET CODE
+        CFI CFA_DOVERLAY Used
+        CFI CFA_IOVERLAY Used
+        CFI CFA_SP SP+-3
+        CFI CFA_PSP16 PSP16+0
+        CFI CFA_XSP16 XSP16+0
+        CFI `PSW.CY` SameValue
+        CFI `B.BR0` SameValue
+        CFI `B.BR1` SameValue
+        CFI `B.BR2` SameValue
+        CFI `B.BR3` SameValue
+        CFI `B.BR4` SameValue
+        CFI `B.BR5` SameValue
+        CFI `B.BR6` SameValue
+        CFI `B.BR7` SameValue
+        CFI `VB.BR8` SameValue
+        CFI `VB.BR9` SameValue
+        CFI `VB.BR10` SameValue
+        CFI `VB.BR11` SameValue
+        CFI `VB.BR12` SameValue
+        CFI `VB.BR13` SameValue
+        CFI `VB.BR14` SameValue
+        CFI `VB.BR15` SameValue
+        CFI VB SameValue
+        CFI B Undefined
+        CFI A Undefined
+        CFI PSW SameValue
+        CFI DPL0 SameValue
+        CFI DPH0 SameValue
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 Undefined
+        CFI R5 Undefined
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI V0 SameValue
+        CFI V1 SameValue
+        CFI V2 SameValue
+        CFI V3 SameValue
+        CFI V4 SameValue
+        CFI V5 SameValue
+        CFI V6 SameValue
+        CFI V7 SameValue
+        CFI V8 SameValue
+        CFI V9 SameValue
+        CFI V10 SameValue
+        CFI V11 SameValue
+        CFI V12 SameValue
+        CFI V13 SameValue
+        CFI V14 SameValue
+        CFI V15 SameValue
+        CFI PSPH Undefined
+        CFI PSPL Undefined
+        CFI XSPH Undefined
+        CFI XSPL Undefined
+        CFI ?RET Concat
+        CFI ?BRET_EXT Frame(CFA_SP, 3)
+        CFI ?RET_HIGH Frame(CFA_SP, 2)
+        CFI ?RET_LOW Frame(CFA_SP, 1)
+        CFI EndCommon cfiCommon0
+        
+GUITASK_Init        SYMBOL "GUITASK_Init"
+??GUITASK_Init?relay SYMBOL "?relay", GUITASK_Init
+GUITASK_StoreDefaultContext SYMBOL "GUITASK_StoreDefaultContext"
+??GUITASK_StoreDefaultContext?relay SYMBOL "?relay", GUITASK_StoreDefaultContext
+GUI_Lock            SYMBOL "GUI_Lock"
+??GUI_Lock?relay    SYMBOL "?relay", GUI_Lock
+GUI_Unlock          SYMBOL "GUI_Unlock"
+??GUI_Unlock?relay  SYMBOL "?relay", GUI_Unlock
+
+// F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\Core\GUITask.c
+//    1 /*
+//    2 *********************************************************************************************************
+//    3 *                                                uC/GUI
+//    4 *                        Universal graphic software for embedded applications
+//    5 *
+//    6 *                       (c) Copyright 2002, Micrium Inc., Weston, FL
+//    7 *                       (c) Copyright 2002, SEGGER Microcontroller Systeme GmbH
+//    8 *
+//    9 *              µC/GUI is protected by international copyright laws. Knowledge of the
+//   10 *              source code may not be used to write a similar product. This file may
+//   11 *              only be used in accordance with a license and should not be redistributed
+//   12 *              in any way. We appreciate your understanding and fairness.
+//   13 *
+//   14 ----------------------------------------------------------------------
+//   15 File        : GUITASK.C
+//   16 Purpose     : Saves/Restores task context with supported OSs.
+//   17               It also uses a resource semaphore.
+//   18 
+//   19   The following externals are used and should typically be defined
+//   20   in GUI_X.c:
+//   21   
+//   22     U32  GUI_X_GetTaskId();
+//   23     void GUI_X_Unlock();
+//   24     void GUI_X_Lock();
+//   25 
+//   26 ----------------------------------------------------------------------
+//   27 Version-Date---Author-Explanation
+//   28 ----------------------------------------------------------------------
+//   29 3.70    031016 TQ     GUI_MAXTASK set to 4
+//   30 3.60    030902 TQ     GUI_MAXTASK increased to 6
+//   31 3.52    030618 RS     GUI_MAX_LOCK_NESTING increased
+//   32 3.40    030228 RS     GUI_MAX_LOCK_NESTING introduced
+//   33 3.02a   020722 RS     Use of macro GUI_DEBUG_ERROROUT_IF in order
+//   34                       to simplify th code.
+//   35 3.02    020514 RS     Avoided nested calls of GUI_X_Lock, GUI_X_Unlock
+//   36                       (because some RTOSes, such as CMX and u/C-OS
+//   37                       could not handle this easily)
+//   38 3.00    010425 RS     Cleanup for Version 3.00
+//   39                       a) Dummy routines added to avoid link errors
+//   40                         in case some modules are compiled with
+//   41                         different settings
+//   42 1.00.01 990926 RS     Fix in order to make sure init task has no
+//   43                       context of its own (_CurrentTaskNo =-1)
+//   44 1.00.00 990918 RS     Initial version for version control purposes.
+//   45 ---------------------------END-OF-HEADER------------------------------
+//   46 */
+//   47 
+//   48 #include <stddef.h>           /* needed for definition of NULL */
+//   49 #include "GUI_Protected.h"
+//   50 #include "GUIDebug.h"
+//   51 
+//   52 /*********************************************************************
+//   53 *
+//   54 *       Configuration defaults
+//   55 *
+//   56 **********************************************************************
+//   57 */
+//   58 
+//   59 #ifndef GUI_MAXTASK
+//   60   #define GUI_MAXTASK (4)
+//   61 #endif
+//   62 
+//   63 #ifndef GUI_MAX_LOCK_NESTING
+//   64   #define GUI_MAX_LOCK_NESTING 48   /* If a lot of nested dialogs are used, this may not be sufficient. */
+//   65 #endif
+//   66 
+//   67 #if GUI_OS
+//   68 
+//   69 /*********************************************************************
+//   70 *
+//   71 *       Static data
+//   72 *
+//   73 **********************************************************************
+//   74 */
+//   75 
+//   76 static struct {
+//   77   U32  TaskID;
+//   78   GUI_CONTEXT Context;
+//   79 } _Save[GUI_MAXTASK];
+//   80 
+//   81 static int _CurrentTaskNo = -1;
+//   82 static int _EntranceCnt   =  0;
+//   83 static U32 _TaskIDLock = 0;
+//   84 
+//   85 /*********************************************************************
+//   86 *
+//   87 *       Static code
+//   88 *
+//   89 **********************************************************************
+//   90 */
+//   91 /*********************************************************************
+//   92 *
+//   93 *       _GetTaskNo
+//   94 */
+//   95 static int _GetTaskNo(void) {
+//   96   int i;
+//   97   for (i=0; i< GUI_MAXTASK; i++) {
+//   98     U32 TaskId = GUI_X_GetTaskId();
+//   99     if (_Save[i].TaskID == TaskId)
+//  100       return i;
+//  101     if (_Save[i].TaskID == 0) {
+//  102       _Save[i].TaskID = TaskId;
+//  103       return i;
+//  104     }
+//  105   }
+//  106   GUI_DEBUG_ERROROUT("No Context available for task ... (increase GUI_MAXTASK)");
+//  107   return 0;
+//  108 }
+//  109 
+//  110 /*********************************************************************
+//  111 *
+//  112 *       Public code
+//  113 *
+//  114 **********************************************************************
+//  115 */
+//  116 /*********************************************************************
+//  117 *
+//  118 *       GUI_Unlock
+//  119 */
+//  120 void GUI_Unlock(void) {
+//  121   if (--_EntranceCnt == 0) {
+//  122     GUI_X_Unlock();
+//  123   }
+//  124   /* Test if _EntranceCnt is in reasonable range ... Not required in release builds */
+//  125   GUI_DEBUG_ERROROUT_IF((_EntranceCnt < 0), "GUITASK.c: GUI_Unlock() _EntranceCnt underflow ");
+//  126 }
+//  127 
+//  128 /*********************************************************************
+//  129 *
+//  130 *       GUI_Lock
+//  131 */
+//  132 void GUI_Lock(void) {
+//  133   if (_EntranceCnt == 0) {
+//  134     GUI_X_Lock();
+//  135     _TaskIDLock = GUI_X_GetTaskId();         /* Save task ID */
+//  136   } else {
+//  137     if (_TaskIDLock != GUI_X_GetTaskId()) {
+//  138       GUI_X_Lock();
+//  139       _TaskIDLock = GUI_X_GetTaskId();         /* Save task ID */
+//  140     }
+//  141   }
+//  142   if (++_EntranceCnt == 1) {
+//  143     int TaskNo = _GetTaskNo();
+//  144     if (TaskNo != _CurrentTaskNo) {
+//  145       /* Save data of current task */
+//  146       if (_CurrentTaskNo>=0) {  /* Make sure _CurrentTaskNo is valid */
+//  147         _Save[_CurrentTaskNo].Context = GUI_Context;
+//  148         /* Load data of this task */
+//  149         GUI_Context = _Save[TaskNo].Context;
+//  150       }
+//  151       _CurrentTaskNo = TaskNo;
+//  152     }
+//  153   }
+//  154   /* Test if _EntranceCnt is in reasonable range ... Not required in release builds */
+//  155   GUI_DEBUG_ERROROUT_IF((_EntranceCnt > GUI_MAX_LOCK_NESTING), "GUITASK.c: GUI_Lock() _EntranceCnt overflow ");
+//  156 }
+//  157 
+//  158 /*********************************************************************
+//  159 *
+//  160 *       GUITASK_Init
+//  161 */
+//  162 void GUITASK_Init(void) {
+//  163   _CurrentTaskNo =-1;   /* Invalidate */
+//  164   GUI_X_InitOS();
+//  165 }
+//  166 
+//  167 
+//  168 /*********************************************************************
+//  169 *
+//  170 *       GUITASK_CopyContext
+//  171 */
+//  172 void GUITASK_CopyContext(void) {
+//  173   int i;
+//  174   for (i = 0; i < GUI_MAXTASK; i++) {
+//  175     _Save[i].Context = GUI_Context;
+//  176     _Save[i].TaskID  = 0;
+//  177   }
+//  178 }
+//  179 
+//  180 
+//  181 #if defined(WIN32) && defined(_DEBUG)
+//  182 
+//  183 /*********************************************************************
+//  184 *
+//  185 *       GUITASK_AssertLock
+//  186 *
+//  187 */
+//  188 void GUITASK_AssertLock(void) {  
+//  189   if (!_EntranceCnt) {
+//  190     GUI_DEBUG_ERROROUT("GUITASK.c: GUITASK_AssertLock failed!");
+//  191   }
+//  192 }
+//  193 
+//  194 /*********************************************************************
+//  195 *
+//  196 *       GUITASK_AssertNoLock
+//  197 *
+//  198 */
+//  199 void GUITASK_AssertNoLock(void) {  
+//  200   GUI_Lock();
+//  201   if (_EntranceCnt > 1) {
+//  202     GUI_DEBUG_ERROROUT("GUITASK.c: GUITASK_AssertNoLock failed!");
+//  203   }
+//  204   GUI_Unlock();
+//  205 }
+//  206 
+//  207 #endif
+//  208 
+//  209 #else
+//  210 
+//  211 /*********************************************************************
+//  212 *
+//  213 *       Dummy Kernel routines
+//  214 *
+//  215 * The routines below are dummies in case configuration tells us not
+//  216 * to use any kernel. In this case the routines below should
+//  217 * not be required, but it can not hurt to have them. The linker
+//  218 * will eliminate them anyhow.
+//  219 */
+//  220 void GUI_Unlock(void);
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  221 void GUI_Unlock(void) {}
+GUI_Unlock:
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function GUI_Unlock
+        CODE
+        ; Saved register size: 0
+        ; Auto size: 0
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock0
+//  222 void GUI_Lock(void);
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  223 void GUI_Lock(void) {}
+GUI_Lock:
+        CFI Block cfiBlock1 Using cfiCommon0
+        CFI Function GUI_Lock
+        CODE
+        ; Saved register size: 0
+        ; Auto size: 0
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock1
+//  224 void GUITASK_Init(void);
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  225 void GUITASK_Init(void) {}
+GUITASK_Init:
+        CFI Block cfiBlock2 Using cfiCommon0
+        CFI Function GUITASK_Init
+        CODE
+        ; Saved register size: 0
+        ; Auto size: 0
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock2
+//  226 void GUITASK_StoreDefaultContext(void);
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  227 void GUITASK_StoreDefaultContext(void) {}
+GUITASK_StoreDefaultContext:
+        CFI Block cfiBlock3 Using cfiCommon0
+        CFI Function GUITASK_StoreDefaultContext
+        CODE
+        ; Saved register size: 0
+        ; Auto size: 0
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock3
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??GUI_Unlock?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    GUI_Unlock
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??GUI_Lock?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    GUI_Lock
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??GUITASK_Init?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    GUITASK_Init
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??GUITASK_StoreDefaultContext?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    GUITASK_StoreDefaultContext
+
+        END
+//  228 
+//  229 #endif
+//  230 
+//  231 /*************************** End of file ****************************/
+// 
+// 12 bytes in segment BANKED_CODE
+// 24 bytes in segment BANK_RELAYS
+// 
+// 36 bytes of CODE memory
+//
+//Errors: none
+//Warnings: none

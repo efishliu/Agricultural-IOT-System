@@ -1,0 +1,840 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V8.10.1.10194/W32 for 8051        14/Jun/2016  16:50:11 /
+// Copyright 2004-2011 IAR Systems AB.                                        /
+//                                                                            /
+//    Core               =  plain                                             /
+//    Code model         =  banked                                            /
+//    Data model         =  large                                             /
+//    Calling convention =  xdata reentrant                                   /
+//    Constant location  =  data_rom                                          /
+//    Dptr setup         =  1,16                                              /
+//    Source file        =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\Public\OSAL_SerialApp.c         /
+//    Command line       =  -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂ /
+//                          ç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack /
+//                          \Utilities\SerialApp\CC2530DB\..\..\..\Tools\CC25 /
+//                          30DB\f8wEndev.cfg (-DCPU32MHZ -DROOT=__near_func  /
+//                          -DMAC_CFG_TX_DATA_MAX=3 -DMAC_CFG_TX_MAX=6        /
+//                          -DMAC_CFG_RX_MAX=3) -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹ /
+//                          âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2. /
+//                          5.1a\Projects\zstack\Utilities\SerialApp\CC2530DB /
+//                          \..\..\..\Tools\CC2530DB\f8wConfig.cfg            /
+//                          (-DZIGBEEPRO -DSECURE=0 -DZG_SECURE_DYNAMIC=0     /
+//                          -DREFLECTOR -DDEFAULT_CHANLIST=0x00000800         /
+//                          -DZDAPP_CONFIG_PAN_ID=0x1001                      /
+//                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
+//                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
+//                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
+//                          -DLINK_STATUS_JITTER_MASK=0x007F                  /
+//                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_P /
+//                          OLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7           /
+//                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3   /
+//                          -DNWK_MAX_DATA_RETRIES=2                          /
+//                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9        /
+//                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40          /
+//                          -DNWK_MAX_BINDING_ENTRIES=4                       /
+//                          -DMAX_BINDING_CLUSTER_IDS=4                       /
+//                          "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07, 0x09,     /
+//                          0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08,   /
+//                          0x0A, 0x0C, 0x0D}" -DMAC_MAX_FRAME_SIZE=116       /
+//                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const    /
+//                          __code" -DGENERIC=__generic                       /
+//                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
+//                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
+//                          -DREJOIN_POLL_RATE=440 F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹ /
+//                          âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2. /
+//                          5.1a\Projects\zstack\Utilities\SerialApp\Public\O /
+//                          SAL_SerialApp.c -D NWK_AUTO_POLL -D               /
+//                          HAL_UART=TRUE -D SERIAL_APP_PORT=0 -D             /
+//                          xPOWER_SAVING -D NV_INIT -D FM1702SL -lC          /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\FM1702SL\List\ -lA     /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\FM1702SL\List\         /
+//                          --diag_suppress Pe001,Pa010 -o                    /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\FM1702SL\Obj\ -e       /
+//                          --no_code_motion --debug --core=plain             /
+//                          --dptr=16,1 --data_model=large                    /
+//                          --code_model=banked --calling_convention=xdata_re /
+//                          entrant --place_constants=data_rom                /
+//                          --nr_virtual_regs 16 -I                           /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\ -I                    /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\FM1702SL\ -I        /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\Public\ -I          /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\ZMain\TI2530D /
+//                          B\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBee /
+//                          ÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zst /
+//                          ack\Utilities\SerialApp\CC2530DB\..\..\..\..\..\C /
+//                          omponents\hal\include\ -I                         /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\hal\target\CC2530EB\ -I                       /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mac\include\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ /
+//                          ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Utilities\SerialApp\CC2530DB\.. /
+//                          \..\..\..\..\Components\mac\high_level\ -I        /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mac\low_level\srf04\ -I                       /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mac\low_level\srf04\single_chip\ -I           /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mt\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Z /
+//                          igBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Project /
+//                          s\zstack\Utilities\SerialApp\CC2530DB\..\..\..\.. /
+//                          \..\Components\osal\include\ -I                   /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\services\saddr\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹ /
+//                          âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2. /
+//                          5.1a\Projects\zstack\Utilities\SerialApp\CC2530DB /
+//                          \..\..\..\..\..\Components\services\sdata\ -I     /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\stack\af\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁ /
+//                          Ï210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\P /
+//                          rojects\zstack\Utilities\SerialApp\CC2530DB\..\.. /
+//                          \..\..\..\Components\stack\nwk\ -I                /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\stack\sapi\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ× /
+//                          ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a /
+//                          \Projects\zstack\Utilities\SerialApp\CC2530DB\..\ /
+//                          ..\..\..\..\Components\stack\sec\ -I              /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\stack\sys\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×Ê /
+//                          ÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\ /
+//                          Projects\zstack\Utilities\SerialApp\CC2530DB\..\. /
+//                          .\..\..\..\Components\stack\zdo\ -I               /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\zmac\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210 /
+//                          \ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proje /
+//                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ /
+//                          ..\..\Components\zmac\f8w\ -Ohz                   /
+//                          --require_prototypes                              /
+//    List file          =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\FM1702SL\List\OSAL_Ser /
+//                          ialApp.s51                                        /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME OSAL_SerialApp
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+        EXTERN __INIT_XDATA_Z
+
+        PUBLIC ??osalInitTasks?relay
+        FUNCTION ??osalInitTasks?relay,0203H
+        PUBLIC osalInitTasks
+        FUNCTION osalInitTasks,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC tasksArr
+        PUBLIC tasksCnt
+        PUBLIC tasksEvents
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA_SP SP IDATA
+        CFI StackFrame CFA_PSP16 PSP16 XDATA
+        CFI StackFrame CFA_XSP16 XSP16 XDATA
+        CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+        CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+        CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+        CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+        CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+        CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+        CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+        CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+        CFI Resource V8:8, V9:8, V10:8, V11:8, V12:8, V13:8, V14:8, V15:8, SP:8
+        CFI Resource PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+        CFI VirtualResource ?RET:24
+        CFI Resource ?BRET_EXT:8
+        CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+        CFI ResourceParts PSP16 PSPH, PSPL
+        CFI ResourceParts XSP16 XSPH, XSPL
+        CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign -1
+        CFI ReturnAddress ?RET CODE
+        CFI CFA_DOVERLAY Used
+        CFI CFA_IOVERLAY Used
+        CFI CFA_SP SP+-3
+        CFI CFA_PSP16 PSP16+0
+        CFI CFA_XSP16 XSP16+0
+        CFI `PSW.CY` SameValue
+        CFI `B.BR0` SameValue
+        CFI `B.BR1` SameValue
+        CFI `B.BR2` SameValue
+        CFI `B.BR3` SameValue
+        CFI `B.BR4` SameValue
+        CFI `B.BR5` SameValue
+        CFI `B.BR6` SameValue
+        CFI `B.BR7` SameValue
+        CFI `VB.BR8` SameValue
+        CFI `VB.BR9` SameValue
+        CFI `VB.BR10` SameValue
+        CFI `VB.BR11` SameValue
+        CFI `VB.BR12` SameValue
+        CFI `VB.BR13` SameValue
+        CFI `VB.BR14` SameValue
+        CFI `VB.BR15` SameValue
+        CFI VB SameValue
+        CFI B Undefined
+        CFI A Undefined
+        CFI PSW SameValue
+        CFI DPL0 SameValue
+        CFI DPH0 SameValue
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 Undefined
+        CFI R5 Undefined
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI V0 SameValue
+        CFI V1 SameValue
+        CFI V2 SameValue
+        CFI V3 SameValue
+        CFI V4 SameValue
+        CFI V5 SameValue
+        CFI V6 SameValue
+        CFI V7 SameValue
+        CFI V8 SameValue
+        CFI V9 SameValue
+        CFI V10 SameValue
+        CFI V11 SameValue
+        CFI V12 SameValue
+        CFI V13 SameValue
+        CFI V14 SameValue
+        CFI V15 SameValue
+        CFI PSPH Undefined
+        CFI PSPL Undefined
+        CFI XSPH Undefined
+        CFI XSPL Undefined
+        CFI ?RET Concat
+        CFI ?BRET_EXT Frame(CFA_SP, 3)
+        CFI ?RET_HIGH Frame(CFA_SP, 2)
+        CFI ?RET_LOW Frame(CFA_SP, 1)
+        CFI EndCommon cfiCommon0
+        
+osal_mem_alloc      SYMBOL "osal_mem_alloc"
+osal_memset         SYMBOL "osal_memset"
+macTaskInit         SYMBOL "macTaskInit"
+nwk_init            SYMBOL "nwk_init"
+Hal_Init            SYMBOL "Hal_Init"
+APS_Init            SYMBOL "APS_Init"
+APSF_Init           SYMBOL "APSF_Init"
+ZDApp_Init          SYMBOL "ZDApp_Init"
+SerialApp_Init      SYMBOL "SerialApp_Init"
+??APSF_Init?relay   SYMBOL "?relay", APSF_Init
+`?<Name APSF_ProcessEvent 10>` SYMBOL "APSF_ProcessEvent"
+??APSF_ProcessEvent?relay SYMBOL "?relay", `?<Name APSF_ProcessEvent 10>`
+??APS_Init?relay    SYMBOL "?relay", APS_Init
+`?<Name APS_event_loop 13>` SYMBOL "APS_event_loop"
+??APS_event_loop?relay SYMBOL "?relay", `?<Name APS_event_loop 13>`
+??Hal_Init?relay    SYMBOL "?relay", Hal_Init
+`?<Name Hal_ProcessEvent 16>` SYMBOL "Hal_ProcessEvent"
+??Hal_ProcessEvent?relay SYMBOL "?relay", `?<Name Hal_ProcessEvent 16>`
+??SerialApp_Init?relay SYMBOL "?relay", SerialApp_Init
+`?<Name SerialApp_ProcessEve 19>` SYMBOL "SerialApp_ProcessEvent"
+??SerialApp_ProcessEvent?relay SYMBOL "?relay", `?<Name SerialApp_ProcessEve 19>`
+??ZDApp_Init?relay  SYMBOL "?relay", ZDApp_Init
+`?<Name ZDApp_event_loop 22>` SYMBOL "ZDApp_event_loop"
+??ZDApp_event_loop?relay SYMBOL "?relay", `?<Name ZDApp_event_loop 22>`
+`?<Name macEventLoop 24>` SYMBOL "macEventLoop"
+??macEventLoop?relay SYMBOL "?relay", `?<Name macEventLoop 24>`
+??macTaskInit?relay SYMBOL "?relay", macTaskInit
+`?<Name nwk_event_loop 27>` SYMBOL "nwk_event_loop"
+??nwk_event_loop?relay SYMBOL "?relay", `?<Name nwk_event_loop 27>`
+??nwk_init?relay    SYMBOL "?relay", nwk_init
+??osal_mem_alloc?relay SYMBOL "?relay", osal_mem_alloc
+??osal_memset?relay SYMBOL "?relay", osal_memset
+osalInitTasks       SYMBOL "osalInitTasks"
+??osalInitTasks?relay SYMBOL "?relay", osalInitTasks
+
+        EXTERN osal_mem_alloc
+        FUNCTION osal_mem_alloc,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_memset
+        FUNCTION osal_memset,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN macTaskInit
+        FUNCTION macTaskInit,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN nwk_init
+        FUNCTION nwk_init,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN Hal_Init
+        FUNCTION Hal_Init,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN APS_Init
+        FUNCTION APS_Init,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN APSF_Init
+        FUNCTION APSF_Init,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ZDApp_Init
+        FUNCTION ZDApp_Init,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN SerialApp_Init
+        FUNCTION SerialApp_Init,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ??APSF_Init?relay
+        FUNCTION ??APSF_Init?relay,00H
+        EXTERN ??APSF_ProcessEvent?relay
+        FUNCTION ??APSF_ProcessEvent?relay,00H
+        EXTERN ??APS_Init?relay
+        FUNCTION ??APS_Init?relay,00H
+        EXTERN ??APS_event_loop?relay
+        FUNCTION ??APS_event_loop?relay,00H
+        EXTERN ??Hal_Init?relay
+        FUNCTION ??Hal_Init?relay,00H
+        EXTERN ??Hal_ProcessEvent?relay
+        FUNCTION ??Hal_ProcessEvent?relay,00H
+        EXTERN ??SerialApp_Init?relay
+        FUNCTION ??SerialApp_Init?relay,00H
+        EXTERN ??SerialApp_ProcessEvent?relay
+        FUNCTION ??SerialApp_ProcessEvent?relay,00H
+        EXTERN ??ZDApp_Init?relay
+        FUNCTION ??ZDApp_Init?relay,00H
+        EXTERN ??ZDApp_event_loop?relay
+        FUNCTION ??ZDApp_event_loop?relay,00H
+        EXTERN ??macEventLoop?relay
+        FUNCTION ??macEventLoop?relay,00H
+        EXTERN ??macTaskInit?relay
+        FUNCTION ??macTaskInit?relay,00H
+        EXTERN ??nwk_event_loop?relay
+        FUNCTION ??nwk_event_loop?relay,00H
+        EXTERN ??nwk_init?relay
+        FUNCTION ??nwk_init?relay,00H
+        EXTERN ??osal_mem_alloc?relay
+        FUNCTION ??osal_mem_alloc?relay,00H
+        EXTERN ??osal_memset?relay
+        FUNCTION ??osal_memset?relay,00H
+
+// F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Utilities\SerialApp\Public\OSAL_SerialApp.c
+//    1 /**************************************************************************************************
+//    2   Filename:       OSAL_SerialApp.c
+//    3   Revised:        $Date: 2008-02-07 12:10:00 -0800 (Thu, 07 Feb 2008) $
+//    4   Revision:       $Revision: 16360 $
+//    5 
+//    6   Description:    This file contains all the settings and other functions
+//    7                   that the user should set and change.
+//    8 
+//    9 
+//   10   Copyright 2004-2007 Texas Instruments Incorporated. All rights reserved.
+//   11 
+//   12   IMPORTANT: Your use of this Software is limited to those specific rights
+//   13   granted under the terms of a software license agreement between the user
+//   14   who downloaded the software, his/her employer (which must be your employer)
+//   15   and Texas Instruments Incorporated (the "License").  You may not use this
+//   16   Software unless you agree to abide by the terms of the License. The License
+//   17   limits your use, and you acknowledge, that the Software may not be modified,
+//   18   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   19   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   20   frequency transceiver, which is integrated into your product.  Other than for
+//   21   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   22   works of, modify, distribute, perform, display or sell this Software and/or
+//   23   its documentation for any purpose.
+//   24 
+//   25   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   26   PROVIDED “AS IS?WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   27   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//   28   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   29   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   30   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   31   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   32   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   33   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   34   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   35   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   36 
+//   37   Should you have any questions regarding your right to use this Software,
+//   38   contact Texas Instruments Incorporated at www.TI.com.
+//   39 **************************************************************************************************/
+//   40 
+//   41 /*********************************************************************
+//   42  * INCLUDES
+//   43  */
+//   44 #include "ZComDef.h"
+//   45 #include "hal_drivers.h"
+//   46 #include "OSAL.h"
+//   47 #include "OSAL_Tasks.h"
+//   48 
+//   49 #if defined ( MT_TASK )
+//   50   #include "MT.h"
+//   51   #include "MT_TASK.h"
+//   52 #endif
+//   53 
+//   54 #include "nwk.h"
+//   55 #include "APS.h"
+//   56 #include "ZDApp.h"
+//   57 #if defined ( ZIGBEE_FREQ_AGILITY ) || defined ( ZIGBEE_PANID_CONFLICT )
+//   58   #include "ZDNwkMgr.h"
+//   59 #endif
+//   60 #if defined ( ZIGBEE_FRAGMENTATION )
+//   61   #include "aps_frag.h"
+//   62 #endif
+//   63 
+//   64 #ifdef COOR
+//   65   #include "Coordinator.h"
+//   66 #endif
+//   67 
+//   68 #ifdef COORSHOW
+//   69   #include "CoordinatorShow.h"
+//   70 #endif
+//   71 
+//   72 #ifdef ROUTER
+//   73   #include "Router.h"
+//   74 #endif
+//   75 
+//   76 #ifdef MOTOR
+//   77   #include "Motor.h"
+//   78 #endif
+//   79 
+//   80 #ifdef PHOTO
+//   81   #include "Photo.h"
+//   82 #endif
+//   83 
+//   84 #ifdef SHAKE
+//   85   #include "Shake.h"
+//   86 #endif
+//   87 
+//   88 #ifdef SMOKE
+//   89   #include "Smoke.h"
+//   90 #endif
+//   91 
+//   92 #ifdef HALL
+//   93   #include "Hall.h"
+//   94 #endif
+//   95 
+//   96 #ifdef REED
+//   97   #include "Reed.h"
+//   98 #endif
+//   99 
+//  100 #ifdef DOPPLER
+//  101   #include "Doppler.h"
+//  102 #endif
+//  103 
+//  104 #ifdef TOUCH
+//  105   #include "Touch.h"
+//  106 #endif
+//  107 
+//  108 #ifdef SOUND
+//  109   #include "Sound.h"
+//  110 #endif
+//  111 
+//  112 #ifdef TEMPANDHUM
+//  113   #include "TempAndHum.h"
+//  114 #endif
+//  115 
+//  116 #ifdef ACCELE
+//  117   #include "Accele.h"
+//  118 #endif
+//  119 
+//  120 #ifdef PWM
+//  121   #include "PWM.h"
+//  122 #endif
+//  123 
+//  124 #ifdef ULTRASOUND
+//  125   #include "Ultrasound.h"
+//  126 #endif
+//  127 
+//  128 #ifdef RFID
+//  129   #include "rfid.h"
+//  130 #endif
+//  131 
+//  132 #ifdef FM1702SL
+//  133   #include "fm1702sl.h"
+//  134 #endif
+//  135 
+//  136 #ifdef EM4095
+//  137   #include "EM4095.h"
+//  138 #endif
+//  139 
+//  140 #ifdef COLOR
+//  141   #include "Color.h"
+//  142 #endif
+//  143 
+//  144 #ifdef FIRE
+//  145   #include "Fire.h"
+//  146 #endif
+//  147 
+//  148 #ifdef PARTICLE
+//  149   #include "Particle.h"
+//  150 #endif
+//  151 
+//  152 #ifdef GYROSCOPE
+//  153   #include "Gyroscope.h"
+//  154 #endif
+//  155 
+//  156 #ifdef IR
+//  157   #include "IR.h"
+//  158 #endif
+//  159 
+//  160 #ifdef ALCOHOL
+//  161   #include "Alcohol.h"
+//  162 #endif
+//  163 
+//  164 #ifdef RELAY
+//  165   #include "Relay.h"
+//  166 #endif
+//  167 
+//  168 #ifdef AS3992
+//  169   #include "as3992.h"
+//  170 #endif
+//  171 /*********************************************************************
+//  172  * GLOBAL VARIABLES
+//  173  */
+//  174 
+//  175 // The order in this table must be identical to the task initialization calls below in osalInitTask.
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  176 const pTaskEventHandlerFn tasksArr[] = {
+tasksArr:
+        DATA16
+        DW ??macEventLoop?relay
+        DW ??nwk_event_loop?relay
+        DW ??Hal_ProcessEvent?relay
+        DW ??APS_event_loop?relay
+        DW ??APSF_ProcessEvent?relay
+        DW ??ZDApp_event_loop?relay
+        DW ??SerialApp_ProcessEvent?relay
+//  177   macEventLoop,
+//  178   nwk_event_loop,
+//  179   Hal_ProcessEvent,
+//  180 #if defined( MT_TASK )
+//  181   MT_ProcessEvent,
+//  182 #endif
+//  183   APS_event_loop,
+//  184 #if defined ( ZIGBEE_FRAGMENTATION )
+//  185   APSF_ProcessEvent,
+//  186 #endif
+//  187   ZDApp_event_loop,
+//  188 #if defined ( ZIGBEE_FREQ_AGILITY ) || defined ( ZIGBEE_PANID_CONFLICT )
+//  189   ZDNwkMgr_event_loop,
+//  190 #endif
+//  191   SerialApp_ProcessEvent
+//  192 };
+//  193 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  194 const uint8 tasksCnt = sizeof( tasksArr ) / sizeof( tasksArr[0] );
+tasksCnt:
+        DB 7
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA16
+//  195 uint16 *tasksEvents;
+tasksEvents:
+        DS 2
+        REQUIRE __INIT_XDATA_Z
+//  196 
+//  197 /*********************************************************************
+//  198  * FUNCTIONS
+//  199  *********************************************************************/
+//  200 
+//  201 /*********************************************************************
+//  202  * @fn      osalInitTasks
+//  203  *
+//  204  * @brief   This function invokes the initialization function for each task.
+//  205  *
+//  206  * @param   void
+//  207  *
+//  208  * @return  none
+//  209  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  210 void osalInitTasks( void )
+osalInitTasks:
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function osalInitTasks
+        CODE
+//  211 {
+        FUNCALL osalInitTasks, osal_mem_alloc
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL osalInitTasks, osal_memset
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL osalInitTasks, macTaskInit
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL osalInitTasks, nwk_init
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL osalInitTasks, Hal_Init
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL osalInitTasks, APS_Init
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL osalInitTasks, APSF_Init
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL osalInitTasks, ZDApp_Init
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL osalInitTasks, SerialApp_Init
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI CFA_SP SP+-4
+        PUSH    DPH
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  212   uint8 taskID = 0;
+//  213 
+//  214   tasksEvents = (uint16 *)osal_mem_alloc( sizeof( uint16 ) * tasksCnt);
+        ; Setup parameters for call to function osal_mem_alloc
+        MOV     R2,#0xe
+        MOV     R3,#0x0
+        LCALL   ??osal_mem_alloc?relay
+        MOV     DPTR,#tasksEvents
+        MOV     A,R2
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,R3
+        MOVX    @DPTR,A
+//  215   osal_memset( tasksEvents, 0, (sizeof( uint16 ) * tasksCnt));
+        ; Setup parameters for call to function osal_memset
+        MOV     R4,#0xe
+        MOV     R5,#0x0
+        MOV     R1,#0x0
+        LCALL   ??osal_memset?relay
+//  216 
+//  217   macTaskInit( taskID++ );
+        ; Setup parameters for call to function macTaskInit
+        MOV     R1,#0x0
+        LCALL   ??macTaskInit?relay
+//  218   nwk_init( taskID++ );
+        ; Setup parameters for call to function nwk_init
+        MOV     R1,#0x1
+        LCALL   ??nwk_init?relay
+//  219   Hal_Init( taskID++ );
+        ; Setup parameters for call to function Hal_Init
+        MOV     R1,#0x2
+        LCALL   ??Hal_Init?relay
+//  220 #if defined( MT_TASK )
+//  221   MT_TaskInit( taskID++ );
+//  222 #endif
+//  223   APS_Init( taskID++ );
+        ; Setup parameters for call to function APS_Init
+        MOV     R1,#0x3
+        LCALL   ??APS_Init?relay
+//  224 #if defined ( ZIGBEE_FRAGMENTATION )
+//  225   APSF_Init( taskID++ );
+        ; Setup parameters for call to function APSF_Init
+        MOV     R1,#0x4
+        LCALL   ??APSF_Init?relay
+//  226 #endif
+//  227   ZDApp_Init( taskID++ );
+        ; Setup parameters for call to function ZDApp_Init
+        MOV     R1,#0x5
+        LCALL   ??ZDApp_Init?relay
+//  228 #if defined ( ZIGBEE_FREQ_AGILITY ) || defined ( ZIGBEE_PANID_CONFLICT )
+//  229   ZDNwkMgr_Init( taskID++ );
+//  230 #endif
+//  231   SerialApp_Init( taskID );
+        ; Setup parameters for call to function SerialApp_Init
+        MOV     R1,#0x6
+        LCALL   ??SerialApp_Init?relay
+//  232 }
+        POP     DPH
+        CFI DPH0 SameValue
+        CFI CFA_SP SP+-4
+        POP     DPL
+        CFI DPL0 SameValue
+        CFI CFA_SP SP+-3
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock0
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??osalInitTasks?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    osalInitTasks
+
+        END
+//  233 
+//  234 /*********************************************************************
+//  235 *********************************************************************/
+// 
+// 70 bytes in segment BANKED_CODE
+//  6 bytes in segment BANK_RELAYS
+// 15 bytes in segment XDATA_ROM_C
+//  2 bytes in segment XDATA_Z
+// 
+// 76 bytes of CODE  memory
+// 15 bytes of CONST memory
+//  2 bytes of XDATA memory
+//
+//Errors: none
+//Warnings: none

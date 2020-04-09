@@ -1,0 +1,797 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.1.10194/W32 for 8051         14/Jun/2016  16:18:43 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\Cor #
+#                          e\LCDAA.c                                          #
+#    Command line       =  -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\..\..\..\Tools\CC2530D #
+#                          B\f8wCoord.cfg (-DCPU32MHZ -DROOT=__near_func      #
+#                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                   #
+#                          -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8         #
+#                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)    #
+#                          -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\..\..\..\Tools\CC2530D #
+#                          B\f8wConfig.cfg (-DZIGBEEPRO -DSECURE=0            #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0x1001                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹â #
+#                          ÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5. #
+#                          1a\Components\uCGUI\Core\LCDAA.c -D HAL_UART=TRUE  #
+#                          -D SERIAL_APP_PORT=0 -D COOR -D LCD_SUPPORTED -D   #
+#                          NV_INIT -lC F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Z #
+#                          igBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects #
+#                          \zstack\Utilities\SerialApp\CC2530DB\CoordinatorEB #
+#                          \List\ -lA F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Zi #
+#                          gBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\ #
+#                          zstack\Utilities\SerialApp\CC2530DB\CoordinatorEB\ #
+#                          List\ --diag_suppress Pe001,Pa010 -o               #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\Obj\ -e     #
+#                          --no_code_motion --debug --core=plain --dptr=16,1  #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\ -I                    #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\Public\ -I             #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \uCGUI\Core\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ2 #
+#                          10\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ #
+#                          ..\..\Components\uCGUI\MultiLayer\ -I              #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \uCGUI\Config\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁ #
+#                          Ï210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Pr #
+#                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\Coor #
+#                          dinator\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Z #
+#                          igBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects #
+#                          \zstack\Utilities\SerialApp\CC2530DB\..\..\..\ZMai #
+#                          n\TI2530DB\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ21 #
+#                          0\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proje #
+#                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\. #
+#                          .\..\Components\hal\include\ -I                    #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \hal\target\CC2530EB\ -I                           #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\include\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ #
+#                          210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Pro #
+#                          jects\zstack\Utilities\SerialApp\CC2530DB\..\..\.. #
+#                          \..\..\Components\mac\high_level\ -I               #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\low_level\srf04\ -I                           #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\low_level\srf04\single_chip\ -I               #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mt\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBe #
+#                          eÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zst #
+#                          ack\Utilities\SerialApp\CC2530DB\..\..\..\..\..\Co #
+#                          mponents\osal\include\ -I                          #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \services\saddr\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ× #
+#                          ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\ #
+#                          Projects\zstack\Utilities\SerialApp\CC2530DB\..\.. #
+#                          \..\..\..\Components\services\sdata\ -I            #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\af\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210 #
+#                          \ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projec #
+#                          ts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\.. #
+#                          \..\Components\stack\nwk\ -I                       #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\sapi\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ2 #
+#                          10\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ #
+#                          ..\..\Components\stack\sec\ -I                     #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\sys\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ21 #
+#                          0\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proje #
+#                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\. #
+#                          .\..\Components\stack\zdo\ -I                      #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \zmac\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Zig #
+#                          BeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\z #
+#                          stack\Utilities\SerialApp\CC2530DB\..\..\..\..\..\ #
+#                          Components\zmac\f8w\ -Ohz --require_prototypes     #
+#    List file          =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\List\LCDAA. #
+#                          lst                                                #
+#    Object file        =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\Obj\LCDAA.r #
+#                          51                                                 #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\Core\LCDAA.c
+      1          /*
+      2          *********************************************************************************************************
+      3          *                                                uC/GUI
+      4          *                        Universal graphic software for embedded applications
+      5          *
+      6          *                       (c) Copyright 2002, Micrium Inc., Weston, FL
+      7          *                       (c) Copyright 2002, SEGGER Microcontroller Systeme GmbH
+      8          *
+      9          *              µC/GUI is protected by international copyright laws. Knowledge of the
+     10          *              source code may not be used to write a similar product. This file may
+     11          *              only be used in accordance with a license and should not be redistributed
+     12          *              in any way. We appreciate your understanding and fairness.
+     13          *
+     14          ----------------------------------------------------------------------
+     15          File        : LCDAA.c
+     16          Purpose     : Low level antialiasing routines.
+     17          ---------------------------END-OF-HEADER------------------------------
+     18          */
+     19          
+     20          #define LCD_C
+     21          
+     22          #include <stddef.h>           /* needed for definition of NULL */
+     23          #include "LCD.h"
+     24          #include "GUI_Private.h"
+     25          #include "LCD_Private.h"
+     26          
+     27          /*********************************************************************
+     28          *
+     29          *       Defines
+     30          *
+     31          **********************************************************************
+     32          */
+     33          
+     34          #define RETURN_IF_Y_OUT() \
+     35            if (y < GUI_Context.ClipRect.y0)                     \
+     36              return;                                            \
+     37            if (y > GUI_Context.ClipRect.y1)                     \
+     38              return;
+     39          
+     40          #define RETURN_IF_X_OUT() \
+     41            if (x < GUI_Context.ClipRect.x0) return;             \
+     42            if (x > GUI_Context.ClipRect.x1) return;
+     43          
+     44          #define CLIP_X() \
+     45            if (x0 < GUI_Context.ClipRect.x0) { x0 = GUI_Context.ClipRect.x0; } \
+     46            if (x1 > GUI_Context.ClipRect.x1) { x1 = GUI_Context.ClipRect.x1; }
+     47          
+     48          #define CLIP_Y() \
+     49            if (y0 < GUI_Context.ClipRect.y0) { y0 = GUI_Context.ClipRect.y0; } \
+     50            if (y1 > GUI_Context.ClipRect.y1) { y1 = GUI_Context.ClipRect.y1; }
+     51          
+     52          /*********************************************************************
+     53          *
+     54          *       Public code
+     55          *
+     56          **********************************************************************
+     57          */
+     58          /*********************************************************************
+     59          *
+     60          *       LCD_AA_MixColors
+     61          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     62          LCD_COLOR LCD_AA_MixColors(LCD_COLOR Color, LCD_COLOR BkColor, U8 Intens) {
+   \                     LCD_AA_MixColors:
+   \   000000   74E8         MOV     A,#-0x18
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 24
+   \   000005                ; Auto size: 12
+   \   000005   74F4         MOV     A,#-0xc
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   8A..         MOV     ?V0 + 8,R2
+   \   00000C   8B..         MOV     ?V0 + 9,R3
+   \   00000E   8C..         MOV     ?V0 + 10,R4
+   \   000010   8D..         MOV     ?V0 + 11,R5
+   \   000012   E9           MOV     A,R1
+   \   000013   FE           MOV     R6,A
+   \   000014   7424         MOV     A,#0x24
+   \   000016   12....       LCALL   ?XSTACK_DISP0_8
+   \   000019   78..         MOV     R0,#?V0 + 0
+   \   00001B   12....       LCALL   ?L_MOV_X
+     63            /* Calc Color seperations for FgColor first */
+     64            I32 R = (Color&0xff)*Intens;
+   \   00001E   EE           MOV     A,R6
+   \   00001F   F5..         MOV     ?V0 + 12,A
+   \   000021   E4           CLR     A
+   \   000022   F5..         MOV     ?V0 + 13,A
+   \   000024   F5..         MOV     ?V0 + 14,A
+   \   000026   F5..         MOV     ?V0 + 15,A
+   \   000028   8A..         MOV     ?V0 + 4,R2
+   \   00002A   8B..         MOV     ?V0 + 5,R3
+   \   00002C   8C..         MOV     ?V0 + 6,R4
+   \   00002E   8D..         MOV     ?V0 + 7,R5
+   \   000030   90....       MOV     DPTR,#__Constant_ff
+   \   000033   78..         MOV     R0,#?V0 + 4
+   \   000035   12....       LCALL   ?L_AND_X
+   \   000038   78..         MOV     R0,#?V0 + 4
+   \   00003A   79..         MOV     R1,#?V0 + 12
+   \   00003C   12....       LCALL   ?L_MUL
+   \   00003F   7408         MOV     A,#0x8
+   \   000041   12....       LCALL   ?XSTACK_DISP0_8
+   \   000044   78..         MOV     R0,#?V0 + 4
+   \   000046   12....       LCALL   ?L_MOV_TO_X
+     65            I32 G = (Color&0xff00)*Intens;
+   \   000049   8A..         MOV     ?V0 + 4,R2
+   \   00004B   8B..         MOV     ?V0 + 5,R3
+   \   00004D   8C..         MOV     ?V0 + 6,R4
+   \   00004F   8D..         MOV     ?V0 + 7,R5
+   \   000051   90....       MOV     DPTR,#__Constant_ff00
+   \   000054   78..         MOV     R0,#?V0 + 4
+   \   000056   12....       LCALL   ?L_AND_X
+   \   000059   78..         MOV     R0,#?V0 + 4
+   \   00005B   79..         MOV     R1,#?V0 + 12
+   \   00005D   12....       LCALL   ?L_MUL
+   \   000060   7404         MOV     A,#0x4
+   \   000062   12....       LCALL   ?XSTACK_DISP0_8
+   \   000065   78..         MOV     R0,#?V0 + 4
+   \   000067   12....       LCALL   ?L_MOV_TO_X
+     66            I32 B = (Color&0xff0000)*Intens;
+   \   00006A   90....       MOV     DPTR,#__Constant_ff0000
+   \   00006D   78..         MOV     R0,#?V0 + 8
+   \   00006F   12....       LCALL   ?L_AND_X
+   \   000072   78..         MOV     R0,#?V0 + 8
+   \   000074   79..         MOV     R1,#?V0 + 12
+   \   000076   12....       LCALL   ?L_MUL
+   \   000079   85..82       MOV     DPL,?XSP + 0
+   \   00007C   85..83       MOV     DPH,?XSP + 1
+   \   00007F   78..         MOV     R0,#?V0 + 8
+   \   000081   12....       LCALL   ?L_MOV_TO_X
+     67            /* Add Color seperations for BkColor */
+     68            Intens = 15-Intens;
+   \   000084   740F         MOV     A,#0xf
+   \   000086   C3           CLR     C
+   \   000087   9E           SUBB    A,R6
+     69            R += (BkColor&0xff)*Intens;
+     70            G += (BkColor&0xff00)*Intens;
+     71            B += (BkColor&0xff0000)*Intens;
+     72            R = (R/15)&0xff;
+     73            G = (G/15)&0xff00;
+     74            B = (B/15)&0xff0000;
+     75            Color = R+G+B;
+     76            return Color;
+   \   000088   F5..         MOV     ?V0 + 4,A
+   \   00008A   E4           CLR     A
+   \   00008B   F5..         MOV     ?V0 + 5,A
+   \   00008D   F5..         MOV     ?V0 + 6,A
+   \   00008F   F5..         MOV     ?V0 + 7,A
+   \   000091   7408         MOV     A,#0x8
+   \   000093   12....       LCALL   ?XSTACK_DISP0_8
+   \   000096   C082         PUSH    DPL
+   \   000098   C083         PUSH    DPH
+   \   00009A   85....       MOV     ?V0 + 8,?V0 + 0
+   \   00009D   85....       MOV     ?V0 + 9,?V0 + 1
+   \   0000A0   85....       MOV     ?V0 + 10,?V0 + 2
+   \   0000A3   85....       MOV     ?V0 + 11,?V0 + 3
+   \   0000A6   90....       MOV     DPTR,#__Constant_ff
+   \   0000A9   78..         MOV     R0,#?V0 + 8
+   \   0000AB   12....       LCALL   ?L_AND_X
+   \   0000AE   78..         MOV     R0,#?V0 + 8
+   \   0000B0   79..         MOV     R1,#?V0 + 4
+   \   0000B2   12....       LCALL   ?L_MUL
+   \   0000B5   D083         POP     DPH
+   \   0000B7   D082         POP     DPL
+   \   0000B9   78..         MOV     R0,#?V0 + 8
+   \   0000BB   12....       LCALL   ?L_ADD_X
+   \   0000BE   90....       MOV     DPTR,#__Constant_f
+   \   0000C1   78..         MOV     R0,#?V0 + 12
+   \   0000C3   12....       LCALL   ?L_MOV_X
+   \   0000C6   78..         MOV     R0,#?V0 + 8
+   \   0000C8   79..         MOV     R1,#?V0 + 12
+   \   0000CA   12....       LCALL   ?L_DIV_MOD
+   \   0000CD   90....       MOV     DPTR,#__Constant_ff
+   \   0000D0   78..         MOV     R0,#?V0 + 8
+   \   0000D2   12....       LCALL   ?L_AND_X
+   \   0000D5   C0..         PUSH    ?V0 + 8
+   \   0000D7   C0..         PUSH    ?V0 + 9
+   \   0000D9   C0..         PUSH    ?V0 + 10
+   \   0000DB   C0..         PUSH    ?V0 + 11
+   \   0000DD   7404         MOV     A,#0x4
+   \   0000DF   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000E2   C082         PUSH    DPL
+   \   0000E4   C083         PUSH    DPH
+   \   0000E6   85....       MOV     ?V0 + 12,?V0 + 0
+   \   0000E9   85....       MOV     ?V0 + 13,?V0 + 1
+   \   0000EC   85....       MOV     ?V0 + 14,?V0 + 2
+   \   0000EF   85....       MOV     ?V0 + 15,?V0 + 3
+   \   0000F2   90....       MOV     DPTR,#__Constant_ff00
+   \   0000F5   78..         MOV     R0,#?V0 + 12
+   \   0000F7   12....       LCALL   ?L_AND_X
+   \   0000FA   78..         MOV     R0,#?V0 + 12
+   \   0000FC   79..         MOV     R1,#?V0 + 4
+   \   0000FE   12....       LCALL   ?L_MUL
+   \   000101   D083         POP     DPH
+   \   000103   D082         POP     DPL
+   \   000105   78..         MOV     R0,#?V0 + 12
+   \   000107   12....       LCALL   ?L_ADD_X
+   \   00010A   90....       MOV     DPTR,#__Constant_f
+   \   00010D   78..         MOV     R0,#?V0 + 8
+   \   00010F   12....       LCALL   ?L_MOV_X
+   \   000112   78..         MOV     R0,#?V0 + 12
+   \   000114   79..         MOV     R1,#?V0 + 8
+   \   000116   12....       LCALL   ?L_DIV_MOD
+   \   000119   90....       MOV     DPTR,#__Constant_ff00
+   \   00011C   78..         MOV     R0,#?V0 + 12
+   \   00011E   12....       LCALL   ?L_AND_X
+   \   000121   D0..         POP     ?V0 + 11
+   \   000123   D0..         POP     ?V0 + 10
+   \   000125   D0..         POP     ?V0 + 9
+   \   000127   D0..         POP     ?V0 + 8
+   \   000129   78..         MOV     R0,#?V0 + 8
+   \   00012B   79..         MOV     R1,#?V0 + 12
+   \   00012D   12....       LCALL   ?L_ADD
+   \   000130   85..82       MOV     DPL,?XSP + 0
+   \   000133   85..83       MOV     DPH,?XSP + 1
+   \   000136   C082         PUSH    DPL
+   \   000138   C083         PUSH    DPH
+   \   00013A   90....       MOV     DPTR,#__Constant_ff0000
+   \   00013D   78..         MOV     R0,#?V0 + 0
+   \   00013F   12....       LCALL   ?L_AND_X
+   \   000142   78..         MOV     R0,#?V0 + 0
+   \   000144   79..         MOV     R1,#?V0 + 4
+   \   000146   12....       LCALL   ?L_MUL
+   \   000149   D083         POP     DPH
+   \   00014B   D082         POP     DPL
+   \   00014D   78..         MOV     R0,#?V0 + 0
+   \   00014F   12....       LCALL   ?L_ADD_X
+   \   000152   90....       MOV     DPTR,#__Constant_f
+   \   000155   78..         MOV     R0,#?V0 + 4
+   \   000157   12....       LCALL   ?L_MOV_X
+   \   00015A   78..         MOV     R0,#?V0 + 0
+   \   00015C   79..         MOV     R1,#?V0 + 4
+   \   00015E   12....       LCALL   ?L_DIV_MOD
+   \   000161   90....       MOV     DPTR,#__Constant_ff0000
+   \   000164   78..         MOV     R0,#?V0 + 0
+   \   000166   12....       LCALL   ?L_AND_X
+   \   000169   78..         MOV     R0,#?V0 + 8
+   \   00016B   79..         MOV     R1,#?V0 + 0
+   \   00016D   12....       LCALL   ?L_ADD
+   \   000170   AA..         MOV     R2,?V0 + 8
+   \   000172   AB..         MOV     R3,?V0 + 9
+   \   000174   AC..         MOV     R4,?V0 + 10
+   \   000176   AD..         MOV     R5,?V0 + 11
+   \   000178   740C         MOV     A,#0xc
+   \   00017A   12....       LCALL   ?DEALLOC_XSTACK8
+   \   00017D   7F10         MOV     R7,#0x10
+   \   00017F   02....       LJMP    ?BANKED_LEAVE_XDATA
+     77          }
+     78          
+     79          /*********************************************************************
+     80          *
+     81          *       LCD_SetPixelAA
+     82          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     83          void LCD_SetPixelAA(int x, int y, U8 Intens) {
+   \                     LCD_SetPixelAA:
+   \   000000   74EC         MOV     A,#-0x14
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 20
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+   \   000009   8C..         MOV     ?V0 + 0,R4
+   \   00000B   8D..         MOV     ?V0 + 1,R5
+   \   00000D   89..         MOV     ?V0 + 2,R1
+     84            if (Intens == 0)
+   \   00000F   E9           MOV     A,R1
+   \   000010   607A         JZ      ??LCD_SetPixelAA_0
+     85              return;
+     86            RETURN_IF_Y_OUT();
+   \   000012   12....       LCALL   ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_2:
+   \   000015   4075         JC      ??LCD_SetPixelAA_0
+   \   000017   90....       MOV     DPTR,#GUI_Context + 10
+   \   00001A   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_4:
+   \   00001D   406D         JC      ??LCD_SetPixelAA_0
+     87            RETURN_IF_X_OUT();
+   \   00001F   12....       LCALL   ?Subroutine4 & 0xFFFF
+   \                     ??CrossCallReturnLabel_14:
+   \   000022   EE           MOV     A,R6
+   \   000023   98           SUBB    A,R0
+   \   000024   EF           MOV     A,R7
+   \   000025   12....       LCALL   ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_10:
+   \   000028   4062         JC      ??LCD_SetPixelAA_0
+   \   00002A   90....       MOV     DPTR,#GUI_Context + 8
+   \   00002D   C3           CLR     C
+   \   00002E   E0           MOVX    A,@DPTR
+   \   00002F   9E           SUBB    A,R6
+   \   000030   A3           INC     DPTR
+   \   000031   E0           MOVX    A,@DPTR
+   \   000032   9F           SUBB    A,R7
+   \   000033   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   000035   65D0         XRL     A,PSW
+   \   000037   33           RLC     A
+   \   000038   4052         JC      ??LCD_SetPixelAA_0
+     88            if (Intens >= 15) {
+   \   00003A   E5..         MOV     A,?V0 + 2
+   \   00003C   C3           CLR     C
+   \   00003D   940F         SUBB    A,#0xf
+   \   00003F   90....       MOV     DPTR,#GUI_Context + 2
+   \   000042   4005         JC      ??LCD_SetPixelAA_1
+     89              LCDDEV_L0_SetPixelIndex(x,y, LCD_COLORINDEX);
+   \   000044                ; Setup parameters for call to function LCD_L0_SetPixelIndex
+   \   000044   12....       LCALL   ?PUSH_XSTACK8_X_TWO
+   \   000047   803B         SJMP    ??LCD_SetPixelAA_2
+     90            } else {
+     91              LCD_COLOR Color = LCD_Index2Color(LCD_COLORINDEX);
+   \                     ??LCD_SetPixelAA_1:
+   \   000049                ; Setup parameters for call to function LCD_Index2Color
+   \   000049   12....       LCALL   ?Subroutine0 & 0xFFFF
+     92              LCD_COLOR BkColor =  LCD_GetPixelColor(x,y);
+     93              Color = LCD_AA_MixColors(Color, BkColor, Intens);
+     94              LCDDEV_L0_SetPixelIndex(x,y, LCD_Color2Index(Color));
+   \                     ??CrossCallReturnLabel_0:
+   \   00004C                ; Setup parameters for call to function LCD_L0_SetPixelIndex
+   \   00004C                ; Setup parameters for call to function LCD_Color2Index
+   \   00004C                ; Setup parameters for call to function LCD_AA_MixColors
+   \   00004C                ; Setup parameters for call to function LCD_GetPixelColor
+   \   00004C   AC..         MOV     R4,?V0 + 0
+   \   00004E   AD..         MOV     R5,?V0 + 1
+   \   000050   EE           MOV     A,R6
+   \   000051   FA           MOV     R2,A
+   \   000052   EF           MOV     A,R7
+   \   000053   FB           MOV     R3,A
+   \   000054   12....       LCALL   ??LCD_GetPixelColor?relay
+   \   000057   8A..         MOV     ?V0 + 8,R2
+   \   000059   8B..         MOV     ?V0 + 9,R3
+   \   00005B   8C..         MOV     ?V0 + 10,R4
+   \   00005D   8D..         MOV     ?V0 + 11,R5
+   \   00005F   78..         MOV     R0,#?V0 + 8
+   \   000061   12....       LCALL   ?PUSH_XSTACK_I_FOUR
+   \   000064   A9..         MOV     R1,?V0 + 2
+   \   000066   AA..         MOV     R2,?V0 + 4
+   \   000068   AB..         MOV     R3,?V0 + 5
+   \   00006A   AC..         MOV     R4,?V0 + 6
+   \   00006C   AD..         MOV     R5,?V0 + 7
+   \   00006E   12....       LCALL   ??LCD_AA_MixColors?relay
+   \   000071   7404         MOV     A,#0x4
+   \   000073   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000076   12....       LCALL   ?Subroutine3 & 0xFFFF
+     95            }
+   \                     ??CrossCallReturnLabel_6:
+   \   000079   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00007C   AC..         MOV     R4,?V0 + 0
+   \   00007E   AD..         MOV     R5,?V0 + 1
+   \   000080   EE           MOV     A,R6
+   \   000081   FA           MOV     R2,A
+   \   000082   EF           MOV     A,R7
+   \   000083   FB           MOV     R3,A
+   \                     ??LCD_SetPixelAA_2:
+   \   000084   12....       LCALL   ??LCD_L0_SetPixelIndex?relay
+   \   000087   7402         MOV     A,#0x2
+   \   000089   12....       LCALL   ?DEALLOC_XSTACK8
+   \                     ??LCD_SetPixelAA_0:
+   \   00008C   7F0C         MOV     R7,#0xc
+   \   00008E   02....       LJMP    ?BANKED_LEAVE_XDATA
+     96          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine4:
+   \   000000   90....       MOV     DPTR,#GUI_Context + 4
+   \   000003                REQUIRE ??Subroutine7_0
+   \   000003                ; // Fall through to label ??Subroutine7_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine7_0:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F8           MOV     R0,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   F9           MOV     R1,A
+   \   000005   C3           CLR     C
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   12....       LCALL   ??LCD_Color2Index?relay
+   \   000003   8A..         MOV     ?V0 + 4,R2
+   \   000005   8B..         MOV     ?V0 + 5,R3
+   \   000007   78..         MOV     R0,#?V0 + 4
+   \   000009   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   C3           CLR     C
+   \   000001   E0           MOVX    A,@DPTR
+   \   000002   95..         SUBB    A,?V0 + 0
+   \   000004   A3           INC     DPTR
+   \   000005   E0           MOVX    A,@DPTR
+   \   000006   95..         SUBB    A,?V0 + 1
+   \   000008   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   00000A   65D0         XRL     A,PSW
+   \   00000C   33           RLC     A
+   \   00000D   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   90....       MOV     DPTR,#GUI_Context + 6
+   \   000003   12....       LCALL   ??Subroutine7_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_13:
+   \   000006   EC           MOV     A,R4
+   \   000007   98           SUBB    A,R0
+   \   000008   ED           MOV     A,R5
+   \   000009   12....       LCALL   ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_12:
+   \   00000C   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine6:
+   \   000000   99           SUBB    A,R1
+   \   000001   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   000003   65D0         XRL     A,PSW
+   \   000005   33           RLC     A
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   12....       LCALL   ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_9:
+   \   000003   8A..         MOV     ?V0 + 4,R2
+   \   000005   8B..         MOV     ?V0 + 5,R3
+   \   000007   8C..         MOV     ?V0 + 6,R4
+   \   000009   8D..         MOV     ?V0 + 7,R5
+   \   00000B   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine5:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   FA           MOV     R2,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   FB           MOV     R3,A
+   \   000005   12....       LCALL   ??LCD_Index2Color?relay
+   \   000008   22           RET
+     97          
+     98          /*********************************************************************
+     99          *
+    100          *       LCD_SetPixelAA_NoTrans
+    101          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    102          void LCD_SetPixelAA_NoTrans(int x, int y, U8 Intens) {
+   \                     LCD_SetPixelAA_NoTrans:
+   \   000000   74F0         MOV     A,#-0x10
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 0
+   \   000005   8A..         MOV     ?V0 + 0,R2
+   \   000007   8B..         MOV     ?V0 + 1,R3
+   \   000009   8C..         MOV     ?V0 + 2,R4
+   \   00000B   8D..         MOV     ?V0 + 3,R5
+   \   00000D   E9           MOV     A,R1
+   \   00000E   FE           MOV     R6,A
+    103            RETURN_IF_Y_OUT();
+   \   00000F   12....       LCALL   ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_3:
+   \   000012   406B         JC      ??LCD_SetPixelAA_NoTrans_0
+   \   000014   90....       MOV     DPTR,#GUI_Context + 10
+   \   000017   C3           CLR     C
+   \   000018   E0           MOVX    A,@DPTR
+   \   000019   95..         SUBB    A,?V0 + 2
+   \   00001B   A3           INC     DPTR
+   \   00001C   E0           MOVX    A,@DPTR
+   \   00001D   95..         SUBB    A,?V0 + 3
+   \   00001F   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   000021   65D0         XRL     A,PSW
+   \   000023   33           RLC     A
+   \   000024   4059         JC      ??LCD_SetPixelAA_NoTrans_0
+    104            RETURN_IF_X_OUT();
+   \   000026   12....       LCALL   ?Subroutine4 & 0xFFFF
+   \                     ??CrossCallReturnLabel_15:
+   \   000029   EA           MOV     A,R2
+   \   00002A   98           SUBB    A,R0
+   \   00002B   EB           MOV     A,R3
+   \   00002C   12....       LCALL   ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_11:
+   \   00002F   404E         JC      ??LCD_SetPixelAA_NoTrans_0
+   \   000031   90....       MOV     DPTR,#GUI_Context + 8
+   \   000034   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_5:
+   \   000037   4046         JC      ??LCD_SetPixelAA_NoTrans_0
+    105            if (Intens == 0) {
+   \   000039   EE           MOV     A,R6
+   \   00003A   7008         JNZ     ??LCD_SetPixelAA_NoTrans_1
+    106              LCDDEV_L0_SetPixelIndex(x,y, LCD_BKCOLORINDEX);
+   \   00003C                ; Setup parameters for call to function LCD_L0_SetPixelIndex
+   \   00003C   90....       MOV     DPTR,#GUI_Context
+   \                     ??LCD_SetPixelAA_NoTrans_2:
+   \   00003F   12....       LCALL   ?PUSH_XSTACK8_X_TWO
+   \   000042   8033         SJMP    ??LCD_SetPixelAA_NoTrans_3
+    107            } else if (Intens == 15) {
+   \                     ??LCD_SetPixelAA_NoTrans_1:
+   \   000044   740F         MOV     A,#0xf
+   \   000046   6E           XRL     A,R6
+   \   000047   7005         JNZ     ??LCD_SetPixelAA_NoTrans_4
+    108              LCDDEV_L0_SetPixelIndex(x,y, LCD_COLORINDEX);
+   \   000049                ; Setup parameters for call to function LCD_L0_SetPixelIndex
+   \   000049   90....       MOV     DPTR,#GUI_Context + 2
+   \   00004C   80F1         SJMP    ??LCD_SetPixelAA_NoTrans_2
+    109            } else {
+    110              LCD_COLOR Color = LCD_AA_MixColors(LCD_Index2Color(LCD_COLORINDEX),
+    111                                             LCD_Index2Color(LCD_BKCOLORINDEX),
+    112                                             Intens);
+    113              LCDDEV_L0_SetPixelIndex(x,y,LCD_Color2Index(Color));
+   \                     ??LCD_SetPixelAA_NoTrans_4:
+   \   00004E                ; Setup parameters for call to function LCD_Index2Color
+   \   00004E   90....       MOV     DPTR,#GUI_Context
+   \   000051   12....       LCALL   ?Subroutine0 & 0xFFFF
+    114            }
+   \                     ??CrossCallReturnLabel_1:
+   \   000054                ; Setup parameters for call to function LCD_L0_SetPixelIndex
+   \   000054                ; Setup parameters for call to function LCD_Color2Index
+   \   000054                ; Setup parameters for call to function LCD_AA_MixColors
+   \   000054   78..         MOV     R0,#?V0 + 4
+   \   000056   12....       LCALL   ?PUSH_XSTACK_I_FOUR
+   \   000059                ; Setup parameters for call to function LCD_Index2Color
+   \   000059   90....       MOV     DPTR,#GUI_Context + 2
+   \   00005C   12....       LCALL   ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_8:
+   \   00005F   EE           MOV     A,R6
+   \   000060   F9           MOV     R1,A
+   \   000061   12....       LCALL   ??LCD_AA_MixColors?relay
+   \   000064   7404         MOV     A,#0x4
+   \   000066   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000069   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_7:
+   \   00006C   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00006F   AC..         MOV     R4,?V0 + 2
+   \   000071   AD..         MOV     R5,?V0 + 3
+   \   000073   AA..         MOV     R2,?V0 + 0
+   \   000075   AB..         MOV     R3,?V0 + 1
+   \                     ??LCD_SetPixelAA_NoTrans_3:
+   \   000077   12....       LCALL   ??LCD_L0_SetPixelIndex?relay
+   \   00007A   7402         MOV     A,#0x2
+   \   00007C   12....       LCALL   ?DEALLOC_XSTACK8
+   \                     ??LCD_SetPixelAA_NoTrans_0:
+   \   00007F   7F08         MOV     R7,#0x8
+   \   000081   02....       LJMP    ?BANKED_LEAVE_XDATA
+    115          }
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_ff:
+   \   000000   FF000000     DD 255
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_ff00:
+   \   000000   00FF0000     DD 65280
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_ff0000:
+   \   000000   0000FF00     DD 16711680
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_f:
+   \   000000   0F000000     DD 15
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??LCD_AA_MixColors?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    LCD_AA_MixColors
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??LCD_SetPixelAA?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    LCD_SetPixelAA
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??LCD_SetPixelAA_NoTrans?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    LCD_SetPixelAA_NoTrans
+    116          
+    117          /*************************** End of file ****************************/
+
+   Maximum stack usage in bytes:
+
+     Function                  ISTACK PSTACK XSTACK
+     --------                  ------ ------ ------
+     LCD_AA_MixColors              6      0     60
+     LCD_SetPixelAA                0      0     24
+       -> LCD_L0_SetPixelIndex     0      0     44
+       -> LCD_Index2Color          0      0     40
+       -> LCD_GetPixelColor        0      0     40
+       -> LCD_AA_MixColors         0      0     48
+       -> LCD_Color2Index          0      0     40
+       -> LCD_L0_SetPixelIndex     0      0     44
+     LCD_SetPixelAA_NoTrans        0      0     20
+       -> LCD_L0_SetPixelIndex     0      0     36
+       -> LCD_L0_SetPixelIndex     0      0     36
+       -> LCD_Index2Color          0      0     32
+       -> LCD_Index2Color          0      0     40
+       -> LCD_AA_MixColors         0      0     40
+       -> LCD_Color2Index          0      0     32
+       -> LCD_L0_SetPixelIndex     0      0     36
+
+
+   Segment part sizes:
+
+     Function/Label                 Bytes
+     --------------                 -----
+     LCD_AA_MixColors                386
+     LCD_SetPixelAA                  145
+     ?Subroutine4                      3
+     ??Subroutine7_0                   7
+     ?Subroutine3                     10
+     ?Subroutine2                     14
+     ?Subroutine1                     13
+     ?Subroutine6                      7
+     ?Subroutine0                     12
+     ?Subroutine5                      9
+     LCD_SetPixelAA_NoTrans          132
+     __Constant_ff                     4
+     __Constant_ff00                   4
+     __Constant_ff0000                 4
+     __Constant_f                      4
+     ??LCD_AA_MixColors?relay          6
+     ??LCD_SetPixelAA?relay            6
+     ??LCD_SetPixelAA_NoTrans?relay    6
+
+ 
+ 738 bytes in segment BANKED_CODE
+  18 bytes in segment BANK_RELAYS
+  16 bytes in segment XDATA_ROM_C
+ 
+ 756 bytes of CODE  memory
+   0 bytes of CONST memory (+ 16 bytes shared)
+
+Errors: none
+Warnings: none

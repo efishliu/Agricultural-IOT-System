@@ -1,0 +1,581 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V8.10.1.10194/W32 for 8051        14/Jun/2016  16:18:38 /
+// Copyright 2004-2011 IAR Systems AB.                                        /
+//                                                                            /
+//    Core               =  plain                                             /
+//    Code model         =  banked                                            /
+//    Data model         =  large                                             /
+//    Calling convention =  xdata reentrant                                   /
+//    Constant location  =  data_rom                                          /
+//    Dptr setup         =  1,16                                              /
+//    Source file        =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\C /
+//                          ore\LCD_API.c                                     /
+//    Command line       =  -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂ /
+//                          ç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack /
+//                          \Utilities\SerialApp\CC2530DB\..\..\..\Tools\CC25 /
+//                          30DB\f8wCoord.cfg (-DCPU32MHZ -DROOT=__near_func  /
+//                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                  /
+//                          -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8        /
+//                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)   /
+//                          -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂ /
+//                          ç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack /
+//                          \Utilities\SerialApp\CC2530DB\..\..\..\Tools\CC25 /
+//                          30DB\f8wConfig.cfg (-DZIGBEEPRO -DSECURE=0        /
+//                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                 /
+//                          -DDEFAULT_CHANLIST=0x00000800                     /
+//                          -DZDAPP_CONFIG_PAN_ID=0x1001                      /
+//                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
+//                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
+//                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
+//                          -DLINK_STATUS_JITTER_MASK=0x007F                  /
+//                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_P /
+//                          OLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7           /
+//                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3   /
+//                          -DNWK_MAX_DATA_RETRIES=2                          /
+//                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9        /
+//                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40          /
+//                          -DNWK_MAX_BINDING_ENTRIES=4                       /
+//                          -DMAX_BINDING_CLUSTER_IDS=4                       /
+//                          "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07, 0x09,     /
+//                          0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08,   /
+//                          0x0A, 0x0C, 0x0D}" -DMAC_MAX_FRAME_SIZE=116       /
+//                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const    /
+//                          __code" -DGENERIC=__generic                       /
+//                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
+//                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
+//                          -DREJOIN_POLL_RATE=440 F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹ /
+//                          âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2. /
+//                          5.1a\Components\uCGUI\Core\LCD_API.c -D           /
+//                          HAL_UART=TRUE -D SERIAL_APP_PORT=0 -D COOR -D     /
+//                          LCD_SUPPORTED -D NV_INIT -lC                      /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\CoordinatorEB\List\    /
+//                          -lA F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍø /
+//                          Âç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstac /
+//                          k\Utilities\SerialApp\CC2530DB\CoordinatorEB\List /
+//                          \ --diag_suppress Pe001,Pa010 -o                  /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\CoordinatorEB\Obj\ -e  /
+//                          --no_code_motion --debug --core=plain             /
+//                          --dptr=16,1 --data_model=large                    /
+//                          --code_model=banked --calling_convention=xdata_re /
+//                          entrant --place_constants=data_rom                /
+//                          --nr_virtual_regs 16 -I                           /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\ -I                    /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\Public\ -I          /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\uCGUI\Core\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ× /
+//                          ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a /
+//                          \Projects\zstack\Utilities\SerialApp\CC2530DB\..\ /
+//                          ..\..\..\..\Components\uCGUI\MultiLayer\ -I       /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\uCGUI\Config\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅ /
+//                          Ì×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5. /
+//                          1a\Projects\zstack\Utilities\SerialApp\CC2530DB\. /
+//                          .\Coordinator\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×Ê /
+//                          ÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\ /
+//                          Projects\zstack\Utilities\SerialApp\CC2530DB\..\. /
+//                          .\..\ZMain\TI2530DB\ -I                           /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\hal\include\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ /
+//                          ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Utilities\SerialApp\CC2530DB\.. /
+//                          \..\..\..\..\Components\hal\target\CC2530EB\ -I   /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mac\include\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ /
+//                          ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Utilities\SerialApp\CC2530DB\.. /
+//                          \..\..\..\..\Components\mac\high_level\ -I        /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mac\low_level\srf04\ -I                       /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mac\low_level\srf04\single_chip\ -I           /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mt\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Z /
+//                          igBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Project /
+//                          s\zstack\Utilities\SerialApp\CC2530DB\..\..\..\.. /
+//                          \..\Components\osal\include\ -I                   /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\services\saddr\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹ /
+//                          âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2. /
+//                          5.1a\Projects\zstack\Utilities\SerialApp\CC2530DB /
+//                          \..\..\..\..\..\Components\services\sdata\ -I     /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\stack\af\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁ /
+//                          Ï210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\P /
+//                          rojects\zstack\Utilities\SerialApp\CC2530DB\..\.. /
+//                          \..\..\..\Components\stack\nwk\ -I                /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\stack\sapi\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ× /
+//                          ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a /
+//                          \Projects\zstack\Utilities\SerialApp\CC2530DB\..\ /
+//                          ..\..\..\..\Components\stack\sec\ -I              /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\stack\sys\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×Ê /
+//                          ÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\ /
+//                          Projects\zstack\Utilities\SerialApp\CC2530DB\..\. /
+//                          .\..\..\..\Components\stack\zdo\ -I               /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\zmac\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210 /
+//                          \ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proje /
+//                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ /
+//                          ..\..\Components\zmac\f8w\ -Ohz                   /
+//                          --require_prototypes                              /
+//    List file          =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\CoordinatorEB\List\LCD /
+//                          _API.s51                                          /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME LCD_API
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN __INIT_XDATA_I
+
+        PUBLIC LCD_L0_APIList
+        PUBLIC LCD_aAPI
+`?<Name LCD_L0_Color2Index 0>` SYMBOL "LCD_L0_Color2Index"
+??LCD_L0_Color2Index?relay SYMBOL "?relay", `?<Name LCD_L0_Color2Index 0>`
+`?<Name LCD_L0_DrawBitmap 2>` SYMBOL "LCD_L0_DrawBitmap"
+??LCD_L0_DrawBitmap?relay SYMBOL "?relay", `?<Name LCD_L0_DrawBitmap 2>`
+`?<Name LCD_L0_DrawHLine 4>` SYMBOL "LCD_L0_DrawHLine"
+??LCD_L0_DrawHLine?relay SYMBOL "?relay", `?<Name LCD_L0_DrawHLine 4>`
+`?<Name LCD_L0_DrawVLine 6>` SYMBOL "LCD_L0_DrawVLine"
+??LCD_L0_DrawVLine?relay SYMBOL "?relay", `?<Name LCD_L0_DrawVLine 6>`
+`?<Name LCD_L0_FillRect 8>` SYMBOL "LCD_L0_FillRect"
+??LCD_L0_FillRect?relay SYMBOL "?relay", `?<Name LCD_L0_FillRect 8>`
+`?<Name LCD_L0_GetIndexMask 10>` SYMBOL "LCD_L0_GetIndexMask"
+??LCD_L0_GetIndexMask?relay SYMBOL "?relay", `?<Name LCD_L0_GetIndexMask 10>`
+`?<Name LCD_L0_GetPixelIndex 12>` SYMBOL "LCD_L0_GetPixelIndex"
+??LCD_L0_GetPixelIndex?relay SYMBOL "?relay", `?<Name LCD_L0_GetPixelIndex 12>`
+`?<Name LCD_L0_GetRect 14>` SYMBOL "LCD_L0_GetRect"
+??LCD_L0_GetRect?relay SYMBOL "?relay", `?<Name LCD_L0_GetRect 14>`
+`?<Name LCD_L0_Index2Color 16>` SYMBOL "LCD_L0_Index2Color"
+??LCD_L0_Index2Color?relay SYMBOL "?relay", `?<Name LCD_L0_Index2Color 16>`
+`?<Name LCD_L0_SetLUTEntry 18>` SYMBOL "LCD_L0_SetLUTEntry"
+??LCD_L0_SetLUTEntry?relay SYMBOL "?relay", `?<Name LCD_L0_SetLUTEntry 18>`
+`?<Name LCD_L0_SetPixelIndex 20>` SYMBOL "LCD_L0_SetPixelIndex"
+??LCD_L0_SetPixelIndex?relay SYMBOL "?relay", `?<Name LCD_L0_SetPixelIndex 20>`
+`?<Name LCD_L0_XorPixel 22>` SYMBOL "LCD_L0_XorPixel"
+??LCD_L0_XorPixel?relay SYMBOL "?relay", `?<Name LCD_L0_XorPixel 22>`
+
+        EXTERN ??LCD_L0_Color2Index?relay
+        FUNCTION ??LCD_L0_Color2Index?relay,00H
+        EXTERN ??LCD_L0_DrawBitmap?relay
+        FUNCTION ??LCD_L0_DrawBitmap?relay,00H
+        EXTERN ??LCD_L0_DrawHLine?relay
+        FUNCTION ??LCD_L0_DrawHLine?relay,00H
+        EXTERN ??LCD_L0_DrawVLine?relay
+        FUNCTION ??LCD_L0_DrawVLine?relay,00H
+        EXTERN ??LCD_L0_FillRect?relay
+        FUNCTION ??LCD_L0_FillRect?relay,00H
+        EXTERN ??LCD_L0_GetIndexMask?relay
+        FUNCTION ??LCD_L0_GetIndexMask?relay,00H
+        EXTERN ??LCD_L0_GetPixelIndex?relay
+        FUNCTION ??LCD_L0_GetPixelIndex?relay,00H
+        EXTERN ??LCD_L0_GetRect?relay
+        FUNCTION ??LCD_L0_GetRect?relay,00H
+        EXTERN ??LCD_L0_Index2Color?relay
+        FUNCTION ??LCD_L0_Index2Color?relay,00H
+        EXTERN ??LCD_L0_SetLUTEntry?relay
+        FUNCTION ??LCD_L0_SetLUTEntry?relay,00H
+        EXTERN ??LCD_L0_SetPixelIndex?relay
+        FUNCTION ??LCD_L0_SetPixelIndex?relay,00H
+        EXTERN ??LCD_L0_XorPixel?relay
+        FUNCTION ??LCD_L0_XorPixel?relay,00H
+
+// F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\Core\LCD_API.c
+//    1 /*
+//    2 *********************************************************************************************************
+//    3 *                                                uC/GUI
+//    4 *                        Universal graphic software for embedded applications
+//    5 *
+//    6 *                       (c) Copyright 2002, Micrium Inc., Weston, FL
+//    7 *                       (c) Copyright 2002, SEGGER Microcontroller Systeme GmbH
+//    8 *
+//    9 *              µC/GUI is protected by international copyright laws. Knowledge of the
+//   10 *              source code may not be used to write a similar product. This file may
+//   11 *              only be used in accordance with a license and should not be redistributed
+//   12 *              in any way. We appreciate your understanding and fairness.
+//   13 *
+//   14 ----------------------------------------------------------------------
+//   15 File        : LCD_API.C
+//   16 Purpose     : Selection of LCD display
+//   17 ---------------------------END-OF-HEADER------------------------------
+//   18 */
+//   19 
+//   20 
+//   21 #include <stddef.h>           /* needed for definition of NULL */
+//   22 #include "GUI_Private.h"
+//   23 #include "GUIDebug.h"
+//   24 #include "LCD_Private.h"      /* Required for configuration, APIList */
+//   25 
+//   26 #if GUI_COMPILER_SUPPORTS_FP
+//   27 
+//   28 /*********************************************************************
+//   29 *
+//   30 *             LCD Device
+//   31 *       (if memory devices are supported)
+//   32 *
+//   33 **********************************************************************
+//   34 */
+//   35 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//   36 const tLCDDEV_APIList LCD_L0_APIList = {
+LCD_L0_APIList:
+        DATA16
+        DW ??LCD_L0_Color2Index?relay
+        DW ??LCD_L0_Index2Color?relay
+        DW ??LCD_L0_GetIndexMask?relay
+        DW ??LCD_L0_DrawBitmap?relay
+        DW ??LCD_L0_DrawHLine?relay
+        DW ??LCD_L0_DrawVLine?relay
+        DW ??LCD_L0_FillRect?relay
+        DW ??LCD_L0_GetPixelIndex?relay
+        DW ??LCD_L0_GetRect?relay
+        DW ??LCD_L0_SetPixelIndex?relay
+        DW ??LCD_L0_XorPixel?relay
+        DW ??LCD_L0_SetLUTEntry?relay
+//   37 #if LCD_YMAG==1
+//   38   #if LCD_DELTA_MODE
+//   39     LCD_L0_Color2Index,
+//   40     LCD_L0_Index2Color,
+//   41     LCD_L0_GetIndexMask,
+//   42     LCD_L0_DELTA_DrawBitmap,
+//   43     LCD_L0_DELTA_DrawHLine,
+//   44     LCD_L0_DELTA_DrawVLine,
+//   45     LCD_L0_DELTA_FillRect,
+//   46     LCD_L0_DELTA_GetPixelIndex,
+//   47     LCD_L0_GetRect,          /* Original routine is o.k. here, since we use the logical
+//   48                                    coordinates for clipping, which are not magnified */
+//   49     LCD_L0_DELTA_SetPixelIndex,
+//   50     LCD_L0_DELTA_XorPixel,
+//   51     LCD_L0_SetLUTEntry,
+//   52   #else
+//   53     LCD_L0_Color2Index,
+//   54     LCD_L0_Index2Color,
+//   55     LCD_L0_GetIndexMask,
+//   56     (tLCDDEV_DrawBitmap*)LCD_L0_DrawBitmap,
+//   57     LCD_L0_DrawHLine,
+//   58     LCD_L0_DrawVLine,
+//   59     LCD_L0_FillRect,
+//   60     LCD_L0_GetPixelIndex,
+//   61     LCD_L0_GetRect,
+//   62     LCD_L0_SetPixelIndex,
+//   63     LCD_L0_XorPixel,
+//   64     LCD_L0_SetLUTEntry,
+//   65   #endif
+//   66 #else
+//   67   LCD_L0_Color2Index,
+//   68   LCD_L0_Index2Color,
+//   69   LCD_L0_GetIndexMask,
+//   70   LCD_L0_MAG_DrawBitmap,
+//   71   LCD_L0_MAG_DrawHLine,
+//   72   LCD_L0_MAG_DrawVLine,
+//   73   LCD_L0_MAG_FillRect,
+//   74   LCD_L0_MAG_GetPixelIndex,
+//   75   LCD_L0_GetRect,          /* Original routine is o.k. here, since we use the logical
+//   76                                  coordinates for clipping, which are not magnified */
+//   77   LCD_L0_MAG_SetPixelIndex,
+//   78   LCD_L0_MAG_XorPixel,
+//   79   LCD_L0_SetLUTEntry,
+//   80 #endif
+//   81 #if GUI_SUPPORT_MEMDEV
+//   82   NULL,                       /* pfFillPolygon */
+//   83   NULL,                       /* pfFillPolygonAA */
+//   84   #if LCD_BITSPERPIXEL <= 8
+//   85     &GUI_MEMDEV__APIList8
+//   86   #else
+//   87     &GUI_MEMDEV__APIList16
+//   88   #endif
+//   89 #endif
+//   90 };
+//   91 
+//   92 /*
+//   93       *************************************************
+//   94       *                                               *
+//   95       *             LCD Device                        *
+//   96 			*       (if memory devices are supported)       *
+//   97       *                                               *
+//   98       *************************************************
+//   99 */
+//  100 
+//  101 #if GUI_NUM_LAYERS > 1
+//  102 const tLCDDEV_APIList LCD_L0_1_APIList = {
+//  103 #if LCD_YMAG_1 == 1
+//  104   LCD_L0_1_Color2Index,
+//  105   LCD_L0_1_Index2Color,
+//  106   LCD_L0_1_GetIndexMask,
+//  107   LCD_L0_1_DrawBitmap,
+//  108   LCD_L0_1_DrawHLine,
+//  109   LCD_L0_1_DrawVLine,
+//  110   LCD_L0_1_FillRect,
+//  111   LCD_L0_1_GetPixelIndex,
+//  112   LCD_L0_1_GetRect,
+//  113   LCD_L0_1_SetPixelIndex,
+//  114   LCD_L0_1_XorPixel,
+//  115   LCD_L0_1_SetLUTEntry,
+//  116 #else
+//  117   LCD_L0_1_Color2Index,
+//  118   LCD_L0_1_Index2Color,
+//  119   LCD_L0_1_GetIndexMask,
+//  120   LCD_L0_1_MAG_DrawBitmap,
+//  121   LCD_L0_1_MAG_DrawHLine,
+//  122   LCD_L0_1_MAG_DrawVLine,
+//  123   LCD_L0_1_MAG_FillRect,
+//  124   LCD_L0_1_MAG_GetPixelIndex,
+//  125   LCD_L0_1_GetRect,          /* Original routine is o.k. here, since we use the logical
+//  126                                  coordinates for clipping, which are not magnified */
+//  127   LCD_L0_1_MAG_SetPixelIndex,
+//  128   LCD_L0_1_MAG_XorPixel,
+//  129   LCD_L0_1_SetLUTEntry,
+//  130 #endif
+//  131 #if GUI_SUPPORT_MEMDEV
+//  132   NULL,                       /* pfFillPolygon */
+//  133   NULL,                       /* pfFillPolygonAA */
+//  134   #if LCD_BITSPERPIXEL_1 <= 8
+//  135     &GUI_MEMDEV__APIList8
+//  136   #else
+//  137     &GUI_MEMDEV__APIList16
+//  138   #endif
+//  139 #endif
+//  140 };
+//  141 #endif
+//  142 
+//  143 #if GUI_NUM_LAYERS > 2
+//  144 const tLCDDEV_APIList LCD_L0_2_APIList = {
+//  145 #if LCD_YMAG_2 == 1
+//  146   LCD_L0_2_Color2Index,
+//  147   LCD_L0_2_Index2Color,
+//  148   LCD_L0_2_GetIndexMask,
+//  149   LCD_L0_2_DrawBitmap,
+//  150   LCD_L0_2_DrawHLine,
+//  151   LCD_L0_2_DrawVLine,
+//  152   LCD_L0_2_FillRect,
+//  153   LCD_L0_2_GetPixelIndex,
+//  154   LCD_L0_2_GetRect,
+//  155   LCD_L0_2_SetPixelIndex,
+//  156   LCD_L0_2_XorPixel,
+//  157   LCD_L0_2_SetLUTEntry,
+//  158 #else
+//  159   LCD_L0_2_Color2Index,
+//  160   LCD_L0_2_Index2Color,
+//  161   LCD_L0_2_GetIndexMask,
+//  162   LCD_L0_2_MAG_DrawBitmap,
+//  163   LCD_L0_2_MAG_DrawHLine,
+//  164   LCD_L0_2_MAG_DrawVLine,
+//  165   LCD_L0_2_MAG_FillRect,
+//  166   LCD_L0_2_MAG_GetPixelIndex,
+//  167   LCD_L0_2_GetRect,          /* Original routine is o.k. here, since we use the logical
+//  168                                  coordinates for clipping, which are not magnified */
+//  169   LCD_L0_2_MAG_SetPixelIndex,
+//  170   LCD_L0_2_MAG_XorPixel,
+//  171   LCD_L0_2_SetLUTEntry,
+//  172 #endif
+//  173 #if GUI_SUPPORT_MEMDEV
+//  174   NULL,                       /* pfFillPolygon */
+//  175   NULL,                       /* pfFillPolygonAA */
+//  176   #if LCD_BITSPERPIXEL_2 <= 8
+//  177     &GUI_MEMDEV__APIList8
+//  178   #else
+//  179     &GUI_MEMDEV__APIList16
+//  180   #endif
+//  181 #endif
+//  182 };
+//  183 #endif
+//  184 
+//  185 #if GUI_NUM_LAYERS > 3
+//  186 const tLCDDEV_APIList LCD_L0_3_APIList = {
+//  187 #if LCD_YMAG_3 == 1
+//  188   LCD_L0_3_Color2Index,
+//  189   LCD_L0_3_Index2Color,
+//  190   LCD_L0_3_GetIndexMask,
+//  191   LCD_L0_3_DrawBitmap,
+//  192   LCD_L0_3_DrawHLine,
+//  193   LCD_L0_3_DrawVLine,
+//  194   LCD_L0_3_FillRect,
+//  195   LCD_L0_3_GetPixelIndex,
+//  196   LCD_L0_3_GetRect,
+//  197   LCD_L0_3_SetPixelIndex,
+//  198   LCD_L0_3_XorPixel,
+//  199   LCD_L0_3_SetLUTEntry,
+//  200 #else
+//  201   LCD_L0_3_Color2Index,
+//  202   LCD_L0_3_Index2Color,
+//  203   LCD_L0_3_GetIndexMask,
+//  204   LCD_L0_3_MAG_DrawBitmap,
+//  205   LCD_L0_3_MAG_DrawHLine,
+//  206   LCD_L0_3_MAG_DrawVLine,
+//  207   LCD_L0_3_MAG_FillRect,
+//  208   LCD_L0_3_MAG_GetPixelIndex,
+//  209   LCD_L0_3_GetRect,          /* Original routine is o.k. here, since we use the logical
+//  210                                  coordinates for clipping, which are not magnified */
+//  211   LCD_L0_3_MAG_SetPixelIndex,
+//  212   LCD_L0_3_MAG_XorPixel,
+//  213   LCD_L0_3_SetLUTEntry,
+//  214 #endif
+//  215 #if GUI_SUPPORT_MEMDEV
+//  216   NULL,                       /* pfFillPolygon */
+//  217   NULL,                       /* pfFillPolygonAA */
+//  218   #if LCD_BITSPERPIXEL_3 <= 8
+//  219     &GUI_MEMDEV__APIList8
+//  220   #else
+//  221     &GUI_MEMDEV__APIList16
+//  222   #endif
+//  223 #endif
+//  224 };
+//  225 #endif
+//  226 
+//  227 #if GUI_NUM_LAYERS > 4
+//  228 const tLCDDEV_APIList LCD_L0_4_APIList = {
+//  229 #if LCD_YMAG_4 == 1
+//  230   LCD_L0_4_Color2Index,
+//  231   LCD_L0_4_Index2Color,
+//  232   LCD_L0_4_GetIndexMask,
+//  233   LCD_L0_4_DrawBitmap,
+//  234   LCD_L0_4_DrawHLine,
+//  235   LCD_L0_4_DrawVLine,
+//  236   LCD_L0_4_FillRect,
+//  237   LCD_L0_4_GetPixelIndex,
+//  238   LCD_L0_4_GetRect,
+//  239   LCD_L0_4_SetPixelIndex,
+//  240   LCD_L0_4_XorPixel,
+//  241   LCD_L0_4_SetLUTEntry,
+//  242 #else
+//  243   LCD_L0_4_Color2Index,
+//  244   LCD_L0_4_Index2Color,
+//  245   LCD_L0_4_GetIndexMask,
+//  246   LCD_L0_4_MAG_DrawBitmap,
+//  247   LCD_L0_4_MAG_DrawHLine,
+//  248   LCD_L0_4_MAG_DrawVLine,
+//  249   LCD_L0_4_MAG_FillRect,
+//  250   LCD_L0_4_MAG_GetPixelIndex,
+//  251   LCD_L0_4_GetRect,          /* Original routine is o.k. here, since we use the logical
+//  252                                  coordinates for clipping, which are not magnified */
+//  253   LCD_L0_4_MAG_SetPixelIndex,
+//  254   LCD_L0_4_MAG_XorPixel,
+//  255   LCD_L0_4_SetLUTEntry,
+//  256 #endif
+//  257 #if GUI_SUPPORT_MEMDEV
+//  258   NULL,                       /* pfFillPolygon */
+//  259   NULL,                       /* pfFillPolygonAA */
+//  260   #if LCD_BITSPERPIXEL_4 <= 8
+//  261     &GUI_MEMDEV__APIList8
+//  262   #else
+//  263     &GUI_MEMDEV__APIList16
+//  264   #endif
+//  265 #endif
+//  266 };
+//  267 #endif
+//  268 
+//  269 /***********************************************************
+//  270 *
+//  271 *                 LCD_aAPI
+//  272 *
+//  273 * Purpose:
+//  274 *  This table lists the available displays/layers by a single pointer.
+//  275 *  It is important that these are non-constants, because some high level
+//  276 *  software (such as the VNC server, but maybe also the mouse "Cursor" mdoule)
+//  277 *  may need to override these pointers in order to link itself into the chain
+//  278 *  of drawing routines.
+//  279 *  However, the API tables may of course be constants.
+//  280 *
+//  281 */
+//  282 
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  283 const tLCDDEV_APIList* /*const*/ LCD_aAPI[] = {
+LCD_aAPI:
+        DATA16
+        DS 2
+        REQUIRE `?<Initializer for LCD_aAPI>`
+        REQUIRE __INIT_XDATA_I
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for LCD_aAPI>`:
+        DATA16
+        DW LCD_L0_APIList
+
+        END
+//  284   &LCD_L0_APIList
+//  285 #if GUI_NUM_LAYERS > 1
+//  286   ,&LCD_L0_1_APIList
+//  287 #endif
+//  288 #if GUI_NUM_LAYERS > 2
+//  289   ,&LCD_L0_2_APIList
+//  290 #endif
+//  291 #if GUI_NUM_LAYERS > 3
+//  292   ,&LCD_L0_3_APIList
+//  293 #endif
+//  294 #if GUI_NUM_LAYERS > 4
+//  295   ,&LCD_L0_4_APIList
+//  296 #endif
+//  297 };
+//  298 
+//  299 #endif
+//  300 
+//  301 /*************************** End of file ****************************/
+//  302 
+// 
+//  2 bytes in segment XDATA_I
+//  2 bytes in segment XDATA_ID
+// 24 bytes in segment XDATA_ROM_C
+// 
+//  2 bytes of CODE  memory
+// 24 bytes of CONST memory
+//  2 bytes of XDATA memory
+//
+//Errors: none
+//Warnings: none

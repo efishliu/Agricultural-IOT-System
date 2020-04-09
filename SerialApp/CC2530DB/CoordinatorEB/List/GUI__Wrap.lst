@@ -1,0 +1,718 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.1.10194/W32 for 8051         14/Jun/2016  16:18:17 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\Cor #
+#                          e\GUI__Wrap.c                                      #
+#    Command line       =  -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\..\..\..\Tools\CC2530D #
+#                          B\f8wCoord.cfg (-DCPU32MHZ -DROOT=__near_func      #
+#                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                   #
+#                          -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8         #
+#                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)    #
+#                          -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\..\..\..\Tools\CC2530D #
+#                          B\f8wConfig.cfg (-DZIGBEEPRO -DSECURE=0            #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0x1001                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹â #
+#                          ÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5. #
+#                          1a\Components\uCGUI\Core\GUI__Wrap.c -D            #
+#                          HAL_UART=TRUE -D SERIAL_APP_PORT=0 -D COOR -D      #
+#                          LCD_SUPPORTED -D NV_INIT -lC                       #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\List\ -lA   #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\List\       #
+#                          --diag_suppress Pe001,Pa010 -o                     #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\Obj\ -e     #
+#                          --no_code_motion --debug --core=plain --dptr=16,1  #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç #
+#                          \WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\SerialApp\CC2530DB\ -I                    #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\Public\ -I             #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \uCGUI\Core\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ2 #
+#                          10\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ #
+#                          ..\..\Components\uCGUI\MultiLayer\ -I              #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \uCGUI\Config\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁ #
+#                          Ï210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Pr #
+#                          ojects\zstack\Utilities\SerialApp\CC2530DB\..\Coor #
+#                          dinator\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Z #
+#                          igBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects #
+#                          \zstack\Utilities\SerialApp\CC2530DB\..\..\..\ZMai #
+#                          n\TI2530DB\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ21 #
+#                          0\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proje #
+#                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\. #
+#                          .\..\Components\hal\include\ -I                    #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \hal\target\CC2530EB\ -I                           #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\include\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ #
+#                          210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Pro #
+#                          jects\zstack\Utilities\SerialApp\CC2530DB\..\..\.. #
+#                          \..\..\Components\mac\high_level\ -I               #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\low_level\srf04\ -I                           #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\low_level\srf04\single_chip\ -I               #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mt\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBe #
+#                          eÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zst #
+#                          ack\Utilities\SerialApp\CC2530DB\..\..\..\..\..\Co #
+#                          mponents\osal\include\ -I                          #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \services\saddr\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ× #
+#                          ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\ #
+#                          Projects\zstack\Utilities\SerialApp\CC2530DB\..\.. #
+#                          \..\..\..\Components\services\sdata\ -I            #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\af\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210 #
+#                          \ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projec #
+#                          ts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\.. #
+#                          \..\Components\stack\nwk\ -I                       #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\sapi\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ2 #
+#                          10\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ #
+#                          ..\..\Components\stack\sec\ -I                     #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \stack\sys\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ21 #
+#                          0\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proje #
+#                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\. #
+#                          .\..\Components\stack\zdo\ -I                      #
+#                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \zmac\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Zig #
+#                          BeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\z #
+#                          stack\Utilities\SerialApp\CC2530DB\..\..\..\..\..\ #
+#                          Components\zmac\f8w\ -Ohz --require_prototypes     #
+#    List file          =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\List\GUI__W #
+#                          rap.lst                                            #
+#    Object file        =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WS #
+#                          N-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\CoordinatorEB\Obj\GUI__Wr #
+#                          ap.r51                                             #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\Core\GUI__Wrap.c
+      1          /*
+      2          *********************************************************************************************************
+      3          *                                                uC/GUI
+      4          *                        Universal graphic software for embedded applications
+      5          *
+      6          *                       (c) Copyright 2002, Micrium Inc., Weston, FL
+      7          *                       (c) Copyright 2002, SEGGER Microcontroller Systeme GmbH
+      8          *
+      9          *              µC/GUI is protected by international copyright laws. Knowledge of the
+     10          *              source code may not be used to write a similar product. This file may
+     11          *              only be used in accordance with a license and should not be redistributed
+     12          *              in any way. We appreciate your understanding and fairness.
+     13          *
+     14          ----------------------------------------------------------------------
+     15          File        : GUI__WRAP.c
+     16          Purpose     : Implementation of wrap routines
+     17          ---------------------------END-OF-HEADER------------------------------
+     18          */
+     19          
+     20          #include "GUI_Protected.h"
+     21          
+     22          /*********************************************************************
+     23          *
+     24          *       static code
+     25          *
+     26          **********************************************************************
+     27          */
+     28          /*********************************************************************
+     29          *
+     30          *       _IsLineEnd
+     31          */
+     32          static int _IsLineEnd(U16 Char) {
+     33            if (!Char || (Char == '\n')) {
+     34              return 1;
+     35            }
+     36            return 0;
+     37          }
+     38          
+     39          /*********************************************************************
+     40          *
+     41          *       _GetWordWrap
+     42          */
+     43          static int _GetWordWrap(const char GUI_UNI_PTR * s, int xSize) {
+     44            int xDist = 0, NumChars = 0, WordWrap = 0;
+     45            U16 Char, PrevChar = 0;
+     46            while (1) {
+     47              Char = GUI_UC__GetCharCodeInc(&s);   /* Similar to:  *s++ */
+     48              /* Let's first check if the line end is reached. In this case we are done. */
+     49              if (_IsLineEnd(Char)) {
+     50                WordWrap = NumChars;
+     51                break;
+     52              }
+     53              /* If current character is a space, we found a wrap position */
+     54              if ((Char == ' ') && (Char != PrevChar)) {
+     55                WordWrap = NumChars;
+     56              }
+     57              PrevChar = Char;
+     58              xDist += GUI_GetCharDistX(Char);
+     59              if ((xDist <= xSize) || (NumChars == 0)) {
+     60                NumChars++;
+     61              } else {
+     62                break;
+     63              }
+     64            }
+     65            if (!WordWrap) {
+     66              WordWrap = NumChars;
+     67            }
+     68            return WordWrap;
+     69          }
+     70          
+     71          /*********************************************************************
+     72          *
+     73          *       _GetCharWrap
+     74          */
+     75          static int _GetCharWrap(const char GUI_UNI_PTR * s, int xSize) {
+     76            int xDist = 0, NumChars = 0;
+     77            U16 Char;
+     78            while ((Char = GUI_UC__GetCharCodeInc(&s)) != 0) {
+     79              xDist += GUI_GetCharDistX(Char);
+     80              if ((NumChars && (xDist > xSize)) || (Char == '\n')) {
+     81                break;
+     82              }
+     83              NumChars++;
+     84            }
+     85            return NumChars;
+     86          }
+     87          
+     88          /*********************************************************************
+     89          *
+     90          *       _GetNoWrap
+     91          */
+     92          static int _GetNoWrap(const char GUI_UNI_PTR * s) {
+     93            return GUI__GetLineNumChars(s, 0x7FFF);
+     94          }
+     95          
+     96          /*********************************************************************
+     97          *
+     98          *       puplic code
+     99          *
+    100          **********************************************************************
+    101          */
+    102          /*********************************************************************
+    103          *
+    104          *       GUI__WrapGetNumCharsDisp
+    105          *
+    106          * Returns:
+    107          *  Number of characters to display in the line.
+    108          *  Trailing spaces and line end character are
+    109          *  not counted
+    110          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    111          int GUI__WrapGetNumCharsDisp(const char GUI_UNI_PTR * pText, int xSize, GUI_WRAPMODE WrapMode) {
+   \                     GUI__WrapGetNumCharsDisp:
+   \   000000   74EC         MOV     A,#-0x14
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 20
+   \   000005                ; Auto size: 2
+   \   000005   74FE         MOV     A,#-0x2
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   8C..         MOV     ?V0 + 0,R4
+   \   00000C   8D..         MOV     ?V0 + 1,R5
+    112            int r;
+    113            switch (WrapMode) {
+   \   00000E   E9           MOV     A,R1
+   \   00000F   14           DEC     A
+   \   000010   6009         JZ      ??GUI__WrapGetNumCharsDisp_0
+   \   000012   14           DEC     A
+   \   000013   7003         JNZ     $+5
+   \   000015   02....       LJMP    ??GUI__WrapGetNumCharsDisp_1 & 0xFFFF
+   \   000018   02....       LJMP    ??GUI__WrapGetNumCharsDisp_2 & 0xFFFF
+    114            case GUI_WRAPMODE_WORD:
+    115              r = _GetWordWrap(pText, xSize);
+   \                     ??GUI__WrapGetNumCharsDisp_0:
+   \   00001B   85..82       MOV     DPL,?XSP + 0
+   \   00001E   85..83       MOV     DPH,?XSP + 1
+   \   000021   EA           MOV     A,R2
+   \   000022   F0           MOVX    @DPTR,A
+   \   000023   A3           INC     DPTR
+   \   000024   EB           MOV     A,R3
+   \   000025   F0           MOVX    @DPTR,A
+   \   000026   75..00       MOV     ?V0 + 2,#0x0
+   \   000029   75..00       MOV     ?V0 + 3,#0x0
+   \   00002C   7E00         MOV     R6,#0x0
+   \   00002E   7F00         MOV     R7,#0x0
+   \   000030   8E..         MOV     ?V0 + 4,R6
+   \   000032   8E..         MOV     ?V0 + 5,R6
+   \   000034   8E..         MOV     ?V0 + 6,R6
+   \   000036   8E..         MOV     ?V0 + 7,R6
+   \   000038   8003         SJMP    ??CrossCallReturnLabel_0
+   \                     ??GUI__WrapGetNumCharsDisp_3:
+   \   00003A   12....       LCALL   ?Subroutine0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_0:
+   \   00003D                ; Setup parameters for call to function GUI_UC__GetCharCodeInc
+   \   00003D   85..82       MOV     DPL,?XSP + 0
+   \   000040   85..83       MOV     DPH,?XSP + 1
+   \   000043   AA82         MOV     R2,DPL
+   \   000045   AB83         MOV     R3,DPH
+   \   000047   12....       LCALL   ??GUI_UC__GetCharCodeInc?relay
+   \   00004A   EA           MOV     A,R2
+   \   00004B   4B           ORL     A,R3
+   \   00004C   605A         JZ      ??GUI__WrapGetNumCharsDisp_4
+   \   00004E   740A         MOV     A,#0xa
+   \   000050   6A           XRL     A,R2
+   \   000051   7001         JNZ     ??GUI__WrapGetNumCharsDisp_5
+   \   000053   EB           MOV     A,R3
+   \                     ??GUI__WrapGetNumCharsDisp_5:
+   \   000054   6052         JZ      ??GUI__WrapGetNumCharsDisp_4
+   \   000056   7420         MOV     A,#0x20
+   \   000058   6A           XRL     A,R2
+   \   000059   7001         JNZ     ??GUI__WrapGetNumCharsDisp_6
+   \   00005B   EB           MOV     A,R3
+   \                     ??GUI__WrapGetNumCharsDisp_6:
+   \   00005C   700E         JNZ     ??GUI__WrapGetNumCharsDisp_7
+   \   00005E   7420         MOV     A,#0x20
+   \   000060   65..         XRL     A,?V0 + 6
+   \   000062   7002         JNZ     ??GUI__WrapGetNumCharsDisp_8
+   \   000064   E5..         MOV     A,?V0 + 7
+   \                     ??GUI__WrapGetNumCharsDisp_8:
+   \   000066   6004         JZ      ??GUI__WrapGetNumCharsDisp_7
+   \   000068   8E..         MOV     ?V0 + 4,R6
+   \   00006A   8F..         MOV     ?V0 + 5,R7
+   \                     ??GUI__WrapGetNumCharsDisp_7:
+   \   00006C   8A..         MOV     ?V0 + 6,R2
+   \   00006E   8B..         MOV     ?V0 + 7,R3
+   \   000070                ; Setup parameters for call to function GUI_GetCharDistX
+   \   000070   12....       LCALL   ??GUI_GetCharDistX?relay
+   \   000073   8A..         MOV     ?V0 + 10,R2
+   \   000075   8B..         MOV     ?V0 + 11,R3
+   \   000077   E5..         MOV     A,?V0 + 2
+   \   000079   25..         ADD     A,?V0 + 10
+   \   00007B   F5..         MOV     ?V0 + 2,A
+   \   00007D   E5..         MOV     A,?V0 + 3
+   \   00007F   35..         ADDC    A,?V0 + 11
+   \   000081   F5..         MOV     ?V0 + 3,A
+   \   000083   C3           CLR     C
+   \   000084   E5..         MOV     A,?V0 + 0
+   \   000086   95..         SUBB    A,?V0 + 2
+   \   000088   E5..         MOV     A,?V0 + 1
+   \   00008A   95..         SUBB    A,?V0 + 3
+   \   00008C   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   00008E   65D0         XRL     A,PSW
+   \   000090   33           RLC     A
+   \   000091   50A7         JNC     ??GUI__WrapGetNumCharsDisp_3
+   \   000093   EE           MOV     A,R6
+   \   000094   4F           ORL     A,R7
+   \   000095   60A3         JZ      ??GUI__WrapGetNumCharsDisp_3
+   \                     ??GUI__WrapGetNumCharsDisp_9:
+   \   000097   E5..         MOV     A,?V0 + 4
+   \   000099   45..         ORL     A,?V0 + 5
+   \   00009B   7004         JNZ     ??GUI__WrapGetNumCharsDisp_10
+   \   00009D   8E..         MOV     ?V0 + 4,R6
+   \   00009F   8F..         MOV     ?V0 + 5,R7
+   \                     ??GUI__WrapGetNumCharsDisp_10:
+   \   0000A1   AA..         MOV     R2,?V0 + 4
+   \   0000A3   AB..         MOV     R3,?V0 + 5
+    116              break;
+   \   0000A5   02....       LJMP    ??GUI__WrapGetNumCharsDisp_11 & 0xFFFF
+   \                     ??GUI__WrapGetNumCharsDisp_4:
+   \   0000A8   8E..         MOV     ?V0 + 4,R6
+   \   0000AA   8F..         MOV     ?V0 + 5,R7
+   \   0000AC   80E9         SJMP    ??GUI__WrapGetNumCharsDisp_9
+    117            case GUI_WRAPMODE_CHAR:
+    118              r = _GetCharWrap(pText, xSize);
+   \                     ??GUI__WrapGetNumCharsDisp_1:
+   \   0000AE   85..82       MOV     DPL,?XSP + 0
+   \   0000B1   85..83       MOV     DPH,?XSP + 1
+   \   0000B4   EA           MOV     A,R2
+   \   0000B5   F0           MOVX    @DPTR,A
+   \   0000B6   A3           INC     DPTR
+   \   0000B7   EB           MOV     A,R3
+   \   0000B8   F0           MOVX    @DPTR,A
+   \   0000B9   75..00       MOV     ?V0 + 4,#0x0
+   \   0000BC   75..00       MOV     ?V0 + 5,#0x0
+   \   0000BF   75..00       MOV     ?V0 + 2,#0x0
+   \   0000C2   75..00       MOV     ?V0 + 3,#0x0
+   \   0000C5   800C         SJMP    ??GUI__WrapGetNumCharsDisp_12
+   \                     ??GUI__WrapGetNumCharsDisp_13:
+   \   0000C7   E5..         MOV     A,?V0 + 2
+   \   0000C9   2401         ADD     A,#0x1
+   \   0000CB   F5..         MOV     ?V0 + 2,A
+   \   0000CD   E5..         MOV     A,?V0 + 3
+   \   0000CF   3400         ADDC    A,#0x0
+   \   0000D1   F5..         MOV     ?V0 + 3,A
+   \                     ??GUI__WrapGetNumCharsDisp_12:
+   \   0000D3                ; Setup parameters for call to function GUI_UC__GetCharCodeInc
+   \   0000D3   85..82       MOV     DPL,?XSP + 0
+   \   0000D6   85..83       MOV     DPH,?XSP + 1
+   \   0000D9   AA82         MOV     R2,DPL
+   \   0000DB   AB83         MOV     R3,DPH
+   \   0000DD   12....       LCALL   ??GUI_UC__GetCharCodeInc?relay
+   \   0000E0   8A..         MOV     ?V0 + 6,R2
+   \   0000E2   8B..         MOV     ?V0 + 7,R3
+   \   0000E4   A8..         MOV     R0,?V0 + 6
+   \   0000E6   A9..         MOV     R1,?V0 + 7
+   \   0000E8   E8           MOV     A,R0
+   \   0000E9   FE           MOV     R6,A
+   \   0000EA   E9           MOV     A,R1
+   \   0000EB   FF           MOV     R7,A
+   \   0000EC   E8           MOV     A,R0
+   \   0000ED   49           ORL     A,R1
+   \   0000EE   6031         JZ      ??GUI__WrapGetNumCharsDisp_14
+   \   0000F0                ; Setup parameters for call to function GUI_GetCharDistX
+   \   0000F0   12....       LCALL   ??GUI_GetCharDistX?relay
+   \   0000F3   8A..         MOV     ?V0 + 6,R2
+   \   0000F5   8B..         MOV     ?V0 + 7,R3
+   \   0000F7   E5..         MOV     A,?V0 + 4
+   \   0000F9   25..         ADD     A,?V0 + 6
+   \   0000FB   F5..         MOV     ?V0 + 4,A
+   \   0000FD   E5..         MOV     A,?V0 + 5
+   \   0000FF   35..         ADDC    A,?V0 + 7
+   \   000101   F5..         MOV     ?V0 + 5,A
+   \   000103   E5..         MOV     A,?V0 + 2
+   \   000105   45..         ORL     A,?V0 + 3
+   \   000107   6010         JZ      ??GUI__WrapGetNumCharsDisp_15
+   \   000109   C3           CLR     C
+   \   00010A   E5..         MOV     A,?V0 + 0
+   \   00010C   95..         SUBB    A,?V0 + 4
+   \   00010E   E5..         MOV     A,?V0 + 1
+   \   000110   95..         SUBB    A,?V0 + 5
+   \   000112   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   000114   65D0         XRL     A,PSW
+   \   000116   33           RLC     A
+   \   000117   4008         JC      ??GUI__WrapGetNumCharsDisp_14
+   \                     ??GUI__WrapGetNumCharsDisp_15:
+   \   000119   740A         MOV     A,#0xa
+   \   00011B   6E           XRL     A,R6
+   \   00011C   7001         JNZ     ??GUI__WrapGetNumCharsDisp_16
+   \   00011E   EF           MOV     A,R7
+   \                     ??GUI__WrapGetNumCharsDisp_16:
+   \   00011F   70A6         JNZ     ??GUI__WrapGetNumCharsDisp_13
+   \                     ??GUI__WrapGetNumCharsDisp_14:
+   \   000121   AA..         MOV     R2,?V0 + 2
+   \   000123   AB..         MOV     R3,?V0 + 3
+    119              break;
+   \   000125   8007         SJMP    ??GUI__WrapGetNumCharsDisp_11
+    120            default:
+    121              r = _GetNoWrap(pText);
+   \                     ??GUI__WrapGetNumCharsDisp_2:
+   \   000127                ; Setup parameters for call to function GUI__GetLineNumChars
+   \   000127   7CFF         MOV     R4,#-0x1
+   \   000129   7D7F         MOV     R5,#0x7f
+   \   00012B   12....       LCALL   ??GUI__GetLineNumChars?relay
+    122            }
+    123            return r;
+   \                     ??GUI__WrapGetNumCharsDisp_11:
+   \   00012E   7402         MOV     A,#0x2
+   \   000130   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000133   7F0C         MOV     R7,#0xc
+   \   000135   02....       LJMP    ?BANKED_LEAVE_XDATA
+    124          }
+    125          
+    126          /*********************************************************************
+    127          *
+    128          *       GUI__WrapGetNumCharsToNextLine
+    129          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    130          int GUI__WrapGetNumCharsToNextLine(const char GUI_UNI_PTR * pText, int xSize, GUI_WRAPMODE WrapMode) {
+   \                     GUI__WrapGetNumCharsToNextLine:
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 2
+   \   000005   74FE         MOV     A,#-0x2
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   85..82       MOV     DPL,?XSP + 0
+   \   00000D   85..83       MOV     DPH,?XSP + 1
+   \   000010   EA           MOV     A,R2
+   \   000011   F0           MOVX    @DPTR,A
+   \   000012   A3           INC     DPTR
+   \   000013   EB           MOV     A,R3
+   \   000014   F0           MOVX    @DPTR,A
+   \   000015   89..         MOV     ?V0 + 0,R1
+    131            int NumChars;
+    132            U16 Char;
+    133            NumChars = GUI__WrapGetNumCharsDisp(pText, xSize, WrapMode);
+   \   000017                ; Setup parameters for call to function GUI__WrapGetNumCharsDisp
+   \   000017   85..82       MOV     DPL,?XSP + 0
+   \   00001A   85..83       MOV     DPH,?XSP + 1
+   \   00001D   E0           MOVX    A,@DPTR
+   \   00001E   FA           MOV     R2,A
+   \   00001F   12....       LCALL   ??GUI__WrapGetNumCharsDisp?relay
+   \   000022   8A..         MOV     ?V0 + 2,R2
+   \   000024   8B..         MOV     ?V0 + 3,R3
+   \   000026   AE..         MOV     R6,?V0 + 2
+   \   000028   AF..         MOV     R7,?V0 + 3
+    134            pText   += GUI_UC__NumChars2NumBytes(pText, NumChars);
+   \   00002A                ; Setup parameters for call to function GUI_UC__NumChars2NumBytes
+   \   00002A   EE           MOV     A,R6
+   \   00002B   FC           MOV     R4,A
+   \   00002C   EF           MOV     A,R7
+   \   00002D   FD           MOV     R5,A
+   \   00002E   85..82       MOV     DPL,?XSP + 0
+   \   000031   85..83       MOV     DPH,?XSP + 1
+   \   000034   E0           MOVX    A,@DPTR
+   \   000035   FA           MOV     R2,A
+   \   000036   A3           INC     DPTR
+   \   000037   E0           MOVX    A,@DPTR
+   \   000038   FB           MOV     R3,A
+   \   000039   12....       LCALL   ??GUI_UC__NumChars2NumBytes?relay
+   \   00003C   8A..         MOV     ?V0 + 2,R2
+   \   00003E   8B..         MOV     ?V0 + 3,R3
+   \   000040   A8..         MOV     R0,?V0 + 2
+   \   000042   A9..         MOV     R1,?V0 + 3
+   \   000044   85..82       MOV     DPL,?XSP + 0
+   \   000047   85..83       MOV     DPH,?XSP + 1
+   \   00004A   E0           MOVX    A,@DPTR
+   \   00004B   28           ADD     A,R0
+   \   00004C   F8           MOV     R0,A
+   \   00004D   A3           INC     DPTR
+   \   00004E   E0           MOVX    A,@DPTR
+   \   00004F   39           ADDC    A,R1
+   \   000050   F9           MOV     R1,A
+   \   000051   85..82       MOV     DPL,?XSP + 0
+   \   000054   85..83       MOV     DPH,?XSP + 1
+   \   000057   E8           MOV     A,R0
+   \   000058   F0           MOVX    @DPTR,A
+   \   000059   A3           INC     DPTR
+   \   00005A   E9           MOV     A,R1
+   \   00005B   F0           MOVX    @DPTR,A
+    135            Char     = GUI_UC__GetCharCodeInc(&pText);
+   \   00005C                ; Setup parameters for call to function GUI_UC__GetCharCodeInc
+   \   00005C   12....       LCALL   ?Subroutine1 & 0xFFFF
+    136            if (Char == '\n') {
+   \                     ??CrossCallReturnLabel_3:
+   \   00005F   740A         MOV     A,#0xa
+   \   000061   68           XRL     A,R0
+   \   000062   7001         JNZ     ??GUI__WrapGetNumCharsToNextLine_0
+   \   000064   E9           MOV     A,R1
+   \                     ??GUI__WrapGetNumCharsToNextLine_0:
+   \   000065   7005         JNZ     ??GUI__WrapGetNumCharsToNextLine_1
+    137              NumChars++;
+   \   000067   12....       LCALL   ?Subroutine0 & 0xFFFF
+    138            } else {
+   \                     ??CrossCallReturnLabel_1:
+   \   00006A   8016         SJMP    ??GUI__WrapGetNumCharsToNextLine_2
+    139              if (WrapMode == GUI_WRAPMODE_WORD) {
+   \                     ??GUI__WrapGetNumCharsToNextLine_1:
+   \   00006C   7401         MOV     A,#0x1
+   \   00006E   65..         XRL     A,?V0 + 0
+   \   000070   7010         JNZ     ??GUI__WrapGetNumCharsToNextLine_2
+   \   000072   8006         SJMP    ??CrossCallReturnLabel_4
+    140                while (Char == ' ') {
+    141                  NumChars++;
+   \                     ??GUI__WrapGetNumCharsToNextLine_3:
+   \   000074   12....       LCALL   ?Subroutine0 & 0xFFFF
+    142                  Char = GUI_UC__GetCharCodeInc(&pText);
+   \                     ??CrossCallReturnLabel_2:
+   \   000077                ; Setup parameters for call to function GUI_UC__GetCharCodeInc
+   \   000077   12....       LCALL   ?Subroutine1 & 0xFFFF
+    143                }
+   \                     ??CrossCallReturnLabel_4:
+   \   00007A   7420         MOV     A,#0x20
+   \   00007C   68           XRL     A,R0
+   \   00007D   7001         JNZ     ??GUI__WrapGetNumCharsToNextLine_4
+   \   00007F   E9           MOV     A,R1
+   \                     ??GUI__WrapGetNumCharsToNextLine_4:
+   \   000080   60F2         JZ      ??GUI__WrapGetNumCharsToNextLine_3
+    144              }
+    145            }
+    146            return NumChars;
+   \                     ??GUI__WrapGetNumCharsToNextLine_2:
+   \   000082   EE           MOV     A,R6
+   \   000083   FA           MOV     R2,A
+   \   000084   EF           MOV     A,R7
+   \   000085   FB           MOV     R3,A
+   \   000086   7402         MOV     A,#0x2
+   \   000088   12....       LCALL   ?DEALLOC_XSTACK8
+   \   00008B   7F04         MOV     R7,#0x4
+   \   00008D   02....       LJMP    ?BANKED_LEAVE_XDATA
+    147          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   85..82       MOV     DPL,?XSP + 0
+   \   000003   85..83       MOV     DPH,?XSP + 1
+   \   000006   AA82         MOV     R2,DPL
+   \   000008   AB83         MOV     R3,DPH
+   \   00000A   12....       LCALL   ??GUI_UC__GetCharCodeInc?relay
+   \   00000D   8A..         MOV     ?V0 + 2,R2
+   \   00000F   8B..         MOV     ?V0 + 3,R3
+   \   000011   A8..         MOV     R0,?V0 + 2
+   \   000013   A9..         MOV     R1,?V0 + 3
+   \   000015   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   EE           MOV     A,R6
+   \   000001   2401         ADD     A,#0x1
+   \   000003   0E           INC     R6
+   \   000004   EF           MOV     A,R7
+   \   000005   3400         ADDC    A,#0x0
+   \   000007   FF           MOV     R7,A
+   \   000008   22           RET
+    148          
+    149          /*********************************************************************
+    150          *
+    151          *       GUI__WrapGetNumBytesToNextLine
+    152          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    153          int GUI__WrapGetNumBytesToNextLine(const char GUI_UNI_PTR * pText, int xSize, GUI_WRAPMODE WrapMode) {
+   \                     GUI__WrapGetNumBytesToNextLine:
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+    154            int NumChars, NumBytes;
+    155            NumChars = GUI__WrapGetNumCharsToNextLine(pText, xSize, WrapMode);
+    156            NumBytes = GUI_UC__NumChars2NumBytes(pText, NumChars);
+    157            return NumBytes;
+   \   000009                ; Setup parameters for call to function GUI_UC__NumChars2NumBytes
+   \   000009                ; Setup parameters for call to function GUI__WrapGetNumCharsToNextLine
+   \   000009   12....       LCALL   ??GUI__WrapGetNumCharsToNextLine?relay
+   \   00000C   EA           MOV     A,R2
+   \   00000D   FC           MOV     R4,A
+   \   00000E   EB           MOV     A,R3
+   \   00000F   FD           MOV     R5,A
+   \   000010   EE           MOV     A,R6
+   \   000011   FA           MOV     R2,A
+   \   000012   EF           MOV     A,R7
+   \   000013   FB           MOV     R3,A
+   \   000014   12....       LCALL   ??GUI_UC__NumChars2NumBytes?relay
+   \   000017   7F01         MOV     R7,#0x1
+   \   000019   02....       LJMP    ?BANKED_LEAVE_XDATA
+    158          }
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI__WrapGetNumCharsDisp?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI__WrapGetNumCharsDisp
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI__WrapGetNumCharsToNextLine?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI__WrapGetNumCharsToNextLine
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GUI__WrapGetNumBytesToNextLine?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GUI__WrapGetNumBytesToNextLine
+    159          
+    160          /*************************** End of file ****************************/
+    161          
+
+   Maximum stack usage in bytes:
+
+     Function                       ISTACK PSTACK XSTACK
+     --------                       ------ ------ ------
+     GUI__WrapGetNumBytesToNextLine     0      0      9
+       -> GUI__WrapGetNumCharsToNextLine
+                                        0      0     18
+       -> GUI_UC__NumChars2NumBytes     0      0     18
+     GUI__WrapGetNumCharsDisp           0      0     36
+       -> GUI_UC__GetCharCodeInc        0      0     44
+       -> GUI_GetCharDistX              0      0     44
+       -> GUI_UC__GetCharCodeInc        0      0     44
+       -> GUI_GetCharDistX              0      0     44
+       -> GUI__GetLineNumChars          0      0     44
+     GUI__WrapGetNumCharsToNextLine     0      0     23
+       -> GUI__WrapGetNumCharsDisp      0      0     28
+       -> GUI_UC__NumChars2NumBytes     0      0     28
+       -> GUI_UC__GetCharCodeInc        0      0     28
+       -> GUI_UC__GetCharCodeInc        0      0     28
+
+
+   Segment part sizes:
+
+     Function/Label                         Bytes
+     --------------                         -----
+     GUI__WrapGetNumCharsDisp                312
+     GUI__WrapGetNumCharsToNextLine          144
+     ?Subroutine1                             22
+     ?Subroutine0                              9
+     GUI__WrapGetNumBytesToNextLine           28
+     ??GUI__WrapGetNumCharsDisp?relay          6
+     ??GUI__WrapGetNumCharsToNextLine?relay    6
+     ??GUI__WrapGetNumBytesToNextLine?relay    6
+
+ 
+ 515 bytes in segment BANKED_CODE
+  18 bytes in segment BANK_RELAYS
+ 
+ 533 bytes of CODE memory
+
+Errors: none
+Warnings: none

@@ -1,0 +1,3552 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V8.10.1.10194/W32 for 8051        14/Jun/2016  16:18:39 /
+// Copyright 2004-2011 IAR Systems AB.                                        /
+//                                                                            /
+//    Core               =  plain                                             /
+//    Code model         =  banked                                            /
+//    Data model         =  large                                             /
+//    Calling convention =  xdata reentrant                                   /
+//    Constant location  =  data_rom                                          /
+//    Dptr setup         =  1,16                                              /
+//    Source file        =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\F /
+//                          ont\F8x10_ASCII.c                                 /
+//    Command line       =  -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂ /
+//                          ç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack /
+//                          \Utilities\SerialApp\CC2530DB\..\..\..\Tools\CC25 /
+//                          30DB\f8wCoord.cfg (-DCPU32MHZ -DROOT=__near_func  /
+//                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                  /
+//                          -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8        /
+//                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)   /
+//                          -f F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂ /
+//                          ç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack /
+//                          \Utilities\SerialApp\CC2530DB\..\..\..\Tools\CC25 /
+//                          30DB\f8wConfig.cfg (-DZIGBEEPRO -DSECURE=0        /
+//                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                 /
+//                          -DDEFAULT_CHANLIST=0x00000800                     /
+//                          -DZDAPP_CONFIG_PAN_ID=0x1001                      /
+//                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
+//                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
+//                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
+//                          -DLINK_STATUS_JITTER_MASK=0x007F                  /
+//                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_P /
+//                          OLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7           /
+//                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3   /
+//                          -DNWK_MAX_DATA_RETRIES=2                          /
+//                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9        /
+//                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40          /
+//                          -DNWK_MAX_BINDING_ENTRIES=4                       /
+//                          -DMAX_BINDING_CLUSTER_IDS=4                       /
+//                          "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07, 0x09,     /
+//                          0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08,   /
+//                          0x0A, 0x0C, 0x0D}" -DMAC_MAX_FRAME_SIZE=116       /
+//                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const    /
+//                          __code" -DGENERIC=__generic                       /
+//                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
+//                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
+//                          -DREJOIN_POLL_RATE=440 F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹ /
+//                          âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2. /
+//                          5.1a\Components\uCGUI\Font\F8x10_ASCII.c -D       /
+//                          HAL_UART=TRUE -D SERIAL_APP_PORT=0 -D COOR -D     /
+//                          LCD_SUPPORTED -D NV_INIT -lC                      /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\CoordinatorEB\List\    /
+//                          -lA F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍø /
+//                          Âç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstac /
+//                          k\Utilities\SerialApp\CC2530DB\CoordinatorEB\List /
+//                          \ --diag_suppress Pe001,Pa010 -o                  /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\CoordinatorEB\Obj\ -e  /
+//                          --no_code_motion --debug --core=plain             /
+//                          --dptr=16,1 --data_model=large                    /
+//                          --code_model=banked --calling_convention=xdata_re /
+//                          entrant --place_constants=data_rom                /
+//                          --nr_virtual_regs 16 -I                           /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\ -I                    /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\Public\ -I          /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\uCGUI\Core\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ× /
+//                          ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a /
+//                          \Projects\zstack\Utilities\SerialApp\CC2530DB\..\ /
+//                          ..\..\..\..\Components\uCGUI\MultiLayer\ -I       /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\uCGUI\Config\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅ /
+//                          Ì×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5. /
+//                          1a\Projects\zstack\Utilities\SerialApp\CC2530DB\. /
+//                          .\Coordinator\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×Ê /
+//                          ÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\ /
+//                          Projects\zstack\Utilities\SerialApp\CC2530DB\..\. /
+//                          .\..\ZMain\TI2530DB\ -I                           /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\hal\include\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ /
+//                          ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Utilities\SerialApp\CC2530DB\.. /
+//                          \..\..\..\..\Components\hal\target\CC2530EB\ -I   /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mac\include\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ /
+//                          ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Utilities\SerialApp\CC2530DB\.. /
+//                          \..\..\..\..\Components\mac\high_level\ -I        /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mac\low_level\srf04\ -I                       /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mac\low_level\srf04\single_chip\ -I           /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\mt\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\Z /
+//                          igBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Project /
+//                          s\zstack\Utilities\SerialApp\CC2530DB\..\..\..\.. /
+//                          \..\Components\osal\include\ -I                   /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\services\saddr\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹ /
+//                          âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2. /
+//                          5.1a\Projects\zstack\Utilities\SerialApp\CC2530DB /
+//                          \..\..\..\..\..\Components\services\sdata\ -I     /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\stack\af\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁ /
+//                          Ï210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\P /
+//                          rojects\zstack\Utilities\SerialApp\CC2530DB\..\.. /
+//                          \..\..\..\Components\stack\nwk\ -I                /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\stack\sapi\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ× /
+//                          ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a /
+//                          \Projects\zstack\Utilities\SerialApp\CC2530DB\..\ /
+//                          ..\..\..\..\Components\stack\sec\ -I              /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\stack\sys\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×Ê /
+//                          ÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\ /
+//                          Projects\zstack\Utilities\SerialApp\CC2530DB\..\. /
+//                          .\..\..\..\Components\stack\zdo\ -I               /
+//                          F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\..\..\..\..\..\Compone /
+//                          nts\zmac\ -I F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210 /
+//                          \ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Proje /
+//                          cts\zstack\Utilities\SerialApp\CC2530DB\..\..\..\ /
+//                          ..\..\Components\zmac\f8w\ -Ohz                   /
+//                          --require_prototypes                              /
+//    List file          =  F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\W /
+//                          SN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Projects\zstack\Ut /
+//                          ilities\SerialApp\CC2530DB\CoordinatorEB\List\F8x /
+//                          10_ASCII.s51                                      /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME F8x10_ASCII
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        PUBLIC GUI_Font8x10ASCII_CharInfo
+        PUBLIC GUI_Font8x10ASCII_Prop1
+        PUBLIC GUI_Font8x10_ASCII
+        PUBLIC acFont8x10ASCII_0020
+        PUBLIC acFont8x10ASCII_0021
+        PUBLIC acFont8x10ASCII_0022
+        PUBLIC acFont8x10ASCII_0023
+        PUBLIC acFont8x10ASCII_0024
+        PUBLIC acFont8x10ASCII_0025
+        PUBLIC acFont8x10ASCII_0026
+        PUBLIC acFont8x10ASCII_0027
+        PUBLIC acFont8x10ASCII_0028
+        PUBLIC acFont8x10ASCII_0029
+        PUBLIC acFont8x10ASCII_002A
+        PUBLIC acFont8x10ASCII_002B
+        PUBLIC acFont8x10ASCII_002C
+        PUBLIC acFont8x10ASCII_002D
+        PUBLIC acFont8x10ASCII_002E
+        PUBLIC acFont8x10ASCII_002F
+        PUBLIC acFont8x10ASCII_0030
+        PUBLIC acFont8x10ASCII_0031
+        PUBLIC acFont8x10ASCII_0032
+        PUBLIC acFont8x10ASCII_0033
+        PUBLIC acFont8x10ASCII_0034
+        PUBLIC acFont8x10ASCII_0035
+        PUBLIC acFont8x10ASCII_0036
+        PUBLIC acFont8x10ASCII_0037
+        PUBLIC acFont8x10ASCII_0038
+        PUBLIC acFont8x10ASCII_0039
+        PUBLIC acFont8x10ASCII_003A
+        PUBLIC acFont8x10ASCII_003B
+        PUBLIC acFont8x10ASCII_003C
+        PUBLIC acFont8x10ASCII_003D
+        PUBLIC acFont8x10ASCII_003E
+        PUBLIC acFont8x10ASCII_003F
+        PUBLIC acFont8x10ASCII_0040
+        PUBLIC acFont8x10ASCII_0041
+        PUBLIC acFont8x10ASCII_0042
+        PUBLIC acFont8x10ASCII_0043
+        PUBLIC acFont8x10ASCII_0044
+        PUBLIC acFont8x10ASCII_0045
+        PUBLIC acFont8x10ASCII_0046
+        PUBLIC acFont8x10ASCII_0047
+        PUBLIC acFont8x10ASCII_0048
+        PUBLIC acFont8x10ASCII_0049
+        PUBLIC acFont8x10ASCII_004A
+        PUBLIC acFont8x10ASCII_004B
+        PUBLIC acFont8x10ASCII_004C
+        PUBLIC acFont8x10ASCII_004D
+        PUBLIC acFont8x10ASCII_004E
+        PUBLIC acFont8x10ASCII_004F
+        PUBLIC acFont8x10ASCII_0050
+        PUBLIC acFont8x10ASCII_0051
+        PUBLIC acFont8x10ASCII_0052
+        PUBLIC acFont8x10ASCII_0053
+        PUBLIC acFont8x10ASCII_0054
+        PUBLIC acFont8x10ASCII_0055
+        PUBLIC acFont8x10ASCII_0056
+        PUBLIC acFont8x10ASCII_0057
+        PUBLIC acFont8x10ASCII_0058
+        PUBLIC acFont8x10ASCII_0059
+        PUBLIC acFont8x10ASCII_005A
+        PUBLIC acFont8x10ASCII_005B
+        PUBLIC acFont8x10ASCII_005C
+        PUBLIC acFont8x10ASCII_005D
+        PUBLIC acFont8x10ASCII_005E
+        PUBLIC acFont8x10ASCII_005F
+        PUBLIC acFont8x10ASCII_0060
+        PUBLIC acFont8x10ASCII_0061
+        PUBLIC acFont8x10ASCII_0062
+        PUBLIC acFont8x10ASCII_0063
+        PUBLIC acFont8x10ASCII_0064
+        PUBLIC acFont8x10ASCII_0065
+        PUBLIC acFont8x10ASCII_0066
+        PUBLIC acFont8x10ASCII_0067
+        PUBLIC acFont8x10ASCII_0068
+        PUBLIC acFont8x10ASCII_0069
+        PUBLIC acFont8x10ASCII_006A
+        PUBLIC acFont8x10ASCII_006B
+        PUBLIC acFont8x10ASCII_006C
+        PUBLIC acFont8x10ASCII_006D
+        PUBLIC acFont8x10ASCII_006E
+        PUBLIC acFont8x10ASCII_006F
+        PUBLIC acFont8x10ASCII_0070
+        PUBLIC acFont8x10ASCII_0071
+        PUBLIC acFont8x10ASCII_0072
+        PUBLIC acFont8x10ASCII_0073
+        PUBLIC acFont8x10ASCII_0074
+        PUBLIC acFont8x10ASCII_0075
+        PUBLIC acFont8x10ASCII_0076
+        PUBLIC acFont8x10ASCII_0077
+        PUBLIC acFont8x10ASCII_0078
+        PUBLIC acFont8x10ASCII_0079
+        PUBLIC acFont8x10ASCII_007A
+        PUBLIC acFont8x10ASCII_007B
+        PUBLIC acFont8x10ASCII_007C
+        PUBLIC acFont8x10ASCII_007D
+        PUBLIC acFont8x10ASCII_007E
+        PUBLIC acFont8x10ASCII_007F
+`?<Name GUIPROP_DispChar 0>` SYMBOL "GUIPROP_DispChar"
+??GUIPROP_DispChar?relay SYMBOL "?relay", `?<Name GUIPROP_DispChar 0>`
+`?<Name GUIPROP_GetCharDistX 2>` SYMBOL "GUIPROP_GetCharDistX"
+??GUIPROP_GetCharDistX?relay SYMBOL "?relay", `?<Name GUIPROP_GetCharDistX 2>`
+`?<Name GUIPROP_GetFontInfo 4>` SYMBOL "GUIPROP_GetFontInfo"
+??GUIPROP_GetFontInfo?relay SYMBOL "?relay", `?<Name GUIPROP_GetFontInfo 4>`
+`?<Name GUIPROP_IsInFont 6>` SYMBOL "GUIPROP_IsInFont"
+??GUIPROP_IsInFont?relay SYMBOL "?relay", `?<Name GUIPROP_IsInFont 6>`
+
+        EXTERN ??GUIPROP_DispChar?relay
+        FUNCTION ??GUIPROP_DispChar?relay,00H
+        EXTERN ??GUIPROP_GetCharDistX?relay
+        FUNCTION ??GUIPROP_GetCharDistX?relay,00H
+        EXTERN ??GUIPROP_GetFontInfo?relay
+        FUNCTION ??GUIPROP_GetFontInfo?relay,00H
+        EXTERN ??GUIPROP_IsInFont?relay
+        FUNCTION ??GUIPROP_IsInFont?relay,00H
+
+// F:\¹âÅÌ×ÊÁÏ\ETC-WSNÎïÁªÍø¹âÅÌ×ÊÁÏ210\ZigBeeÍøÂç\WSN-CSÔ´Âë\ZStack-CC2530-2.5.1a\Components\uCGUI\Font\F8x10_ASCII.c
+//    1 /*
+//    2 *********************************************************************************************************
+//    3 *                                                uC/GUI
+//    4 *                        Universal graphic software for embedded applications
+//    5 *
+//    6 *                       (c) Copyright 2002, Micrium Inc., Weston, FL
+//    7 *                       (c) Copyright 2002, SEGGER Microcontroller Systeme GmbH
+//    8 *
+//    9 *              µC/GUI is protected by international copyright laws. Knowledge of the
+//   10 *              source code may not be used to write a similar product. This file may
+//   11 *              only be used in accordance with a license and should not be redistributed
+//   12 *              in any way. We appreciate your understanding and fairness.
+//   13 *
+//   14 ----------------------------------------------------------------------
+//   15 File        : F8x10_ASCII.C
+//   16 Purpose     : Monospaced Font similar to Terminal
+//   17 Height      : 10
+//   18 ---------------------------END-OF-HEADER------------------------------
+//   19 */
+//   20 
+//   21 #include "GUI_FontIntern.h"
+//   22 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//   23 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0020[10] = { /* code 0020 */
+acFont8x10ASCII_0020:
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+//   24   ________,
+//   25   ________,
+//   26   ________,
+//   27   ________,
+//   28   ________,
+//   29   ________,
+//   30   ________,
+//   31   ________,
+//   32   ________,
+//   33   ________};
+//   34 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//   35 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0021[10] = { /* code 0021 */
+acFont8x10ASCII_0021:
+        DB 48
+        DB 120
+        DB 120
+        DB 120
+        DB 48
+        DB 48
+        DB 0
+        DB 48
+        DB 48
+        DB 0
+//   36   __XX____,
+//   37   _XXXX___,
+//   38   _XXXX___,
+//   39   _XXXX___,
+//   40   __XX____,
+//   41   __XX____,
+//   42   ________,
+//   43   __XX____,
+//   44   __XX____,
+//   45   ________};
+//   46 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//   47 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0022[10] = { /* code 0022 */
+acFont8x10ASCII_0022:
+        DB 102
+        DB 102
+        DB 102
+        DB 36
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+//   48   _XX__XX_,
+//   49   _XX__XX_,
+//   50   _XX__XX_,
+//   51   __X__X__,
+//   52   ________,
+//   53   ________,
+//   54   ________,
+//   55   ________,
+//   56   ________,
+//   57   ________};
+//   58 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//   59 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0023[10] = { /* code 0023 */
+acFont8x10ASCII_0023:
+        DB 108
+        DB 108
+        DB 254
+        DB 108
+        DB 108
+        DB 108
+        DB 254
+        DB 108
+        DB 108
+        DB 0
+//   60   _XX_XX__,
+//   61   _XX_XX__,
+//   62   XXXXXXX_,
+//   63   _XX_XX__,
+//   64   _XX_XX__,
+//   65   _XX_XX__,
+//   66   XXXXXXX_,
+//   67   _XX_XX__,
+//   68   _XX_XX__,
+//   69   ________};
+//   70 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//   71 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0024[10] = { /* code 0024 */
+acFont8x10ASCII_0024:
+        DB 48
+        DB 124
+        DB 192
+        DB 192
+        DB 120
+        DB 12
+        DB 12
+        DB 248
+        DB 48
+        DB 0
+//   72   __XX____,
+//   73   _XXXXX__,
+//   74   XX______,
+//   75   XX______,
+//   76   _XXXX___,
+//   77   ____XX__,
+//   78   ____XX__,
+//   79   XXXXX___,
+//   80   __XX____,
+//   81   ________};
+//   82 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//   83 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0025[10] = { /* code 0025 */
+acFont8x10ASCII_0025:
+        DB 0
+        DB 0
+        DB 196
+        DB 204
+        DB 24
+        DB 48
+        DB 96
+        DB 204
+        DB 140
+        DB 0
+//   84   ________,
+//   85   ________,
+//   86   XX___X__,
+//   87   XX__XX__,
+//   88   ___XX___,
+//   89   __XX____,
+//   90   _XX_____,
+//   91   XX__XX__,
+//   92   X___XX__,
+//   93   ________};
+//   94 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//   95 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0026[10] = { /* code 0026 */
+acFont8x10ASCII_0026:
+        DB 112
+        DB 216
+        DB 216
+        DB 112
+        DB 250
+        DB 222
+        DB 204
+        DB 220
+        DB 118
+        DB 0
+//   96   _XXX____,
+//   97   XX_XX___,
+//   98   XX_XX___,
+//   99   _XXX____,
+//  100   XXXXX_X_,
+//  101   XX_XXXX_,
+//  102   XX__XX__,
+//  103   XX_XXX__,
+//  104   _XXX_XX_,
+//  105   ________};
+//  106 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  107 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0027[10] = { /* code 0027 */
+acFont8x10ASCII_0027:
+        DB 48
+        DB 48
+        DB 48
+        DB 96
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+//  108   __XX____,
+//  109   __XX____,
+//  110   __XX____,
+//  111   _XX_____,
+//  112   ________,
+//  113   ________,
+//  114   ________,
+//  115   ________,
+//  116   ________,
+//  117   ________};
+//  118 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  119 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0028[10] = { /* code 0028 */
+acFont8x10ASCII_0028:
+        DB 12
+        DB 24
+        DB 48
+        DB 96
+        DB 96
+        DB 96
+        DB 48
+        DB 24
+        DB 12
+        DB 0
+//  120   ____XX__,
+//  121   ___XX___,
+//  122   __XX____,
+//  123   _XX_____,
+//  124   _XX_____,
+//  125   _XX_____,
+//  126   __XX____,
+//  127   ___XX___,
+//  128   ____XX__,
+//  129   ________};
+//  130 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  131 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0029[10] = { /* code 0029 */
+acFont8x10ASCII_0029:
+        DB 96
+        DB 48
+        DB 24
+        DB 12
+        DB 12
+        DB 12
+        DB 24
+        DB 48
+        DB 96
+        DB 0
+//  132   _XX_____,
+//  133   __XX____,
+//  134   ___XX___,
+//  135   ____XX__,
+//  136   ____XX__,
+//  137   ____XX__,
+//  138   ___XX___,
+//  139   __XX____,
+//  140   _XX_____,
+//  141   ________};
+//  142 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  143 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_002A[10] = { /* code 002A */
+acFont8x10ASCII_002A:
+        DB 0
+        DB 0
+        DB 102
+        DB 60
+        DB 255
+        DB 60
+        DB 102
+        DB 0
+        DB 0
+        DB 0
+//  144   ________,
+//  145   ________,
+//  146   _XX__XX_,
+//  147   __XXXX__,
+//  148   XXXXXXXX,
+//  149   __XXXX__,
+//  150   _XX__XX_,
+//  151   ________,
+//  152   ________,
+//  153   ________};
+//  154 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  155 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_002B[10] = { /* code 002B */
+acFont8x10ASCII_002B:
+        DB 0
+        DB 0
+        DB 24
+        DB 24
+        DB 126
+        DB 24
+        DB 24
+        DB 0
+        DB 0
+        DB 0
+//  156   ________,
+//  157   ________,
+//  158   ___XX___,
+//  159   ___XX___,
+//  160   _XXXXXX_,
+//  161   ___XX___,
+//  162   ___XX___,
+//  163   ________,
+//  164   ________,
+//  165   ________};
+//  166 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  167 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_002C[10] = { /* code 002C */
+acFont8x10ASCII_002C:
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 56
+        DB 56
+        DB 96
+//  168   ________,
+//  169   ________,
+//  170   ________,
+//  171   ________,
+//  172   ________,
+//  173   ________,
+//  174   ________,
+//  175   __XXX___,
+//  176   __XXX___,
+//  177   _XX_____};
+//  178 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  179 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_002D[10] = { /* code 002D */
+acFont8x10ASCII_002D:
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 254
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+//  180   ________,
+//  181   ________,
+//  182   ________,
+//  183   ________,
+//  184   XXXXXXX_,
+//  185   ________,
+//  186   ________,
+//  187   ________,
+//  188   ________,
+//  189   ________};
+//  190 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  191 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_002E[10] = { /* code 002E */
+acFont8x10ASCII_002E:
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 56
+        DB 56
+        DB 0
+//  192   ________,
+//  193   ________,
+//  194   ________,
+//  195   ________,
+//  196   ________,
+//  197   ________,
+//  198   ________,
+//  199   __XXX___,
+//  200   __XXX___,
+//  201   ________};
+//  202 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  203 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_002F[10] = { /* code 002F */
+acFont8x10ASCII_002F:
+        DB 0
+        DB 2
+        DB 6
+        DB 12
+        DB 24
+        DB 48
+        DB 96
+        DB 192
+        DB 128
+        DB 0
+//  204   ________,
+//  205   ______X_,
+//  206   _____XX_,
+//  207   ____XX__,
+//  208   ___XX___,
+//  209   __XX____,
+//  210   _XX_____,
+//  211   XX______,
+//  212   X_______,
+//  213   ________};
+//  214 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  215 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0030[10] = { /* code 0030 */
+acFont8x10ASCII_0030:
+        DB 124
+        DB 198
+        DB 206
+        DB 222
+        DB 214
+        DB 246
+        DB 230
+        DB 198
+        DB 124
+        DB 0
+//  216   _XXXXX__,
+//  217   XX___XX_,
+//  218   XX__XXX_,
+//  219   XX_XXXX_,
+//  220   XX_X_XX_,
+//  221   XXXX_XX_,
+//  222   XXX__XX_,
+//  223   XX___XX_,
+//  224   _XXXXX__,
+//  225   ________};
+//  226 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  227 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0031[10] = { /* code 0031 */
+acFont8x10ASCII_0031:
+        DB 16
+        DB 48
+        DB 240
+        DB 48
+        DB 48
+        DB 48
+        DB 48
+        DB 48
+        DB 252
+        DB 0
+//  228   ___X____,
+//  229   __XX____,
+//  230   XXXX____,
+//  231   __XX____,
+//  232   __XX____,
+//  233   __XX____,
+//  234   __XX____,
+//  235   __XX____,
+//  236   XXXXXX__,
+//  237   ________};
+//  238 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  239 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0032[10] = { /* code 0032 */
+acFont8x10ASCII_0032:
+        DB 120
+        DB 204
+        DB 204
+        DB 12
+        DB 24
+        DB 48
+        DB 96
+        DB 204
+        DB 252
+        DB 0
+//  240   _XXXX___,
+//  241   XX__XX__,
+//  242   XX__XX__,
+//  243   ____XX__,
+//  244   ___XX___,
+//  245   __XX____,
+//  246   _XX_____,
+//  247   XX__XX__,
+//  248   XXXXXX__,
+//  249   ________};
+//  250 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  251 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0033[10] = { /* code 0033 */
+acFont8x10ASCII_0033:
+        DB 120
+        DB 204
+        DB 12
+        DB 12
+        DB 56
+        DB 12
+        DB 12
+        DB 204
+        DB 120
+        DB 0
+//  252   _XXXX___,
+//  253   XX__XX__,
+//  254   ____XX__,
+//  255   ____XX__,
+//  256   __XXX___,
+//  257   ____XX__,
+//  258   ____XX__,
+//  259   XX__XX__,
+//  260   _XXXX___,
+//  261   ________};
+//  262 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  263 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0034[10] = { /* code 0034 */
+acFont8x10ASCII_0034:
+        DB 12
+        DB 28
+        DB 60
+        DB 108
+        DB 204
+        DB 254
+        DB 12
+        DB 12
+        DB 30
+        DB 0
+//  264   ____XX__,
+//  265   ___XXX__,
+//  266   __XXXX__,
+//  267   _XX_XX__,
+//  268   XX__XX__,
+//  269   XXXXXXX_,
+//  270   ____XX__,
+//  271   ____XX__,
+//  272   ___XXXX_,
+//  273   ________};
+//  274 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  275 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0035[10] = { /* code 0035 */
+acFont8x10ASCII_0035:
+        DB 252
+        DB 192
+        DB 192
+        DB 192
+        DB 248
+        DB 12
+        DB 12
+        DB 204
+        DB 120
+        DB 0
+//  276   XXXXXX__,
+//  277   XX______,
+//  278   XX______,
+//  279   XX______,
+//  280   XXXXX___,
+//  281   ____XX__,
+//  282   ____XX__,
+//  283   XX__XX__,
+//  284   _XXXX___,
+//  285   ________};
+//  286 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  287 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0036[10] = { /* code 0036 */
+acFont8x10ASCII_0036:
+        DB 56
+        DB 96
+        DB 192
+        DB 192
+        DB 248
+        DB 204
+        DB 204
+        DB 204
+        DB 120
+        DB 0
+//  288   __XXX___,
+//  289   _XX_____,
+//  290   XX______,
+//  291   XX______,
+//  292   XXXXX___,
+//  293   XX__XX__,
+//  294   XX__XX__,
+//  295   XX__XX__,
+//  296   _XXXX___,
+//  297   ________};
+//  298 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  299 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0037[10] = { /* code 0037 */
+acFont8x10ASCII_0037:
+        DB 254
+        DB 198
+        DB 198
+        DB 6
+        DB 12
+        DB 24
+        DB 48
+        DB 48
+        DB 48
+        DB 0
+//  300   XXXXXXX_,
+//  301   XX___XX_,
+//  302   XX___XX_,
+//  303   _____XX_,
+//  304   ____XX__,
+//  305   ___XX___,
+//  306   __XX____,
+//  307   __XX____,
+//  308   __XX____,
+//  309   ________};
+//  310 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  311 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0038[10] = { /* code 0038 */
+acFont8x10ASCII_0038:
+        DB 120
+        DB 204
+        DB 204
+        DB 236
+        DB 120
+        DB 220
+        DB 204
+        DB 204
+        DB 120
+        DB 0
+//  312   _XXXX___,
+//  313   XX__XX__,
+//  314   XX__XX__,
+//  315   XXX_XX__,
+//  316   _XXXX___,
+//  317   XX_XXX__,
+//  318   XX__XX__,
+//  319   XX__XX__,
+//  320   _XXXX___,
+//  321   ________};
+//  322 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  323 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0039[10] = { /* code 0039 */
+acFont8x10ASCII_0039:
+        DB 120
+        DB 204
+        DB 204
+        DB 204
+        DB 124
+        DB 24
+        DB 24
+        DB 48
+        DB 112
+        DB 0
+//  324   _XXXX___,
+//  325   XX__XX__,
+//  326   XX__XX__,
+//  327   XX__XX__,
+//  328   _XXXXX__,
+//  329   ___XX___,
+//  330   ___XX___,
+//  331   __XX____,
+//  332   _XXX____,
+//  333   ________};
+//  334 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  335 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_003A[10] = { /* code 003A */
+acFont8x10ASCII_003A:
+        DB 0
+        DB 0
+        DB 56
+        DB 56
+        DB 0
+        DB 0
+        DB 56
+        DB 56
+        DB 0
+        DB 0
+//  336   ________,
+//  337   ________,
+//  338   __XXX___,
+//  339   __XXX___,
+//  340   ________,
+//  341   ________,
+//  342   __XXX___,
+//  343   __XXX___,
+//  344   ________,
+//  345   ________};
+//  346 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  347 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_003B[10] = { /* code 003B */
+acFont8x10ASCII_003B:
+        DB 0
+        DB 0
+        DB 56
+        DB 56
+        DB 0
+        DB 0
+        DB 56
+        DB 56
+        DB 24
+        DB 48
+//  348   ________,
+//  349   ________,
+//  350   __XXX___,
+//  351   __XXX___,
+//  352   ________,
+//  353   ________,
+//  354   __XXX___,
+//  355   __XXX___,
+//  356   ___XX___,
+//  357   __XX____};
+//  358 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  359 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_003C[10] = { /* code 003C */
+acFont8x10ASCII_003C:
+        DB 12
+        DB 24
+        DB 48
+        DB 96
+        DB 192
+        DB 96
+        DB 48
+        DB 24
+        DB 12
+        DB 0
+//  360   ____XX__,
+//  361   ___XX___,
+//  362   __XX____,
+//  363   _XX_____,
+//  364   XX______,
+//  365   _XX_____,
+//  366   __XX____,
+//  367   ___XX___,
+//  368   ____XX__,
+//  369   ________};
+//  370 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  371 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_003D[10] = { /* code 003D */
+acFont8x10ASCII_003D:
+        DB 0
+        DB 0
+        DB 0
+        DB 126
+        DB 0
+        DB 126
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+//  372   ________,
+//  373   ________,
+//  374   ________,
+//  375   _XXXXXX_,
+//  376   ________,
+//  377   _XXXXXX_,
+//  378   ________,
+//  379   ________,
+//  380   ________,
+//  381   ________};
+//  382 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  383 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_003E[10] = { /* code 003E */
+acFont8x10ASCII_003E:
+        DB 96
+        DB 48
+        DB 24
+        DB 12
+        DB 6
+        DB 12
+        DB 24
+        DB 48
+        DB 96
+        DB 0
+//  384   _XX_____,
+//  385   __XX____,
+//  386   ___XX___,
+//  387   ____XX__,
+//  388   _____XX_,
+//  389   ____XX__,
+//  390   ___XX___,
+//  391   __XX____,
+//  392   _XX_____,
+//  393   ________};
+//  394 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  395 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_003F[10] = { /* code 003F */
+acFont8x10ASCII_003F:
+        DB 120
+        DB 204
+        DB 12
+        DB 24
+        DB 48
+        DB 48
+        DB 0
+        DB 48
+        DB 48
+        DB 0
+//  396   _XXXX___,
+//  397   XX__XX__,
+//  398   ____XX__,
+//  399   ___XX___,
+//  400   __XX____,
+//  401   __XX____,
+//  402   ________,
+//  403   __XX____,
+//  404   __XX____,
+//  405   ________};
+//  406 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  407 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0040[10] = { /* code 0040 */
+acFont8x10ASCII_0040:
+        DB 124
+        DB 198
+        DB 198
+        DB 222
+        DB 222
+        DB 222
+        DB 192
+        DB 192
+        DB 124
+        DB 0
+//  408   _XXXXX__,
+//  409   XX___XX_,
+//  410   XX___XX_,
+//  411   XX_XXXX_,
+//  412   XX_XXXX_,
+//  413   XX_XXXX_,
+//  414   XX______,
+//  415   XX______,
+//  416   _XXXXX__,
+//  417   ________};
+//  418 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  419 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0041[10] = { /* code 0041 */
+acFont8x10ASCII_0041:
+        DB 48
+        DB 120
+        DB 204
+        DB 204
+        DB 204
+        DB 252
+        DB 204
+        DB 204
+        DB 204
+        DB 0
+//  420   __XX____,
+//  421   _XXXX___,
+//  422   XX__XX__,
+//  423   XX__XX__,
+//  424   XX__XX__,
+//  425   XXXXXX__,
+//  426   XX__XX__,
+//  427   XX__XX__,
+//  428   XX__XX__,
+//  429   ________};
+//  430 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  431 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0042[10] = { /* code 0042 */
+acFont8x10ASCII_0042:
+        DB 252
+        DB 102
+        DB 102
+        DB 102
+        DB 124
+        DB 102
+        DB 102
+        DB 102
+        DB 252
+        DB 0
+//  432   XXXXXX__,
+//  433   _XX__XX_,
+//  434   _XX__XX_,
+//  435   _XX__XX_,
+//  436   _XXXXX__,
+//  437   _XX__XX_,
+//  438   _XX__XX_,
+//  439   _XX__XX_,
+//  440   XXXXXX__,
+//  441   ________};
+//  442 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  443 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0043[10] = { /* code 0043 */
+acFont8x10ASCII_0043:
+        DB 60
+        DB 102
+        DB 198
+        DB 192
+        DB 192
+        DB 192
+        DB 198
+        DB 102
+        DB 60
+        DB 0
+//  444   __XXXX__,
+//  445   _XX__XX_,
+//  446   XX___XX_,
+//  447   XX______,
+//  448   XX______,
+//  449   XX______,
+//  450   XX___XX_,
+//  451   _XX__XX_,
+//  452   __XXXX__,
+//  453   ________};
+//  454 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  455 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0044[10] = { /* code 0044 */
+acFont8x10ASCII_0044:
+        DB 248
+        DB 108
+        DB 102
+        DB 102
+        DB 102
+        DB 102
+        DB 102
+        DB 108
+        DB 248
+        DB 0
+//  456   XXXXX___,
+//  457   _XX_XX__,
+//  458   _XX__XX_,
+//  459   _XX__XX_,
+//  460   _XX__XX_,
+//  461   _XX__XX_,
+//  462   _XX__XX_,
+//  463   _XX_XX__,
+//  464   XXXXX___,
+//  465   ________};
+//  466 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  467 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0045[10] = { /* code 0045 */
+acFont8x10ASCII_0045:
+        DB 254
+        DB 98
+        DB 96
+        DB 100
+        DB 124
+        DB 100
+        DB 96
+        DB 98
+        DB 254
+        DB 0
+//  468   XXXXXXX_,
+//  469   _XX___X_,
+//  470   _XX_____,
+//  471   _XX__X__,
+//  472   _XXXXX__,
+//  473   _XX__X__,
+//  474   _XX_____,
+//  475   _XX___X_,
+//  476   XXXXXXX_,
+//  477   ________};
+//  478 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  479 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0046[10] = { /* code 0046 */
+acFont8x10ASCII_0046:
+        DB 254
+        DB 102
+        DB 98
+        DB 100
+        DB 124
+        DB 100
+        DB 96
+        DB 96
+        DB 240
+        DB 0
+//  480   XXXXXXX_,
+//  481   _XX__XX_,
+//  482   _XX___X_,
+//  483   _XX__X__,
+//  484   _XXXXX__,
+//  485   _XX__X__,
+//  486   _XX_____,
+//  487   _XX_____,
+//  488   XXXX____,
+//  489   ________};
+//  490 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  491 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0047[10] = { /* code 0047 */
+acFont8x10ASCII_0047:
+        DB 60
+        DB 102
+        DB 198
+        DB 192
+        DB 192
+        DB 206
+        DB 198
+        DB 102
+        DB 62
+        DB 0
+//  492   __XXXX__,
+//  493   _XX__XX_,
+//  494   XX___XX_,
+//  495   XX______,
+//  496   XX______,
+//  497   XX__XXX_,
+//  498   XX___XX_,
+//  499   _XX__XX_,
+//  500   __XXXXX_,
+//  501   ________};
+//  502 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  503 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0048[10] = { /* code 0048 */
+acFont8x10ASCII_0048:
+        DB 204
+        DB 204
+        DB 204
+        DB 204
+        DB 252
+        DB 204
+        DB 204
+        DB 204
+        DB 204
+        DB 0
+//  504   XX__XX__,
+//  505   XX__XX__,
+//  506   XX__XX__,
+//  507   XX__XX__,
+//  508   XXXXXX__,
+//  509   XX__XX__,
+//  510   XX__XX__,
+//  511   XX__XX__,
+//  512   XX__XX__,
+//  513   ________};
+//  514 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  515 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0049[10] = { /* code 0049 */
+acFont8x10ASCII_0049:
+        DB 120
+        DB 48
+        DB 48
+        DB 48
+        DB 48
+        DB 48
+        DB 48
+        DB 48
+        DB 120
+        DB 0
+//  516   _XXXX___,
+//  517   __XX____,
+//  518   __XX____,
+//  519   __XX____,
+//  520   __XX____,
+//  521   __XX____,
+//  522   __XX____,
+//  523   __XX____,
+//  524   _XXXX___,
+//  525   ________};
+//  526 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  527 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_004A[10] = { /* code 004A */
+acFont8x10ASCII_004A:
+        DB 30
+        DB 12
+        DB 12
+        DB 12
+        DB 12
+        DB 204
+        DB 204
+        DB 204
+        DB 120
+        DB 0
+//  528   ___XXXX_,
+//  529   ____XX__,
+//  530   ____XX__,
+//  531   ____XX__,
+//  532   ____XX__,
+//  533   XX__XX__,
+//  534   XX__XX__,
+//  535   XX__XX__,
+//  536   _XXXX___,
+//  537   ________};
+//  538 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  539 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_004B[10] = { /* code 004B */
+acFont8x10ASCII_004B:
+        DB 230
+        DB 102
+        DB 108
+        DB 108
+        DB 120
+        DB 108
+        DB 108
+        DB 102
+        DB 230
+        DB 0
+//  540   XXX__XX_,
+//  541   _XX__XX_,
+//  542   _XX_XX__,
+//  543   _XX_XX__,
+//  544   _XXXX___,
+//  545   _XX_XX__,
+//  546   _XX_XX__,
+//  547   _XX__XX_,
+//  548   XXX__XX_,
+//  549   ________};
+//  550 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  551 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_004C[10] = { /* code 004C */
+acFont8x10ASCII_004C:
+        DB 240
+        DB 96
+        DB 96
+        DB 96
+        DB 96
+        DB 98
+        DB 102
+        DB 102
+        DB 254
+        DB 0
+//  552   XXXX____,
+//  553   _XX_____,
+//  554   _XX_____,
+//  555   _XX_____,
+//  556   _XX_____,
+//  557   _XX___X_,
+//  558   _XX__XX_,
+//  559   _XX__XX_,
+//  560   XXXXXXX_,
+//  561   ________};
+//  562 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  563 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_004D[10] = { /* code 004D */
+acFont8x10ASCII_004D:
+        DB 198
+        DB 238
+        DB 254
+        DB 254
+        DB 214
+        DB 198
+        DB 198
+        DB 198
+        DB 198
+        DB 0
+//  564   XX___XX_,
+//  565   XXX_XXX_,
+//  566   XXXXXXX_,
+//  567   XXXXXXX_,
+//  568   XX_X_XX_,
+//  569   XX___XX_,
+//  570   XX___XX_,
+//  571   XX___XX_,
+//  572   XX___XX_,
+//  573   ________};
+//  574 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  575 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_004E[10] = { /* code 004E */
+acFont8x10ASCII_004E:
+        DB 198
+        DB 198
+        DB 230
+        DB 246
+        DB 254
+        DB 222
+        DB 206
+        DB 198
+        DB 198
+        DB 0
+//  576   XX___XX_,
+//  577   XX___XX_,
+//  578   XXX__XX_,
+//  579   XXXX_XX_,
+//  580   XXXXXXX_,
+//  581   XX_XXXX_,
+//  582   XX__XXX_,
+//  583   XX___XX_,
+//  584   XX___XX_,
+//  585   ________};
+//  586 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  587 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_004F[10] = { /* code 004F */
+acFont8x10ASCII_004F:
+        DB 56
+        DB 108
+        DB 198
+        DB 198
+        DB 198
+        DB 198
+        DB 198
+        DB 108
+        DB 56
+        DB 0
+//  588   __XXX___,
+//  589   _XX_XX__,
+//  590   XX___XX_,
+//  591   XX___XX_,
+//  592   XX___XX_,
+//  593   XX___XX_,
+//  594   XX___XX_,
+//  595   _XX_XX__,
+//  596   __XXX___,
+//  597   ________};
+//  598 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  599 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0050[10] = { /* code 0050 */
+acFont8x10ASCII_0050:
+        DB 252
+        DB 102
+        DB 102
+        DB 102
+        DB 124
+        DB 96
+        DB 96
+        DB 96
+        DB 240
+        DB 0
+//  600   XXXXXX__,
+//  601   _XX__XX_,
+//  602   _XX__XX_,
+//  603   _XX__XX_,
+//  604   _XXXXX__,
+//  605   _XX_____,
+//  606   _XX_____,
+//  607   _XX_____,
+//  608   XXXX____,
+//  609   ________};
+//  610 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  611 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0051[10] = { /* code 0051 */
+acFont8x10ASCII_0051:
+        DB 56
+        DB 108
+        DB 198
+        DB 198
+        DB 198
+        DB 206
+        DB 222
+        DB 124
+        DB 12
+        DB 30
+//  612   __XXX___,
+//  613   _XX_XX__,
+//  614   XX___XX_,
+//  615   XX___XX_,
+//  616   XX___XX_,
+//  617   XX__XXX_,
+//  618   XX_XXXX_,
+//  619   _XXXXX__,
+//  620   ____XX__,
+//  621   ___XXXX_};
+//  622 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  623 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0052[10] = { /* code 0052 */
+acFont8x10ASCII_0052:
+        DB 252
+        DB 102
+        DB 102
+        DB 102
+        DB 124
+        DB 108
+        DB 102
+        DB 102
+        DB 230
+        DB 0
+//  624   XXXXXX__,
+//  625   _XX__XX_,
+//  626   _XX__XX_,
+//  627   _XX__XX_,
+//  628   _XXXXX__,
+//  629   _XX_XX__,
+//  630   _XX__XX_,
+//  631   _XX__XX_,
+//  632   XXX__XX_,
+//  633   ________};
+//  634 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  635 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0053[10] = { /* code 0053 */
+acFont8x10ASCII_0053:
+        DB 120
+        DB 204
+        DB 204
+        DB 192
+        DB 112
+        DB 24
+        DB 204
+        DB 204
+        DB 120
+        DB 0
+//  636   _XXXX___,
+//  637   XX__XX__,
+//  638   XX__XX__,
+//  639   XX______,
+//  640   _XXX____,
+//  641   ___XX___,
+//  642   XX__XX__,
+//  643   XX__XX__,
+//  644   _XXXX___,
+//  645   ________};
+//  646 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  647 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0054[10] = { /* code 0054 */
+acFont8x10ASCII_0054:
+        DB 252
+        DB 180
+        DB 48
+        DB 48
+        DB 48
+        DB 48
+        DB 48
+        DB 48
+        DB 120
+        DB 0
+//  648   XXXXXX__,
+//  649   X_XX_X__,
+//  650   __XX____,
+//  651   __XX____,
+//  652   __XX____,
+//  653   __XX____,
+//  654   __XX____,
+//  655   __XX____,
+//  656   _XXXX___,
+//  657   ________};
+//  658 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  659 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0055[10] = { /* code 0055 */
+acFont8x10ASCII_0055:
+        DB 204
+        DB 204
+        DB 204
+        DB 204
+        DB 204
+        DB 204
+        DB 204
+        DB 204
+        DB 120
+        DB 0
+//  660   XX__XX__,
+//  661   XX__XX__,
+//  662   XX__XX__,
+//  663   XX__XX__,
+//  664   XX__XX__,
+//  665   XX__XX__,
+//  666   XX__XX__,
+//  667   XX__XX__,
+//  668   _XXXX___,
+//  669   ________};
+//  670 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  671 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0056[10] = { /* code 0056 */
+acFont8x10ASCII_0056:
+        DB 204
+        DB 204
+        DB 204
+        DB 204
+        DB 204
+        DB 204
+        DB 204
+        DB 120
+        DB 48
+        DB 0
+//  672   XX__XX__,
+//  673   XX__XX__,
+//  674   XX__XX__,
+//  675   XX__XX__,
+//  676   XX__XX__,
+//  677   XX__XX__,
+//  678   XX__XX__,
+//  679   _XXXX___,
+//  680   __XX____,
+//  681   ________};
+//  682 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  683 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0057[10] = { /* code 0057 */
+acFont8x10ASCII_0057:
+        DB 198
+        DB 198
+        DB 198
+        DB 198
+        DB 214
+        DB 214
+        DB 108
+        DB 108
+        DB 108
+        DB 0
+//  684   XX___XX_,
+//  685   XX___XX_,
+//  686   XX___XX_,
+//  687   XX___XX_,
+//  688   XX_X_XX_,
+//  689   XX_X_XX_,
+//  690   _XX_XX__,
+//  691   _XX_XX__,
+//  692   _XX_XX__,
+//  693   ________};
+//  694 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  695 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0058[10] = { /* code 0058 */
+acFont8x10ASCII_0058:
+        DB 204
+        DB 204
+        DB 204
+        DB 120
+        DB 48
+        DB 120
+        DB 204
+        DB 204
+        DB 204
+        DB 0
+//  696   XX__XX__,
+//  697   XX__XX__,
+//  698   XX__XX__,
+//  699   _XXXX___,
+//  700   __XX____,
+//  701   _XXXX___,
+//  702   XX__XX__,
+//  703   XX__XX__,
+//  704   XX__XX__,
+//  705   ________};
+//  706 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  707 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0059[10] = { /* code 0059 */
+acFont8x10ASCII_0059:
+        DB 204
+        DB 204
+        DB 204
+        DB 204
+        DB 120
+        DB 48
+        DB 48
+        DB 48
+        DB 120
+        DB 0
+//  708   XX__XX__,
+//  709   XX__XX__,
+//  710   XX__XX__,
+//  711   XX__XX__,
+//  712   _XXXX___,
+//  713   __XX____,
+//  714   __XX____,
+//  715   __XX____,
+//  716   _XXXX___,
+//  717   ________};
+//  718 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  719 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_005A[10] = { /* code 005A */
+acFont8x10ASCII_005A:
+        DB 254
+        DB 206
+        DB 152
+        DB 24
+        DB 48
+        DB 96
+        DB 98
+        DB 198
+        DB 254
+        DB 0
+//  720   XXXXXXX_,
+//  721   XX__XXX_,
+//  722   X__XX___,
+//  723   ___XX___,
+//  724   __XX____,
+//  725   _XX_____,
+//  726   _XX___X_,
+//  727   XX___XX_,
+//  728   XXXXXXX_,
+//  729   ________};
+//  730 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  731 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_005B[10] = { /* code 005B */
+acFont8x10ASCII_005B:
+        DB 60
+        DB 48
+        DB 48
+        DB 48
+        DB 48
+        DB 48
+        DB 48
+        DB 48
+        DB 60
+        DB 0
+//  732   __XXXX__,
+//  733   __XX____,
+//  734   __XX____,
+//  735   __XX____,
+//  736   __XX____,
+//  737   __XX____,
+//  738   __XX____,
+//  739   __XX____,
+//  740   __XXXX__,
+//  741   ________};
+//  742 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  743 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_005C[10] = { /* code 005C */
+acFont8x10ASCII_005C:
+        DB 0
+        DB 128
+        DB 192
+        DB 96
+        DB 48
+        DB 24
+        DB 12
+        DB 6
+        DB 2
+        DB 0
+//  744   ________,
+//  745   X_______,
+//  746   XX______,
+//  747   _XX_____,
+//  748   __XX____,
+//  749   ___XX___,
+//  750   ____XX__,
+//  751   _____XX_,
+//  752   ______X_,
+//  753   ________};
+//  754 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  755 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_005D[10] = { /* code 005D */
+acFont8x10ASCII_005D:
+        DB 60
+        DB 12
+        DB 12
+        DB 12
+        DB 12
+        DB 12
+        DB 12
+        DB 12
+        DB 60
+        DB 0
+//  756   __XXXX__,
+//  757   ____XX__,
+//  758   ____XX__,
+//  759   ____XX__,
+//  760   ____XX__,
+//  761   ____XX__,
+//  762   ____XX__,
+//  763   ____XX__,
+//  764   __XXXX__,
+//  765   ________};
+//  766 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  767 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_005E[10] = { /* code 005E */
+acFont8x10ASCII_005E:
+        DB 16
+        DB 56
+        DB 108
+        DB 198
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+//  768   ___X____,
+//  769   __XXX___,
+//  770   _XX_XX__,
+//  771   XX___XX_,
+//  772   ________,
+//  773   ________,
+//  774   ________,
+//  775   ________,
+//  776   ________,
+//  777   ________};
+//  778 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  779 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_005F[10] = { /* code 005F */
+acFont8x10ASCII_005F:
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 255
+//  780   ________,
+//  781   ________,
+//  782   ________,
+//  783   ________,
+//  784   ________,
+//  785   ________,
+//  786   ________,
+//  787   ________,
+//  788   ________,
+//  789   XXXXXXXX};
+//  790 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  791 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0060[10] = { /* code 0060 */
+acFont8x10ASCII_0060:
+        DB 48
+        DB 48
+        DB 24
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+//  792   __XX____,
+//  793   __XX____,
+//  794   ___XX___,
+//  795   ________,
+//  796   ________,
+//  797   ________,
+//  798   ________,
+//  799   ________,
+//  800   ________,
+//  801   ________};
+//  802 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  803 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0061[10] = { /* code 0061 */
+acFont8x10ASCII_0061:
+        DB 0
+        DB 0
+        DB 0
+        DB 120
+        DB 12
+        DB 124
+        DB 204
+        DB 204
+        DB 118
+        DB 0
+//  804   ________,
+//  805   ________,
+//  806   ________,
+//  807   _XXXX___,
+//  808   ____XX__,
+//  809   _XXXXX__,
+//  810   XX__XX__,
+//  811   XX__XX__,
+//  812   _XXX_XX_,
+//  813   ________};
+//  814 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  815 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0062[10] = { /* code 0062 */
+acFont8x10ASCII_0062:
+        DB 224
+        DB 96
+        DB 96
+        DB 124
+        DB 102
+        DB 102
+        DB 102
+        DB 102
+        DB 220
+        DB 0
+//  816   XXX_____,
+//  817   _XX_____,
+//  818   _XX_____,
+//  819   _XXXXX__,
+//  820   _XX__XX_,
+//  821   _XX__XX_,
+//  822   _XX__XX_,
+//  823   _XX__XX_,
+//  824   XX_XXX__,
+//  825   ________};
+//  826 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  827 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0063[10] = { /* code 0063 */
+acFont8x10ASCII_0063:
+        DB 0
+        DB 0
+        DB 0
+        DB 120
+        DB 204
+        DB 192
+        DB 192
+        DB 204
+        DB 120
+        DB 0
+//  828   ________,
+//  829   ________,
+//  830   ________,
+//  831   _XXXX___,
+//  832   XX__XX__,
+//  833   XX______,
+//  834   XX______,
+//  835   XX__XX__,
+//  836   _XXXX___,
+//  837   ________};
+//  838 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  839 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0064[10] = { /* code 0064 */
+acFont8x10ASCII_0064:
+        DB 28
+        DB 12
+        DB 12
+        DB 124
+        DB 204
+        DB 204
+        DB 204
+        DB 204
+        DB 118
+        DB 0
+//  840   ___XXX__,
+//  841   ____XX__,
+//  842   ____XX__,
+//  843   _XXXXX__,
+//  844   XX__XX__,
+//  845   XX__XX__,
+//  846   XX__XX__,
+//  847   XX__XX__,
+//  848   _XXX_XX_,
+//  849   ________};
+//  850 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  851 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0065[10] = { /* code 0065 */
+acFont8x10ASCII_0065:
+        DB 0
+        DB 0
+        DB 0
+        DB 120
+        DB 204
+        DB 252
+        DB 192
+        DB 204
+        DB 120
+        DB 0
+//  852   ________,
+//  853   ________,
+//  854   ________,
+//  855   _XXXX___,
+//  856   XX__XX__,
+//  857   XXXXXX__,
+//  858   XX______,
+//  859   XX__XX__,
+//  860   _XXXX___,
+//  861   ________};
+//  862 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  863 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0066[10] = { /* code 0066 */
+acFont8x10ASCII_0066:
+        DB 56
+        DB 108
+        DB 96
+        DB 96
+        DB 248
+        DB 96
+        DB 96
+        DB 96
+        DB 240
+        DB 0
+//  864   __XXX___,
+//  865   _XX_XX__,
+//  866   _XX_____,
+//  867   _XX_____,
+//  868   XXXXX___,
+//  869   _XX_____,
+//  870   _XX_____,
+//  871   _XX_____,
+//  872   XXXX____,
+//  873   ________};
+//  874 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  875 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0067[10] = { /* code 0067 */
+acFont8x10ASCII_0067:
+        DB 0
+        DB 0
+        DB 118
+        DB 204
+        DB 204
+        DB 204
+        DB 124
+        DB 12
+        DB 204
+        DB 120
+//  876   ________,
+//  877   ________,
+//  878   _XXX_XX_,
+//  879   XX__XX__,
+//  880   XX__XX__,
+//  881   XX__XX__,
+//  882   _XXXXX__,
+//  883   ____XX__,
+//  884   XX__XX__,
+//  885   _XXXX___};
+//  886 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  887 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0068[10] = { /* code 0068 */
+acFont8x10ASCII_0068:
+        DB 224
+        DB 96
+        DB 96
+        DB 108
+        DB 118
+        DB 102
+        DB 102
+        DB 102
+        DB 230
+        DB 0
+//  888   XXX_____,
+//  889   _XX_____,
+//  890   _XX_____,
+//  891   _XX_XX__,
+//  892   _XXX_XX_,
+//  893   _XX__XX_,
+//  894   _XX__XX_,
+//  895   _XX__XX_,
+//  896   XXX__XX_,
+//  897   ________};
+//  898 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  899 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0069[10] = { /* code 0069 */
+acFont8x10ASCII_0069:
+        DB 24
+        DB 24
+        DB 0
+        DB 120
+        DB 24
+        DB 24
+        DB 24
+        DB 24
+        DB 126
+        DB 0
+//  900   ___XX___,
+//  901   ___XX___,
+//  902   ________,
+//  903   _XXXX___,
+//  904   ___XX___,
+//  905   ___XX___,
+//  906   ___XX___,
+//  907   ___XX___,
+//  908   _XXXXXX_,
+//  909   ________};
+//  910 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  911 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_006A[10] = { /* code 006A */
+acFont8x10ASCII_006A:
+        DB 12
+        DB 0
+        DB 60
+        DB 12
+        DB 12
+        DB 12
+        DB 12
+        DB 204
+        DB 204
+        DB 120
+//  912   ____XX__,
+//  913   ________,
+//  914   __XXXX__,
+//  915   ____XX__,
+//  916   ____XX__,
+//  917   ____XX__,
+//  918   ____XX__,
+//  919   XX__XX__,
+//  920   XX__XX__,
+//  921   _XXXX___};
+//  922 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  923 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_006B[10] = { /* code 006B */
+acFont8x10ASCII_006B:
+        DB 224
+        DB 96
+        DB 96
+        DB 102
+        DB 108
+        DB 120
+        DB 108
+        DB 102
+        DB 230
+        DB 0
+//  924   XXX_____,
+//  925   _XX_____,
+//  926   _XX_____,
+//  927   _XX__XX_,
+//  928   _XX_XX__,
+//  929   _XXXX___,
+//  930   _XX_XX__,
+//  931   _XX__XX_,
+//  932   XXX__XX_,
+//  933   ________};
+//  934 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  935 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_006C[10] = { /* code 006C */
+acFont8x10ASCII_006C:
+        DB 120
+        DB 24
+        DB 24
+        DB 24
+        DB 24
+        DB 24
+        DB 24
+        DB 24
+        DB 126
+        DB 0
+//  936   _XXXX___,
+//  937   ___XX___,
+//  938   ___XX___,
+//  939   ___XX___,
+//  940   ___XX___,
+//  941   ___XX___,
+//  942   ___XX___,
+//  943   ___XX___,
+//  944   _XXXXXX_,
+//  945   ________};
+//  946 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  947 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_006D[10] = { /* code 006D */
+acFont8x10ASCII_006D:
+        DB 0
+        DB 0
+        DB 0
+        DB 252
+        DB 214
+        DB 214
+        DB 214
+        DB 214
+        DB 198
+        DB 0
+//  948   ________,
+//  949   ________,
+//  950   ________,
+//  951   XXXXXX__,
+//  952   XX_X_XX_,
+//  953   XX_X_XX_,
+//  954   XX_X_XX_,
+//  955   XX_X_XX_,
+//  956   XX___XX_,
+//  957   ________};
+//  958 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  959 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_006E[10] = { /* code 006E */
+acFont8x10ASCII_006E:
+        DB 0
+        DB 0
+        DB 0
+        DB 248
+        DB 204
+        DB 204
+        DB 204
+        DB 204
+        DB 204
+        DB 0
+//  960   ________,
+//  961   ________,
+//  962   ________,
+//  963   XXXXX___,
+//  964   XX__XX__,
+//  965   XX__XX__,
+//  966   XX__XX__,
+//  967   XX__XX__,
+//  968   XX__XX__,
+//  969   ________};
+//  970 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  971 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_006F[10] = { /* code 006F */
+acFont8x10ASCII_006F:
+        DB 0
+        DB 0
+        DB 0
+        DB 120
+        DB 204
+        DB 204
+        DB 204
+        DB 204
+        DB 120
+        DB 0
+//  972   ________,
+//  973   ________,
+//  974   ________,
+//  975   _XXXX___,
+//  976   XX__XX__,
+//  977   XX__XX__,
+//  978   XX__XX__,
+//  979   XX__XX__,
+//  980   _XXXX___,
+//  981   ________};
+//  982 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  983 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0070[10] = { /* code 0070 */
+acFont8x10ASCII_0070:
+        DB 0
+        DB 0
+        DB 220
+        DB 102
+        DB 102
+        DB 102
+        DB 102
+        DB 124
+        DB 96
+        DB 240
+//  984   ________,
+//  985   ________,
+//  986   XX_XXX__,
+//  987   _XX__XX_,
+//  988   _XX__XX_,
+//  989   _XX__XX_,
+//  990   _XX__XX_,
+//  991   _XXXXX__,
+//  992   _XX_____,
+//  993   XXXX____};
+//  994 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  995 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0071[10] = { /* code 0071 */
+acFont8x10ASCII_0071:
+        DB 0
+        DB 0
+        DB 118
+        DB 204
+        DB 204
+        DB 204
+        DB 204
+        DB 124
+        DB 12
+        DB 30
+//  996   ________,
+//  997   ________,
+//  998   _XXX_XX_,
+//  999   XX__XX__,
+// 1000   XX__XX__,
+// 1001   XX__XX__,
+// 1002   XX__XX__,
+// 1003   _XXXXX__,
+// 1004   ____XX__,
+// 1005   ___XXXX_};
+// 1006 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+// 1007 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0072[10] = { /* code 0072 */
+acFont8x10ASCII_0072:
+        DB 0
+        DB 0
+        DB 0
+        DB 236
+        DB 110
+        DB 118
+        DB 96
+        DB 96
+        DB 240
+        DB 0
+// 1008   ________,
+// 1009   ________,
+// 1010   ________,
+// 1011   XXX_XX__,
+// 1012   _XX_XXX_,
+// 1013   _XXX_XX_,
+// 1014   _XX_____,
+// 1015   _XX_____,
+// 1016   XXXX____,
+// 1017   ________};
+// 1018 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+// 1019 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0073[10] = { /* code 0073 */
+acFont8x10ASCII_0073:
+        DB 0
+        DB 0
+        DB 0
+        DB 120
+        DB 204
+        DB 96
+        DB 24
+        DB 204
+        DB 120
+        DB 0
+// 1020   ________,
+// 1021   ________,
+// 1022   ________,
+// 1023   _XXXX___,
+// 1024   XX__XX__,
+// 1025   _XX_____,
+// 1026   ___XX___,
+// 1027   XX__XX__,
+// 1028   _XXXX___,
+// 1029   ________};
+// 1030 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+// 1031 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0074[10] = { /* code 0074 */
+acFont8x10ASCII_0074:
+        DB 0
+        DB 32
+        DB 96
+        DB 252
+        DB 96
+        DB 96
+        DB 96
+        DB 108
+        DB 56
+        DB 0
+// 1032   ________,
+// 1033   __X_____,
+// 1034   _XX_____,
+// 1035   XXXXXX__,
+// 1036   _XX_____,
+// 1037   _XX_____,
+// 1038   _XX_____,
+// 1039   _XX_XX__,
+// 1040   __XXX___,
+// 1041   ________};
+// 1042 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+// 1043 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0075[10] = { /* code 0075 */
+acFont8x10ASCII_0075:
+        DB 0
+        DB 0
+        DB 0
+        DB 204
+        DB 204
+        DB 204
+        DB 204
+        DB 204
+        DB 118
+        DB 0
+// 1044   ________,
+// 1045   ________,
+// 1046   ________,
+// 1047   XX__XX__,
+// 1048   XX__XX__,
+// 1049   XX__XX__,
+// 1050   XX__XX__,
+// 1051   XX__XX__,
+// 1052   _XXX_XX_,
+// 1053   ________};
+// 1054 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+// 1055 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0076[10] = { /* code 0076 */
+acFont8x10ASCII_0076:
+        DB 0
+        DB 0
+        DB 0
+        DB 204
+        DB 204
+        DB 204
+        DB 204
+        DB 120
+        DB 48
+        DB 0
+// 1056   ________,
+// 1057   ________,
+// 1058   ________,
+// 1059   XX__XX__,
+// 1060   XX__XX__,
+// 1061   XX__XX__,
+// 1062   XX__XX__,
+// 1063   _XXXX___,
+// 1064   __XX____,
+// 1065   ________};
+// 1066 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+// 1067 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0077[10] = { /* code 0077 */
+acFont8x10ASCII_0077:
+        DB 0
+        DB 0
+        DB 0
+        DB 198
+        DB 198
+        DB 214
+        DB 214
+        DB 108
+        DB 108
+        DB 0
+// 1068   ________,
+// 1069   ________,
+// 1070   ________,
+// 1071   XX___XX_,
+// 1072   XX___XX_,
+// 1073   XX_X_XX_,
+// 1074   XX_X_XX_,
+// 1075   _XX_XX__,
+// 1076   _XX_XX__,
+// 1077   ________};
+// 1078 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+// 1079 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0078[10] = { /* code 0078 */
+acFont8x10ASCII_0078:
+        DB 0
+        DB 0
+        DB 0
+        DB 198
+        DB 108
+        DB 56
+        DB 56
+        DB 108
+        DB 198
+        DB 0
+// 1080   ________,
+// 1081   ________,
+// 1082   ________,
+// 1083   XX___XX_,
+// 1084   _XX_XX__,
+// 1085   __XXX___,
+// 1086   __XXX___,
+// 1087   _XX_XX__,
+// 1088   XX___XX_,
+// 1089   ________};
+// 1090 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+// 1091 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_0079[10] = { /* code 0079 */
+acFont8x10ASCII_0079:
+        DB 0
+        DB 0
+        DB 102
+        DB 102
+        DB 102
+        DB 102
+        DB 60
+        DB 12
+        DB 24
+        DB 240
+// 1092   ________,
+// 1093   ________,
+// 1094   _XX__XX_,
+// 1095   _XX__XX_,
+// 1096   _XX__XX_,
+// 1097   _XX__XX_,
+// 1098   __XXXX__,
+// 1099   ____XX__,
+// 1100   ___XX___,
+// 1101   XXXX____};
+// 1102 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+// 1103 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_007A[10] = { /* code 007A */
+acFont8x10ASCII_007A:
+        DB 0
+        DB 0
+        DB 0
+        DB 252
+        DB 140
+        DB 24
+        DB 96
+        DB 196
+        DB 252
+        DB 0
+// 1104   ________,
+// 1105   ________,
+// 1106   ________,
+// 1107   XXXXXX__,
+// 1108   X___XX__,
+// 1109   ___XX___,
+// 1110   _XX_____,
+// 1111   XX___X__,
+// 1112   XXXXXX__,
+// 1113   ________};
+// 1114 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+// 1115 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_007B[10] = { /* code 007B */
+acFont8x10ASCII_007B:
+        DB 28
+        DB 48
+        DB 48
+        DB 96
+        DB 192
+        DB 96
+        DB 48
+        DB 48
+        DB 28
+        DB 0
+// 1116   ___XXX__,
+// 1117   __XX____,
+// 1118   __XX____,
+// 1119   _XX_____,
+// 1120   XX______,
+// 1121   _XX_____,
+// 1122   __XX____,
+// 1123   __XX____,
+// 1124   ___XXX__,
+// 1125   ________};
+// 1126 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+// 1127 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_007C[10] = { /* code 007C */
+acFont8x10ASCII_007C:
+        DB 24
+        DB 24
+        DB 24
+        DB 24
+        DB 0
+        DB 24
+        DB 24
+        DB 24
+        DB 24
+        DB 0
+// 1128   ___XX___,
+// 1129   ___XX___,
+// 1130   ___XX___,
+// 1131   ___XX___,
+// 1132   ________,
+// 1133   ___XX___,
+// 1134   ___XX___,
+// 1135   ___XX___,
+// 1136   ___XX___,
+// 1137   ________};
+// 1138 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+// 1139 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_007D[10] = { /* code 007D */
+acFont8x10ASCII_007D:
+        DB 224
+        DB 48
+        DB 48
+        DB 24
+        DB 12
+        DB 24
+        DB 48
+        DB 48
+        DB 224
+        DB 0
+// 1140   XXX_____,
+// 1141   __XX____,
+// 1142   __XX____,
+// 1143   ___XX___,
+// 1144   ____XX__,
+// 1145   ___XX___,
+// 1146   __XX____,
+// 1147   __XX____,
+// 1148   XXX_____,
+// 1149   ________};
+// 1150 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+// 1151 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_007E[10] = { /* code 007E */
+acFont8x10ASCII_007E:
+        DB 115
+        DB 218
+        DB 206
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+// 1152   _XXX__XX,
+// 1153   XX_XX_X_,
+// 1154   XX__XXX_,
+// 1155   ________,
+// 1156   ________,
+// 1157   ________,
+// 1158   ________,
+// 1159   ________,
+// 1160   ________,
+// 1161   ________};
+// 1162 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+// 1163 GUI_CONST_STORAGE unsigned char acFont8x10ASCII_007F[10] = { /* code 007F */
+acFont8x10ASCII_007F:
+        DB 0
+        DB 0
+        DB 16
+        DB 56
+        DB 108
+        DB 198
+        DB 198
+        DB 254
+        DB 0
+        DB 0
+// 1164   ________,
+// 1165   ________,
+// 1166   ___X____,
+// 1167   __XXX___,
+// 1168   _XX_XX__,
+// 1169   XX___XX_,
+// 1170   XX___XX_,
+// 1171   XXXXXXX_,
+// 1172   ________,
+// 1173   ________};
+// 1174 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+// 1175 GUI_CONST_STORAGE GUI_CHARINFO GUI_Font8x10ASCII_CharInfo[96] = {
+GUI_Font8x10ASCII_CharInfo:
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0020
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0021
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0022
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0023
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0024
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0025
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0026
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0027
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0028
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0029
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_002A
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_002B
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_002C
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_002D
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_002E
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_002F
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0030
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0031
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0032
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0033
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0034
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0035
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0036
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0037
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0038
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0039
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_003A
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_003B
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_003C
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_003D
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_003E
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_003F
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0040
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0041
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0042
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0043
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0044
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0045
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0046
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0047
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0048
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0049
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_004A
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_004B
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_004C
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_004D
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_004E
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_004F
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0050
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0051
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0052
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0053
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0054
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0055
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0056
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0057
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0058
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0059
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_005A
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_005B
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_005C
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_005D
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_005E
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_005F
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0060
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0061
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0062
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0063
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0064
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0065
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0066
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0067
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0068
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0069
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_006A
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_006B
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_006C
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_006D
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_006E
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_006F
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0070
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0071
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0072
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0073
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0074
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0075
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0076
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0077
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0078
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_0079
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_007A
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_007B
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_007C
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_007D
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_007E
+        DATA8
+        DB 8
+        DB 8
+        DB 1
+        DATA16
+        DW acFont8x10ASCII_007F
+// 1176    {   8,   8,  1, acFont8x10ASCII_0020 } /* code 0020 */
+// 1177   ,{   8,   8,  1, acFont8x10ASCII_0021 } /* code 0021 */
+// 1178   ,{   8,   8,  1, acFont8x10ASCII_0022 } /* code 0022 */
+// 1179   ,{   8,   8,  1, acFont8x10ASCII_0023 } /* code 0023 */
+// 1180   ,{   8,   8,  1, acFont8x10ASCII_0024 } /* code 0024 */
+// 1181   ,{   8,   8,  1, acFont8x10ASCII_0025 } /* code 0025 */
+// 1182   ,{   8,   8,  1, acFont8x10ASCII_0026 } /* code 0026 */
+// 1183   ,{   8,   8,  1, acFont8x10ASCII_0027 } /* code 0027 */
+// 1184   ,{   8,   8,  1, acFont8x10ASCII_0028 } /* code 0028 */
+// 1185   ,{   8,   8,  1, acFont8x10ASCII_0029 } /* code 0029 */
+// 1186   ,{   8,   8,  1, acFont8x10ASCII_002A } /* code 002A */
+// 1187   ,{   8,   8,  1, acFont8x10ASCII_002B } /* code 002B */
+// 1188   ,{   8,   8,  1, acFont8x10ASCII_002C } /* code 002C */
+// 1189   ,{   8,   8,  1, acFont8x10ASCII_002D } /* code 002D */
+// 1190   ,{   8,   8,  1, acFont8x10ASCII_002E } /* code 002E */
+// 1191   ,{   8,   8,  1, acFont8x10ASCII_002F } /* code 002F */
+// 1192   ,{   8,   8,  1, acFont8x10ASCII_0030 } /* code 0030 */
+// 1193   ,{   8,   8,  1, acFont8x10ASCII_0031 } /* code 0031 */
+// 1194   ,{   8,   8,  1, acFont8x10ASCII_0032 } /* code 0032 */
+// 1195   ,{   8,   8,  1, acFont8x10ASCII_0033 } /* code 0033 */
+// 1196   ,{   8,   8,  1, acFont8x10ASCII_0034 } /* code 0034 */
+// 1197   ,{   8,   8,  1, acFont8x10ASCII_0035 } /* code 0035 */
+// 1198   ,{   8,   8,  1, acFont8x10ASCII_0036 } /* code 0036 */
+// 1199   ,{   8,   8,  1, acFont8x10ASCII_0037 } /* code 0037 */
+// 1200   ,{   8,   8,  1, acFont8x10ASCII_0038 } /* code 0038 */
+// 1201   ,{   8,   8,  1, acFont8x10ASCII_0039 } /* code 0039 */
+// 1202   ,{   8,   8,  1, acFont8x10ASCII_003A } /* code 003A */
+// 1203   ,{   8,   8,  1, acFont8x10ASCII_003B } /* code 003B */
+// 1204   ,{   8,   8,  1, acFont8x10ASCII_003C } /* code 003C */
+// 1205   ,{   8,   8,  1, acFont8x10ASCII_003D } /* code 003D */
+// 1206   ,{   8,   8,  1, acFont8x10ASCII_003E } /* code 003E */
+// 1207   ,{   8,   8,  1, acFont8x10ASCII_003F } /* code 003F */
+// 1208   ,{   8,   8,  1, acFont8x10ASCII_0040 } /* code 0040 */
+// 1209   ,{   8,   8,  1, acFont8x10ASCII_0041 } /* code 0041 */
+// 1210   ,{   8,   8,  1, acFont8x10ASCII_0042 } /* code 0042 */
+// 1211   ,{   8,   8,  1, acFont8x10ASCII_0043 } /* code 0043 */
+// 1212   ,{   8,   8,  1, acFont8x10ASCII_0044 } /* code 0044 */
+// 1213   ,{   8,   8,  1, acFont8x10ASCII_0045 } /* code 0045 */
+// 1214   ,{   8,   8,  1, acFont8x10ASCII_0046 } /* code 0046 */
+// 1215   ,{   8,   8,  1, acFont8x10ASCII_0047 } /* code 0047 */
+// 1216   ,{   8,   8,  1, acFont8x10ASCII_0048 } /* code 0048 */
+// 1217   ,{   8,   8,  1, acFont8x10ASCII_0049 } /* code 0049 */
+// 1218   ,{   8,   8,  1, acFont8x10ASCII_004A } /* code 004A */
+// 1219   ,{   8,   8,  1, acFont8x10ASCII_004B } /* code 004B */
+// 1220   ,{   8,   8,  1, acFont8x10ASCII_004C } /* code 004C */
+// 1221   ,{   8,   8,  1, acFont8x10ASCII_004D } /* code 004D */
+// 1222   ,{   8,   8,  1, acFont8x10ASCII_004E } /* code 004E */
+// 1223   ,{   8,   8,  1, acFont8x10ASCII_004F } /* code 004F */
+// 1224   ,{   8,   8,  1, acFont8x10ASCII_0050 } /* code 0050 */
+// 1225   ,{   8,   8,  1, acFont8x10ASCII_0051 } /* code 0051 */
+// 1226   ,{   8,   8,  1, acFont8x10ASCII_0052 } /* code 0052 */
+// 1227   ,{   8,   8,  1, acFont8x10ASCII_0053 } /* code 0053 */
+// 1228   ,{   8,   8,  1, acFont8x10ASCII_0054 } /* code 0054 */
+// 1229   ,{   8,   8,  1, acFont8x10ASCII_0055 } /* code 0055 */
+// 1230   ,{   8,   8,  1, acFont8x10ASCII_0056 } /* code 0056 */
+// 1231   ,{   8,   8,  1, acFont8x10ASCII_0057 } /* code 0057 */
+// 1232   ,{   8,   8,  1, acFont8x10ASCII_0058 } /* code 0058 */
+// 1233   ,{   8,   8,  1, acFont8x10ASCII_0059 } /* code 0059 */
+// 1234   ,{   8,   8,  1, acFont8x10ASCII_005A } /* code 005A */
+// 1235   ,{   8,   8,  1, acFont8x10ASCII_005B } /* code 005B */
+// 1236   ,{   8,   8,  1, acFont8x10ASCII_005C } /* code 005C */
+// 1237   ,{   8,   8,  1, acFont8x10ASCII_005D } /* code 005D */
+// 1238   ,{   8,   8,  1, acFont8x10ASCII_005E } /* code 005E */
+// 1239   ,{   8,   8,  1, acFont8x10ASCII_005F } /* code 005F */
+// 1240   ,{   8,   8,  1, acFont8x10ASCII_0060 } /* code 0060 */
+// 1241   ,{   8,   8,  1, acFont8x10ASCII_0061 } /* code 0061 */
+// 1242   ,{   8,   8,  1, acFont8x10ASCII_0062 } /* code 0062 */
+// 1243   ,{   8,   8,  1, acFont8x10ASCII_0063 } /* code 0063 */
+// 1244   ,{   8,   8,  1, acFont8x10ASCII_0064 } /* code 0064 */
+// 1245   ,{   8,   8,  1, acFont8x10ASCII_0065 } /* code 0065 */
+// 1246   ,{   8,   8,  1, acFont8x10ASCII_0066 } /* code 0066 */
+// 1247   ,{   8,   8,  1, acFont8x10ASCII_0067 } /* code 0067 */
+// 1248   ,{   8,   8,  1, acFont8x10ASCII_0068 } /* code 0068 */
+// 1249   ,{   8,   8,  1, acFont8x10ASCII_0069 } /* code 0069 */
+// 1250   ,{   8,   8,  1, acFont8x10ASCII_006A } /* code 006A */
+// 1251   ,{   8,   8,  1, acFont8x10ASCII_006B } /* code 006B */
+// 1252   ,{   8,   8,  1, acFont8x10ASCII_006C } /* code 006C */
+// 1253   ,{   8,   8,  1, acFont8x10ASCII_006D } /* code 006D */
+// 1254   ,{   8,   8,  1, acFont8x10ASCII_006E } /* code 006E */
+// 1255   ,{   8,   8,  1, acFont8x10ASCII_006F } /* code 006F */
+// 1256   ,{   8,   8,  1, acFont8x10ASCII_0070 } /* code 0070 */
+// 1257   ,{   8,   8,  1, acFont8x10ASCII_0071 } /* code 0071 */
+// 1258   ,{   8,   8,  1, acFont8x10ASCII_0072 } /* code 0072 */
+// 1259   ,{   8,   8,  1, acFont8x10ASCII_0073 } /* code 0073 */
+// 1260   ,{   8,   8,  1, acFont8x10ASCII_0074 } /* code 0074 */
+// 1261   ,{   8,   8,  1, acFont8x10ASCII_0075 } /* code 0075 */
+// 1262   ,{   8,   8,  1, acFont8x10ASCII_0076 } /* code 0076 */
+// 1263   ,{   8,   8,  1, acFont8x10ASCII_0077 } /* code 0077 */
+// 1264   ,{   8,   8,  1, acFont8x10ASCII_0078 } /* code 0078 */
+// 1265   ,{   8,   8,  1, acFont8x10ASCII_0079 } /* code 0079 */
+// 1266   ,{   8,   8,  1, acFont8x10ASCII_007A } /* code 007A */
+// 1267   ,{   8,   8,  1, acFont8x10ASCII_007B } /* code 007B */
+// 1268   ,{   8,   8,  1, acFont8x10ASCII_007C } /* code 007C */
+// 1269   ,{   8,   8,  1, acFont8x10ASCII_007D } /* code 007D */
+// 1270   ,{   8,   8,  1, acFont8x10ASCII_007E } /* code 007E */
+// 1271   ,{   8,   8,  1, acFont8x10ASCII_007F } /* code 007F */
+// 1272 };
+// 1273 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+// 1274 GUI_CONST_STORAGE GUI_FONT_PROP GUI_Font8x10ASCII_Prop1 = {
+GUI_Font8x10ASCII_Prop1:
+        DATA16
+        DW 32
+        DW 127
+        DW GUI_Font8x10ASCII_CharInfo
+        DW 0H
+// 1275    32                             /* first character               */
+// 1276   ,127                            /* last character                */
+// 1277   ,&GUI_Font8x10ASCII_CharInfo[0] /* address of first character    */
+// 1278   ,(const GUI_FONT_PROP*)0        /* pointer to next GUI_FONT_PROP */
+// 1279 };
+// 1280 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+// 1281 GUI_CONST_STORAGE GUI_FONT GUI_Font8x10_ASCII = {
+GUI_Font8x10_ASCII:
+        DATA16
+        DW ??GUIPROP_DispChar?relay
+        DW ??GUIPROP_GetCharDistX?relay
+        DW ??GUIPROP_GetFontInfo?relay
+        DW ??GUIPROP_IsInFont?relay
+        DW 0H
+        DATA8
+        DB 10
+        DB 10
+        DB 1
+        DB 1
+        DATA16
+        DW GUI_Font8x10ASCII_Prop1
+        DATA8
+        DB 9
+        DB 6
+        DB 9
+
+        END
+// 1282    GUI_FONTTYPE_PROP /* type of font    */
+// 1283   ,10                /* height of font  */
+// 1284   ,10                /* space of font y */
+// 1285   ,1                 /* magnification x */
+// 1286   ,1                 /* magnification y */
+// 1287   ,{&GUI_Font8x10ASCII_Prop1}
+// 1288   ,9, 6, 9
+// 1289 };
+// 1290 
+// 
+// 1 467 bytes in segment XDATA_ROM_C
+// 
+// 1 467 bytes of CONST memory
+//
+//Errors: none
+//Warnings: none
