@@ -37,14 +37,18 @@ Agricultural-IOT-System将提供了一套可靠、全面的整体解决方案，
 * **用户交互子系统**  
 1.监测控制状态界面:监测界面由APP端、web端、本地端多端进行展示，与用户进行交互。监测界面分为数据类型和数据展示方式两个部分。如下图：  
 <div align=center>
-<img src="https://github.com/efishliu/Agricultural-IOT-System/blob/master/image/%E9%9C%80%E6%B1%822.jpg?raw=true" width = 40% height = 40% />  
-<img src="https://github.com/efishliu/Agricultural-IOT-System/blob/master/image/%E9%9C%80%E6%B1%822.jpg?raw=true" width = 40% height = 40% /></div>    
+<img src="https://github.com/efishliu/Agricultural-IOT-System/blob/master/image/display.png?raw=true" width = 50% height = 50% />  
+</div>    
 
 Web端实现代码:[Web](https://github.com/efishliu/Agricultural-IOT-System/tree/master/Intelligent-Agricultural/web)  
 PC端实现代码:[Projects](https://github.com/efishliu/Agricultural-IOT-System/blob/master/Intelligent-Agricultural/project/Display.py)  
 
-2.互联网销售界面:互联网销售界面采用基于APP 的交互方式，为使用者提供良好的交互界面，实现农资采购和农产品互联网销售的功能。互联网销售界面分为三个部分：供应信息、采购信息、账号管理。如下图：
-
+2.互联网销售界面:互联网销售界面采用基于APP 的交互方式，为使用者提供良好的交互界面，实现农资采购和农产品互联网销售的功能。互联网销售界面分为三个部分：供应信息、采购信息、账号管理。如下图：  
+<div align=center>
+<img src="https://github.com/efishliu/Agricultural-IOT-System/blob/master/image/%E9%94%80%E5%94%AE%E7%95%8C%E9%9D%A2.png?raw=true" width = 50% height = 50% />  
+</div>
 
 * **容灾子系统**  
+构建可靠的容灾应急系统，将应急系统进行分为3级，不同级别有不同的应急机制。主要功能分为智能预警功能、硬件故障预警恢复、通信故障预警恢复、应急指挥系统中心等。
 
+项目介绍文档：[Project-Description.pdf](https://github.com/efishliu/Agricultural-IOT-System/blob/master/Project-Description.pdf)
